@@ -1,0 +1,29 @@
+llm\_change\_agent package
+==========================
+
+Submodules
+----------
+
+llm\_change\_agent.cli module
+-----------------------------
+
+.. automodule:: llm_change_agent.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+llm\_change\_agent.main module
+------------------------------
+
+.. automodule:: llm_change_agent.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: llm_change_agent
+   :members:
+   :undoc-members:
+   :show-inheritance:
