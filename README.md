@@ -1,7 +1,7 @@
 # LLM Change Agent
 
 ## Overview
-LLM Change Agent is a command-line tool designed to interact with various language models from different providers. It allows users to generate text using specified models and providers.
+LLM Change Agent is a command-line tool designed to interact with various language models from different providers. It allows users to generate KGCL commands using specified models and providers via prompts.
 
 ## Features
 - Given a prompt relevant to making ontology resource changes, the agent responds with KGCL change statements.
