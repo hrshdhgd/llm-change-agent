@@ -67,7 +67,7 @@ def list_models():
     "--provider", type=click.Choice(ALL_AVAILABLE_PROVIDERS), default="openai", help="Provider to use for generation."
 )
 @click.option("--prompt", type=str, default="Hello, world!", help="Prompt to use for generation.")
-def generate(model: str, provider: str, prompt: str):
+def execute(model: str, provider: str, prompt: str):
     """Generate text using the specified model."""
     llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider)
     llm_agent.run()
