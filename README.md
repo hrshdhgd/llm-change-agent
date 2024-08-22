@@ -21,7 +21,7 @@ The CLI provides several commands to interact with the language models.
 ### List Available Models
 To list all available models from supported providers:
 ```bash
-lca list-models
+llm-change list-models
 
 OpenAI models:
   gpt-4o-2024-08-06
@@ -49,18 +49,18 @@ LBL-CBORG models:
 ### Generate Text
 To generate text using a specified model and provider:
 ```bash
-lca execute --model <MODEL_NAME> --provider <PROVIDER_NAME> --prompt "<YOUR_PROMPT>"
+llm-change execute --model <MODEL_NAME> --provider <PROVIDER_NAME> --prompt "<YOUR_PROMPT>"
 ```
 Replace `<MODEL_NAME>`, `<PROVIDER_NAME>`, and `<YOUR_PROMPT>` with your desired values.
 
 ### Examples
 - Generate text using CBORG's `lbl/llama-3` model with a custom prompt:
 ```bash
-lca execute --model lbl/llama-3 --prompt "I want to change the definition of class ABC:123 to 'foo bar' and also create a new class labelled 'bar foo' with the curie DEF:123."
+llm-change execute --model lbl/llama-3 --prompt "I want to change the definition of class ABC:123 to 'foo bar' and also create a new class labelled 'bar foo' with the curie DEF:123."
 ```
 OR
 ```bash
-lca execute --provider cborg --prompt "I want to change the definition of class ABC:123 to 'foo bar' and also create a new class labelled 'bar foo' with the curie DEF:123."
+llm-change execute --provider cborg --prompt "I want to change the definition of class ABC:123 to 'foo bar' and also create a new class labelled 'bar foo' with the curie DEF:123."
 ```
 
 generates

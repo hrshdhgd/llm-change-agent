@@ -34,7 +34,7 @@ sphinx-click = {version = ">=4.3.0"}
 myst-parser = {version = ">=0.18.1"}
 
 [tool.poetry.scripts]
-lca = "llm_change_agent.cli:main"
+llm-change = "llm_change_agent.cli:main"
 
 [tool.poetry-dynamic-versioning]
 enable = true
