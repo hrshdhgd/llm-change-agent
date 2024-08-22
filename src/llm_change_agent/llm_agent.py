@@ -4,8 +4,10 @@ from pprint import pprint
 
 from llm_change_agent.constants import OPEN_AI_MODEL
 from llm_change_agent.utils.llm_utils import (
+    augment_prompt,
     execute_agent,
     get_anthropic_models,
+    get_default_model_for_provider,
     get_lbl_cborg_models,
     get_ollama_models,
     get_openai_models,
@@ -31,55 +33,59 @@ class LLMChangeAgent:
         def _validate_and_get_model(llm_model, get_models_func, default_model=OPEN_AI_MODEL):
             """Validate the model and get the model."""
             if llm_model is None:
-                return OpenAIConfig(model=default_model, provider=get_provider_for_model(llm_model))
+                if self.provider is None:
+                    from .config.llm_config import OpenAIConfig
+
+                    return OpenAIConfig(model=default_model, provider=get_provider_for_model(default_model))
+                else:
+                    llm_model = get_default_model_for_provider(self.provider)
+
             list_of_models = get_models_func()
             if llm_model not in list_of_models:
                 raise ValueError(f"Model {llm_model} not supported. Please choose from {list_of_models}")
             return llm_model
 
-        if self.provider == "openai":
-            from .config.llm_config import OpenAIConfig
+        provider_config_map = {
+            "openai": ("OpenAIConfig", get_openai_models),
+            "ollama": ("OllamaConfig", get_ollama_models),
+            "anthropic": ("AnthropicConfig", get_anthropic_models),
+            "cborg": ("CBORGConfig", get_lbl_cborg_models),
+        }
 
-            llm_model = _validate_and_get_model(self.model, get_openai_models)
-            return OpenAIConfig(model=llm_model, provider=get_provider_for_model(llm_model))
-
-        elif self.provider == "ollama":
-            from .config.llm_config import OllamaConfig
-
-            llm_model = _validate_and_get_model(self.model, get_ollama_models)
-            return OllamaConfig(model=llm_model)
-
-        elif self.provider == "anthropic":
-            from .config.llm_config import AnthropicConfig
-
-            llm_model = _validate_and_get_model(self.model, get_anthropic_models)
-            return AnthropicConfig(model=llm_model, provider=get_provider_for_model(llm_model))
-
-        elif self.provider == "cborg":
-            from .config.llm_config import CBORGConfig
-
-            llm_model = _validate_and_get_model(self.model, get_lbl_cborg_models)
-            return CBORGConfig(model=llm_model, provider=get_provider_for_model(llm_model))
+        if self.provider in provider_config_map:
+            config_class_name, get_models_func = provider_config_map[self.provider]
+            llm_model = _validate_and_get_model(self.model, get_models_func)
+            config_module = __import__("llm_change_agent.config.llm_config", fromlist=[config_class_name])
+            ConfigClass = getattr(config_module, config_class_name)
+            return ConfigClass(model=llm_model, provider=get_provider_for_model(llm_model))
 
         else:
             all_models = get_provider_model_map()
-            if llm_model is None:
-                llm_model = OPEN_AI_MODEL
+            if self.model is None:
                 from .config.llm_config import OpenAIConfig
 
-                return OpenAIConfig(model=llm_model, provider=get_provider_for_model(llm_model))
+                return OpenAIConfig(model=OPEN_AI_MODEL, provider=get_provider_for_model(OPEN_AI_MODEL))
 
             for provider, models in all_models.items():
-                if llm_model in models:
-                    return self._get_llm_config(provider, llm_model)
+                if self.model in models:
+                    # Temporarily set the provider and model to use the existing logic
+                    original_provider = self.provider
+                    original_model = self.model
+                    self.provider = provider
+                    self.model = self.model
+                    try:
+                        return self._get_llm_config()
+                    finally:
+                        # Restore the original provider and model
+                        self.provider = original_provider
+                        self.model = original_model
 
-            raise ValueError(f"Model {llm_model} not supported.")
+            raise ValueError(f"Model {self.model} not supported.")
 
     def run(self):
         """Run the LLM Change Agent."""
         llm_config = self._get_llm_config()
-        new_prompt = "Give me all relevant KGCL commands based on this request: " + self.prompt
         self.llm = llm_factory(llm_config)
-        response = execute_agent(llm=self.llm, prompt=new_prompt)
+        response = execute_agent(llm=self.llm, prompt=augment_prompt(self.prompt))
         pprint(response["output"])
         return response["output"]
