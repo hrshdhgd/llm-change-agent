@@ -1,5 +1,9 @@
 """Utility functions for the LLM Change Agent."""
 
+import os
+from typing import Union
+from pathlib import Path
+import requests
 import yaml
 from langchain.agents import AgentExecutor
 from langchain.agents.react.agent import create_react_agent
@@ -11,9 +15,13 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from openai import OpenAI
 
 from llm_change_agent.config.llm_config import AnthropicConfig, CBORGConfig, LLMConfig, OllamaConfig, OpenAIConfig
-from llm_change_agent.constants import ANTHROPIC_KEY, CBORG_KEY, KGCL_GRAMMAR, KGCL_SCHEMA, OPENAI_KEY
+from llm_change_agent.constants import ANTHROPIC_KEY, CBORG_KEY, GH_SCRAPE_DIFF_DOCS, KGCL_GRAMMAR, KGCL_SCHEMA, OPENAI_KEY
 from llm_change_agent.templates.templates import get_issue_analyzer_template, grammar_explanation
 
+
+PROJ_DIR = Path(__file__).parents[1].resolve()
+RAG_DOCS_DIR = PROJ_DIR / "rag_docs"
+os.makedirs(RAG_DOCS_DIR, exist_ok=True)
 
 def get_openai_models():
     """Get the list of OpenAI models."""
@@ -139,10 +147,40 @@ def get_kgcl_grammar():
     grammar_notes = grammar_explanation()
     return {"lark": lark_file, "explanation": grammar_notes}
 
+def get_diff_docs():
+    """Download the diff docs."""
+    for url in GH_SCRAPE_DIFF_DOCS:
+        # Extract the document name from the URL
+        doc_name = url.split("/")[-2]
+        doc_path = RAG_DOCS_DIR / f"{doc_name}.yaml"
+        
+        # Check if the file already exists
+        if not doc_path.exists():
+            try:
+                # Download the content from the URL
+                response = requests.get(url)
+                response.raise_for_status()  # Raise an error for bad status codes
+                
+                # Write the content to the file
+                with open(doc_path, "w") as doc_file:
+                    doc_file.write(response.text)
+                
+                print(f"Downloaded and saved: {doc_name}")
+                yield response.text
+            
+            except requests.RequestException as e:
+                print(f"Failed to download {url}: {e}")
+        else:
+            with open(doc_path, "r") as doc_file:
+                print(f"Reading from file: {doc_name}")
+                yield doc_file.read()
 
-def split_documents(document: str):
+def split_documents(document: Union[str, Document]):
     """Split the document into a list of documents."""
-    doc_object = (Document(page_content=document),)
+    if isinstance(document, Document):
+        doc_object = (document,)
+    else:
+        doc_object = (Document(page_content=document),)
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     splits = splitter.split_documents(doc_object)
     return splits
@@ -155,9 +193,12 @@ def execute_agent(llm, prompt):
     # docs_list = (
     #     split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
     # )
-
     docs_list = split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
-    vectorstore = Chroma.from_documents(documents=docs_list, embedding=OpenAIEmbeddings())
+
+    diff_doc_generator = get_diff_docs()
+    docs_list = [split_doc for doc in diff_doc_generator for split_doc in split_documents(doc)]
+    
+    vectorstore = Chroma.from_documents(documents=docs_list, embedding=OpenAIEmbeddings(show_progress_bar=True))
     retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
     tool = create_retriever_tool(retriever, "change_agent_retriever", "Change Agent Retriever")
     tools = [tool]

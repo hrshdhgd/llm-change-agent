@@ -15,3 +15,12 @@ CBORG_MODEL = "lbl/llama-3"
 
 KGCL_SCHEMA = [file for file in files("kgcl-schema") if file.stem == "kgcl" and file.suffix == ".yaml"][0]
 KGCL_GRAMMAR = [file for file in files("kgcl-schema") if file.stem == "kgcl" and file.suffix == ".lark"][0]
+
+GH_SCRAPE_DIFF_DOCS = [
+    "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/EnvironmentOntology_envo/data_with_changes.yaml",
+    "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/geneontology_go-ontology/data_with_changes.yaml",
+    "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/monarch-initiative_mondo/data_with_changes.yaml",
+    "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/obophenotype_cell-ontology/data_with_changes.yaml",
+    "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/obophenotype_uberon/data_with_changes.yaml",
+    "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/pato-ontology_pato/data_with_changes.yaml",
+]
