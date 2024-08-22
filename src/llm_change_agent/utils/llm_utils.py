@@ -180,12 +180,5 @@ def augment_prompt(prompt: str):
     return f"""
         Give me all relevant KGCL commands based on this request: \n\n
         + {prompt} +
-        \n\nReturn as a markdown list for GitHub.\n\n
-        The response should look like this:\n
-        ```markdown
-        Hey ontobot!, apply:
-        - `kgcl:command1`
-        - `kgcl:command2`
-        - ...
-        ```
+        \n\nReturn as a python list object which will be passed to another tool.\n\n
         """
