@@ -5,7 +5,6 @@ import logging
 import click
 
 from llm_change_agent import __version__
-from llm_change_agent.constants import OPEN_AI_MODEL
 from llm_change_agent.llm_agent import LLMChangeAgent
 from llm_change_agent.utils.llm_utils import (
     get_anthropic_models,
@@ -60,12 +59,8 @@ def list_models():
 
 
 @main.command()
-@click.option(
-    "--model", type=click.Choice(ALL_AVAILABLE_MODELS), default=OPEN_AI_MODEL, help="Model to use for generation."
-)
-@click.option(
-    "--provider", type=click.Choice(ALL_AVAILABLE_PROVIDERS), default="openai", help="Provider to use for generation."
-)
+@click.option("--model", type=click.Choice(ALL_AVAILABLE_MODELS), help="Model to use for generation.")
+@click.option("--provider", type=click.Choice(ALL_AVAILABLE_PROVIDERS), help="Provider to use for generation.")
 @click.option("--prompt", type=str, default="Hello, world!", help="Prompt to use for generation.")
 def execute(model: str, provider: str, prompt: str):
     """Generate text using the specified model."""
