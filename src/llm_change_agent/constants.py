@@ -8,7 +8,7 @@ OPENAI_KEY = str(getenv("OPENAI_API_KEY"))
 ANTHROPIC_KEY = str(getenv("ANTHROPIC_API_KEY"))
 CBORG_KEY = str(getenv("CBORG_API_KEY"))
 
-OPEN_AI_MODEL = "gpt-4o-mini"
+OPEN_AI_MODEL = "gpt-4o-2024-08-06"
 ANTHROPIC_MODEL = "claude-3-5-sonnet-20240620"
 OLLAMA_MODEL = "llama3.1"  #!  not all models support tools (tool calling)
 CBORG_MODEL = "lbl/llama-3"
