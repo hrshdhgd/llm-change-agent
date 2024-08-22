@@ -159,7 +159,7 @@ def execute_agent(llm, prompt):
     tools = [tool]
     template = get_issue_analyzer_template()
     react_agent = create_react_agent(llm=llm, tools=tools, prompt=template)
-    agent_executor = AgentExecutor(agent=react_agent, tools=tools, handle_parsing_errors=True)
+    agent_executor = AgentExecutor(agent=react_agent, tools=tools, handle_parsing_errors=True, verbose=True)
 
     return agent_executor.invoke(
         {
