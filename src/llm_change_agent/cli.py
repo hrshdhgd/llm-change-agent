@@ -65,7 +65,7 @@ def list_models():
 def execute(model: str, provider: str, prompt: str):
     """Generate text using the specified model."""
     llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider)
-    llm_agent.run()
+    return llm_agent.run()
 
 
 if __name__ == "__main__":
