@@ -73,6 +73,14 @@ def get_provider_for_model(model):
     return None
 
 
+def get_default_model_for_provider(provider):
+    """Get the default model for the provider."""
+    provider_model_map = get_provider_model_map()
+    if provider in provider_model_map:
+        return provider_model_map[provider][0]
+    return None
+
+
 def get_api_key(provider):
     """Get the API key for the provider."""
     if provider == "openai":
@@ -143,16 +151,12 @@ def split_documents(document: str):
 def execute_agent(llm, prompt):
     """Create a retriever agent."""
     grammar = get_kgcl_grammar()
-    schema = get_kgcl_schema()
-    docs_list = (
-        split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
-    )
+    # schema = get_kgcl_schema()
+    # docs_list = (
+    #     split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
+    # )
 
-    # docs_list = [
-    #     Document(page_content=str(schema), metadata={"type":"yaml"}),
-    #     Document(page_content=grammar["lark"], metadata={"type":"lark"}),
-    #     Document(page_content=grammar["explanation"], metadata={"type":"text"}),
-    # ]
+    docs_list = split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
     vectorstore = Chroma.from_documents(documents=docs_list, embedding=OpenAIEmbeddings())
     retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
     tool = create_retriever_tool(retriever, "change_agent_retriever", "Change Agent Retriever")
@@ -164,8 +168,16 @@ def execute_agent(llm, prompt):
     return agent_executor.invoke(
         {
             "input": prompt,
-            "schema": schema,
+            # "schema": schema,
             "grammar": grammar["lark"],
             "explanation": grammar["explanation"],
         }
     )
+
+
+def augment_prompt(prompt: str):
+    """Augment the prompt with additional information."""
+    return f"""
+        Give me all relevant KGCL commands based on this request: \n\n
+        + {prompt} +
+        \n\nReturn as a JSON format list.\n\n"""
