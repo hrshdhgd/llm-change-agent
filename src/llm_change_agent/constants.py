@@ -2,9 +2,8 @@
 
 from os import getenv
 
-from importlib_metadata import files
-
 import pystow
+from importlib_metadata import files
 
 OPENAI_KEY = str(getenv("OPENAI_API_KEY"))
 ANTHROPIC_KEY = str(getenv("ANTHROPIC_API_KEY"))

@@ -1,7 +1,5 @@
 """Utility functions for the LLM Change Agent."""
 
-import os
-from pathlib import Path
 from typing import Union
 
 import yaml
@@ -9,12 +7,11 @@ from langchain.agents import AgentExecutor
 from langchain.agents.react.agent import create_react_agent
 from langchain.tools.retriever import create_retriever_tool
 from langchain_chroma import Chroma
+from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from openai import OpenAI
-from langchain_community.document_loaders import WebBaseLoader
-
 
 from llm_change_agent.config.llm_config import AnthropicConfig, CBORGConfig, LLMConfig, OllamaConfig, OpenAIConfig
 from llm_change_agent.constants import (
@@ -197,22 +194,26 @@ def split_documents(document: Union[str, Document]):
 
 def execute_agent(llm, prompt):
     """Create a retriever agent."""
+    grammar = get_kgcl_grammar()
+    # schema = get_kgcl_schema()
+    # docs_list = (
+    #     split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
+    # )
+    grammar_docs_list = split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
     if VECTO_DB_PATH.exists():
-        vectorstore = Chroma(embedding=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE))
+        vectorstore = Chroma(
+            embedding_function=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
+        )
     else:
-        grammar = get_kgcl_grammar()
-        # schema = get_kgcl_schema()
-        # docs_list = (
-        #     split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
-        # )
-        grammar_docs_list = split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
 
         list_of_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTODIFF_DOCS]
         diff_docs_list = [split_doc for docs in list_of_doc_lists for doc in docs for split_doc in split_documents(doc)]
         docs_list = grammar_docs_list + diff_docs_list
 
-        vectorstore = Chroma.from_documents(documents=docs_list, embedding=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE))
-        vectorstore.persist()
+        vectorstore = Chroma.from_documents(
+            documents=docs_list, embedding=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
+        )
+
     retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
     tool = create_retriever_tool(retriever, "change_agent_retriever", "Change Agent Retriever")
     tools = [tool]
