@@ -8,10 +8,11 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from openai import OpenAI
+
 from llm_change_agent.config.llm_config import AnthropicConfig, CBORGConfig, LLMConfig, OllamaConfig, OpenAIConfig
 from llm_change_agent.constants import ANTHROPIC_KEY, CBORG_KEY, KGCL_GRAMMAR, KGCL_SCHEMA, OPENAI_KEY
 from llm_change_agent.templates.templates import get_issue_analyzer_template, grammar_explanation
-from openai import OpenAI
 
 
 def get_openai_models():
