@@ -4,6 +4,8 @@ from os import getenv
 
 from importlib_metadata import files
 
+import pystow
+
 OPENAI_KEY = str(getenv("OPENAI_API_KEY"))
 ANTHROPIC_KEY = str(getenv("ANTHROPIC_API_KEY"))
 CBORG_KEY = str(getenv("CBORG_API_KEY"))
@@ -24,3 +26,7 @@ ONTODIFF_DOCS = [
     "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/obophenotype_uberon/data_with_changes.yaml",
     "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/pato-ontology_pato/data_with_changes.yaml",
 ]
+
+LLM_CHANGE_AGENT_MODULE = pystow.module("llm_change_agent")
+VECTOR_STORE = LLM_CHANGE_AGENT_MODULE.join("vector_store")
+VECTO_DB_PATH = VECTOR_STORE / "chroma.sqlite3"
