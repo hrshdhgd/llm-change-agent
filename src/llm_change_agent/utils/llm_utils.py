@@ -19,9 +19,9 @@ from llm_change_agent.config.llm_config import AnthropicConfig, CBORGConfig, LLM
 from llm_change_agent.constants import (
     ANTHROPIC_KEY,
     CBORG_KEY,
-    ONTODIFF_DOCS,
     KGCL_GRAMMAR,
     KGCL_SCHEMA,
+    ONTODIFF_DOCS,
     OPENAI_KEY,
 )
 from llm_change_agent.templates.templates import get_issue_analyzer_template, grammar_explanation
