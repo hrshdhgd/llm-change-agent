@@ -19,7 +19,7 @@ from llm_change_agent.config.llm_config import AnthropicConfig, CBORGConfig, LLM
 from llm_change_agent.constants import (
     ANTHROPIC_KEY,
     CBORG_KEY,
-    GH_SCRAPE_DIFF_DOCS,
+    ONTODIFF_DOCS,
     KGCL_GRAMMAR,
     KGCL_SCHEMA,
     OPENAI_KEY,
@@ -158,7 +158,7 @@ def get_kgcl_grammar():
 
 def get_diff_docs():
     """Download the diff docs."""
-    for url in GH_SCRAPE_DIFF_DOCS:
+    for url in ONTODIFF_DOCS:
         # Extract the document name from the URL
         doc_name = url.split("/")[-2]
         doc_path = RAG_DOCS_DIR / f"{doc_name}.yaml"
