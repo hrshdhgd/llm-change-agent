@@ -49,8 +49,9 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">llm_change_agent package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-llm_change_agent.cli">llm_change_agent.cli module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-llm_change_agent.main">llm_change_agent.main module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#llm_change_agent.main.demo"><code class="docutils literal notranslate"><span class="pre">demo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-llm_change_agent.constants">llm_change_agent.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-llm_change_agent.llm_agent">llm_change_agent.llm_agent module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#llm_change_agent.llm_agent.LLMChangeAgent"><code class="docutils literal notranslate"><span class="pre">LLMChangeAgent</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-llm_change_agent">Module contents</a></li>
@@ -94,13 +95,24 @@
 <span id="llm-change-agent-cli-module"></span><h2>llm_change_agent.cli module<a class="headerlink" href="#module-llm_change_agent.cli" title="Link to this heading"></a></h2>
 <p>Command line interface for llm-change-agent.</p>
 </section>
-<section id="module-llm_change_agent.main">
-<span id="llm-change-agent-main-module"></span><h2>llm_change_agent.main module<a class="headerlink" href="#module-llm_change_agent.main" title="Link to this heading"></a></h2>
+<section id="module-llm_change_agent.constants">
+<span id="llm-change-agent-constants-module"></span><h2>llm_change_agent.constants module<a class="headerlink" href="#module-llm_change_agent.constants" title="Link to this heading"></a></h2>
+<p>Constants for the LLM Change Agent.</p>
+</section>
+<section id="module-llm_change_agent.llm_agent">
+<span id="llm-change-agent-llm-agent-module"></span><h2>llm_change_agent.llm_agent module<a class="headerlink" href="#module-llm_change_agent.llm_agent" title="Link to this heading"></a></h2>
 <p>Main python file.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="llm_change_agent.main.demo">
-<span class="sig-prename descclassname"><span class="pre">llm_change_agent.main.</span></span><span class="sig-name descname"><span class="pre">demo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#llm_change_agent.main.demo" title="Link to this definition"></a></dt>
-<dd><p>Define API.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="llm_change_agent.llm_agent.LLMChangeAgent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">llm_change_agent.llm_agent.</span></span><span class="sig-name descname"><span class="pre">LLMChangeAgent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provider</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#llm_change_agent.llm_agent.LLMChangeAgent" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Define LLMChangeAgent class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="llm_change_agent.llm_agent.LLMChangeAgent.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#llm_change_agent.llm_agent.LLMChangeAgent.run" title="Link to this definition"></a></dt>
+<dd><p>Run the LLM Change Agent.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>

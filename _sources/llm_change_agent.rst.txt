@@ -12,10 +12,18 @@ llm\_change\_agent.cli module
    :undoc-members:
    :show-inheritance:
 
-llm\_change\_agent.main module
-------------------------------
+llm\_change\_agent.constants module
+-----------------------------------
 
-.. automodule:: llm_change_agent.main
+.. automodule:: llm_change_agent.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+llm\_change\_agent.llm\_agent module
+------------------------------------
+
+.. automodule:: llm_change_agent.llm_agent
    :members:
    :undoc-members:
    :show-inheritance:
