@@ -8,17 +8,15 @@ def get_issue_analyzer_template():
     template = """
         {input}
         You are an semantic engineer. Based on the text you are given,
-        you will analyze it and categorize the text into categories.
+        you will analyze it.
         The different categories along with their description are provided by the
         following LinkML schema:
         {schema}
-        All that is expected of you is to categorize the text into one of the above categories and
-        form relevant KGCL commands in a list.
+        All that is expected of you is to form relevant KGCL commands in a list.
         You have the following tools at your disposal to help you with this task:
         {tools}
         You also have the grammar in lark format: {grammar} along with an explanation of the grammar: {explanation}
-        I want NO verbosity in your response. The final answer should be a dictionary with the category
-        as key an command or list of commands as value.
+        I want NO verbosity in your response. The final answer should be a list of commands.
 
         Use the following format:
 

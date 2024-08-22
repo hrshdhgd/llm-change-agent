@@ -78,9 +78,6 @@ class LLMChangeAgent:
     def run(self):
         """Run the LLM Change Agent."""
         llm_config = self._get_llm_config()
-        self.prompt = """
-        Add a new exact synonym gastric cancer for MONDO_0001056.
-        """
         new_prompt = "Give me all relevant KGCL commands based on this request: " + self.prompt
         self.llm = llm_factory(llm_config)
         response = execute_agent(llm=self.llm, prompt=new_prompt)
