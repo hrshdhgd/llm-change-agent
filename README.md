@@ -7,7 +7,7 @@ LLM Change Agent is a command-line tool designed to interact with various langua
 - Given a prompt relevant to making ontology resource changes, the agent responds with KGCL change statements.
 - Supports OpenAI, Ollama, Anthropic and CBORG (LBNL hosted) models.
 
-## **:warning:** OpenAI, Anthropic and CBORG model use are subject to availability of corresponding keys as environment variables.
+**:warning:** OpenAI, Anthropic and CBORG model use are subject to availability of corresponding keys as environment variables.
 
 ## Installation
 To install the dependencies, run:
