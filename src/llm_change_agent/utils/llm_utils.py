@@ -180,5 +180,7 @@ def augment_prompt(prompt: str):
     return f"""
         Give me all relevant KGCL commands based on this request: \n\n
         + {prompt} +
-        \n\nReturn as a python list object which will be passed to another tool.\n\n
+        \n\n
+        Return as a python list object which will be passed to another tool.
+        Each element of the list should be enlosed in double quotes.
         """
