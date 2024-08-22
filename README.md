@@ -41,10 +41,9 @@ Ollama models:
   llama3.1
 LBL-CBORG models:
   lbl/llama-3
-  openai/gpt-4o-mini
-  anthropic/claude-haiku
-  anthropic/claude-sonnet
-  anthropic/claude-opus
+  openai/chatgpt:latest
+  anthropic/claude:latest
+  google/gemini:latest
 ```
 
 ### Generate Text
