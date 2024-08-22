@@ -2,6 +2,7 @@
 
 from os import getenv
 
+import pystow
 from importlib_metadata import files
 
 OPENAI_KEY = str(getenv("OPENAI_API_KEY"))
@@ -24,3 +25,7 @@ ONTODIFF_DOCS = [
     "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/obophenotype_uberon/data_with_changes.yaml",
     "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/pato-ontology_pato/data_with_changes.yaml",
 ]
+
+LLM_CHANGE_AGENT_MODULE = pystow.module("llm_change_agent")
+VECTOR_STORE = LLM_CHANGE_AGENT_MODULE.join("vector_store")
+VECTO_DB_PATH = VECTOR_STORE / "chroma.sqlite3"

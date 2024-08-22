@@ -2732,6 +2732,30 @@ files = [
 ]
 
 [[package]]
+name = "pystow"
+version = "0.5.4"
+description = "Easily pick a place to store data for your python package."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pystow-0.5.4-py3-none-any.whl", hash = "sha256:c377cc9fff11127007e60eb5c4dc18f2ffd986c0d0cec27134cdcd4c805bc7d8"},
+    {file = "pystow-0.5.4.tar.gz", hash = "sha256:2692180cb405bd77259bee6c7f4db545d10e81939980064730609f21750567ff"},
+]
+
+[package.dependencies]
+click = "*"
+requests = "*"
+tqdm = "*"
+
+[package.extras]
+aws = ["boto3"]
+docs = ["sphinx", "sphinx-autodoc-typehints", "sphinx-automodapi", "sphinx-click", "sphinx-rtd-theme"]
+pandas = ["pandas"]
+rdf = ["rdflib"]
+tests = ["coverage", "pytest", "requests-file"]
+xml = ["lxml"]
+
+[[package]]
 name = "pytest"
 version = "8.3.2"
 description = "pytest: simple powerful testing with Python"
@@ -4370,4 +4394,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "82aee089ce86a1f99da945043821121f3336a8252414b8a44dcfec49883dd3dd"
+content-hash = "85756da59c671d2b1b82d73fda9a3e160f82e92f5ce7f841cc01fdca2c6f6d37"
