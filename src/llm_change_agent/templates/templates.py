@@ -15,6 +15,7 @@ def get_issue_analyzer_template():
         {tools}
         You also have the KGCL grammar in lark format: {grammar} along with an explanation of the grammar: {explanation}
         I want NO verbosity in your response. The final answer should consistently be a list of commands.
+        It is fine if you are not able to form any commands. You can just return an empty list.
 
         Use the following format:
 
