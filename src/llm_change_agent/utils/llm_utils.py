@@ -21,7 +21,7 @@ from llm_change_agent.constants import (
     KGCL_SCHEMA,
     ONTODIFF_DOCS,
     OPENAI_KEY,
-    VECTO_DB_PATH,
+    VECTOR_DB_PATH,
     VECTOR_STORE,
 )
 from llm_change_agent.templates.templates import get_issue_analyzer_template, grammar_explanation
@@ -200,7 +200,7 @@ def execute_agent(llm, prompt):
     #     split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
     # )
     grammar_docs_list = split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
-    if VECTO_DB_PATH.exists():
+    if VECTOR_DB_PATH.exists():
         vectorstore = Chroma(
             embedding_function=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
         )

@@ -28,4 +28,4 @@ ONTODIFF_DOCS = [
 
 LLM_CHANGE_AGENT_MODULE = pystow.module("llm_change_agent")
 VECTOR_STORE = LLM_CHANGE_AGENT_MODULE.join("vector_store")
-VECTO_DB_PATH = VECTOR_STORE / "chroma.sqlite3"
+VECTOR_DB_PATH = VECTOR_STORE / "chroma.sqlite3"
