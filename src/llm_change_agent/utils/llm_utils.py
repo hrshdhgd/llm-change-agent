@@ -1,5 +1,6 @@
 """Utility functions for the LLM Change Agent."""
 
+from pathlib import Path
 from typing import Union
 
 import yaml
@@ -19,7 +20,8 @@ from llm_change_agent.constants import (
     CBORG_KEY,
     KGCL_GRAMMAR,
     KGCL_SCHEMA,
-    ONTODIFF_DOCS,
+    ONTOLOGIES_URL,
+    # ONTODIFF_DOCS,
     OPENAI_KEY,
     VECTOR_DB_PATH,
     VECTOR_STORE,
@@ -59,7 +61,8 @@ def get_ollama_models():
 def get_lbl_cborg_models():
     """Get the list of LBNL-hosted models via CBORG."""
     return [
-        "lbl/llama-3",  # LBNL-hosted model (free to use)
+        "lbl/cborg-chat:latest",  # LBNL-hosted model (free to use)
+        "lbl/mistral-large",  # LBNL-hosted model (free to use)
         "openai/chatgpt:latest",  # OpenAI-hosted model
         "anthropic/claude:latest",  # Anthropic-hosted model
         "google/gemini:latest",  # Google-hosted model
@@ -143,6 +146,12 @@ def get_kgcl_schema():
         schema = yaml.safe_load(schema_yaml)
     return schema
 
+def get_local_files_as_documents(path):
+    """Get the local documents."""
+    with open(path, "r") as doc_file:
+        print(f"Reading from file: {path}")
+        yield Document(page_content=doc_file.read())
+
 
 def get_kgcl_grammar():
     """Get the KGCL grammar information."""
@@ -192,27 +201,37 @@ def split_documents(document: Union[str, Document]):
     return splits
 
 
-def execute_agent(llm, prompt):
+def execute_agent(llm, prompt, docs):
     """Create a retriever agent."""
     grammar = get_kgcl_grammar()
+    ext_docs_list = []
+
     # schema = get_kgcl_schema()
     # docs_list = (
     #     split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
     # )
+
     grammar_docs_list = split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
     if VECTOR_DB_PATH.exists():
         vectorstore = Chroma(
             embedding_function=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
         )
     else:
+        # ! Using ONTODIFF_DOCS for evaluation. Commented out for now.
+        # list_of_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTODIFF_DOCS]
+        # diff_docs_list = [split_doc for docs in list_of_doc_lists for doc in docs for split_doc in split_documents(doc)]
+        list_of_ont_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTOLOGIES_URL]
+        ont_docs_list = [split_doc for docs in list_of_ont_doc_lists for doc in docs for split_doc in split_documents(doc)]
+    if docs:
+        list_of_ext_url_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in docs if url.startswith("http")]
+        list_of_ext_local_doc_lists = [get_local_files_as_documents(path) for path in docs if not path.startswith("http") and Path(path).exists()]
+        list_of_ext_doc_lists = list_of_ext_url_doc_lists + list_of_ext_local_doc_lists
+        ext_docs_list = [split_doc for docs in list_of_ext_doc_lists for doc in docs for split_doc in split_documents(doc)]
+    docs_list = grammar_docs_list + ext_docs_list + ont_docs_list
 
-        list_of_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTODIFF_DOCS]
-        diff_docs_list = [split_doc for docs in list_of_doc_lists for doc in docs for split_doc in split_documents(doc)]
-        docs_list = grammar_docs_list + diff_docs_list
-
-        vectorstore = Chroma.from_documents(
-            documents=docs_list, embedding=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
-        )
+    vectorstore = Chroma.from_documents(
+        documents=docs_list, embedding=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
+    )
 
     retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
     tool = create_retriever_tool(retriever, "change_agent_retriever", "Change Agent Retriever")
@@ -227,6 +246,7 @@ def execute_agent(llm, prompt):
             # "schema": schema,
             "grammar": grammar["lark"],
             "explanation": grammar["explanation"],
+            "ontology_urls": ONTOLOGIES_URL,
         }
     )
 

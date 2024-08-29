@@ -1,11 +1,14 @@
 """Command line interface for llm-change-agent."""
 
 import logging
+from typing import List, Union
 
 import click
 
 from llm_change_agent import __version__
+from llm_change_agent.evaluations.evaluator import run_evaluate
 from llm_change_agent.llm_agent import LLMChangeAgent
+from llm_change_agent.utils.click_utils import validate_path_or_url_or_ontology
 from llm_change_agent.utils.llm_utils import (
     get_anthropic_models,
     get_lbl_cborg_models,
@@ -62,10 +65,17 @@ def list_models():
 @click.option("--model", type=click.Choice(ALL_AVAILABLE_MODELS), help="Model to use for generation.")
 @click.option("--provider", type=click.Choice(ALL_AVAILABLE_PROVIDERS), help="Provider to use for generation.")
 @click.option("--prompt", type=str, default="Hello, world!", help="Prompt to use for generation.")
-def execute(model: str, provider: str, prompt: str):
+@click.option("--docs", multiple=True, callback=validate_path_or_url_or_ontology, default=[], help="Paths to the docs directories, URLs, or ontology names.")
+def execute(model: str, provider: str, prompt: str, docs: Union[List, str]):
     """Generate text using the specified model."""
-    llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider)
+    llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider, docs=docs)
     return llm_agent.run()
+
+
+@main.command()
+def evaluate():
+    """Evaluate the LLM Change Agent."""
+    run_evaluate()
 
 
 if __name__ == "__main__":

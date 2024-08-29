@@ -1,6 +1,7 @@
 """Main python file."""
 
 from pprint import pprint
+from typing import List, Union
 
 from llm_change_agent.constants import OPEN_AI_MODEL
 from llm_change_agent.utils.llm_utils import (
@@ -20,12 +21,13 @@ from llm_change_agent.utils.llm_utils import (
 class LLMChangeAgent:
     """Define LLMChangeAgent class."""
 
-    def __init__(self, model: str, prompt: str, provider: str):
+    def __init__(self, model: str, prompt: str, provider: str, docs:Union[List, str]):
         """Initialize LLMChangeAgent class."""
         self.model = model
         self.prompt = prompt
         self.provider = provider
         self.llm = None
+        self.docs = docs
 
     def _get_llm_config(self):
         """Get the LLM configuration based on the selected LLM."""
@@ -86,6 +88,6 @@ class LLMChangeAgent:
         """Run the LLM Change Agent."""
         llm_config = self._get_llm_config()
         self.llm = llm_factory(llm_config)
-        response = execute_agent(llm=self.llm, prompt=augment_prompt(self.prompt))
+        response = execute_agent(llm=self.llm, prompt=augment_prompt(self.prompt), docs = self.docs)
         pprint(response["output"])
         return response["output"]

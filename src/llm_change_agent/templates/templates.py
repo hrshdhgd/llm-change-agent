@@ -14,7 +14,14 @@ def get_issue_analyzer_template():
         You have the following tools at your disposal to help you with this task:
         {tools}
         You also have the KGCL grammar in lark format: {grammar} along with an explanation of the grammar: {explanation}
-        I want NO verbosity in your response. The final answer should consistently be a list of commands.
+        Use CURIEs for entities whenever possible. I have provided you with the ontology resource JSON 
+        for your reference for RAG. You can use these to find CURIEs for entities and relationships.
+        IMPORTANT RULES:
+        1. I do not want code block surrounding the list for e.g.: ```python\n[command1, command2]\n```
+        should only be [command1, command2].
+        2. No extra (Note: or Explanation:) text should be included in the final answer.
+        3. The "Final Answer" should be a list of KGCL commands: [command1, command2 ...]
+
         It is fine if you are not able to form any commands. You can just return an empty list.
 
         Use the following format:
@@ -43,6 +50,7 @@ def get_issue_analyzer_template():
             # "schema",
             "grammar",
             "explanation",
+            "ontology_urls",
         ],
         template=template,
     )
