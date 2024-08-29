@@ -6,6 +6,7 @@ from typing import List, Union
 import click
 
 from llm_change_agent import __version__
+from llm_change_agent.constants import PROVIDER_DEFAULT_MODEL_MAP
 from llm_change_agent.evaluations.evaluator import run_evaluate
 from llm_change_agent.llm_agent import LLMChangeAgent
 from llm_change_agent.utils.click_utils import validate_path_or_url_or_ontology
@@ -14,6 +15,7 @@ from llm_change_agent.utils.llm_utils import (
     get_lbl_cborg_models,
     get_ollama_models,
     get_openai_models,
+    get_provider_model_map,
 )
 
 ALL_AVAILABLE_PROVIDERS = ["openai", "ollama", "anthropic", "cborg"]
@@ -65,7 +67,13 @@ def list_models():
 @click.option("--model", type=click.Choice(ALL_AVAILABLE_MODELS), help="Model to use for generation.")
 @click.option("--provider", type=click.Choice(ALL_AVAILABLE_PROVIDERS), help="Provider to use for generation.")
 @click.option("--prompt", type=str, default="Hello, world!", help="Prompt to use for generation.")
-@click.option("--docs", multiple=True, callback=validate_path_or_url_or_ontology, default=[], help="Paths to the docs directories, URLs, or ontology names.")
+@click.option(
+    "--docs",
+    multiple=True,
+    callback=validate_path_or_url_or_ontology,
+    default=[],
+    help="Paths to the docs directories, URLs, or ontology names.",
+)
 def execute(model: str, provider: str, prompt: str, docs: Union[List, str]):
     """Generate text using the specified model."""
     llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider, docs=docs)
@@ -73,9 +81,20 @@ def execute(model: str, provider: str, prompt: str, docs: Union[List, str]):
 
 
 @main.command()
-def evaluate():
+@click.option("--model", type=click.Choice(ALL_AVAILABLE_MODELS), help="Model to use for generation.")
+@click.option("--provider", type=click.Choice(ALL_AVAILABLE_PROVIDERS), help="Provider to use for generation.")
+def evaluate(model: str, provider: str):
     """Evaluate the LLM Change Agent."""
-    run_evaluate()
+    if not model:
+        if provider:
+            model = PROVIDER_DEFAULT_MODEL_MAP.get(provider)
+        else:
+            raise click.BadParameter("Please provide either a model or a provider")
+    else:
+        if not provider:
+            provider = [k for k, v in get_provider_model_map().items() if model in v][0]
+
+    run_evaluate(model=model, provider=provider)
 
 
 if __name__ == "__main__":

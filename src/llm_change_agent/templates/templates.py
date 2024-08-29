@@ -7,15 +7,15 @@ def get_issue_analyzer_template():
     """Issue analyzer template."""
     template = """
         {input}
-        You are an semantic engineer. Based on the text you are given,
-        you will analyze it.
-        
-        All that is expected of you is to form relevant KGCL commands in a list format.
+
+        You are an semantic engineer and an expert in Knowledge Graph Change Language (KGCL).
+        Based on the GitHub issues you are given, you will form a list of relevant KGCL commands.
         You have the following tools at your disposal to help you with this task:
         {tools}
-        You also have the KGCL grammar in lark format: {grammar} along with an explanation of the grammar: {explanation}
-        Use CURIEs for every entity and relationship. You can use provided documents to find CURIEs
-        for entities and relationships.
+        You also have the KGCL grammar in lark format: {grammar} along with an explanation of the grammar: {explanation}.
+        You MUST use CURIEs/IRIs for every entity and relationship. You've been provided with JSON documents to find CURIEs/IRIs
+        for entities and relationships. Do not manufacture CURIEs/IRIs. Make sure it is retrieved from these
+        documents if absent in the GitHub issues provided.
 
         It is fine if you are not able to form any commands. You can just return an empty list.
 
@@ -45,7 +45,6 @@ def get_issue_analyzer_template():
             # "schema",
             "grammar",
             "explanation",
-            "ontology_urls",
         ],
         template=template,
     )

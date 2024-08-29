@@ -19,6 +19,13 @@ ANTHROPIC_PROVIDER = "anthropic"
 OLLAMA_PROVIDER = "ollama"
 CBORG_PROVIDER = "cborg"
 
+PROVIDER_DEFAULT_MODEL_MAP = {
+    OPENAI_PROVIDER: OPEN_AI_MODEL,
+    ANTHROPIC_PROVIDER: ANTHROPIC_MODEL,
+    OLLAMA_PROVIDER: OLLAMA_MODEL,
+    CBORG_PROVIDER: CBORG_MODEL,
+}
+
 KGCL_SCHEMA = [file for file in files("kgcl-schema") if file.stem == "kgcl" and file.suffix == ".yaml"][0]
 KGCL_GRAMMAR = [file for file in files("kgcl-schema") if file.stem == "kgcl" and file.suffix == ".lark"][0]
 
@@ -31,23 +38,16 @@ ONTODIFF_DOCS = [
     "https://raw.githubusercontent.com/hrshdhgd/ontodiff-curator/main/pato-ontology_pato/data_with_changes.yaml",
 ]
 
-ONTOLOGIES_URL = [
-    "https://purl.obolibrary.org/obo/envo.json",
-    "https://purl.obolibrary.org/obo/go/go-basic.json",
-    "https://purl.obolibrary.org/obo/mondo.json",
-    "https://github.com/obophenotype/cell-ontology/releases/latest/download/cl-base.json",
-    "https://purl.obolibrary.org/obo/uberon.json",
-    "https://purl.obolibrary.org/obo/pato.json",
-]
-
 ONTOLOGIES_AS_DOC_MAP = {
-    "envo" : "https://purl.obolibrary.org/obo/envo.json",
-    "go" : "https://purl.obolibrary.org/obo/go/go-basic.json",
-    "mondo" : "https://purl.obolibrary.org/obo/mondo.json",
-    "cl" : "https://github.com/obophenotype/cell-ontology/releases/latest/download/cl-base.json",
-    "uberon" : "https://purl.obolibrary.org/obo/uberon.json",
-    "pato" : "https://purl.obolibrary.org/obo/pato.json",
+    "envo": "https://purl.obolibrary.org/obo/envo.json",
+    "go": "https://purl.obolibrary.org/obo/go/go-basic.json",
+    "mondo": "https://purl.obolibrary.org/obo/mondo.json",
+    "cl": "https://github.com/obophenotype/cell-ontology/releases/latest/download/cl-base.json",
+    "uberon": "https://purl.obolibrary.org/obo/uberon.json",
+    "pato": "https://purl.obolibrary.org/obo/pato.json",
 }
+
+ONTOLOGIES_URL = [v for _, v in ONTOLOGIES_AS_DOC_MAP.items()]
 
 LLM_CHANGE_AGENT_MODULE = pystow.module("llm_change_agent")
 VECTOR_STORE = LLM_CHANGE_AGENT_MODULE.join("vector_store")
@@ -62,3 +62,5 @@ PR_CLOSED_ISSUE_BODY_KEY = "issue_body"
 PR_CLOSED_ISSUE_TITLE_KEY = "issue_title"
 ID_KEY = "id"
 CHANGES_KEY = "changes"
+
+EVALUATION_PRS_FILE = "evaluation_prs.yaml"

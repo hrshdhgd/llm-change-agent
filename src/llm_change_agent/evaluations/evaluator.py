@@ -3,9 +3,9 @@
 import ast
 import logging
 import os
-from pathlib import Path
 import random
-from typing import List, Union
+from pathlib import Path
+from typing import Any, List, Union
 
 import click
 import requests
@@ -13,10 +13,9 @@ import yaml
 
 from llm_change_agent.constants import (
     CHANGES_KEY,
+    EVALUATION_PRS_FILE,
     ID_KEY,
-    ONTOLOGIES_AS_DOC_MAP,
-    OPEN_AI_MODEL,
-    OPENAI_PROVIDER,
+    ONTODIFF_DOCS,
     PR_CLOSED_ISSUE_BODY_KEY,
     PR_CLOSED_ISSUE_COMMENT_KEY,
     PR_CLOSED_ISSUE_TITLE_KEY,
@@ -35,7 +34,7 @@ def download_document(url, input_dir):
         os.makedirs(input_dir, exist_ok=True)
 
     # Extract the document name from the URL
-    doc_name = url.split("/")[-2].replace("-", "_").lower().split("_")[-1] + ".yaml"
+    doc_name = url.split("/")[-2].replace("-", "_") + ".yaml"
     file_path = Path(input_dir) / doc_name
     if file_path.exists():
         print(f"File {doc_name} already exists in {input_dir}")
@@ -52,7 +51,7 @@ def download_document(url, input_dir):
         print(f"Failed to download {url}: {e}")
 
 
-def prepare_evaland_expected_yamls(input_dir: Union[str, Path]):
+def prepare_eval_and_expected_yamls(input_dir: Union[str, Path]):
     """Prepare the evaluation and expected YAMLs for the input documents."""
     input_dir = Path(input_dir)
     eval_dir = input_dir / "eval_docs"
@@ -61,7 +60,7 @@ def prepare_evaland_expected_yamls(input_dir: Union[str, Path]):
     eval_dir.mkdir(parents=True, exist_ok=True)
     expected_dir.mkdir(parents=True, exist_ok=True)
 
-    for idx, doc in enumerate(input_dir.iterdir()):
+    for doc in input_dir.iterdir():
         if doc.is_file() and doc.suffix == ".yaml":
             new_doc = doc.name
             if Path(expected_dir / new_doc).exists() and Path(eval_dir / new_doc).exists():
@@ -71,7 +70,7 @@ def prepare_evaland_expected_yamls(input_dir: Union[str, Path]):
                 doc_yaml = yaml.safe_load(ex)
 
             prs = doc_yaml.get(PULL_REQUESTS_KEY, [])
-            for pr in prs:
+            for idx, pr in enumerate(prs):
                 pr_id = pr.get(ID_KEY)
                 pr_changes = pr.get(CHANGES_KEY)
                 pr_closed_issues = pr.get(PR_CLOSED_ISSUES_KEY, [])
@@ -97,13 +96,17 @@ def prepare_evaland_expected_yamls(input_dir: Union[str, Path]):
                     mode = "w"
                 else:
                     mode = "a"
+
                 with (expected_dir / new_doc).open(mode) as ex, (eval_dir / new_doc).open(mode) as ev:
                     yaml.dump(eval_block, ex, sort_keys=False, default_flow_style=False)
                     yaml.dump(all_closed_issues, ev, sort_keys=False, default_flow_style=False)
     return eval_dir, expected_dir
 
 
-def run_llm_change_agent(prompt, provider, model, docs=[]) -> List:
+def run_llm_change_agent(prompt, provider, model, docs: List[Any] = None) -> List:
+    """Run the LLM Change Agent."""
+    if not docs:
+        docs = []
     from llm_change_agent.cli import execute
 
     with click.Context(execute) as ctx:
@@ -112,58 +115,73 @@ def run_llm_change_agent(prompt, provider, model, docs=[]) -> List:
         ctx.params["model"] = model
         ctx.params["docs"] = docs
         response = extract_commands(execute.invoke(ctx))
-        kgcl_commands = [
-            command
-            for command in ast.literal_eval(response)
-        ]
+        kgcl_commands = [command for command in ast.literal_eval(response)]
         return kgcl_commands
 
 
-def run_evaluation_script(eval_dir, output_dir):
+def run_evaluation_script(eval_dir, output_dir, provider, model):
     """Evaluate the LLM Change Agent."""
     os.makedirs(output_dir, exist_ok=True)
+    output_sub_dir = output_dir / provider / model.split(":")[0].replace("/", "_")
+    os.makedirs(output_sub_dir, exist_ok=True)
+    doc_pr_dict = {}
     for doc in eval_dir.iterdir():
+        doc_pr_dict[doc.name] = []
+        pr_eval_list_filepath = Path(eval_dir).parent / (doc.name + "_" + EVALUATION_PRS_FILE)
         if doc.is_file() and doc.suffix == ".yaml":
+            if (output_sub_dir / doc.name).exists():
+                print(f"Skipping {doc.name} as it already exists in the output directory.")
+                continue
             with open(doc, "r") as f:
                 eval_yaml = yaml.safe_load(f)
-            sample_size = max(10, len(eval_yaml) // 100)
-            sampled_evals = random.sample(eval_yaml, sample_size)
+            if pr_eval_list_filepath.exists():
+                with open(pr_eval_list_filepath, "r") as f:
+                    evaluation_prs = f.read().splitlines()
+                sampled_evals = {k: v for k, v in enumerate(eval_yaml) if k in evaluation_prs}
+                sample_size = len(sampled_evals)
+            else:
+                sample_size = max(10, len(eval_yaml) // 200)
+                sampled_evals = random.sample(eval_yaml, sample_size)
             logger.info(f"Running evaluation on {sample_size} pull request related issues for {doc.name}")
             for idx, combo in enumerate(sampled_evals):
-                pr_id, issue = next(iter(combo.items()))
-                prompt = issue
-                provider = OPENAI_PROVIDER
-                model = OPEN_AI_MODEL
-                predicted_changes = run_llm_change_agent(prompt, provider, model)
                 if idx == 0:
                     mode = "w"
                 else:
                     mode = "a"
-                with open(output_dir / doc.name, mode) as out:
+                pr_id, issue = next(iter(combo.items()))
+                doc_pr_dict[doc.name].append(pr_id)
+
+                prompt = issue
+                predicted_changes = run_llm_change_agent(prompt, provider, model)
+
+                with open(output_sub_dir / doc.name, mode) as out:
                     yaml.dump({pr_id: predicted_changes}, out, sort_keys=False)
-    print(f"Predicted changes saved to {output_dir}")
+        with open(pr_eval_list_filepath, "w") as f:
+            yaml.dump(doc_pr_dict, f, sort_keys=False, default_flow_style=False)
+    print(f"Predicted changes saved to {output_sub_dir}")
 
 
 def compare_changes():
+    """Compare the actual changes with the predicted changes."""
     # Placeholder function to simulate comparison of changes
     # In a real scenario, you would implement the logic to compare actual vs predicted changes
     print("Comparing actual changes with predicted changes")
 
 
-def run_evaluate():
+def run_evaluate(model: str, provider: str):
     """Evaluate the LLM Change Agent."""
     input_dir = Path(__file__).parent / "input"
     output_dir = Path(__file__).parent / "output"
 
     logger.info("Downloading the ONTODIFF_DOCS into the input directory.")
-    # !UNCOMMENT THIS
-    # for url in ONTODIFF_DOCS:
-    #     logger.info(f"Downloading {url} into the input directory.")
-    #     download_document(url, input_dir)
 
-    eval_dir, expected_dir = prepare_evaland_expected_yamls(input_dir)
+    for url in ONTODIFF_DOCS:
+        logger.info(f"Downloading {url} into the input directory.")
+        download_document(url, input_dir)
 
-    run_evaluation_script(eval_dir, output_dir)
+    eval_dir, expected_dir = prepare_eval_and_expected_yamls(input_dir)
+
+    run_evaluation_script(model=model, provider=provider, eval_dir=eval_dir, output_dir=output_dir)
 
     # logger.info("Split the YAML documents randomly into RAG and Evaluation documents 80% and 20%.")
     # random.shuffle(ONTODIFF_DOCS)

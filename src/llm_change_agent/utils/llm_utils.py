@@ -1,7 +1,8 @@
 """Utility functions for the LLM Change Agent."""
 
-from pathlib import Path
+import logging
 import re
+from pathlib import Path
 from typing import Union
 
 import yaml
@@ -18,17 +19,22 @@ from openai import OpenAI
 from llm_change_agent.config.llm_config import AnthropicConfig, CBORGConfig, LLMConfig, OllamaConfig, OpenAIConfig
 from llm_change_agent.constants import (
     ANTHROPIC_KEY,
+    ANTHROPIC_PROVIDER,
     CBORG_KEY,
+    CBORG_PROVIDER,
     KGCL_GRAMMAR,
     KGCL_SCHEMA,
+    OLLAMA_PROVIDER,
     ONTOLOGIES_URL,
     # ONTODIFF_DOCS,
     OPENAI_KEY,
+    OPENAI_PROVIDER,
     VECTOR_DB_PATH,
     VECTOR_STORE,
 )
 from llm_change_agent.templates.templates import get_issue_analyzer_template, grammar_explanation
 
+logger = logging.getLogger(__name__)
 
 def get_openai_models():
     """Get the list of OpenAI models."""
@@ -73,10 +79,10 @@ def get_lbl_cborg_models():
 def get_provider_model_map():
     """Get the provider to model mapping."""
     return {
-        "openai": get_openai_models(),
-        "ollama": get_ollama_models(),
-        "anthropic": get_anthropic_models(),
-        "cborg": get_lbl_cborg_models(),
+        OPENAI_PROVIDER: get_openai_models(),
+        OLLAMA_PROVIDER: get_ollama_models(),
+        ANTHROPIC_PROVIDER: get_anthropic_models(),
+        CBORG_PROVIDER: get_lbl_cborg_models(),
     }
 
 
@@ -99,11 +105,11 @@ def get_default_model_for_provider(provider):
 
 def get_api_key(provider):
     """Get the API key for the provider."""
-    if provider == "openai":
+    if provider == OPENAI_PROVIDER:
         return OPENAI_KEY
-    elif provider == "anthropic":
+    elif provider == ANTHROPIC_PROVIDER:
         return ANTHROPIC_KEY
-    elif provider == "cborg":
+    elif provider == CBORG_PROVIDER:
         return CBORG_KEY
     return None
 
@@ -147,12 +153,13 @@ def get_kgcl_schema():
         schema = yaml.safe_load(schema_yaml)
     return schema
 
+
 def get_local_files_as_documents(path):
     """Get the local documents."""
     if Path(path).is_file():
         with open(path, "r") as doc_file:
             print(f"Reading from file: {path}")
-            yield Document(page_content=doc_file.read())
+            yield (Document(page_content=doc_file.read()),)
     else:
         return []
 
@@ -200,43 +207,62 @@ def split_documents(document: Union[str, Document]):
         doc_object = (document,)
     else:
         doc_object = (Document(page_content=document),)
-    splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(chunk_size=300, chunk_overlap=50)
+    # splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     splits = splitter.split_documents(doc_object)
     return splits
 
 
 def execute_agent(llm, prompt, docs):
     """Create a retriever agent."""
+    logger.info("Starting execution of the agent.")
     grammar = get_kgcl_grammar()
     ext_docs_list = []
     ont_docs_list = []
-
+    logger.info("Grammar retrieved successfully.")
     # schema = get_kgcl_schema()
     # docs_list = (
     #     split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
     # )
 
     grammar_docs_list = split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
+    logger.info("Grammar documents split successfully.")
     if VECTOR_DB_PATH.exists():
+        logger.info("Vector database path exists. Loading vectorstore from Chroma.")
         vectorstore = Chroma(
             embedding_function=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
         )
     else:
+        logger.info("Vector database path does not exist. Loading ontology documents.")
         # ! Using ONTODIFF_DOCS for evaluation. Commented out for now.
         # list_of_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTODIFF_DOCS]
-        # diff_docs_list = [split_doc for docs in list_of_doc_lists for doc in docs for split_doc in split_documents(doc)]
+        # diff_docs_list = [split_doc for docs in list_of_doc_lists \
+        #  for doc in docs for split_doc in split_documents(doc)]
         list_of_ont_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTOLOGIES_URL]
-        ont_docs_list = [split_doc for docs in list_of_ont_doc_lists for doc in docs for split_doc in split_documents(doc)]
+        ont_docs_list = [
+            split_doc for docs in list_of_ont_doc_lists for doc in docs for split_doc in split_documents(doc)
+        ]
+        logger.info("Ontology documents loaded and split successfully.")
     if docs:
-        list_of_ext_url_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in docs if url.startswith("http")]
-        list_of_ext_local_doc_lists = [get_local_files_as_documents(path) for path in docs if not path.startswith("http") and Path(path).exists()]
+        logger.info("External documents provided. Loading external documents.")
+        list_of_ext_url_doc_lists = [
+            WebBaseLoader(url, show_progress=True).load() for url in docs if url.startswith("http")
+        ]
+        list_of_ext_local_doc_lists = [
+            get_local_files_as_documents(path) for path in docs if not path.startswith("http") and Path(path).exists()
+        ]
         list_of_ext_doc_lists = list_of_ext_url_doc_lists + list_of_ext_local_doc_lists
-        ext_docs_list = [split_doc for docs in list_of_ext_doc_lists for doc in docs for split_doc in split_documents(doc)]
+        ext_docs_list = [
+            split_doc for docs in list_of_ext_doc_lists for doc in docs for split_doc in split_documents(doc)
+        ]
+        logger.info("External documents loaded and split successfully.")
     docs_list = grammar_docs_list + ext_docs_list + ont_docs_list
+    logger.info("All documents combined into a single list.")
 
     vectorstore = Chroma.from_documents(
         documents=docs_list, embedding=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
     )
+    logger.info("Vectorstore created from documents.")
 
     retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
     tool = create_retriever_tool(retriever, "change_agent_retriever", "Change Agent Retriever")
@@ -244,6 +270,7 @@ def execute_agent(llm, prompt, docs):
     template = get_issue_analyzer_template()
     react_agent = create_react_agent(llm=llm, tools=tools, prompt=template)
     agent_executor = AgentExecutor(agent=react_agent, tools=tools, handle_parsing_errors=True, verbose=True)
+    logger.info("Agent executor created successfully.")
 
     return agent_executor.invoke(
         {
@@ -266,17 +293,18 @@ def augment_prompt(prompt: str):
         Each element of the list should be enlosed in double quotes.
         """
 
+
 def extract_commands(command):
     """Extract the command from the list."""
     # Remove markdown markers
-    cleaned_command = re.sub(r'```python|```', '', command).strip()
-    
+    cleaned_command = re.sub(r"```python|```", "", command).strip()
+
     # Define the regex pattern to match a list within square brackets
-    pattern = r'\[.*?\]'
-    
+    pattern = r"\[.*?\]"
+
     # Search for the pattern in the cleaned input string
     match = re.search(pattern, cleaned_command, re.DOTALL)
-    
+
     # If a match is found, return the matched string; otherwise, return the original cleaned command
     if match:
         return match.group(0)
