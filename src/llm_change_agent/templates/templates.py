@@ -14,13 +14,8 @@ def get_issue_analyzer_template():
         You have the following tools at your disposal to help you with this task:
         {tools}
         You also have the KGCL grammar in lark format: {grammar} along with an explanation of the grammar: {explanation}
-        Use CURIEs for entities whenever possible. I have provided you with the ontology resource JSON 
-        for your reference for RAG. You can use these to find CURIEs for entities and relationships.
-        IMPORTANT RULES:
-        1. I do not want code block surrounding the list for e.g.: ```python\n[command1, command2]\n```
-        should only be [command1, command2].
-        2. No extra (Note: or Explanation:) text should be included in the final answer.
-        3. The "Final Answer" should be a list of KGCL commands: [command1, command2 ...]
+        Use CURIEs for every entity and relationship. You can use provided documents to find CURIEs
+        for entities and relationships.
 
         It is fine if you are not able to form any commands. You can just return an empty list.
 

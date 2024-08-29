@@ -23,6 +23,7 @@ from llm_change_agent.constants import (
     PR_CLOSED_ISSUES_KEY,
     PULL_REQUESTS_KEY,
 )
+from llm_change_agent.utils.llm_utils import extract_commands
 
 logger = logging.getLogger(__name__)
 logger.info("Evaluating the LLM Change Agent.")
@@ -110,9 +111,9 @@ def run_llm_change_agent(prompt, provider, model, docs=[]) -> List:
         ctx.params["provider"] = provider
         ctx.params["model"] = model
         ctx.params["docs"] = docs
-        response = execute.invoke(ctx)
+        response = extract_commands(execute.invoke(ctx))
         kgcl_commands = [
-            command.replace('"', "'").replace("```python\n'", "").replace("'```')", "")
+            command
             for command in ast.literal_eval(response)
         ]
         return kgcl_commands
@@ -128,14 +129,17 @@ def run_evaluation_script(eval_dir, output_dir):
             sample_size = max(10, len(eval_yaml) // 100)
             sampled_evals = random.sample(eval_yaml, sample_size)
             logger.info(f"Running evaluation on {sample_size} pull request related issues for {doc.name}")
-            for combo in sampled_evals:
+            for idx, combo in enumerate(sampled_evals):
                 pr_id, issue = next(iter(combo.items()))
                 prompt = issue
                 provider = OPENAI_PROVIDER
                 model = OPEN_AI_MODEL
-                predicted_changes = run_llm_change_agent(prompt, provider, model, ONTOLOGIES_AS_DOC_MAP.get(doc.stem))
-
-                with open(output_dir / doc.name, "a") as out:
+                predicted_changes = run_llm_change_agent(prompt, provider, model)
+                if idx == 0:
+                    mode = "w"
+                else:
+                    mode = "a"
+                with open(output_dir / doc.name, mode) as out:
                     yaml.dump({pr_id: predicted_changes}, out, sort_keys=False)
     print(f"Predicted changes saved to {output_dir}")
 

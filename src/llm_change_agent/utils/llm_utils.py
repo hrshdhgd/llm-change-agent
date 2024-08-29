@@ -1,6 +1,7 @@
 """Utility functions for the LLM Change Agent."""
 
 from pathlib import Path
+import re
 from typing import Union
 
 import yaml
@@ -148,9 +149,12 @@ def get_kgcl_schema():
 
 def get_local_files_as_documents(path):
     """Get the local documents."""
-    with open(path, "r") as doc_file:
-        print(f"Reading from file: {path}")
-        yield Document(page_content=doc_file.read())
+    if Path(path).is_file():
+        with open(path, "r") as doc_file:
+            print(f"Reading from file: {path}")
+            yield Document(page_content=doc_file.read())
+    else:
+        return []
 
 
 def get_kgcl_grammar():
@@ -205,6 +209,7 @@ def execute_agent(llm, prompt, docs):
     """Create a retriever agent."""
     grammar = get_kgcl_grammar()
     ext_docs_list = []
+    ont_docs_list = []
 
     # schema = get_kgcl_schema()
     # docs_list = (
@@ -260,3 +265,20 @@ def augment_prompt(prompt: str):
         Return as a python list object which will be passed to another tool.
         Each element of the list should be enlosed in double quotes.
         """
+
+def extract_commands(command):
+    """Extract the command from the list."""
+    # Remove markdown markers
+    cleaned_command = re.sub(r'```python|```', '', command).strip()
+    
+    # Define the regex pattern to match a list within square brackets
+    pattern = r'\[.*?\]'
+    
+    # Search for the pattern in the cleaned input string
+    match = re.search(pattern, cleaned_command, re.DOTALL)
+    
+    # If a match is found, return the matched string; otherwise, return the original cleaned command
+    if match:
+        return match.group(0)
+    else:
+        return cleaned_command
