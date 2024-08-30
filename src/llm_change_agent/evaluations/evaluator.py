@@ -22,10 +22,11 @@ from llm_change_agent.constants import (
     PR_CLOSED_ISSUES_KEY,
     PULL_REQUESTS_KEY,
 )
-from llm_change_agent.utils.llm_utils import extract_commands
+from llm_change_agent.utils.llm_utils import extract_commands, normalize_changes
 
 logger = logging.getLogger(__name__)
 logger.info("Evaluating the LLM Change Agent.")
+
 
 
 def download_document(url, input_dir):
@@ -115,6 +116,7 @@ def run_llm_change_agent(prompt, provider, model, docs: List[Any] = None) -> Lis
         ctx.params["model"] = model
         ctx.params["docs"] = docs
         response = extract_commands(execute.invoke(ctx))
+        print(response)
         kgcl_commands = [command for command in ast.literal_eval(response)]
         return kgcl_commands
 
@@ -172,11 +174,44 @@ def generate_changes_via_llm(eval_dir, output_dir, provider, model):
     print(f"Predicted changes saved to {output_sub_dir}")
 
 
-def compare_changes():
+def compare_changes(expected_dir:Path, output_dir:Path):
     """Compare the actual changes with the predicted changes."""
-    import pdb
+    # For each document in the expected directory, there is a corresponding document in the output directory
 
-    pdb.set_trace()
+    output_files = list(output_dir.rglob("*.yaml"))
+
+    # output_files_dict is : {provider_model: {filename: file_path}}
+    output_files_list_of_dicts = [
+        {f"{file.parts[-3]}_{file.parts[-2]}": {file.name:file}} for file in output_files
+    ]
+    
+    for model_output in output_files_list_of_dicts:
+        for provider_model, file_info in model_output.items():
+            for filename, filepath in file_info.items():
+                filename = filepath.name
+                expected_file = expected_dir / filename
+                output_file = filepath
+                with open(expected_file, "r") as ex , open(output_file, "r") as out:
+                    expected_yaml = yaml.safe_load(ex)
+                    output_yaml = yaml.safe_load(out)
+                expected_yaml_subset = {k: v for k, v in expected_yaml.items() if k in output_yaml}
+                for pr_id, output_changes in output_yaml.items():
+                    expected_change = expected_yaml_subset.get(pr_id)
+                    if len(output_changes) > 0:
+                        compare_output_vs_expected(expected_change, output_changes)
+
+
+
+def compare_output_vs_expected(expected_changes, output_changes:List):
+    """Compare the expected changes with the output changes."""
+    output_changes = normalize_changes(output_changes)
+    accuracy = 0.0
+    total = len(expected_changes)
+    correct = 0
+    import pdb; pdb.set_trace()
+    
+        
+
 
 
 def run_evaluate(model: str, provider: str):
@@ -194,22 +229,5 @@ def run_evaluate(model: str, provider: str):
 
     generate_changes_via_llm(model=model, provider=provider, eval_dir=eval_dir, output_dir=output_dir)
 
-    # compare_changes()
+    compare_changes(expected_dir=expected_dir, output_dir=output_dir)
 
-    # logger.info("Split the YAML documents randomly into RAG and Evaluation documents 80% and 20%.")
-    # random.shuffle(ONTODIFF_DOCS)
-    # split_index = int(len(ONTODIFF_DOCS) * 0.8)
-    # rag_docs = ONTODIFF_DOCS[:split_index]
-    # eval_docs = ONTODIFF_DOCS[split_index:]
-
-    # logger.info("Run llm_change_agent with the RAG documents.")
-    # run_llm_change_agent(rag_docs)
-
-    # logger.info("Run the evaluation script with the Evaluation documents.")
-    # run_evaluation_script(eval_docs)
-
-    # logger.info("Compare the actual `changes` with the predicted `changes` from the llm_change_agent.")
-    # compare_changes()
-
-    # logger.info("Evaluation completed.")
-    # return

@@ -9,7 +9,7 @@ from llm_change_agent import __version__
 from llm_change_agent.constants import PROVIDER_DEFAULT_MODEL_MAP
 from llm_change_agent.evaluations.evaluator import run_evaluate
 from llm_change_agent.llm_agent import LLMChangeAgent
-from llm_change_agent.utils.click_utils import validate_path_or_url_or_ontology
+from llm_change_agent.utils.general_utils import validate_path_or_url_or_ontology
 from llm_change_agent.utils.llm_utils import (
     get_anthropic_models,
     get_lbl_cborg_models,

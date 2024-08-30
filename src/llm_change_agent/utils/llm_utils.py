@@ -5,10 +5,12 @@ import re
 from pathlib import Path
 from typing import Union
 
+import curies
 import yaml
 from langchain.agents import AgentExecutor
 from langchain.agents.react.agent import create_react_agent
 from langchain.tools.retriever import create_retriever_tool
+from langchain_core.tools import tool
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.documents import Document
@@ -272,7 +274,7 @@ def execute_agent(llm, prompt, docs):
 
     retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
     tool = create_retriever_tool(retriever, "change_agent_retriever", "Change Agent Retriever")
-    tools = [tool]
+    tools = [tool, compress_iri]
     template = get_issue_analyzer_template()
     react_agent = create_react_agent(llm=llm, tools=tools, prompt=template)
     agent_executor = AgentExecutor(agent=react_agent, tools=tools, handle_parsing_errors=True, verbose=True)
@@ -316,3 +318,22 @@ def extract_commands(command):
         return match.group(0)
     else:
         return cleaned_command
+
+def normalize_changes(changes):
+    for idx, change in enumerate(changes):
+        if any(string.startswith("<http") or string.startswith("http") for string in change.split()):
+            iri = [string for string in change.split() if string.startswith("<http")or string.startswith("http")]
+            # Replace the strings in the list with the curie using converter.compress(item)
+            for _, item in enumerate(iri):
+                stripped_item = item.strip('<>')
+                compressed_item = compress_iri(stripped_item) if compress_iri(stripped_item) else item
+                # Update the original change list with the compressed item
+                change = change.replace(item, compressed_item)
+                changes[idx] = change
+    return changes
+
+@tool
+def compress_iri(iri: str) -> str:
+    """Compress the IRI."""
+    converter = curies.get_obo_converter()
+    return converter.compress(iri)

@@ -33,3 +33,17 @@ def validate_path_or_url_or_ontology(ctx, param, value):
                 raise click.BadParameter(f"{val} is not a valid URL, file path, or ontology name") from None
 
     return validated_values
+
+
+def jaccard_similarity(statement1, statement2):
+    """Calculate the Jaccard similarity coefficient between two statements."""
+    # Split the statements into sets of words
+    set1 = set(statement1.split())
+    set2 = set(statement2.split())
+
+    # Calculate the intersection and union of the sets
+    intersection = set1.intersection(set2)
+    union = set1.union(set2)
+
+    # Calculate the Jaccard similarity coefficient
+    return len(intersection) / len(union)
