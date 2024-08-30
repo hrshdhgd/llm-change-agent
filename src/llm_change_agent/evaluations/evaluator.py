@@ -28,7 +28,6 @@ logger = logging.getLogger(__name__)
 logger.info("Evaluating the LLM Change Agent.")
 
 
-
 def download_document(url, input_dir):
     """Download the document from the URL."""
     if not os.path.exists(input_dir):
@@ -174,24 +173,22 @@ def generate_changes_via_llm(eval_dir, output_dir, provider, model):
     print(f"Predicted changes saved to {output_sub_dir}")
 
 
-def compare_changes(expected_dir:Path, output_dir:Path):
+def compare_changes(expected_dir: Path, output_dir: Path):
     """Compare the actual changes with the predicted changes."""
     # For each document in the expected directory, there is a corresponding document in the output directory
 
     output_files = list(output_dir.rglob("*.yaml"))
 
     # output_files_dict is : {provider_model: {filename: file_path}}
-    output_files_list_of_dicts = [
-        {f"{file.parts[-3]}_{file.parts[-2]}": {file.name:file}} for file in output_files
-    ]
-    
+    output_files_list_of_dicts = [{f"{file.parts[-3]}_{file.parts[-2]}": {file.name: file}} for file in output_files]
+
     for model_output in output_files_list_of_dicts:
         for provider_model, file_info in model_output.items():
             for filename, filepath in file_info.items():
                 filename = filepath.name
                 expected_file = expected_dir / filename
                 output_file = filepath
-                with open(expected_file, "r") as ex , open(output_file, "r") as out:
+                with open(expected_file, "r") as ex, open(output_file, "r") as out:
                     expected_yaml = yaml.safe_load(ex)
                     output_yaml = yaml.safe_load(out)
                 expected_yaml_subset = {k: v for k, v in expected_yaml.items() if k in output_yaml}
@@ -199,19 +196,16 @@ def compare_changes(expected_dir:Path, output_dir:Path):
                     expected_change = expected_yaml_subset.get(pr_id)
                     if len(output_changes) > 0:
                         compare_output_vs_expected(expected_change, output_changes)
+        logger.info(f"Finished comparing changes for {provider_model}")
 
 
-
-def compare_output_vs_expected(expected_changes, output_changes:List):
+def compare_output_vs_expected(expected_changes, output_changes: List):
     """Compare the expected changes with the output changes."""
     output_changes = normalize_changes(output_changes)
     accuracy = 0.0
     total = len(expected_changes)
     correct = 0
     import pdb; pdb.set_trace()
-    
-        
-
 
 
 def run_evaluate(model: str, provider: str):
@@ -230,4 +224,3 @@ def run_evaluate(model: str, provider: str):
     generate_changes_via_llm(model=model, provider=provider, eval_dir=eval_dir, output_dir=output_dir)
 
     compare_changes(expected_dir=expected_dir, output_dir=output_dir)
-

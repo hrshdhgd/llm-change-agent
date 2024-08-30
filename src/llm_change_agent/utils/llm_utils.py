@@ -10,10 +10,10 @@ import yaml
 from langchain.agents import AgentExecutor
 from langchain.agents.react.agent import create_react_agent
 from langchain.tools.retriever import create_retriever_tool
-from langchain_core.tools import tool
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.documents import Document
+from langchain_core.tools import tool
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from openai import OpenAI
@@ -319,18 +319,21 @@ def extract_commands(command):
     else:
         return cleaned_command
 
+
 def normalize_changes(changes):
+    """Convert IRIs to CURIEs in change statements."""
     for idx, change in enumerate(changes):
         if any(string.startswith("<http") or string.startswith("http") for string in change.split()):
-            iri = [string for string in change.split() if string.startswith("<http")or string.startswith("http")]
+            iri = [string for string in change.split() if string.startswith("<http") or string.startswith("http")]
             # Replace the strings in the list with the curie using converter.compress(item)
             for _, item in enumerate(iri):
-                stripped_item = item.strip('<>')
+                stripped_item = item.strip("<>")
                 compressed_item = compress_iri(stripped_item) if compress_iri(stripped_item) else item
                 # Update the original change list with the compressed item
                 change = change.replace(item, compressed_item)
                 changes[idx] = change
     return changes
+
 
 @tool
 def compress_iri(iri: str) -> str:
