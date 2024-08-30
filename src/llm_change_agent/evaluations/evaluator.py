@@ -119,29 +119,38 @@ def run_llm_change_agent(prompt, provider, model, docs: List[Any] = None) -> Lis
         return kgcl_commands
 
 
-def run_evaluation_script(eval_dir, output_dir, provider, model):
-    """Evaluate the LLM Change Agent."""
+def generate_changes_via_llm(eval_dir, output_dir, provider, model):
+    """Generate changes via the LLM Change Agent."""
     os.makedirs(output_dir, exist_ok=True)
     output_sub_dir = output_dir / provider / model.split(":")[0].replace("/", "_")
     os.makedirs(output_sub_dir, exist_ok=True)
-    doc_pr_dict = {}
+    pr_eval_list_filepath = Path(eval_dir).parent / EVALUATION_PRS_FILE
+    if pr_eval_list_filepath.exists():
+        with open(pr_eval_list_filepath, "r") as f:
+            doc_pr_dict = yaml.safe_load(f)
+    else:
+        doc_pr_dict = {}
+
     for doc in eval_dir.iterdir():
-        doc_pr_dict[doc.name] = []
-        pr_eval_list_filepath = Path(eval_dir).parent / (doc.name + "_" + EVALUATION_PRS_FILE)
+        update_eval_dict = False
         if doc.is_file() and doc.suffix == ".yaml":
             if (output_sub_dir / doc.name).exists():
                 print(f"Skipping {doc.name} as it already exists in the output directory.")
                 continue
             with open(doc, "r") as f:
-                eval_yaml = yaml.safe_load(f)
-            if pr_eval_list_filepath.exists():
-                with open(pr_eval_list_filepath, "r") as f:
-                    evaluation_prs = f.read().splitlines()
-                sampled_evals = {k: v for k, v in enumerate(eval_yaml) if k in evaluation_prs}
+                eval_yaml_list = yaml.safe_load(f)
+            if doc_pr_dict.get(doc.name):
+                update_eval_dict = False
+                pr_eval_list = doc_pr_dict.get(doc.name)
+                sampled_evals = [
+                    {k: v} for eval_yaml in eval_yaml_list for k, v in eval_yaml.items() if k in pr_eval_list
+                ]
                 sample_size = len(sampled_evals)
             else:
-                sample_size = max(10, len(eval_yaml) // 200)
-                sampled_evals = random.sample(eval_yaml, sample_size)
+                doc_pr_dict[doc.name] = []
+                update_eval_dict = True
+                sample_size = max(10, len(eval_yaml_list) // 200)
+                sampled_evals = random.sample(eval_yaml_list, sample_size)
             logger.info(f"Running evaluation on {sample_size} pull request related issues for {doc.name}")
             for idx, combo in enumerate(sampled_evals):
                 if idx == 0:
@@ -149,23 +158,25 @@ def run_evaluation_script(eval_dir, output_dir, provider, model):
                 else:
                     mode = "a"
                 pr_id, issue = next(iter(combo.items()))
-                doc_pr_dict[doc.name].append(pr_id)
+                if update_eval_dict:
+                    doc_pr_dict[doc.name].append(pr_id)
+                    with open(pr_eval_list_filepath, "w") as f:
+                        yaml.dump(doc_pr_dict, f, sort_keys=False, default_flow_style=False)
 
                 prompt = issue
                 predicted_changes = run_llm_change_agent(prompt, provider, model)
 
                 with open(output_sub_dir / doc.name, mode) as out:
                     yaml.dump({pr_id: predicted_changes}, out, sort_keys=False)
-        with open(pr_eval_list_filepath, "w") as f:
-            yaml.dump(doc_pr_dict, f, sort_keys=False, default_flow_style=False)
+
     print(f"Predicted changes saved to {output_sub_dir}")
 
 
 def compare_changes():
     """Compare the actual changes with the predicted changes."""
-    # Placeholder function to simulate comparison of changes
-    # In a real scenario, you would implement the logic to compare actual vs predicted changes
-    print("Comparing actual changes with predicted changes")
+    import pdb
+
+    pdb.set_trace()
 
 
 def run_evaluate(model: str, provider: str):
@@ -181,7 +192,9 @@ def run_evaluate(model: str, provider: str):
 
     eval_dir, expected_dir = prepare_eval_and_expected_yamls(input_dir)
 
-    run_evaluation_script(model=model, provider=provider, eval_dir=eval_dir, output_dir=output_dir)
+    generate_changes_via_llm(model=model, provider=provider, eval_dir=eval_dir, output_dir=output_dir)
+
+    # compare_changes()
 
     # logger.info("Split the YAML documents randomly into RAG and Evaluation documents 80% and 20%.")
     # random.shuffle(ONTODIFF_DOCS)

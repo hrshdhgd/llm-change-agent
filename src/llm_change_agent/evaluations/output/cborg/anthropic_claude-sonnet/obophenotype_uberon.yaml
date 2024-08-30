@@ -1,0 +1,50 @@
+pr3318:
+- change definition of UBERON:0002336 from 'White matter structure containing massive
+  numbers of commissural fibers connecting cortical areas in the two cerebral hemispheres.it
+  is subdivided into a genu, a rostrum, a body, and a splenium. (MM).' to 'White matter
+  structure containing massive numbers of commissural fibers connecting cortical areas
+  in the two cerebral hemispheres. It is subdivided into a genu, a rostrum, a body,
+  and a splenium. (MM).'
+pr1995:
+- change definition of UBERON:0002926 from 'A epithelium...' to 'An epithelium...'
+- change definition of UBERON:0012251 from 'A epithelium...' to 'An epithelium...'
+- change definition of UBERON:0015807 from 'A epithelium...' to 'An epithelium...'
+pr3204:
+- change definition of UBERON:0002113 to 'A paired organ of the urinary tract that
+  produces urine and maintains bodily fluid homeostasis, blood pressure, pH levels,
+  red blood cell production and bone health.'
+pr2793:
+- change relationship between <http://purl.obolibrary.org/obo/UBERON_0002186> and
+  bronchus from 'branching part of' to 'branching part of' some 'tracheobronchial
+  tree'
+pr2247: []
+pr2982:
+- create node FMA:7312 'bronchopulmonary segment'
+- create synonym 'lung segment' for FMA:7312
+- add definition 'A discrete anatomical unit of the lung that is composed of a segmental
+  bronchus and the lung tissue supplied by that bronchus. A bronchopulmonary segment
+  exhibits a pyramidal shape, with its apex pointing towards the center of the lung
+  and its base toward the pleural surface.' to FMA:7312
+- create edge FMA:7312 BFO:0000050 UBERON:0002170
+- create edge UBERON:0002170 BFO:0000050 FMA:7312
+- create edge UBERON:0002391 overlaps FMA:7312
+- create edge UBERON:0002392 BFO:0000050 FMA:7312
+pr3060:
+- create edge UBERON:0002198 rdfs:subClassOf UBERON:0007811
+pr3050:
+- create edge <http://purl.obolibrary.org/obo/UBERON_0000949> <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+  <http://purl.obolibrary.org/obo/UBERON_0015203>
+pr3048:
+- create node <http://purl.obolibrary.org/obo/UBERON_NEW> 'saphenous vein smooth muscle
+  tissue'
+- add definition 'A portion of smooth muscle tissue that is part of a saphenous vein.'
+  to <http://purl.obolibrary.org/obo/UBERON_NEW>
+- create edge <http://purl.obolibrary.org/obo/UBERON_NEW> <http://purl.obolibrary.org/obo/BFO_0000050>
+  <http://purl.obolibrary.org/obo/UBERON_0001135>
+- create edge <http://purl.obolibrary.org/obo/UBERON_NEW> <http://purl.obolibrary.org/obo/BFO_0000050>
+  <http://purl.obolibrary.org/obo/UBERON_0007318>
+pr3106:
+- change relationship between <http://purl.obolibrary.org/obo/UBERON_0000947> and
+  <http://purl.obolibrary.org/obo/UBERON_0000947> from <http://purl.obolibrary.org/obo/RO_branching_part_of>
+  to <http://purl.obolibrary.org/obo/RO_connecting_branch_of>
+- rename <http://purl.obolibrary.org/obo/RO_connecting_branch_of> to 'branches_from'

@@ -1,0 +1,79 @@
+pr1518:
+- create node CL:0000000 'lymph node mantle zone B cell'
+pr1465:
+- create CL:9000000 'embryonic skeletal muscle fiber'
+- create CL:9000001 'neonatal skeletal muscle fiber'
+- add definition 'A skeletal muscle fiber found in an embryo. In mammalian embryos,
+  skeletal muscle expresses myosin heavy chain-embryonic (MyHC-emb, encoded by the
+  MYH3), which regulates skeletal muscle development. PMID:7196501|PMID:32094117.'
+  to CL:9000000
+- add definition 'A skeletal muscle fiber found at the fetal and neonatal stages.
+  In mammalian fetuses and neonates, skeletal muscle expresses myosin heavy chain-neonatal
+  (MyHC-neo, encoded by the MYH8 gene). This expression disappears shortly after birth
+  and is replaced by expression of adult heavy chain myosins. PMID:7196501|PMID:26180627.'
+  to CL:9000001
+- create edge CL:9000000 rdfs:subClassOf CL:0008002
+- create edge CL:9000001 rdfs:subClassOf CL:0008002
+- create edge CL:9000000 RO:0002202 CL:0000515
+- create edge CL:9000001 RO:0002202 CL:0000515
+- create edge CL:9000000 rdfs:subClassOf CL:0002321
+- create edge CL:9000000 BFO:0000050 UBERON:0000068
+- create edge CL:9000001 BFO:0000050 UBERON:0007221
+- create edge CL:9000000 BFO:0000050 UBERON:0001134
+- create edge CL:9000001 BFO:0000050 UBERON:0001134
+pr2108:
+- remove exact synonym 'syncytial trophoblast' for CL:0000525
+- create edge CL:0000525 'part of' UBERON:0000371
+pr639:
+- create edge CL:0000451 rdfs:subClassOf CL:0000145
+- create edge CL:0000235 rdfs:subClassOf CL:0000145
+- create edge CL:0000236 rdfs:subClassOf CL:0000145
+pr1907:
+- create edge CL:4030038 'expresses some' 'vimentin'
+pr2433:
+- create CL:0000000 'nasal serous secreting cell'
+- add definition 'A serous secreting cell that is part of the nasal cavity.' to CL:0000000
+- create exact synonym 'SMG serous (nasal)' for CL:0000000
+- create edge CL:0000000 rdfs:subClassOf CL:0000313
+- create edge CL:0000000 BFO:0000050 UBERON:0001707
+pr1565:
+- change definition of CL:0000015 to 'A germ cell and (capable of part of some spermatogenesis).
+  The individual precursors like spermatogonium are not entirely capable of carrying
+  out the complete process.'
+pr1696:
+- create CL:NTR-cxg 'BEST4+ intestinal epithelial cell'
+- add definition 'An absorptive epithelial cell of the human intestine expressing
+  Bestrophin 4 calcium-activated ion channels.' to CL:NTR-cxg
+- create edge CL:NTR-cxg rdfs:subClassOf CL:0000677
+- create edge CL:NTR-cxg BFO:0000050 UBERON:0001277
+pr2114:
+- change annotation of CL:0000568 with http://www.geneontology.org/formats/oboInOwl#source
+  from MESH:A11.070 to MESH:D001078
+- remove annotation of CL:0000132 with http://www.geneontology.org/formats/oboInOwl#source
+  MESH:A09.371.060.067.31
+- remove annotation of CL:0000333 with http://www.geneontology.org/formats/oboInOwl#source
+  MESH:A16.254.600
+- create edge CL:0000333 http://www.geneontology.org/formats/oboInOwl#source doi:10.1016/j.stem.2015.02.017
+- change annotation of CL:0000577 with http://www.geneontology.org/formats/oboInOwl#source
+  from MESH:A03.492.766.440.250 to MESH:D004759
+- remove annotation of CL:0000588 with http://www.geneontology.org/formats/oboInOwl#source
+  MESH:A11.329.679
+- remove annotation of CL:0000547 with http://www.geneontology.org/formats/oboInOwl#source
+  MESH:A11.118.290.350.200
+pr1242:
+- obsolete CL:0011003
+- obsolete CL:0011112
+- create CL:0000000 'magnocellular neurosecretory cell'
+- create CL:0000001 'oxytocin-secreting magnocellular neurosecretory cell'
+- create CL:0000002 'vasopressin-secreting magnocellular neurosecretory cell'
+- create edge CL:0000001 rdfs:subClassOf CL:0000000
+- create edge CL:0000002 rdfs:subClassOf CL:0000000
+- add definition 'A neurosecretory neuron residing mainly in the hypothalamus that
+  secretes either oxytocin or vasopressin.' to CL:0000000
+- add definition 'A magnocellular neurosecretory cell that is capable of producing
+  and secreting oxytocin.' to CL:0000001
+- add definition 'A magnocellular neurosecretory cell that is capable of producing
+  and secreting vasopressin.' to CL:0000002
+- create edge CL:0000000 BFO:0000050 UBERON:0001898
+- create edge CL:0000001 capable_of GO:0030103
+- create edge CL:0000002 capable_of GO:0030103
