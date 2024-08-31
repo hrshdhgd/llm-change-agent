@@ -3,7 +3,7 @@
 import logging
 import re
 from pathlib import Path
-from typing import Union
+from typing import List, Union
 
 import curies
 import yaml
@@ -320,7 +320,7 @@ def extract_commands(command):
         return cleaned_command
 
 
-def normalize_changes(changes):
+def normalize_to_curies_in_changes(changes: List):
     """Convert IRIs to CURIEs in change statements."""
     for idx, change in enumerate(changes):
         if any(string.startswith("<http") or string.startswith("http") for string in change.split()):

@@ -4,6 +4,7 @@ import ast
 import logging
 import os
 import random
+import time
 from pathlib import Path
 from typing import Any, List, Union
 
@@ -22,7 +23,7 @@ from llm_change_agent.constants import (
     PR_CLOSED_ISSUES_KEY,
     PULL_REQUESTS_KEY,
 )
-from llm_change_agent.utils.llm_utils import extract_commands, normalize_changes
+from llm_change_agent.utils.llm_utils import extract_commands, normalize_to_curies_in_changes
 
 logger = logging.getLogger(__name__)
 logger.info("Evaluating the LLM Change Agent.")
@@ -109,13 +110,17 @@ def run_llm_change_agent(prompt, provider, model, docs: List[Any] = None) -> Lis
         docs = []
     from llm_change_agent.cli import execute
 
+    # Sleep for a random time between 1 and 5 seconds before running the LLM Change Agent
+    sleep_time = random.randint(1, 5)
+    logger.info(f"Sleeping for {sleep_time} seconds before running the LLM Change Agent.")
+    time.sleep(sleep_time)
+
     with click.Context(execute) as ctx:
         ctx.params["prompt"] = prompt
         ctx.params["provider"] = provider
         ctx.params["model"] = model
         ctx.params["docs"] = docs
         response = extract_commands(execute.invoke(ctx))
-        print(response)
         kgcl_commands = [command for command in ast.literal_eval(response)]
         return kgcl_commands
 
@@ -201,11 +206,13 @@ def compare_changes(expected_dir: Path, output_dir: Path):
 
 def compare_output_vs_expected(expected_changes, output_changes: List):
     """Compare the expected changes with the output changes."""
-    output_changes = normalize_changes(output_changes)
+    output_changes = normalize_to_curies_in_changes(output_changes)
     accuracy = 0.0
     total = len(expected_changes)
     correct = 0
-    import pdb; pdb.set_trace()
+    import pdb
+
+    pdb.set_trace()
 
 
 def run_evaluate(model: str, provider: str):

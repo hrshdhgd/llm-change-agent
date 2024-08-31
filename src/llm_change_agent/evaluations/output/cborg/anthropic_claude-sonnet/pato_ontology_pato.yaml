@@ -1,39 +1,107 @@
 pr427:
-- create PATO:0000000 'diandrous (plant)'
-- create PATO:0000001 'monandrous (plant)'
-- create PATO:0000002 'diandrous (animal)'
-- create PATO:0000003 'monandrous (animal)'
-- add definition 'having two stamens' to PATO:0000000
-- add definition 'having one stamen' to PATO:0000001
-- add definition 'possessing two different types of males' to PATO:0000002
-- add definition 'having only one type of male' to PATO:0000003
-- create edge PATO:0000000 rdfs:subClassOf PATO:XXXXXXX
-- create edge PATO:0000001 rdfs:subClassOf PATO:XXXXXXX
-- create edge PATO:0000002 rdfs:subClassOf PATO:YYYYYYY
-- create edge PATO:0000003 rdfs:subClassOf PATO:YYYYYYY
-pr270: []
+- create PATO:0001234 'diandrous (plant)'
+- create PATO:0001235 'monandrous (plant)'
+- create PATO:0001236 'diandrous (animal)'
+- create PATO:0001237 'monandrous (animal)'
+- add definition 'having two stamens' to PATO:0001234
+- add definition 'having one stamen' to PATO:0001235
+- add definition 'possessing two different types of males' to PATO:0001236
+- add definition 'having only one type of male' to PATO:0001237
+- create edge PATO:0001234 rdfs:subClassOf PATO:0000047
+- create edge PATO:0001235 rdfs:subClassOf PATO:0000047
+- create edge PATO:0001236 rdfs:subClassOf PATO:0000048
+- create edge PATO:0001237 rdfs:subClassOf PATO:0000048
+pr405:
+- move ECOCORE:0000000 rdfs:subClassOf OWL:Thing from ECOCORE:0000000 to PATO:0000001
 pr396:
-- create node <http://purl.obolibrary.org/obo/TEMP_001> 'standard pyramidal morphology'
-- create synonym 'vertical pyramidal morphology' for <http://purl.obolibrary.org/obo/TEMP_001>
-- create synonym 'pyramidal morphology' for <http://purl.obolibrary.org/obo/TEMP_001>
-- add definition '''A pyramidal cell morphology that inheres in neurons which have
-  a standard pyramidal shape with its apical dendrite aligned vertically.''' to <http://purl.obolibrary.org/obo/TEMP_001>
-- create edge <http://purl.obolibrary.org/obo/TEMP_001> rdfs:subClassOf <http://purl.obolibrary.org/obo/TEMP_376>
-- create edge <http://purl.obolibrary.org/obo/TEMP_001> owl:disjointWith <http://purl.obolibrary.org/obo/TEMP_381>
+- create CL:9999999 'pyramidal family morphology'
+- add definition 'A cell morphology that inheres in neurons which have a pyramidal
+  shaped soma, a single axon, a large apical dendrite and multiple basal dendrites.'
+  to CL:9999999
+- create edge CL:9999999 rdfs:subClassOf CL:0000000
+- create edge CL:9999999 oboInOwl:hasDbXref SAO:1465673360
+- create edge CL:9999999 oboInOwl:hasDbXref ILX:0109553
+pr396:
+- create PLACEHOLDER:tufted_pyramidal_morphology 'tufted pyramidal morphology'
+- add definition 'A pyramidal cell morphology that inheres in neurons which have a
+  distinct tuft formation, distal from the soma.' to PLACEHOLDER:tufted_pyramidal_morphology
+- create edge PLACEHOLDER:tufted_pyramidal_morphology rdfs:subClassOf PLACEHOLDER:pyramidal_morphology
+- create synonym 'TuftedPyramidalPhenotype' for PLACEHOLDER:tufted_pyramidal_morphology
+pr396:
+- create CL:9000001 'untufted pyramidal morphology'
+- add definition 'A pyramidal cell morphology that inheres in neurons which lack a
+  clear tuft formation but extend to large radial distances.' to CL:9000001
+- create edge CL:9000001 rdfs:subClassOf CL:0000598
+- create exact synonym 'Neocortex Untufted Pyramidal Cell' for CL:9000001
+- add CL:9000001 to subset ilxtr:UntuftedPyramidalPhenotype
+pr396:
+- create UBERON:0000955 'stellate pyramidal morphology'
+- add definition 'A pyramidal cell morphology that inheres in neurons which lack a
+  tuft formation but extend to small radial distances forming a star-like shape.'
+  to UBERON:0000955
+- create edge UBERON:0000955 rdfs:subClassOf PLACEHOLDER:pyramidal_morphology
+- create exact synonym 'StarPyramidalPhenotype' for UBERON:0000955
+pr396:
+- create TEMP:0000001 'inverted pyramidal morphology'
+- add definition 'A pyramidal cell morphology that inheres in neurons which have an
+  apical tree which is oriented towards the white matter.' to TEMP:0000001
+- create edge TEMP:0000001 rdfs:subClassOf TEMP:PYRAMIDAL_MORPHOLOGY
+- add TEMP:0000001 to subset ilxtr:InvertedPyramidalPhenotype
+pr396:
+- create CL:9000001 'horizontal pyramidal morphology'
+- add definition 'A pyramidal cell morphology that inheres in neurons which have an
+  apical tree which is oriented parallel to the pia.' to CL:9000001
+- create edge CL:9000001 rdfs:subClassOf CL:0000598
+pr396:
+- create node TEMP:001 'standard pyramidal morphology'
+- create synonym 'vertical pyramidal morphology' for TEMP:001
+- create synonym 'pyramidal morphology' for TEMP:001
+- add definition 'A pyramidal cell morphology that inheres in neurons which have a
+  standard pyramidal shape with its apical dendrite aligned vertically.' to TEMP:001
+- create edge TEMP:001 rdfs:subClassOf TEMP:002
+- create edge TEMP:001 owl:disjointWith TEMP:003
 pr328:
-- create PATO:9000000
-- create edge PATO:9000000 rdfs:subClassOf PATO:0000141
+- create PATO:9000000 'fragmented'
 - add definition 'Existing or functioning as though broken into separate parts; disorganized;
   disunified.' to PATO:9000000
-- create synonym 'fragmented' for PATO:9000000
+- create edge PATO:9000000 rdfs:subClassOf PATO:0000141
 pr270: []
 pr270: []
-pr396:
-- create ILX:0381350 'untufted pyramidal morphology'
-- create edge ILX:0381350 rdfs:subClassOf UBERON:0000376
-- add definition 'A pyramidal cell morphology that inheres in neurons which lack a
-  clear tuft formation but extend to large radial distances.' to ILX:0381350
-- create exact synonym ilxtr:UntuftedPyramidalPhenotype for ILX:0381350
 pr270: []
-pr405: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
+pr270: []
 pr270: []

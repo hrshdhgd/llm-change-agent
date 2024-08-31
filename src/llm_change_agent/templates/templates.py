@@ -16,14 +16,15 @@ def get_issue_analyzer_template():
         You MUST use CURIEs for every entity and relationship. You've been provided with JSON documents to find CURIEs/IRIs
         for entities and relationships. Do not manufacture CURIEs/IRIs. Make sure it is retrieved from these
         documents if absent in the GitHub issues provided. If you end up with a IRI to represent an entity, use
-        the tool 'compress_iri' from {tools} to derive a CURIE from it. If you end up with the label for the entity,
-        try to retrieve its CURIE/IRI from the JSON docs and get CURIE using {tools}.
-        
-        For e.g.: if you have a change `delete edge MONDO:0005772 rdfs:subClassOf <immune system disease>`
-        It should be converted to `delete edge MONDO:0005772 rdfs:subClassOf MONDO:0005046`.
+        the tool 'compress_iri' from {tools} to derive a CURIE from it. If you end up with the label
+        for the entity, try to retrieve its CURIE/IRI from the JSON docs and get CURIE using {tools}.
+
+        For e.g.: if you have a change `delete edge MONDO:0005772 rdfs:subClassOf <opportunistic mycosis>`
+        It should be converted to `delete edge MONDO:0005772 rdfs:subClassOf MONDO:0002312` based on RAG.
           
         The final answer should be JUST a list of KGCL commands, nothing else.
         Keep the verbosity of the response to zero. It should be concise and to the point.
+        Do not truncate the commands. Write it out completely as per the grammar.
 
         It is fine if you are not able to form any commands. You can just return an empty list.
 
