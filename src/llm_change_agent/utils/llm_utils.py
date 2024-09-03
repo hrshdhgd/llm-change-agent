@@ -1,11 +1,13 @@
 """Utility functions for the LLM Change Agent."""
 
+import json
 import logging
 import re
 from pathlib import Path
 from typing import List, Union
 
 import curies
+import requests
 import yaml
 from langchain.agents import AgentExecutor
 from langchain.agents.react.agent import create_react_agent
@@ -15,7 +17,7 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.documents import Document
 from langchain_core.tools import tool
 from langchain_openai import OpenAIEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter, RecursiveJsonSplitter
 from openai import OpenAI
 
 from llm_change_agent.config.llm_config import AnthropicConfig, CBORGConfig, LLMConfig, OllamaConfig, OpenAIConfig
@@ -209,15 +211,21 @@ def get_kgcl_grammar():
 #                 yield doc_file.read()
 
 
-def split_documents(document: Union[str, Document]):
+def split_documents(document: Union[str, Document], type: str = None):
     """Split the document into a list of documents."""
-    if isinstance(document, Document):
-        doc_object = (document,)
+    if type == "json":
+        splitter = RecursiveJsonSplitter(max_chunk_size=2000)  # default:2000
+        splits_as_dicts = splitter.split_json(json_data=document, convert_lists=True)
+        splits = [Document(page_content=json.dumps(split)) for split in splits_as_dicts]
     else:
-        doc_object = (Document(page_content=document),)
-    splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(chunk_size=300, chunk_overlap=50)
-    # splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-    splits = splitter.split_documents(doc_object)
+        if isinstance(document, Document):
+            doc_object = (document,)
+        else:
+            doc_object = (Document(page_content=document),)
+
+        splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(chunk_size=300, chunk_overlap=50)
+        splits = splitter.split_documents(doc_object)
+
     return splits
 
 
@@ -242,16 +250,12 @@ def execute_agent(llm, prompt, docs):
         )
     else:
         logger.info("Vector database path does not exist. Loading ontology documents.")
-        # ! Using ONTODIFF_DOCS for evaluation. Commented out for now.
-        # list_of_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTODIFF_DOCS]
-        # diff_docs_list = [split_doc for docs in list_of_doc_lists \
-        #  for doc in docs for split_doc in split_documents(doc)]
-        list_of_ont_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTOLOGIES_URL]
-        # TODO: split docs based on the document type: https://python.langchain.com/v0.2/docs/how_to/#text-splitters
-        ont_docs_list = [
-            split_doc for docs in list_of_ont_doc_lists for doc in docs for split_doc in split_documents(doc)
-        ]
+
+        # * split docs based on the document type: https://python.langchain.com/v0.2/docs/how_to/#text-splitters
+        list_of_ont_doc_lists = [requests.get(url, timeout=10).json() for url in ONTOLOGIES_URL]
+        ont_docs_list = [doc for docs in list_of_ont_doc_lists for doc in split_documents(document=docs, type="json")]
         logger.info("Ontology documents loaded and split successfully.")
+
     if docs:
         logger.info("External documents provided. Loading external documents.")
         list_of_ext_url_doc_lists = [
@@ -265,6 +269,7 @@ def execute_agent(llm, prompt, docs):
             split_doc for docs in list_of_ext_doc_lists for doc in docs for split_doc in split_documents(doc)
         ]
         logger.info("External documents loaded and split successfully.")
+
     docs_list = grammar_docs_list + ext_docs_list + ont_docs_list
     logger.info("All documents combined into a single list.")
 
