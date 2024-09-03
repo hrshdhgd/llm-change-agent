@@ -1,0 +1,22 @@
+pr2433: []
+pr2114:
+- change annotation of CL:0000568 with MESH:A11.070 to MESH:D001078
+- delete edge CL:0000132 rdfs:subClassOf MESH:A09.371.060.067.31
+- delete edge CL:0000333 rdfs:subClassOf MESH:A16.254.600
+- create edge CL:0000333 rdfs:subClassOf doi:10.1016/j.stem.2015.02.017
+- change annotation of CL:0000577 with MESH:A03.492.766.440.250 to MESH:D004759
+- delete edge CL:0000588 rdfs:subClassOf MESH:A11.329.679
+- delete edge CL:0000547 rdfs:subClassOf MESH:A11.118.290.350.200
+pr2108:
+- remove synonym 'syncytial trophoblast' for CL:0000525
+- remove synonym 'syncytial trophoblast' for UBERON:0000371
+pr1907: []
+pr1696: []
+pr1565: []
+pr1518: []
+pr1465: []
+pr1242: []
+pr639:
+- create edge CL:0000451 is_a CL:0000145
+- create edge CL:0000235 is_a CL:0000145
+- create edge CL:0000236 is_a CL:0000145

@@ -1,0 +1,24 @@
+pr2433: []
+pr2114:
+- change annotation of CL:0000568 with oboInOwl:hasDbXref from 'MESH:A11.070' to 'MESH:D001078'
+- remove annotation of CL:0000132 with oboInOwl:hasDbXref 'MESH:A09.371.060.067.31'
+- remove annotation of CL:0000333 with oboInOwl:hasDbXref 'MESH:A16.254.600'
+- change annotation of CL:0000577 with oboInOwl:hasDbXref from 'MESH:A03.492.766.440.250'
+  to 'MESH:D004759'
+- remove annotation of CL:0000588 with oboInOwl:hasDbXref 'MESH:A11.329.679'
+- remove annotation of CL:0000547 with oboInOwl:hasDbXref 'MESH:A11.118.290.350.200'
+pr2108:
+- remove synonym 'syncytial trophoblast' for UBERON:0000371
+- create edge CL:0000525 BFO:0000050 UBERON:0000371
+pr1907: []
+pr1696: []
+pr1565:
+- change definition of 'male germ cell' to 'germ cell and (capable of part of some
+  spermatogenesis)'
+pr1518: []
+pr1465: []
+pr1242: []
+pr639:
+- create edge CL:0000451 rdfs:subClassOf CL:0000145
+- create edge CL:0000235 rdfs:subClassOf CL:0000145
+- create edge CL:0000236 rdfs:subClassOf CL:0000145

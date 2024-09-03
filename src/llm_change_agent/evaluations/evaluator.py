@@ -170,7 +170,12 @@ def generate_changes_via_llm(eval_dir, output_dir, provider, model):
                         yaml.dump(doc_pr_dict, f, sort_keys=False, default_flow_style=False)
 
                 prompt = issue
-                predicted_changes = run_llm_change_agent(prompt, provider, model)
+                try:
+                    predicted_changes = run_llm_change_agent(prompt, provider, model)
+                except Exception as e:
+                    logger.error(f"Error while generating changes for {doc.name} and PR {pr_id}: {e}")
+                    predicted_changes = []
+                    
 
                 with open(output_sub_dir / doc.name, mode) as out:
                     yaml.dump({pr_id: predicted_changes}, out, sort_keys=False)
@@ -210,9 +215,9 @@ def compare_output_vs_expected(expected_changes, output_changes: List):
     accuracy = 0.0
     total = len(expected_changes)
     correct = 0
-    import pdb
+    # import pdb
 
-    pdb.set_trace()
+    # pdb.set_trace()
 
 
 def run_evaluate(model: str, provider: str):

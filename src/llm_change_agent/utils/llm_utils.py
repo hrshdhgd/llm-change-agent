@@ -247,6 +247,7 @@ def execute_agent(llm, prompt, docs):
         # diff_docs_list = [split_doc for docs in list_of_doc_lists \
         #  for doc in docs for split_doc in split_documents(doc)]
         list_of_ont_doc_lists = [WebBaseLoader(url, show_progress=True).load() for url in ONTOLOGIES_URL]
+        # TODO: split docs based on the document type: https://python.langchain.com/v0.2/docs/how_to/#text-splitters
         ont_docs_list = [
             split_doc for docs in list_of_ont_doc_lists for doc in docs for split_doc in split_documents(doc)
         ]

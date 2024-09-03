@@ -751,41 +751,6 @@
     is a subroperty of connected_to, so does not cause this problem
 
     TBC: change the name of connecting_branch_of in RO to branches_from?'
-- pr3106: 'switch branching_part_of use in the vasculature to connecting branch of
-
-    branching_part_of is a subproperty of part_of, so use of it leads to distantly
-    connected parts of the vasculature appearing to be parts of each other. the replacement
-    is a subroperty of connected_to, so does not cause this problem
-
-    TBC: change the name of connecting_branch_of in RO to branches_from?'
-- pr3106: 'switch branching_part_of use in the vasculature to connecting branch of
-
-    branching_part_of is a subproperty of part_of, so use of it leads to distantly
-    connected parts of the vasculature appearing to be parts of each other. the replacement
-    is a subroperty of connected_to, so does not cause this problem
-
-    TBC: change the name of connecting_branch_of in RO to branches_from?'
-- pr3106: 'switch branching_part_of use in the vasculature to connecting branch of
-
-    branching_part_of is a subproperty of part_of, so use of it leads to distantly
-    connected parts of the vasculature appearing to be parts of each other. the replacement
-    is a subroperty of connected_to, so does not cause this problem
-
-    TBC: change the name of connecting_branch_of in RO to branches_from?'
-- pr3106: 'switch branching_part_of use in the vasculature to connecting branch of
-
-    branching_part_of is a subproperty of part_of, so use of it leads to distantly
-    connected parts of the vasculature appearing to be parts of each other. the replacement
-    is a subroperty of connected_to, so does not cause this problem
-
-    TBC: change the name of connecting_branch_of in RO to branches_from?'
-- pr3106: 'switch branching_part_of use in the vasculature to connecting branch of
-
-    branching_part_of is a subproperty of part_of, so use of it leads to distantly
-    connected parts of the vasculature appearing to be parts of each other. the replacement
-    is a subroperty of connected_to, so does not cause this problem
-
-    TBC: change the name of connecting_branch_of in RO to branches_from?'
 - pr3098: '[NTR] pulmonary venule
 
     **Preferred term label:**
@@ -884,12 +849,6 @@
     \ the [has potential to develop into](http://purl.obolibrary.org/obo/RO_0002387),\
     \ we have directly instead:\n- post-anal tail bud -> post-anal tail\n_Originally\
     \ posted by @gouttegd in https://github.com/obophenotype/uberon/issues/2928#issuecomment-1726376929_"
-- pr3091: 'Correct IRI for foaf:depiction
-
-    Uberon is using `foaf:depicted_by` for image links, but this doesn''t seem to
-    be a legitimate term. It should be `foaf:depiction`. See http://xmlns.com/foaf/spec/#term_depiction
-
-    From https://groups.google.com/d/msg/obo-discuss/VS028a5cl5s/Xp2IH4d2AgAJ'
 - pr3091: 'Correct IRI for foaf:depiction
 
     Uberon is using `foaf:depicted_by` for image links, but this doesn''t seem to
@@ -1013,26 +972,6 @@
     \ below.\nThe only stakeholder I can think of is GO, but they are currently not\
     \ using any \u201Canlage\u201D terms in their own definitions. The earliest developmental\
     \ structures they use are primordia, so they wouldn\u2019t be affected."
-- pr3052: '"insect pharynx" has bogus ID
-
-    The recently added term ''[insect pharynx](http://purl.obolibrary.org/obo/UBERON_60005380)''
-    has an ID with 8-digits (UBERON:60005380) instead of the Uberon standard of 7
-    digits.
-
-    The term needs to be obsoleted for technical reason and replaced with a new term
-    with the correct ID of UBERON:6005380.
-
-    Need a QC check to flag similar bogus IDs in the future.'
-- pr3052: '"insect pharynx" has bogus ID
-
-    The recently added term ''[insect pharynx](http://purl.obolibrary.org/obo/UBERON_60005380)''
-    has an ID with 8-digits (UBERON:60005380) instead of the Uberon standard of 7
-    digits.
-
-    The term needs to be obsoleted for technical reason and replaced with a new term
-    with the correct ID of UBERON:6005380.
-
-    Need a QC check to flag similar bogus IDs in the future.'
 - pr3052: '"insect pharynx" has bogus ID
 
     The recently added term ''[insect pharynx](http://purl.obolibrary.org/obo/UBERON_60005380)''
@@ -1292,31 +1231,6 @@
     ERROR\tduplicate_definition\tUBERON:0001431\tIAO:0000115\t.\nNote: this does have\
     \ xrefs attached to it, so it seems it might have been accidentally removed or\
     \ something?\nBtws, found this when running `sh run.sh make reports/uberon-edit.obo-obo-report.tsv` "
-- pr2962: "Add 'has part' cell types in respiratory structures\nRelated to #2904,\
-    \ some cell types are found in multiple tissues. To avoid the creation of numerous\
-    \ subclasses of a cell type only differing on their location, we can use the object\
-    \ property 'has part'. Some of the CL classes need to be imported.\nStructures\
-    \ that need this axiom will be presented in this format:\nAnatomical structure\
-    \ (AS) --> Cell type (CT)\nWhere AS will include SubclassOF \u2019has part\u2019\
-    \ some CT.\n- [x] epithelium of segmental bronchus --> club cell\n- [x] epithelium\
-    \ of bronchiole --> club cell\n- [x] pulmonary alveolar parenchyma --> type I\
-    \ pneumocyte\n- [x] pulmonary alveolar parenchyma --> type II pneumocyte\n- [x]\
-    \ epithelium of segmental bronchus --> brush cell of bronchus\n- [x] epithelium\
-    \ of segmental bronchus --> basal epithelial cell of tracheobronchial tree\n-\
-    \ [x] epithelium of lobar bronchus --> basal epithelial cell of tracheobronchial\
-    \ tree\n- [x] epithelium of lobar bronchus --> ciliated cell of the bronchus\n\
-    - [x] epithelium of segmental bronchus --> ciliated cell of the bronchus\n- [x]\
-    \ bronchus smooth muscle --> bronchial smooth muscle cell\n- [x] pulmonary alveolar\
-    \ parenchyma --> lung pericyte\n- [x] pulmonary nerve plexus --> sympathetic neuron\n\
-    - [x] epithelium of segmental bronchus --> pulmonary ionocyte\n- [x] epithelium\
-    \ of lobar bronchus --> pulmonary ionocyte\n- [x] cartilage of bronchus --> tracheobronchial\
-    \ chondrocyte\n- [x] lobar bronchus mesenchyme --> tracheobronchial smooth muscle\
-    \ cell\n- [x] epithelium of segmental bronchus --> lung goblet cell\n- [x] epithelium\
-    \ of segmental bronchus --> lung neuroendocrine cell\n- [x] epithelium of bronchiole\
-    \ --> lung ciliated cell\n- [x] terminal bronchiole epithelium --> lung ciliated\
-    \ cell\n- [x] smooth muscle tissue of terminal bronchiole --> bronchiolar smooth\
-    \ muscle cell\n- [x] smooth muscle tissue of respiratory bronchiole --> bronchiolar\
-    \ smooth muscle cell"
 - pr2962: "Add 'has part' cell types in respiratory structures\nRelated to #2904,\
     \ some cell types are found in multiple tissues. To avoid the creation of numerous\
     \ subclasses of a cell type only differing on their location, we can use the object\
@@ -1968,22 +1882,6 @@
 - pr2858: "UBERON:6004520 insect mouth part seems high up the hierarchy \n![image](https://user-images.githubusercontent.com/76212760/228150121-8d7aa9ce-e9f0-41d8-9dea-4963e213bd09.png)\n\
     Insect mouth part seems REALLY high up in the hierarchy - might be underclassified\n\
     @gouttegd would you mind helping me look at this please?\nThanks"
-- pr2847: 'Obsolete generic pan-metazoan pharynx
-
-    I don''t think a generic pharanx makes sense
-
-    - [ ]  - obsolete pharynx
-
-    - [ ]  - keep chordate pharynx (not totally clear if this can be moved up to deut,
-    down to vert, but it''s roughly OK)
-
-    - [ ]  - introduce nematode pharynx
-
-    - [ ]  - intoduce arthropod pharynx
-
-    Also do the same for the pharynx muscle/musculature terms
-
-    See #2724 '
 - pr2847: 'Obsolete generic pan-metazoan pharynx
 
     I don''t think a generic pharanx makes sense
@@ -3308,10 +3206,6 @@
 
     Undo this commit: https://github.com/obophenotype/uberon/commit/af0d05e64ae30c3ddce21c4709916937bdc7fbf8
     when https://github.com/protegeproject/protege/issues/1045 is addressed'
-- pr2505: 'Revert orcid-contributor-violation https check
-
-    Undo this commit: https://github.com/obophenotype/uberon/commit/af0d05e64ae30c3ddce21c4709916937bdc7fbf8
-    when https://github.com/protegeproject/protege/issues/1045 is addressed'
 - pr2500: 'NTR: sublumbar lymph node
 
     **Comment:** The following term is needed to indicate the origin of the tissues
@@ -4366,42 +4260,7 @@
     from visceral epithelium and underlying endothelium, so probably not:
 
     https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0005777'
-- pr2299: '''glomerular visceral epithelium'' should be part of (or merged with) glomerular
-    visceral layer
-
-    ''glomerular visceral epithelium'' currently has no definition.
-
-    The only reason I can see to keep both terms would be if we need to include basement
-    membrane as part of the layer but not part of the epithelium, however, the basement
-    membrane is currently separate and appears to be a composite structure coming
-    from visceral epithelium and underlying endothelium, so probably not:
-
-    https://www.ebi.ac.uk/ols/ontologies/uberon/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FUBERON_0005777'
 - pr2282: "Decide on relationship between renal column and renal medulla\nThe ASCT+B\
-    \ kidney table (1.1 beta)  relates renal column and renal medulla to each other\
-    \ via ccf_part_of.  Validation against Uberon shows that there is currently no\
-    \ is_a, part_of or overlaps relationship between 'renal column - UBERON_0001284'\
-    \ and 'renal medulla - UBERON_0000362'\nReport (showing names used in table):\n\
-    n | s | slabel | user_slabel | o | olabel | user_olabel\n-- | -- | -- | -- | --\
-    \ | -- | --\n\_1 |  UBERON:0001284 | renal column (column of Bertin) | renal column\
-    \ | UBERON:0000362 | renal medulla | renal medulla\nUberon has 'renal column'\
-    \ 'part of' some 'renal cortex' but also has the textual definition: \"A column\
-    \ of tissue that is histologically identical to tissue found in the renal cortex,\
-    \ but which is located in the medulla between the renal pyramids.\"\n![image](https://user-images.githubusercontent.com/112839/136770355-f28a66c4-d9e1-412d-bd71-7d4c545074cc.png)\n\
-    @emquardokus - who should we be speaking to at KPMG about this?"
-- pr2282: "Decide on relationship between renal column and renal medulla\nThe ASCT+B\
-    \ kidney table (1.1 beta)  relates renal column and renal medulla to each other\
-    \ via ccf_part_of.  Validation against Uberon shows that there is currently no\
-    \ is_a, part_of or overlaps relationship between 'renal column - UBERON_0001284'\
-    \ and 'renal medulla - UBERON_0000362'\nReport (showing names used in table):\n\
-    n | s | slabel | user_slabel | o | olabel | user_olabel\n-- | -- | -- | -- | --\
-    \ | -- | --\n\_1 |  UBERON:0001284 | renal column (column of Bertin) | renal column\
-    \ | UBERON:0000362 | renal medulla | renal medulla\nUberon has 'renal column'\
-    \ 'part of' some 'renal cortex' but also has the textual definition: \"A column\
-    \ of tissue that is histologically identical to tissue found in the renal cortex,\
-    \ but which is located in the medulla between the renal pyramids.\"\n![image](https://user-images.githubusercontent.com/112839/136770355-f28a66c4-d9e1-412d-bd71-7d4c545074cc.png)\n\
-    @emquardokus - who should we be speaking to at KPMG about this?"
-- pr2280: "Decide on relationship between renal column and renal medulla\nThe ASCT+B\
     \ kidney table (1.1 beta)  relates renal column and renal medulla to each other\
     \ via ccf_part_of.  Validation against Uberon shows that there is currently no\
     \ is_a, part_of or overlaps relationship between 'renal column - UBERON_0001284'\
@@ -4437,29 +4296,6 @@
     \ of tissue that is histologically identical to tissue found in the renal cortex,\
     \ but which is located in the medulla between the renal pyramids.\"\n![image](https://user-images.githubusercontent.com/112839/136770355-f28a66c4-d9e1-412d-bd71-7d4c545074cc.png)\n\
     @emquardokus - who should we be speaking to at KPMG about this?"
-- pr2279: "Decide on relationship between renal column and renal medulla\nThe ASCT+B\
-    \ kidney table (1.1 beta)  relates renal column and renal medulla to each other\
-    \ via ccf_part_of.  Validation against Uberon shows that there is currently no\
-    \ is_a, part_of or overlaps relationship between 'renal column - UBERON_0001284'\
-    \ and 'renal medulla - UBERON_0000362'\nReport (showing names used in table):\n\
-    n | s | slabel | user_slabel | o | olabel | user_olabel\n-- | -- | -- | -- | --\
-    \ | -- | --\n\_1 |  UBERON:0001284 | renal column (column of Bertin) | renal column\
-    \ | UBERON:0000362 | renal medulla | renal medulla\nUberon has 'renal column'\
-    \ 'part of' some 'renal cortex' but also has the textual definition: \"A column\
-    \ of tissue that is histologically identical to tissue found in the renal cortex,\
-    \ but which is located in the medulla between the renal pyramids.\"\n![image](https://user-images.githubusercontent.com/112839/136770355-f28a66c4-d9e1-412d-bd71-7d4c545074cc.png)\n\
-    @emquardokus - who should we be speaking to at KPMG about this?"
-- pr2278: 'Typo in def of UBERON:0001272 innominate bone
-
-    **Uberon term**
-
-    UBERON:0001272 innominate bone
-
-    **Bug description**
-
-    Def "A fused bone consisting of the ilium, ischium and and pubis. ..."
-
-    => please remove the extra "and", thanks.'
 - pr2278: 'Typo in def of UBERON:0001272 innominate bone
 
     **Uberon term**
@@ -4474,44 +4310,6 @@
 - pr2273: 'changing created_by: [curators'' group] to oboInOwl:source http://purl.obolibrary.org/obo/[ontology]
 
     Comes from suggestion in PR https://github.com/obophenotype/uberon/pull/2206'
-- pr2273: 'changing created_by: [curators'' group] to oboInOwl:source http://purl.obolibrary.org/obo/[ontology]
-
-    Comes from suggestion in PR https://github.com/obophenotype/uberon/pull/2206'
-- pr2273: 'changing created_by: [curators'' group] to oboInOwl:source http://purl.obolibrary.org/obo/[ontology]
-
-    Comes from suggestion in PR https://github.com/obophenotype/uberon/pull/2206'
-- pr2269: "remove axioms that are breaking due to circular import\nuse the following\
-    \ pattern to remove the appropriate things for #2240 as temp fix: \nimports/cl_import.owl:\
-    \ mirror/cl.owl imports/cl_terms_combined.txt\n\tif [ $(IMP) = true ]; then $(ROBOT)\
-    \ query -i $< --update ../sparql/preprocess-module.ru \\\n\t\textract -T imports/cl_terms_combined.txt\
-    \ --force true --copy-ontology-annotations true --individuals include --method\
-    \ BOT \\\n\t\tremove --select \"<http://purl.obolibrary.org/obo/UBERON_*>\" --axioms\
-    \ annotation --signature true \\\n\t\tremove --select \"<http://purl.obolibrary.org/obo/UBPROP_*>\"\
-    \ --axioms annotation --signature true \\\n\t\tquery --update ../sparql/inject-subset-declaration.ru\
-    \ --update ../sparql/postprocess-module.ru \\\n\t\tannotate --ontology-iri $(ONTBASE)/$@\
-    \ $(ANNOTATE_ONTOLOGY_VERSION) --output $@.tmp.owl && mv $@.tmp.owl $@; fi\nOpen\
-    \ a new issue after fix to revert after base file if need be"
-- pr2269: 'surface structure is an asserted parent of cornea - coming from imports
-
-    surface structure is an asserted parent of cornea but this has been removed as
-    an asserted parent in https://github.com/monarch-initiative/mondo/issues/542.
-    This assertion is coming from the NBO and PATO import.
-
-    This is causing an issue in Mondo: https://github.com/monarch-initiative/mondo/issues/542
-
-    Thanks!'
-- pr2269: 'No dbxref on UBERON:7500073 and UBERON:7500074
-
-    Was running some stuff and came upon and error that showed no dbxref on UBERON:7500073
-    and UBERON:7500074
-
-    I''ve currently fixed by putting the term_editor orcid as dbxref
-
-    Assigning to @ramonawalls as the ID falls in your ID range.
-
-    Assigning to @megbalk as the ORCID belongs to you.
-
-    If you are ok with the change I''ve made feel free to close this ticket. '
 - pr2269: "remove axioms that are breaking due to circular import\nuse the following\
     \ pattern to remove the appropriate things for #2240 as temp fix: \nimports/cl_import.owl:\
     \ mirror/cl.owl imports/cl_terms_combined.txt\n\tif [ $(IMP) = true ]; then $(ROBOT)\

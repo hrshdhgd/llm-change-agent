@@ -1,0 +1,22 @@
+pr27330:
+- add GO:0042918 to subset gocheck_do_not_annotate
+- add GO:0042959 to subset gocheck_do_not_annotate
+- add GO:0071705 to subset gocheck_do_not_annotate
+- add GO:0072337 to subset gocheck_do_not_annotate
+- add GO:1900068 to subset gocheck_do_not_annotate
+- add GO:1900070 to subset gocheck_do_not_annotate
+- add GO:1900072 to subset gocheck_do_not_annotate
+- add GO:1903047 to subset gocheck_do_not_annotate
+pr24115: []
+pr18361:
+- rename GO:0150133 from 'biologica_process' to 'biological_process'
+- rename GO:0150134 from 'biologica_process' to 'biological_process'
+- rename GO:0150135 from 'biologica_process' to 'biological_process'
+pr16459: []
+pr15065: []
+pr14730: []
+pr14554: []
+pr14269: []
+pr14042:
+- obsolete GO:0044711
+pr13974: []
