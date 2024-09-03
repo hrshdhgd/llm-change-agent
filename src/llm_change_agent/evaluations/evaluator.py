@@ -4,6 +4,7 @@ import ast
 import logging
 import os
 import random
+import secrets
 import time
 from pathlib import Path
 from typing import Any, List, Union
@@ -111,7 +112,7 @@ def run_llm_change_agent(prompt, provider, model, docs: List[Any] = None) -> Lis
     from llm_change_agent.cli import execute
 
     # Sleep for a random time between 1 and 5 seconds before running the LLM Change Agent
-    sleep_time = random.randint(1, 5)
+    sleep_time = secrets.randbelow(5) + 1
     logger.info(f"Sleeping for {sleep_time} seconds before running the LLM Change Agent.")
     time.sleep(sleep_time)
 
@@ -175,7 +176,6 @@ def generate_changes_via_llm(eval_dir, output_dir, provider, model):
                 except Exception as e:
                     logger.error(f"Error while generating changes for {doc.name} and PR {pr_id}: {e}")
                     predicted_changes = []
-                    
 
                 with open(output_sub_dir / doc.name, mode) as out:
                     yaml.dump({pr_id: predicted_changes}, out, sort_keys=False)
@@ -193,7 +193,7 @@ def compare_changes(expected_dir: Path, output_dir: Path):
     output_files_list_of_dicts = [{f"{file.parts[-3]}_{file.parts[-2]}": {file.name: file}} for file in output_files]
 
     for model_output in output_files_list_of_dicts:
-        for provider_model, file_info in model_output.items():
+        for _provider_model, file_info in model_output.items():
             for filename, filepath in file_info.items():
                 filename = filepath.name
                 expected_file = expected_dir / filename
@@ -206,15 +206,15 @@ def compare_changes(expected_dir: Path, output_dir: Path):
                     expected_change = expected_yaml_subset.get(pr_id)
                     if len(output_changes) > 0:
                         compare_output_vs_expected(expected_change, output_changes)
-        logger.info(f"Finished comparing changes for {provider_model}")
+        logger.info(f"Finished comparing changes for {_provider_model}")
 
 
 def compare_output_vs_expected(expected_changes, output_changes: List):
     """Compare the expected changes with the output changes."""
     output_changes = normalize_to_curies_in_changes(output_changes)
-    accuracy = 0.0
-    total = len(expected_changes)
-    correct = 0
+    # accuracy = 0.0
+    # total = len(expected_changes)
+    # correct = 0
     # import pdb
 
     # pdb.set_trace()
