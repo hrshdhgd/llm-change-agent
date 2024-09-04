@@ -1,6 +1,14 @@
 llm\_change\_agent package
 ==========================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   llm_change_agent.evaluations
+
 Submodules
 ----------
 
