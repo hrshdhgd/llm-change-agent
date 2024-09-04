@@ -191,9 +191,10 @@ def compare_changes(expected_dir: Path, output_dir: Path):
 
     # output_files_dict is : {provider_model: {filename: file_path}}
     output_files_list_of_dicts = [{f"{file.parts[-3]}_{file.parts[-2]}": {file.name: file}} for file in output_files]
-
+    jaccard_score_dict = {}
     for model_output in output_files_list_of_dicts:
-        for _provider_model, file_info in model_output.items():
+        for provider_model, file_info in model_output.items():
+            jaccard_score_dict[provider_model] = {}
             for filename, filepath in file_info.items():
                 filename = filepath.name
                 expected_file = expected_dir / filename
@@ -205,19 +206,32 @@ def compare_changes(expected_dir: Path, output_dir: Path):
                 for pr_id, output_changes in output_yaml.items():
                     expected_change = expected_yaml_subset.get(pr_id)
                     if len(output_changes) > 0:
-                        compare_output_vs_expected(expected_change, output_changes)
-        logger.info(f"Finished comparing changes for {_provider_model}")
+                        jaccard_score_dict[provider_model][pr_id] = get_comparison_metrics(expected_change, output_changes)
+        logger.info(f"Finished comparing changes for {provider_model}")
+    with open(output_dir / "metrics.yaml", "a") as f:
+        yaml.dump(jaccard_score_dict, f, sort_keys=False, default_flow_style=False)
 
 
-def compare_output_vs_expected(expected_changes, output_changes: List):
+def get_comparison_metrics(expected_changes:List, output_changes: List):
     """Compare the expected changes with the output changes."""
     output_changes = normalize_to_curies_in_changes(output_changes)
-    # accuracy = 0.0
-    # total = len(expected_changes)
-    # correct = 0
-    # import pdb
+    expected_changes = normalize_to_curies_in_changes(expected_changes)
+    # Calculate Jaccard between the expected and output changes
+    expected_changes_set = set(expected_changes)
+    output_changes_set = set(output_changes)
+    intersection = expected_changes_set.intersection(output_changes_set)
+    union = expected_changes_set.union(output_changes_set)
+    jaccard = len(intersection) / len(union)
+    logger.info(f"Jaccard similarity between expected and output changes: {jaccard}")
+    #  Caclulate accuracy between the expected and output changes
+    accuracy = len(intersection) / len(expected_changes_set)
 
-    # pdb.set_trace()
+    metrics = {
+        "jaccard": jaccard,
+        "accuracy": accuracy,
+    }
+
+    return metrics
 
 
 def run_evaluate(model: str, provider: str):

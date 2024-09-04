@@ -1,0 +1,31 @@
+cborg_old_google_gemini-pro:
+  pr405:
+    jaccard: 0.0
+    accuracy: 0.0
+  pr396:
+    jaccard: 0.0
+    accuracy: 0.0
+  pr328:
+    jaccard: 0.0
+    accuracy: 0.0
+cborg_old_anthropic_claude-sonnet:
+  pr427:
+    jaccard: 0.0
+    accuracy: 0.0
+  pr405:
+    jaccard: 0.0
+    accuracy: 0.0
+  pr396:
+    jaccard: 0.0
+    accuracy: 0.0
+  pr328:
+    jaccard: 0.0
+    accuracy: 0.0
+openai_old_gpt-4o-2024-08-06:
+  pr328:
+    jaccard: 0.0
+    accuracy: 0.0
+openai_gpt-4o-2024-08-06:
+  pr396:
+    jaccard: 0.0
+    accuracy: 0.0
