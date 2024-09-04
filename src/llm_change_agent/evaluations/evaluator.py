@@ -206,13 +206,15 @@ def compare_changes(expected_dir: Path, output_dir: Path):
                 for pr_id, output_changes in output_yaml.items():
                     expected_change = expected_yaml_subset.get(pr_id)
                     if len(output_changes) > 0:
-                        jaccard_score_dict[provider_model][pr_id] = get_comparison_metrics(expected_change, output_changes)
+                        jaccard_score_dict[provider_model][pr_id] = get_comparison_metrics(
+                            expected_change, output_changes
+                        )
         logger.info(f"Finished comparing changes for {provider_model}")
     with open(output_dir / "metrics.yaml", "a") as f:
         yaml.dump(jaccard_score_dict, f, sort_keys=False, default_flow_style=False)
 
 
-def get_comparison_metrics(expected_changes:List, output_changes: List):
+def get_comparison_metrics(expected_changes: List, output_changes: List):
     """Compare the expected changes with the output changes."""
     output_changes = normalize_to_curies_in_changes(output_changes)
     expected_changes = normalize_to_curies_in_changes(expected_changes)
