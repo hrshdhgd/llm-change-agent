@@ -240,6 +240,9 @@ def run_evaluate(model: str, provider: str):
     """Evaluate the LLM Change Agent."""
     input_dir = Path(__file__).parent / "input"
     output_dir = Path(__file__).parent / "output"
+    if (output_dir / "metrics.yaml").exists():
+        # delete file
+        os.remove(output_dir / "metrics.yaml")
 
     logger.info("Downloading the ONTODIFF_DOCS into the input directory.")
 
