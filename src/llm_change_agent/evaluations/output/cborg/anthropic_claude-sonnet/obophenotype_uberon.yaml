@@ -1,0 +1,67 @@
+pr3318:
+- change definition of UBERON:0002336 from 'White matter structure containing massive
+  numbers of commissural fibers connecting cortical areas in the two cerebral hemispheres.it
+  is subdivided into a genu, a rostrum, a body, and a splenium. (MM).' to 'White matter
+  structure containing massive numbers of commissural fibers connecting cortical areas
+  in the two cerebral hemispheres. It is subdivided into a genu, a rostrum, a body,
+  and a splenium. (MM).'
+pr3318:
+- change definition of UBERON:0002336 from 'White matter structure containing massive
+  numbers of commissural fibers connecting cortical areas in the two cerebral hemispheres.it
+  is subdivided into a genu, a rostrum, a body, and a splenium. (MM).' to 'White matter
+  structure containing massive numbers of commissural fibers connecting cortical areas
+  in the two cerebral hemispheres. It is subdivided into a genu, a rostrum, a body,
+  and a splenium. (MM).'
+pr3204:
+- change definition of UBERON:0002113 to 'A paired organ of the urinary tract that
+  produces urine and maintains bodily fluid homeostasis, blood pressure, pH levels,
+  red blood cell production and bone health.'
+pr3106:
+- change relationship between RO:branching_part_of and RO:connecting_branch_of from
+  rdfs:subPropertyOf RO:part_of to rdfs:subPropertyOf RO:connected_to
+pr3060:
+- create UBERON:9999999 'craniocervical region'
+- add definition '''A region of the body between the head and trunk, which may include
+  a distinct neck in some species or an analogous region with similar skeletal elements
+  in others, such as the craniocervical region in fish.''' to UBERON:9999999
+- change definition of UBERON:0001443 to '''A part of the craniocervical region that
+  is distinctly narrower than the head and trunk, containing cervical vertebrae and
+  connecting the head with the trunk. This structure is present in many vertebrates
+  but may be less distinct or absent in some, such as fish.'''
+- create edge UBERON:0001443 rdfs:subClassOf UBERON:9999999
+pr3050:
+- create edge UBERON:0000949 rdfs:subClassOf UBERON:0015203
+pr3048:
+- create UBERON:9999999 'saphenous vein smooth muscle tissue'
+- add definition 'A portion of smooth muscle tissue that is part of a saphenous vein.'
+  to UBERON:9999999
+- create edge UBERON:9999999 rdfs:subClassOf UBERON:0001135
+- create edge UBERON:9999999 BFO:0000050 UBERON:0007318
+pr2982:
+- create UBERON:0000000 'bronchopulmonary segment'
+- create synonym 'lung segment' for UBERON:0000000
+- add definition 'A discrete anatomical unit of the lung that is composed of a segmental
+  bronchus and the lung tissue supplied by that bronchus. A bronchopulmonary segment
+  exhibits a pyramidal shape, with its apex pointing towards the center of the lung
+  and its base toward the pleural surface.' to UBERON:0000000
+- create edge UBERON:0000000 BFO:0000050 UBERON:0002168
+- create edge UBERON:0001900 BFO:0000051 UBERON:0000000
+- create edge UBERON:0002169 BFO:0000050 UBERON:0000000
+pr2793:
+- change relationship between UBERON:0002186 and 'bronchus' from BFO:0000050 to BFO:0000050
+  'tracheobronchial tree'
+pr2247:
+- move UBERON:4200230 rdfs:subClassOf UBERON:0003102 from UBERON:0003102 to UBERON:4200230
+pr1995:
+- change definition of UBERON:0012247 to 'Mucus-secreting glands in the mucosa of
+  the uterine cervix.'
+- change definition of UBERON:0002530 to 'An organ that functions as a secretory or
+  excretory organ.'
+- change definition of UBERON:0004647 to 'The polygonal structure of the liver that
+  consists of hepatocytes radiating outward from a hepatic vein.'
+- change definition of UBERON:0006729 to 'The extravascular space in the liver between
+  the parenchymal cells and a sinusoid that contains the blood plasma.'
+pr1995:
+- change definition of UBERON:0002926 from 'A epithelium...' to 'An epithelium...'
+- change definition of UBERON:0012251 from 'A epithelium...' to 'An epithelium...'
+- change definition of UBERON:0015807 from 'A epithelium...' to 'An epithelium...'

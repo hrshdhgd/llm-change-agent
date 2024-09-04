@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+src/llm_change_agent/evaluations/input/*.yaml
+!src/llm_change_agent/evaluations/input/evaluation_prs.yaml

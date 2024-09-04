@@ -1,0 +1,32 @@
+pr427: []
+pr405:
+- move 'organismal quality' ECO:0000007 PATO:0000001 from ECO to PATO
+pr396:
+- create node CL:0000000 'pyramidal family morphology' @en
+- add definition 'A cell morphology that inheres in neurons which have a pyramidal
+  shaped soma, a single axon, a large apical dendrite and multiple basal dendrites.'@en
+  to CL:0000000
+- create edge CL:0000000 rdfs:subClassOf CL:0000740
+pr396: []
+pr396: []
+pr396: []
+pr396:
+- create node ILXTR:0000001 'inverted pyramidal morphology'
+- add definition 'A pyramidal cell morphology that inheres in neurons which have an
+  apical tree which is oriented towards the white matter. PMID:30715238' to ILXTR:0000001
+- create edge ILXTR:0000001 rdfs:subClassOf UBERON:0002833
+pr396: []
+pr396:
+- create node NTR:standard pyramidal morphology 'standard pyramidal morphology'
+- create edge NTR:standard pyramidal morphology rdfs:subClassOf CHEBI:58218
+- add definition 'A pyramidal cell morphology that inheres in neurons which have a
+  standard pyramidal shape with its apical dendrite aligned vertically.' to NTR:standard
+  pyramidal morphology
+- create synonym 'vertical pyramidal morphology' for NTR:standard pyramidal morphology
+- create synonym 'pyramidal morphology' for NTR:standard pyramidal morphology
+- add NTR:standard pyramidal morphology to subset ILXTR:0000001
+- create edge NTR:standard pyramidal morphology owl:disjointWith CHEBI:58219
+pr328:
+- change definition of PATO:0000141 to 'Existing or functioning as though broken into
+  separate parts; disorganized; disunified.'
+pr270: []

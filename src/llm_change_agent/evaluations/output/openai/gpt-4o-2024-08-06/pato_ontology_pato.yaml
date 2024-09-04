@@ -1,0 +1,23 @@
+pr427: []
+pr405: []
+pr396: []
+pr396: []
+pr396:
+- create node <http://example.org/untufted_pyramidal_morphology> 'untufted pyramidal
+  morphology'
+- add definition 'A pyramidal cell morphology that inheres in neurons which lack a
+  clear tuft formation but extend to large radial distances. PMID:30715238' to <http://example.org/untufted_pyramidal_morphology>
+- create edge <http://example.org/untufted_pyramidal_morphology> rdfs:subClassOf <http://example.org/pyramidal_morphology>
+pr396: []
+pr396: []
+pr396: []
+pr396:
+- create node <standard_pyramidal_morphology> 'standard pyramidal morphology'
+- create exact synonym 'vertical pyramidal morphology' for <standard_pyramidal_morphology>
+- create exact synonym 'pyramidal morphology' for <standard_pyramidal_morphology>
+- add definition 'A pyramidal cell morphology that inheres in neurons which have a
+  standard pyramidal shape with its apical dendrite aligned vertically.' to <standard_pyramidal_morphology>
+- create edge <standard_pyramidal_morphology> rdfs:subClassOf <pyramidal_morphology>
+- create edge <standard_pyramidal_morphology> owl:disjointWith <horizontal_pyramidal_morphology>
+pr328: []
+pr270: []

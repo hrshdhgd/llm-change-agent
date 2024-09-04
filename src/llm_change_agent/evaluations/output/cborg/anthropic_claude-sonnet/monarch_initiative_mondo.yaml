@@ -1,0 +1,49 @@
+pr7082:
+- create synonym 'TSPAN12-related exudative vitreoretinopathy' for MONDO:0100484
+pr6376:
+- obsolete MONDO:0033211 with replacement MONDO:0017868
+pr5194: []
+pr4598: []
+pr4459:
+- obsolete MONDO:0016050 with replacement MONDO:0011841
+- change synonym 'BASAL GANGLIA DISEASE, BIOTIN-RESPONSIVE' for MONDO:0011841 from
+  related to exact
+pr4042:
+- create MONDO:0000001 'Cataract 2, multiple types'
+- create edge MONDO:0000001 oboInOwl:hasDbXref 'OMIM:604307'
+- change annotation of MONDO:0000000 with rdfs:label from 'pulverulent cataract' to
+  'CATARACT 30, MULTIPLE TYPES'
+pr2053:
+- create MONDO:0000001 'TPM2-Related Myopathy'
+- create exact synonym 'TPM2 myopathy' for MONDO:0000001
+- create exact synonym 'congenital myopathy related to TPM2' for MONDO:0000001
+- create exact synonym 'autosomal dominant TPM2-related myopathy' for MONDO:0000001
+- "add definition 'TPM2-related myopathy is a disorder of the musculoskeletal system\
+  \ that covers a wide spectrum of phenotypes and is caused by pathogenic variants\
+  \ in the skeletal muscle \u03B2-Tropomyosin gene. These variants lead to a variety\
+  \ of overlapping adult onset and congenital myopathies characterized by muscle weakness,\
+  \ amyotrophy, hypotonia, myopathic facies, scoliosis, and sometimes contractures\
+  \ among other phenotypes. Histologic findings on skeletal muscle biopsy are variable\
+  \ with nemaline and intranuclear bodies, cap-like lesions, core-like lesions, fiber-type\
+  \ disproportion, and dystrophic features all observed to some degree.' to MONDO:0000001"
+- create edge MONDO:0000001 rdfs:subClassOf MONDO:0017303
+- create edge MONDO:0000001 rdfs:subClassOf MONDO:0019952
+- move MONDO:0012240 rdfs:subClassOf MONDO:0000001 from MONDO:0017303
+- move MONDO:0009711 rdfs:subClassOf MONDO:0000001 from MONDO:0019952
+- move MONDO:0007294 rdfs:subClassOf MONDO:0000001 from MONDO:0019952
+pr1644:
+- create MONDO:9000000 'Fanconia anemia complementation group M'
+- create edge MONDO:9000000 rdfs:subClassOf MONDO:0019391
+- add definition 'Any Fanconi anemia in which the cause of the disease is a mutation
+  in the FANCM gene.' to MONDO:9000000
+pr1609:
+- create MONDO:0008814 'intracranial arachnoid cyst'
+- create edge MONDO:0008814 rdfs:subClassOf MONDO:0008813
+- move MONDO:0008814 oboInOwl:hasDbXref 'UMLS:C0751615' from MONDO:0008813 to MONDO:0008814
+- move MONDO:0008814 oboInOwl:hasDbXref 'OMIM:207790' from MONDO:0008813 to MONDO:0008814
+pr1565:
+- create edge MONDO:0019046 rdfs:subClassOf MONDO:0005559
+pr1338: []
+pr916:
+- delete edge MONDO:0005772 rdfs:subClassOf MONDO:0000001
+- create edge MONDO:0005772 rdfs:subClassOf MONDO:0000002

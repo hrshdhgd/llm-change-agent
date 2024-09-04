@@ -1,0 +1,68 @@
+monarch_initiative_mondo.yaml:
+- pr916
+- pr4042
+- pr1565
+- pr5194
+- pr4459
+- pr1644
+- pr1338
+- pr1609
+- pr7082
+- pr4598
+- pr6376
+- pr2053
+EnvironmentOntology_envo.yaml:
+- pr1113
+- pr970
+- pr1011
+- pr928
+- pr1113
+- pr1254
+- pr1289
+- pr1289
+- pr1330
+- pr1450
+obophenotype_cell_ontology.yaml:
+- pr1518
+- pr1465
+- pr2108
+- pr639
+- pr1907
+- pr2433
+- pr1565
+- pr1696
+- pr2114
+- pr1242
+geneontology_go_ontology.yaml:
+- pr18361
+- pr14554
+- pr24115
+- pr27330
+- pr15065
+- pr14730
+- pr13974
+- pr16459
+- pr14042
+- pr14269
+obophenotype_uberon.yaml:
+- pr3318
+- pr1995
+- pr3204
+- pr2793
+- pr2247
+- pr2982
+- pr3060
+- pr3050
+- pr3048
+- pr3106
+pato_ontology_pato.yaml:
+- pr427
+- pr270
+- pr396
+- pr328
+- pr270
+- pr270
+- pr396
+- pr270
+- pr405
+- pr270

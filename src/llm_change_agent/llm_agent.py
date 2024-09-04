@@ -1,8 +1,15 @@
 """Main python file."""
 
 from pprint import pprint
+from typing import List, Union
 
-from llm_change_agent.constants import OPEN_AI_MODEL
+from llm_change_agent.constants import (
+    ANTHROPIC_PROVIDER,
+    CBORG_PROVIDER,
+    OLLAMA_PROVIDER,
+    OPEN_AI_MODEL,
+    OPENAI_PROVIDER,
+)
 from llm_change_agent.utils.llm_utils import (
     augment_prompt,
     execute_agent,
@@ -20,12 +27,13 @@ from llm_change_agent.utils.llm_utils import (
 class LLMChangeAgent:
     """Define LLMChangeAgent class."""
 
-    def __init__(self, model: str, prompt: str, provider: str):
+    def __init__(self, model: str, prompt: str, provider: str, docs: Union[List, str]):
         """Initialize LLMChangeAgent class."""
         self.model = model
         self.prompt = prompt
         self.provider = provider
         self.llm = None
+        self.docs = docs
 
     def _get_llm_config(self):
         """Get the LLM configuration based on the selected LLM."""
@@ -46,10 +54,10 @@ class LLMChangeAgent:
             return llm_model
 
         provider_config_map = {
-            "openai": ("OpenAIConfig", get_openai_models),
-            "ollama": ("OllamaConfig", get_ollama_models),
-            "anthropic": ("AnthropicConfig", get_anthropic_models),
-            "cborg": ("CBORGConfig", get_lbl_cborg_models),
+            OPENAI_PROVIDER: ("OpenAIConfig", get_openai_models),
+            OLLAMA_PROVIDER: ("OllamaConfig", get_ollama_models),
+            ANTHROPIC_PROVIDER: ("AnthropicConfig", get_anthropic_models),
+            CBORG_PROVIDER: ("CBORGConfig", get_lbl_cborg_models),
         }
 
         if self.provider in provider_config_map:
@@ -86,6 +94,6 @@ class LLMChangeAgent:
         """Run the LLM Change Agent."""
         llm_config = self._get_llm_config()
         self.llm = llm_factory(llm_config)
-        response = execute_agent(llm=self.llm, prompt=augment_prompt(self.prompt))
+        response = execute_agent(llm=self.llm, prompt=augment_prompt(self.prompt), docs=self.docs)
         pprint(response["output"])
         return response["output"]

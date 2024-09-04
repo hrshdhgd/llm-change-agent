@@ -1,0 +1,16 @@
+pr1450:
+- obsolete ENVO:02500019
+pr1330: []
+pr1289:
+- remove synonym 'garden' for 'garden'
+- remove synonym 'ocean' for 'ocean'
+- remove synonym 'sea' for 'sea'
+- remove synonym 'stream' for 'stream'
+- remove synonym 'reservoir' for 'reservoir'
+pr1254: []
+pr1113: []
+pr1011: []
+pr970: []
+pr928: []
+pr928:
+- create node ENVO:00003095 'enrichment culture'

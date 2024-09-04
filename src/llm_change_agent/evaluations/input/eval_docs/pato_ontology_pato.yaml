@@ -1,0 +1,802 @@
+- pr571: "Standardise orcids in DBxrefs\nAs I understand it, bare URLs are discouraged\
+    \ in xrefs.  We should instead use a stand Curie.  In the case of orcids => \n\
+    https://orcid.org/0000-0003-4148-4606 \n-> \norcid:0000-0003-4148-4606\n(although\
+    \ expansion should probably be registered here: https://github.com/geneontology/go-site/edit/master/metadata/db-xrefs.yaml\
+    \ as this seems to have become the standard reference for xrefs.)"
+- pr562: 'ciliatedness --> ciliated + add mono and multi ciliated subclasses
+
+    PMID:36924208'
+- pr556: 'Make "ratio" the primary label for PATO:0001470 ! proportionality to
+
+    ```yaml
+
+    id: PATO:0001470
+
+    name: proportionality to
+
+    def: "A quality inhering in a bearer by virtue of the bearer''s magnitude in respect
+    to a related entity." [PATOC:nw]
+
+    synonym: "proportion" EXACT []
+
+    synonym: "proportionality" EXACT []
+
+    synonym: "quotient" EXACT []
+
+    synonym: "ratio" EXACT [] !! **make this the primary label**
+
+    synonym: "rate" RELATED []
+
+    is_a: PATO:0001018 ! physical quality
+
+    ```'
+- pr528: '''hyperplastic'' should be defined by cell number rather than size
+
+    Discussed in phenotype ontology editors'' call 02/24/22
+
+    ''hyperplastic'' - PATO:0000644 is currently defined to be an increase in size,
+    but this is not always the case (if the cells are smaller). It should instead
+    be defined as an increase in the number of cells.
+
+    A similar change should be made to ''hypoplastic'' - PATO:0000645'
+- pr503: "Clarify in PATO the distinction between mislocalised and dislocated\nClarify\
+    \ the distinction between [mislocalised PATO:0000628](https://www.ebi.ac.uk/ols/ontologies/pato/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FPATO_0000628)\
+    \ and [dislocated PATO:0001852](https://www.ebi.ac.uk/ols/ontologies/pato/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FPATO_0001852).\n\
+    See [comment]((https://github.com/obophenotype/upheno/pull/829#issuecomment-1138747275)\n\
+    * [position PATO:0000140](https://www.ebi.ac.uk/ols/ontologies/pato/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FPATO_0000140&lang=en&viewMode=PreferredRoots&siblings=false)\
+    \ A spatial quality inhering in a bearer by virtue of the bearer's spatial location\
+    \ relative to other objects in the vicinity.\n    * [displaced PATO:0002181](https://www.ebi.ac.uk/ols/ontologies/pato/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FPATO_0002181&lang=en&viewMode=PreferredRoots&siblings=false)\
+    \ A positional quality inhering in a bearer by virtue the bearer's being changed\
+    \ in position.\n        * [mislocalised PATO:0000628](https://www.ebi.ac.uk/ols/ontologies/pato/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FPATO_0000628)\
+    \ A positional quality inhering in a bearer by virtue the bearer's being changed\
+    \ in abnormal position.\n        * [dislocated PATO:0001852](https://www.ebi.ac.uk/ols/ontologies/pato/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FPATO_0001852)\
+    \ A positional quality inhering in a bearer by virtue of the bearer's being out\
+    \ of its usual or proper place, or position."
+- pr487: "Change definition of PATO_0001739 Radiation Quality\nRadiation quality is\
+    \ a property inhering in the radiation energy and not in the entity or medium\
+    \ exposed to the radiation. \n**New definition:**\nIs a quality of radiation that\
+    \ reflects the fluence spectrum of charged and neutral particles within the material\
+    \ or medium where dose is being deposited.\n**Citation**\nhttps://melodi-online.eu/wp-content/uploads/2021/04/02-What-is-radiation-quality-Goodhead.pdf\n\
+    **Comment:**\nRadiation quality is often expressed in terms of the linear energy\
+    \ transfer of the ionising particles that deliver the absorbed dose. Rossi, Harald\
+    \ H. \u201CSpecification of Radiation Quality.\u201D Radiation Research, vol.\
+    \ 10, no. 5, Radiation Research Society, 1959, pp. 522\u201331, https://doi.org/10.2307/3570787.\
+    \ But this is an over simplification.\nThis remains a quality of a physical  entity\
+    \ but the children need some attention."
+- pr486: 'Create terms ''male with DSD'' and ''female with DSD''
+
+    Individuals with congenital physical disorders of sexual development (DSD; the
+    term ''intersex'' is more commonly known, but is a misnomer as people with DSD
+    are not between sexes, a third sex or hermaphrodites) are not represented under
+    male [PATO_0000384] or female [PATO_0000383]. These conditions can be valuable
+    classifiers when relevant and are not the same as later changing natal/naturally-developed
+    sexual characteristics (ie, castration [PATO_0002367] or spaying [PATO_0040020]).
+
+    Sources:
+
+    https://www.karger.com/Article/FullText/499274
+
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5866176/'
+- pr476: 'NTR: rusty
+
+    Hi PATO team,
+
+    I''ll like to upload the term ''rusty'', here''s the information for the term
+
+    New term: rusty
+
+    Parent: texture (http://purl.obolibrary.org/obo/PATO_0000150)
+
+    Definition: A texture quality inhering in a bearer by virtue of the bearer''s
+    being covered by iron oxide as a result of oxidation.
+
+    Definition cross reference: [https://en.wikipedia.org/wiki/Rust]'
+- pr468: "Cleaning Object Properties in PATO\nPATO currently probably uses non-RO\
+    \ terms for relations when they should be RO (from the report): \nsee http://dashboard.obofoundry.org/dashboard/pato/fp7.html\
+    \ \nThis needs to be fixed by replacing them with RO terms\n@shawntanzk to investigate\
+    \ \nEDIT: Also, Object Properties should not be using mnemonic names (like RO:towards),\
+    \ see also https://github.com/pato-ontology/pato/issues/355, but real ids like\
+    \ RO:001"
+- pr467: 'multipolar neuron morphology (PATO:0070026) def to match up with changes
+    in CL
+
+    see https://github.com/obophenotype/cell-ontology/pull/1407#issuecomment-1015568088'
+- pr458: "Cleaning Object Properties in PATO\nPATO currently probably uses non-RO\
+    \ terms for relations when they should be RO (from the report): \nsee http://dashboard.obofoundry.org/dashboard/pato/fp7.html\
+    \ \nThis needs to be fixed by replacing them with RO terms\n@shawntanzk to investigate\
+    \ \nEDIT: Also, Object Properties should not be using mnemonic names (like RO:towards),\
+    \ see also https://github.com/pato-ontology/pato/issues/355, but real ids like\
+    \ RO:001"
+- pr452: 'Add cellular histological qualities
+
+    We have a set of terms in CL that should be obsoleted and replaced with PATO terms:
+
+    ''acidophilic cytoplasm'' http://purl.obolibrary.org/obo/CP_0000027
+
+    ''basophilic cytoplasm'' http://purl.obolibrary.org/obo/CP_0000028
+
+    ''neutrophillic cytoplasm'' http://purl.obolibrary.org/obo/CP_0000000
+
+    ''polychromatophilic cytoplasm'' http://purl.obolibrary.org/obo/CP_0000035
+
+    Suggested classification definition pattern for these terms:
+
+    cellular quality
+
+    . - cellular histological quality: A quality inhering in a cell by virtue of its
+    capacity to be stained by specific histological dyes.
+
+    . . - cellular acidophilic* histological quality: A cellular quality inhering
+    in a cell by virtue of its capacity to be stained by acidic dyes. Comment: In
+    histopathology this is commonly indicated by pale-pink staining with Wright-Giemsa
+    stain.'
+- pr448: "correct definition for cyst terms\nThe PATO definition of cystic (PATO:0001673)\
+    \ specifies \u201Cepithelium bounded\u201D.\nBy my interpretation this mean that\
+    \ we can not use the cyst in location pattern for terms like syringomyelia since\
+    \ in this case it is neuroglia that lines the fluid filled cavity.\nNCIT cyst\
+    \ (http://www.ontobee.org/ontology/NCIT?iri=http://purl.obolibrary.org/obo/NCIT_C2978)\
+    \ defines this as \u201Csac-like closed membranous structure\u201D \nCan we please\
+    \ remove the reference to epithelium in the definitions for cystic (http://purl.obolibrary.org/obo/PATO_0001673)\
+    \ and polycystic (http://purl.obolibrary.org/obo/PATO_0002089).\nNote the definition\
+    \ for monocystic (http://purl.obolibrary.org/obo/PATO_0002088) is currently  \"\
+    A structure quality inhering in a bearer by virtue of the bearer's body consisting\
+    \ of one sac.\" which I find confusing and I think incorrect. We want to say that\
+    \ there is just one cyst present not that the bearer is a single cyst and nothing\
+    \ else.\nThe definition for polycystic is \"A structure quality inhering in a\
+    \ bearer by virtue of the bearer's body containing more than one cyst - formations\
+    \ of an epithelium bounded cavity not associated with neoplasia.\"\nPossibly monocystic\
+    \ could be fixed by changing from \"consisting of\" to \"containing\"."
+- pr436: "Rename \"originates from\" to include position\nThe \"position\" qualities\
+    \ encode spatial object relations, which is fine, though it suggests that many\
+    \ of those qualities attach between objects in a complementary way, essentially\
+    \ encoding mereotopology into qualities ( e.g. 'adjacent to' - \"A has quality\
+    \ 'adjacent to' [has value] value B\" and visa versa). But I'm just interested\
+    \ in \"originates from\" whose label belies a more specific meaning - its positional\
+    \ quality. Perhaps that quality could be renamed \"position originates from\"\
+    \ or \"originates from position\"? \nMy motivation is that FoodOn is considering\
+    \ asking for an object relation \"originates from\" that connects between an entity\
+    \ and another entity it originates from via some processing or no processing at\
+    \ all."
+- pr431: "Move absence/lacks terms under morphology\nLack of a structure or reduction\
+    \ in numbers of a structure are clearly morphological phenotypes.  \nTBD: how\
+    \ far up the classification hierarchy to make the move,  Do we move 'has number\
+    \ of'  ?  Would users outside of the phenotype world be happy with this change.\n\
+    ![image](https://user-images.githubusercontent.com/112839/92990639-fc84e280-f4d5-11ea-9eb6-3925df1776e6.png)\n\
+    **Morphology**\n![image](https://user-images.githubusercontent.com/112839/92990714-7cab4800-f4d6-11ea-9b4e-72d8b3c4203f.png)"
+- pr430: "fix anterior to and ventral to synonyms \na couple of corrections to make:\
+    \ \nanterior to PATO:0001632 has \"ventral_to\" as exact synonym\nventral to PATO:0001196\
+    \ has \"anterior_to\" as exact synonym"
+- pr429: "Qualities of neurons\nNlx has: \n'apical/basal', bipolar, bitufted, multipolar,\
+    \ other, stellate, 'this is a columnar cell without a true dendrite', unipolar\n\
+    Other than 'other' and the chatty text these should map to shortcut qualities\
+    \ in PATO, some of which can then be axiomatized (e.g similar to the 'multicellular',\
+    \ 'binucleat' pattern) cc @dosumis  @mellybelly "
+- pr427: 'NTR: Diandrous and monandrous
+
+    This will be tricky because diandrous and monandrous mean different things for
+    plants and animals. How should we differentiate in the label?
+
+    Preferred Label
+
+    Diandrous
+
+    Monandrous
+
+    Definition
+
+    Diandrous (plant): having two stamens
+
+    Monandrous (plant): having one stamen
+
+    Diandrous (animal): possessing two different types of males
+
+    Monandrous (animal): having only one type of male
+
+    Parent Class
+
+    The plant terms should be subclasses of ''phenotypic sex''
+
+    the animal terms should be subclasses of ''mixed sex''
+
+    Attribution
+
+    http://orcid.org/0000-0002-2908-3327
+
+    Notes
+
+    There is also diandry: fertilization of an egg by two sperm.'
+- pr424: 'NTR: "thermoplastic"
+
+    Cross reference [EnvironmentOntology/ENVO#1081](https://github.com/EnvironmentOntology/envo/issues/1081)
+
+    Dear PATO team,
+
+    with reference to the ENVO issue above, We''ll be requesting a set of qualities
+    that we think are general enough for PATO. This is connected to the work for UN
+    environment group around SDG14. Together with @iwilkie and @raissameyer, I''ll
+    be working on this for the coming weeks and will add comments to this issue as
+    we identify more new quality terms to be added to PATO. Please let us know if
+    the definitional form is okay and if we should fork and make a pull request or
+    simply add more comments.
+
+    ---
+
+    New term: thermoplastic
+
+    Definition: A physical quality inhering in a bearer by virtue of the bearer''s
+    disposition to deform by heating.
+
+    is_a: [physical quality](http://purl.obolibrary.org/obo/PATO_0001018)
+
+    Source: http://www.gesamp.org/publications/guidelines-for-the-monitoring-and-assessment-of-plastic-litter-in-the-ocean
+
+    dc:contributor https://orcid.org/0000-0002-2996-719X, https://orcid.org/0000-0003-1072-8081,
+    https://orcid.org/0000-0002-8166-0486'
+- pr416: "NTR: cell with bitufted dendrite morphology\nPreferred term label:\ncell\
+    \ with bitufted dendrite morphology\nDefinition:\nA cell morphology that inheres\
+    \ in neurons with dendrites that are bidirectional, emerging from opposite ends\
+    \ of the soma, with the two arbors extending in radial or tangential directions.\
+    \ (PMID: 18568015)\nParent term:\nCell morphology \n_Note: Bipolar and bitufted\
+    \ should be asserted under this_\nrelated to #414 "
+- pr414: "Fix: bitufted cell morphology\nSee comments on https://github.com/obophenotype/cell-ontology/pull/1078\
+    \ \n1. Are branches only dendritic branches?\n2. It should be 'occurs' instead\
+    \ of 'occur' in the gloss."
+- pr409: 'NTR: multipolar neuron morphology
+
+    Preferred term label:
+
+    multipolar neuron morphology
+
+    Definition:
+
+    A cell morphology that inheres in neurons which possess a single axon and many
+    dendrites and dendritic branches.
+
+    https://en.wikipedia.org/w/index.php?title=Multipolar_neuron&oldid=1022942606
+
+    Parent term:
+
+    cell morphology'
+- pr408: "NTR: unipolar neuron morphology\n**Preferred term label:**\nunipolar neuron\
+    \ morphology\n**Definition:**\nA cell morphology that inheres in neurons with\
+    \ only one process, called a neurite, that extends from the cell body. The neurite\
+    \ then branches to form dendritic and axonal processes. \nhttps://en.wikipedia.org/w/index.php?title=Unipolar_neuron&oldid=994458581\n\
+    **Parent term:**\ncell morphology"
+- pr405: 'NTR moving organismal quality terms from ecocore to PATO
+
+    Please see https://github.com/EcologicalSemantics/ecocore/issues/137'
+- pr396: "NTR: pyramidal family morphology\n**Term:** \npyramidal family morphology\n\
+    **Definition:**\nA cell morphology that inheres in neurons which have a pyramidal\
+    \ shaped soma, a single axon, a large apical dendrite and multiple basal dendrites.\n\
+    doi:10.1016/b978-0-12-369497-3.10004-4\n**Parent Class:**\nCell Morphology #364\n\
+    **Others:**\nPyramidal (Shape): SAO:1465673360, ILX:0109553\n**Notes:**\nRelated\
+    \ to https://github.com/obophenotype/cell-ontology/issues/751"
+- pr396: "NTR: tufted pyramidal morphology\n**Term:** \ntufted pyramidal morphology\n\
+    **Definition:**\nA pyramidal cell morphology that inheres in neurons which have\
+    \ a distinct tuft formation, distal from the soma.\nPMID:30715238\n**Parent Class:**\n\
+    pyramidal morphology #376 \n**Other Notes:**\nilxtr:TuftedPyramidalPhenotype"
+- pr396: "NTR: untufted pyramidal morphology\n**Term:** \nuntufted pyramidal morphology\n\
+    **Definition:**\nA pyramidal cell morphology that inheres in neurons which lack\
+    \ a clear tuft formation but extend to large radial distances.\nPMID:30715238\n\
+    **Parent Class:**\npyramidal morphology #376 \n**Other Notes:**\nNeocortex Untufted\
+    \ Pyramidal Cell:  ILX:0381350  \nilxtr:UntuftedPyramidalPhenotype"
+- pr396: "NTR: stellate pyramidal morphology\n**Term:** \nstellate pyramidal morphology\n\
+    **Definition:**\nA pyramidal cell morphology that inheres in neurons which lack\
+    \ a tuft formation but extend to small radial distances forming a star-like shape.\n\
+    PMID:30715238\n**Parent Class:**\npyramidal morphology #376 \n**Other Notes:**\n\
+    ilxtr:StarPyramidalPhenotype"
+- pr396: "NTR: inverted pyramidal morphology\n**Term:** \ninverted pyramidal morphology\
+    \ \n**Definition:**\nA pyramidal cell morphology that inheres in neurons which\
+    \ have an apical tree which is oriented towards the white matter.\nPMID:30715238\n\
+    **Parent Class:**\npyramidal morphology #376 \n**Other Notes:**\nilxtr:InvertedPyramidalPhenotype"
+- pr396: "NTR: horizontal pyramidal morphology\n**Term:** \nhorizontal pyramidal morphology\n\
+    **Definition:**\nA pyramidal cell morphology that inheres in neurons which have\
+    \ an apical tree which is oriented parallel to the pia.\nPMID:30715238\n**Parent\
+    \ Class:**\npyramidal morphology #376 \n**Other Notes:**\nilxtr:HorizontalPyramidalPhenotype"
+- pr396: "NTR: standard pyramidal morphology\nTerm:\nstandard pyramidal morphology\n\
+    Synonyms:\nvertical pyramidal morphology\npyramidal morphology\nDefinition:\n\
+    A pyramidal cell morphology that inheres in neurons which have a standard pyramidal\
+    \ shape with its apical dendrite aligned vertically. \nParent Class:\npyramidal\
+    \ morphology #376\nOthers:\nilxtr:PyramidalPhenotype\ndisjoint with horizontal\
+    \ pyramidal morphology #381 "
+- pr393: "NTR: spiny stellate cell morphology\n**Term:** \nspiny stellate cell morphology\n\
+    **Definition:**\nA cell morphology that inheres in neurons which have spiny basal\
+    \ dendrites and resemble pyramidal cells but lose their apical dendrites as they\
+    \ mature. Their axons nearly always emerge from the descending side of the soma,\
+    \ but often recurve and ascend with arc-like collaterals.\ndoi:10.1016/b978-0-12-369497-3.10004-4\n\
+    **Parent Class:**\nCell Morphology #364\n**Others:**\nNeocortex spiny stellate:\
+    \ SAO:1236796660; ILX:0107391 \nilxtr:SpinyStellatePhenotype"
+- pr392: "NTR: bitufted cell morphology\n**Term:** \nbitufted cell morphology\n**Definition:**\n\
+    A cell morphology that inheres in neurons which have tufts of dendrites extending\
+    \ from two opposite poles of the soma, and have axons that form a plexus which\
+    \ spreads widely, usually descending.\ndoi:10.1016/b978-0-12-369497-3.10004-4\n\
+    **Parent Class:**\nCell Morphology #364\n**Others:**\nilxtr:BituftedPhenotype"
+- pr391: "NTR: chandelier cell morphology\n**Term:** \nchandelier cell morphology\n\
+    **Definition:**\nA cell morphology that inheres in neurons which are small and\
+    \ round, and make highly specialized synapses with the axon initial segments of\
+    \ pyramidal neurons in, wrapping them with candle-shaped synaptic \u201Ccartridges\u201D\
+    .\ndoi:10.1016/b978-0-12-369497-3.10004-4\n**Parent Class:**\nCell Morphology\
+    \ #364\n**Others:**\nNeocortex Chandelier Cell: nifext:57; ILX:0107356. Chandelier\
+    \ Morphology: nifext:4; ILX:0102028\nilxtr:ChandelierPhenotype"
+- pr390: "NTR: stellate morphology\n**Term:** \nstellate morphology\n**Definition:**\n\
+    A cell morphology that inheres in neurons which have dendritic processes radiating\
+    \ for the cell body that forms a star-like shape\n_Note: Need to find ref_\n**Parent\
+    \ Class:**\nCell Morphology #364\n**Others:**\nStellate Morphology: SAO:9271919883,\
+    \ ILX:0111036 "
+- pr389: "NTR: martinotti morphology\n**Term:** \nmartinotti morphology\n**Definition:**\n\
+    A cell morphology that inheres in neurons which are large and non-spiny, with\
+    \ dendrites radiating in a multipolar or bitufted pattern, often favouring the\
+    \ descending side, and axons that ascend directly from the superficial side of\
+    \ the soma, and travel upward without branching.\ndoi:10.1016/b978-0-12-369497-3.10004-4\n\
+    **Parent Class:**\nCell Morphology #364\n**Others:**\nNeocortex Martinotti Cell:\
+    \ nifext:55; ILX:0107375. \nilxtr:MartinottiPhenotype"
+- pr389: "NTR: 'T-shaped' martinotti morphology\n**Term:** \n'T-shaped' martinotti\
+    \ morphology\n**Definition:**\nA martinotti cell morphology that inheres in neurons\
+    \ which have axons that form a horizontal ramification, making it T-shaped.\n\
+    doi:10.1016/b978-0-12-369497-3.10004-4\n**Parent Class:**\nmartinotti morphology\
+    \ #373\n**Other Notes:**"
+- pr389: "NTR: \"fanning-out' martinotti morphology\n**Term:** \n\"fanning-out' martinotti\
+    \ phenotype\n**Definition:**\nA martinotti cell morphology that inheres in neurons\
+    \ which have axons that form a fan-like plexus.\ndoi:10.1016/b978-0-12-369497-3.10004-4\n\
+    **Parent Class:**\nmartinotti morphology #373\n**Other Notes:**"
+- pr388: "NTR: bipolar morphology\n**Term:** \nbipolar morphology\n**Definition:**\n\
+    A cell morphology that inheres in neurons which have two principal dendrites,\
+    \ one ascending and one descending from the cell body, which begins to branch\
+    \ some distance from the soma. These dendrites have few spines, and branch in\
+    \ narrow fields. Bipolar morphology is distinguished from bitufted morphology\
+    \ by the long, unbranched, proximal portions of their principal dendrites and\
+    \ by the simplicity of the axonal plexus.\ndoi:10.1016/b978-0-12-369497-3.10004-4\n\
+    **Parent Class:**\nCell Morphology #364\n**Others:**\nNeocortex Bipolar Cell:\
+    \ nifext:81; ILX:0107352. Bipolar Morphology: nifext:2; ILX:0101312    \nilxtr:BipolarPhenotype"
+- pr387: "NTR: basket cell morphology\n**Term:** \nbasket cell morphology\n**Definition:**\n\
+    A cell morphology that inheres in neurons that have sparsely spinous dendrite,\
+    \ which spread radially and tangentially, with axons on the pial side of the soma\
+    \ ascending or descending to give off horizontal collaterals, which in turn sprout\
+    \ small branches ending in dense tufts of terminals.\ndoi:10.1016/b978-0-12-369497-3.10004-4\n\
+    **Parent Class:**\nCell Morphology #364 \n**Other Notes:**\nNeocortex Basket Cell:\
+    \ nifext:56; ILX:0107351.  Basket Cell Morphology: nifext:3; ILX:0101123 \nilxtr:BasketPhenotype"
+- pr387: "NTR: small basket cell morphology\n**Term:** \nsmall basket cell morphology\n\
+    **Definition:**\nA basket cell morphology that inheres in neurons that are large,\
+    \ aspiny and multipolar, and gives rise to many long horizontally and vertically\
+    \ projecting axon collaterals that traverse neighbouring columns\nPMID:11884355\n\
+    **Parent Class:**\nbasket cell morphology #368 \n**Other Notes:**\nilxtr:SmallBasketPhenotype"
+- pr387: "NTR: large basket cell morphology\n**Term:** \nlarge basket cell morphology\n\
+    **Definition:**\nA basket cell morphology that inheres in neurons that have axonal\
+    \ arbors, composed of frequent short, curvy axonal branches that tend to be near\
+    \ their somata and within the same cortical layer.\nPMID:11884355\n**Parent Class:**\n\
+    basket cell morphology #368 \n**Other Notes:**\nilxtr:LargeBasketPhenotype"
+- pr387: "NTR: nest basket cell morphology\n**Term:** \nnest basket cell morphology\n\
+    **Definition:**\nA basket cell morphology that inheres in neurons which have simpler\
+    \ dendritic arbors (compared to small or large basket cell morphology), and an\
+    \ axonal plexus of intermediate density, composed of a few long, smooth axonal\
+    \ branches.\nPMID:11884355\n**Parent Class:**\nbasket cell morphology #368 \n\
+    **Other Notes:**\nilxtr:NestBasketPhenotype"
+- pr386: "NTR: neurogliaform morphology\n**Term:** \nneurogliaform morphology\n**Definition:**\n\
+    A cell morphology that inheres in neurons which have a small round soma, a large\
+    \ number of short, smooth, or slightly beaded primary dendrites that give rise\
+    \ to only a few secondary branches, and a branched axon that establishes a dense\
+    \ axonal mesh with thin shafts. \nPMID:17122314\n**Parent Class:**\nCell Morphology\
+    \ #364\n**Others:**\nilxtr:NeurogliaformPhenotype"
+- pr363: 'ntr: erythematous
+
+    see: https://github.com/obophenotype/human-phenotype-ontology/issues/5587#issuecomment-619379508'
+- pr361: 'Add a warning to ''weight'' class
+
+    See https://github.com/obophenotype/bio-attribute-ontology/issues/39
+
+    For any biological use of PATO, it''s guaranteed the concept required is ''mass''
+    not ''weight''. '
+- pr349: "Revise def? - fragmented\nNTR: fragmented\nDef: Existing or functioning\
+    \ as though broken into separate parts; disorganized; disunified.\nSource: dictionary.com/browse/unfragmented\n\
+    Parent: PATO_0000141 structure \n@pnrobinson @dosumis @matentzn does this seem\
+    \ like the best parent? Thanks!\nRelated ticket: https://github.com/obophenotype/human-phenotype-ontology/issues/3889\n\
+    This is needed for HPO terms like:\nHP_0100168 'Fragmented epiphyses'"
+- pr348: 'New Term Request - nuclear/cytoplasmic ratio
+
+    cellular quality
+
+    .   .  nuclear/cytoplasmic ratio: ''A quality inhering in a cell by virtue of
+    the ratio between the volume of its nucleus and the volume of its cytoplasm''
+    [Wikipedia:https://en.wikipedia.org/wiki/NC_ratio]; Exact_synonym: "N:C ratio"
+    [Wikipedia:https://en.wikipedia.org/wiki/NC_ratio]
+
+    .   .    .  high nuclear/cytoplasmic ratio:  ''A quality inhering in a cell by
+    virtue of the cell having a high nuclear/cytoplasmic ratio. [https://en.wikipedia.org/wiki/NC_ratio];  exact_synonym:
+    "high N:C ratio"; Comment: TBA - context on what counts as high in the context
+    of hematology.*
+
+    \* @addiehl  - can you reconcile https://en.wikipedia.org/wiki/NC_ratio & http://lymerick.net/blood-cells.pdf
+    to write some guidance on what counts as high here?'
+- pr347: "Missing slim attributes for two child terms of 'proportional to'\nThe following\
+    \ terms should have the \nsubset: relational_slim\nadded to the term definition.\
+    \ The common parent term does have the subset added.\n[Term]\nid: PATO:0040042\n\
+    name: decreased proportionality to\n[Term]\nid: PATO:0040043\nname: increased\
+    \ proportionality to"
+- pr332: "New absent terms in PATO\nOn the [POTATO call on 07/30/30](https://docs.google.com/document/d/1WrQanAMuccS-oaoAIb9yWQAd4Rvy3R3mU01v9wHbriM/edit),\
+    \ we decided we should:\n- Create new terms:\n   - physical absence (child of\
+    \ 'physical object quality')\n   - absent process (child of 'process quality')\n\
+    \   - anatomical entity absence (child of morphology)\nIn the short term:\n- Keep\
+    \ PATO_0000462 absent for now\n    - [x] Add a comment- \"We recommend using the\
+    \ new absent terms physical absence and absent process, respectively. This term\
+    \ is a legacy term  and will ultimately be obsoleted.\" (@nicolevasilevsky)\n\
+    - [x] Announce we will be deprecating \u2018absent\u2019 and will switch to using\
+    \ the new terms\n- Create new PATO classes: (proposed new term is **bold**) (@nicolevasilevsky)\n\
+    - [x] 'physical object quality' -> **physical absence**  (note, this would include\
+    \ chemicals)\n- [x] morphology-> **anatomical entity absence** (note, this would\
+    \ include anatomical entity)\nNote: `'absence due to degeneration', agenesis,\
+    \ aplastic` should be children of anatomical entity absence\n- [x] process quality\
+    \ -> **absent process** (note, this would include biological processes, molecular\
+    \ functions)\n- [ ] Fix patterns (@chris-grove)\n- [ ] Fix imports in respective\
+    \ ontologies\n- [ ] obsolete PATO_0000462 absent, after the new terms have been\
+    \ adopted by the community.\ncc @matentzn \ncc @ybradford \ncc @sbello \ncc @dosumis\
+    \ \ncc @cmungall \ncc @mellybelly \ncc @pnrobinson\ncc @drseb "
+- pr328: "Revise def? - fragmented\nNTR: fragmented\nDef: Existing or functioning\
+    \ as though broken into separate parts; disorganized; disunified.\nSource: dictionary.com/browse/unfragmented\n\
+    Parent: PATO_0000141 structure \n@pnrobinson @dosumis @matentzn does this seem\
+    \ like the best parent? Thanks!\nRelated ticket: https://github.com/obophenotype/human-phenotype-ontology/issues/3889\n\
+    This is needed for HPO terms like:\nHP_0100168 'Fragmented epiphyses'"
+- pr325: 'evaluate report from OBO dashboard
+
+    http://obo-dashboard-test.ontodev.com/
+
+    Report here: http://obo-dashboard-test.ontodev.com/pato/dashboard.html'
+- pr324: 'NTR and definition requests
+
+    We would like to make some updates to the term broken (PATO:0001444)
+
+    Currently the definition of broken is circular, suggest modifying the definition
+    to:
+
+    A structural quality inhering in a bearer by virtue of the bearer''s components
+    no longer being in a single contiguous unit
+
+    split the synonyms ruptured and burst off into a new term
+
+    term name: ruptured
+
+    synonym: burst
+
+    definition: A structural quality inhering in a bearer by virtue of the bearer''s
+    components being torn, typically used for soft tissues or membranes'
+- pr319: 'Relax the axiomatisation of prominence
+
+    Currently we have this:
+
+    ![image](https://user-images.githubusercontent.com/7070631/74434390-429f9800-4e5a-11ea-97d2-d03d45892031.png)
+
+    This causes some [confusion](https://github.com/obophenotype/upheno/issues/510#issuecomment-584346349)
+    as phenotypes with an abnormal prominence of something classify under abnormal
+    position. I vote to simply move the prominence and protruding branches out from
+    under position.
+
+    @dosumis @wdahdul @balhoff @sbello '
+- pr316: 'NTR: decreased/increased proportionality to
+
+    new terms:
+
+    decreased/increased proportionality to
+
+    parent:
+
+    ''proportionality to'''
+- pr304: "Need process quality  terms for describing locomotion\nNeed terms to describe\
+    \ increased and decreased velocity \nincreased linear velocity:  A distance traveled\
+    \ in a specific time that is relatively high.\nis_a increased process quality\n\
+    decreased linear velocity:  A distance traveled in a specific time that is relatively\
+    \ low.\nis_a decreased process quality"
+- pr303: 'porosity should not be a subclass of permeability
+
+    carried over from:
+
+    https://github.com/EnvironmentOntology/envo/issues/894
+
+    We want these to be sibling concepts'
+- pr302: 'synonym for unserrated PATO:0001975
+
+    Please add ''smooth'' as a related synonym for ''unserrated''. '
+- pr301: 'NTR: width and length terms
+
+    - increased width and length
+
+    - decreased width and length'
+- pr291: "NTR: shaded\nHi all, \nOver in ENVO, we have some requests that would benefit\
+    \ from a \"shaded\" quality (e.g. https://github.com/EnvironmentOntology/envo/pull/899)\n\
+    This would likely be a physical quality inhering in a bearer by virtue of that\
+    \ bearer being shielded from visible light. \nIt may be sensible to refer to radiation\
+    \ more generally, but that would be more shielded than shaded."
+- pr290: 'NTR: parous
+
+    Name | Value
+
+    -- | --
+
+    Label | parous
+
+    Definition | An organismal quality of having successfully reproduced.
+
+    Definition source | EFO_0002947 parous
+
+    Parent | PATO_0001995 organismal quality
+
+    Request by VEuPathDB (https://eupathdb.org/)'
+- pr282: 'Please add "double haploid"
+
+    Hello,
+
+    I need to curate a double haploid (DH) pear.
+
+    Looking on https://www.ebi.ac.uk/ols/ontologies/pato/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FPATO_0001374
+
+    I do not see double haploid.
+
+    Is it because they artificially doubled?
+
+    Thank you,
+
+    Mary Ann Tuli'
+- pr270: 'Refactor imports
+
+    pato-edit.obo currently has no import statments. It should have import statements
+    for:
+
+    pato_ext.owl
+
+    imports/...
+
+    pato_ext.owl currently imports pato! AND various import files.  These import statments
+    should be removed.
+
+    All URLs and cataolog xml need to be checked.
+
+    Note by importing pato_ext.owl we will be taking pato out of EL.  However, the
+    aim of this ext file was always to have annotations for axioms outside of EL so
+    that they could be selected easily.  More discussion needed.
+
+    Note - state of import generation from Makefile needs to be investigated too.'
+- pr262: 'sex-specific terms
+
+    We would like terms for ''sex-specific'', ''male-specific'' and ''female-specific''
+    to use in the Drosphila Anatomy Ontology to classify anatomical entities present
+    only in one sex. These can have ''sexually dimorphic'' as a parent.'
+- pr256: 'Add increased/decreased (broadened/narrowed?) spatial distribution of process
+
+    Subtypes of `spatial distribution of a process` (see #252)
+
+    Examples from @mah11:
+
+    E.g.
+
+    id: FYPO:0004322
+
+    name: decreased spatial extent of CENP-A containing nucleosome assembly
+
+    def: "A cellular process phenotype observed in the vegetative growth phase of
+    the life cycle in which nucleosomes containing the histone H3 variant CenH3 (also
+    called CENP-A; Cnp1 in S. pombe) are assembled over a smaller portion of the centromeric
+    region of the chromosome than normal. CENP-A-containing nucleosomes are normally
+    assembled into chromatin around centromeres, encompassing the central core and
+    centromeric inner repeat regions." [GO:0034080, PMID:24710126, PomBase:mah, PomBase:vw]
+
+    id: FYPO:0004749
+
+    name: increased spatial extent of subtelomeric heterochromatin assembly
+
+    def: "A cellular process phenotype observed in the vegetative growth phase of
+    the life cycle in which heterochromatin is assembled over a larger portion of
+    the subtelomeric region of the chromosome than normal." [GO:0031509, PMID:25774602,
+    PomBase:mah]
+
+    ... or even ones like this?
+
+    id: FYPO:0005463
+
+    name: decreased spatial extent of interphase microtubule polymerization
+
+    def: "A cellular process phenotype observed in the vegetative growth phase of
+    the life cycle in which cytoplasmic microtubule polymerization, i.e. the addition
+    of tubulin dimers to the plus end of a cytoplasmic microtubule during interphase
+    of the mitotic cell cycle, does not continue until microtubules reach the ends
+    of the cell." [PMID:12894167, PomBase:mah]
+
+    We also have some ''normal'' spatial extents in FYPO ...'
+- pr235: "synonym for transparent\nPlease add 'hyaline' as synonym for 'transparent'\
+    \ PATO:0000964. The definition for hyaline from merriam webster is: transparent\
+    \ or nearly so and usually homogeneous\n  https://www.merriam-webster.com/dictionary/hyaline"
+- pr233: "color should be a subtype of morphology\nAt the [POTATO workshop](https://docs.google.com/document/d/1rFk-a8VXZGchpclneKOYuZMr6tTB9RCKctOkBPjOH1c/edit#)\
+    \ we decided color should be moved. \n@cmungall @Achchuthan @gmicklem"
+- pr228: 'Add two new subclasses for rate: rate of occurrence & rate of continuous
+    process
+
+    * rate of occurrence:  The number of repeated events per unit time, occurring
+    in a repeating series.  (e.g. the number of heart beats occurring over 1 minute)
+    .
+
+    * rate of continuous process: The rate of output of a continuous process. Example
+    include: growth rate, cell migration rate, enzyme reaction rate.'
+- pr207: "single\nNew term request:  'single'\ndef:  A quality inhering in a bearer\
+    \ by virtue of the bearer's being present as one entity.\nis_a: 'present' PATO:0000467\n\
+    Comment: Need to discuss this as possibly equivalent to PATO:0000070 'count' =\
+    \ 1. \nAlex and Wasila (Phenoscape)"
+- pr206: "query length (PATO:0000122) and related terms\nIn PATO, PATO:0001334 ! diameter\
+    \ is_a PATO:0000122 ! length. This causes undesirable inferences for fission yeast\
+    \ cell shape phenotypes in FYPO.\nMore generally, it looks like PATO isn't internally\
+    \ consistent in how it handles terms in the PATO:0001708 ! 1-D extent branch.\
+    \ \n1. The text definition of length is so broad that I can't easily see the distinction\
+    \ between it and its superclass 1-D extent.\n2.- The fact that PATO:0000122, PATO:0000119\
+    \ ! height; PATO:0000915 ! thickness, PATO:0000921 ! width, and PATO:0001595 !\
+    \ depth are all separate (siblings under PATO:0001708) seems inconsistent with\
+    \ the breadth of the PATO:0000122 text definition. \n3. Between issues 1 and 2,\
+    \ it's as though a broader and a narrower sense of \"length\" are being conflated\
+    \ - the broader corresponding to the text def, and the narrower as in length as\
+    \ opposed to width or depth.\n4. It's also a tiny bit confusing that there are\
+    \ five terms for measurements that each correspond to one of three possible dimensions\
+    \ in space but that's a smaller problem than the others.\n5. PATO:0001711 ! perimeter\
+    \ is also is_a PATO:0000122, but its definition doesn't really fit the text definition\
+    \ of length. A perimeter isn't a distance between two separate points; it's the\
+    \ distance travelled going around a 2-D shape from one point back to the starting\
+    \ point.\n**tl;dr:** It would help us immensely if PATO:0001334 ! diameter and\
+    \ PATO:0001711 ! perimeter could be moved to is_a PATO:0001708 ! 1-D extent. That's\
+    \ the minimal change to relieve us of dodgy inferences.\nAdditional changes to\
+    \ text definitions would help clarify distinctions among the various subclasses\
+    \ of PATO:0001708 ! 1-D extent, but aren't so urgent."
+- pr203: "New term request: fibrotic\nNew term request:\nfibrotic\nparent: PATO_0000025\
+    \ composition\nsuggested def: Fibrosis is the formation of excess fibrous connective\
+    \ tissue in an organ or tissue in a reparative or reactive process. \ndef xref:\
+    \ https://en.wikipedia.org/wiki/Fibrosis"
+- pr201: "new term: posteroventral orientation\ndefinition:        An orientation\
+    \ quality inhering in a bearer by virtue of the bearer having a position that\
+    \ is directed posteroventrally.     \nis_a: orientation\nexact synonym: posteroventrally\
+    \ oriented"
+- pr201: 'new term posteroventral orientation
+
+    synomym: posteroventrally directed
+
+    def: An orientation quality inhering in a bearer by virtue of the bearer having
+    a position that is directed posteroventrally.
+
+    is_a: orientation (PATO:0000133)'
+- pr199: "dysplastic growth\nHi everybody,\nwe need a term called \"dysplastic growth\"\
+    \ for use in the definition of Testicular dysgenesis (current definition is below\
+    \ and is incorrect -- need to replace \"aplastic growth\" with \"dysplastic growth\"\
+    , which can be a sibling term.\n'has part' some \n    ('aplastic growth'\n   \
+    \  and ('inheres in' some testis)\n     and ('has modifier' some abnormal))"
+- pr171: 'add term synonyms
+
+    Under http://purl.obolibrary.org/obo/PATO_0001324 bilateral symmetry, add synonym
+    "pennate". This terms is used to describe bilaterally symmetrical diatoms.
+
+    Under http://purl.obolibrary.org/obo/PATO_0001325 radial symmetry, add synonym
+    "centric". This term is used to describe radially symmetrical diatoms.'
+- pr169: "Propose move the terms for 'response to', 'resistance to' and 'sensitivity\
+    \ toward' to be children of 'organismal quality'\nThese classes (and their child\
+    \ classes) would better fit as children of organismal quality, rather than physical\
+    \ object quality.\norganismal quality (PATO:0001995) : A quality that inheres\
+    \ in an entire organism or part of an organism. [ PATOC:CJM ] \n- response to\
+    \ (PATO:0000077)  \n- resistance to (PATO:0001046)\n- sensitivity toward (PATO:0000085)"
+- pr164: "originates from\ndef: A positional quality inhering in a bearer by virtue\
+    \ of some aspect of that bearer beginning from a position on another entity. \n\
+    is_a: position\nPlease add to relational slim\nThanks,\nWasila and Alex"
+- pr163: 'NTR: ring-shaped
+
+    Def: Shaped like a ring
+
+    Syn: annular'
+- pr162: 'parent for fenestrated
+
+    fenestrated PATO:0002064 (currently a child of ''shape'') is more appropriately
+    a child of ''structure, cavities'' (PATO:0002014)'
+- pr161: 'synonym for ''adjacent to''
+
+    ''approaches'' '
+- pr160: 'typo in def for oriented towards
+
+    Should be "being" rather than "bing"'
+- pr152: 'There is a faulty is_a relationship in the current obo file
+
+    id: PATO:0001816
+
+    name: increased fatigability
+
+    def: "A fatigability which is relatively high." [PATOC:GVG]
+
+    subset: disposition_slim
+
+    subset: value_slim
+
+    synonym: "high fatigability" EXACT []
+
+    is_a: PATO:0001815 ! fatigability
+
+    is_a: PATO:1778
+
+    relationship: is_opposite_of PATO:0001817 ! decreased fatigability
+
+    the second is_a line should contain either a valid pato term or should be removed.'
+- pr130: 'Typo in line 20511 of pato.obo
+
+    It seems there is an underscore missing:
+
+    name: is opposite_of
+
+    instead of
+
+    name: is_opposite_of
+
+    Cheers,
+
+    Gerhard Mayer'
+- pr119: 'NTR: quality of a colloidal suspension, of an aerosol
+
+    Similar to `quality of a liquid` etc.
+
+    `quality of a colloidal suspension`
+
+    preliminary def:
+
+    A physical quality inhering in an entity by virtue of the bearer''s solid constituents
+    being suspended in a liquid or gas, or the bearer''s liquid constituents being
+    suspended in a gas.
+
+    with a subclass
+
+    `quality of an aerosol`
+
+    preliminary def:
+
+    A physical quality inhering in an entity by virtue of the bearer''s solid or liquid
+    constituents being suspended in a gas.'
+- pr117: "prefix obsolete term labels\nCould you please prefix all obsolete term labels?\n\
+    When importing PATO and BFO in a given ontology, Prot\xE9g\xE9 will not properly\
+    \ display the BFO occurrent and continuant classes because classes with the same\
+    \ labels are obsolete in PATO. "
+- pr103: 'Partially malformed structures
+
+    Currently there are 4 sublasses of ''malformed'' - anterioralized, dorsalized,
+    posterioralized, and ventralized - whose definitions require complete lack of
+    the opposite structures (e.g. in an anterioralized embryo, there are no posterior
+    structures) where we actually see a range in experimental outcomes in Xenopus
+    with some but not all opposite structures. We would like to request:
+
+    ```
+
+    id: PATO:new
+
+    name: partially anterioralized
+
+    def: A malformed quality inhering in a bearer by virtue of the bearer''s gross
+    morphology containing what are normally anterior structures and missing some but
+    not all of what are normally posterior structures.
+
+    PATO:0000646 ! malformed
+
+    id: PATO:new
+
+    name: partially dorsalized
+
+    def: A malformed quality inhering in a bearer by virtue of the bearer''s gross
+    morphology containing what are normally dorsal structures and missing some but
+    not all of what are normally ventral structures.
+
+    PATO:0000646 ! malformed
+
+    id: PATO:new
+
+    name: partially posterioralized
+
+    def: A malformed quality inhering in a bearer by virtue of the bearer''s gross
+    morphology containing what are normally posterior structures and missing some
+    but not all of what are normally anterior structures.
+
+    PATO:0000646 ! malformed
+
+    id: PATO:new
+
+    name: partially ventralized
+
+    def: A malformed quality inhering in a bearer by virtue of the bearer''s gross
+    morphology containing what are normally ventral structures and missing some but
+    not all of what are normally dorsal structures.
+
+    PATO:0000646 ! malformed
+
+    ```'

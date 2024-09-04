@@ -1,0 +1,962 @@
+- pr1498: "Change all SubClassOf where RHS is an intesection to multiple axioms\n\
+    @turbomam and I are looking at some oddities in OLS\nhttps://github.com/EBISPOT/ols4/issues/619\n\
+    This is what hail looks like in Protege:\n```owl\n'hail' SubClassOf\n'object aggregate'\n\
+    \ and ('has member' some 'hail stone')\n```\nWe should never have `A subClassOf\
+    \ (B and C)`. This is always equivalent to writing\n- `A SubClassOf B`\n- `A SubClassOf\
+    \ C`\n(this holds whether C is named or an expression)\nWhile the two are equivalent,\
+    \ the latter is always easier for humans, and many tools make assumptions about\
+    \ structural form\n(of course, I also think we should get rid of object aggregate\
+    \ altogether but that is for another day...)"
+- pr1468: 'add ''periphytic biofilm'' subClass of ''biofilm'', with subClasses of
+    it''s own
+
+    Periphyton is defined by [NEON](https://www.neonscience.org/) as ''Mixture of
+    algae, cyanobacteria, microbes, and detritus that coats submerged surfaces in
+    most bodies of water.''
+
+    see a precedent for ''periphytic biofilm'' here: https://www.frontiersin.org/articles/10.3389/fmicb.2021.684903/full
+
+    subclasses:
+
+    - Epilithon: Periphyton colonizing rock substrata.
+
+    - Epipelon: Periphyton colonizing silt substrata.
+
+    - Epiphyton: Periphyton colonizing surface of aquatic plants.
+
+    - Epipsammon: Periphyton colonizing sand substrata.
+
+    - Epixylon: Periphyton colonizing woody substrata.
+
+    cc @aclum @cmungall '
+- pr1459: 'Additional participates in some climactic ecosystem succession axioms
+
+    see also
+
+    - #1453 '
+- pr1450: 'Proposal: obsolete ''alga''
+
+    ## Hey ontobot! apply:
+
+    * obsolete ENVO:02500019
+
+    ---
+
+    Comment: Fixes #1246
+
+    This request comes from BioPortal user: hhegde'
+- pr1447: 'Remove legacy synonyms on ice sheet
+
+    Hey ontobot!, apply:
+
+    -  remove synonym "continental glacier" for ENVO:00000132
+
+    -  remove synonym "glacial tongue" for ENVO:00000132
+
+    -  remove synonym "Arctic pack" for ENVO:00000132
+
+    -  remove synonym "pack ice" for ENVO:00000132
+
+    -  remove synonym "bay ice" for ENVO:00000132
+
+    -  remove synonym "island ice" for ENVO:00000132
+
+    -  remove synonym "polar ice" for ENVO:00000132
+
+    -  remove synonym "continental ice" for ENVO:00000132
+
+    -  remove synonym "shelf ice" for ENVO:00000132
+
+    -   remove synonym "ice mass" for ENVO:00000132
+
+    -  remove synonym "polar ice pack" for ENVO:00000132
+
+    -  remove synonym "ice field" for ENVO:00000132
+
+    -  remove synonym "rock glacier" for ENVO:00000132
+
+    -  remove synonym "ICE FIELD" for ENVO:00000132'
+- pr1430: "Is Astronomical Body Part really a 'Fiat Object Part'?\n[Astronomical Body\
+    \ Part](http://purl.obolibrary.org/obo/ENVO_01000813), which is currently the\
+    \ superclass for many 'natural' spatial feature types, is defined as a subclass\
+    \ of [Fiat object part](http://purl.obolibrary.org/obo/BFO_0000024) \nWhile the\
+    \ latter does not appear to have a good definition, 'Fiat' usually means 'arbitrarily\
+    \ defined by some authority' which is different to the naturally differentiated\
+    \ classes that are currently seen in the hierarchy. Am I misunderstanding something\
+    \ here? "
+- pr1430: "Is Astronomical Body Part really a 'Fiat Object Part'?\n[Astronomical Body\
+    \ Part](http://purl.obolibrary.org/obo/ENVO_01000813), which is currently the\
+    \ superclass for many 'natural' spatial feature types, is defined as a subclass\
+    \ of [Fiat object part](http://purl.obolibrary.org/obo/BFO_0000024) \nWhile the\
+    \ latter does not appear to have a good definition, 'Fiat' usually means 'arbitrarily\
+    \ defined by some authority' which is different to the naturally differentiated\
+    \ classes that are currently seen in the hierarchy. Am I misunderstanding something\
+    \ here? "
+- pr1395: 'http://purl.obolibrary.org/obo/ENVO_01001536 sea ice mass needs a definition
+
+    I suggest "An ice mass comprised primarily of sea ice".'
+- pr1394: 'http://purl.obolibrary.org/obo/ENVO_00000254 label is mispelled - should
+    be till plain instead of till plan
+
+    SSIA'
+- pr1391: "closing several old term request issues from Jagadish\n- [x] close #1030\
+    \ \n- [x] close #1075 \n- [x] close #1191\n- [x] close #1193 \n- [x] close #1200\
+    \ \n- [x] close #1089\n---\n- [x] check [Combined NMDC ENVO_template_robot_sheet](https://docs.google.com/spreadsheets/d/1OQOtSlSjuw4OKre9YNE25-x9XnSNYaSPvbx_UjNZoBA/edit#gid=170789656)\n\
+    - [x] check [NMDC-01_EnvO_template_robot_sheet](https://docs.google.com/spreadsheets/d/1UQq_-tuIX0eQvQOxhf1u5vab4SzBlgIHpDvizv1GOnE/edit#gid=789572388)\n\
+    - [ ] check [NMDC-03_EnvO_template_robot_sheet](https://docs.google.com/spreadsheets/d/12GICSjx2s3Ey0Crv9uMdkW8unt3LxPcOS2_u7EMAr38/edit#gid=154764881)\n\
+    - [x] check [NMDC_02_ENVO_template_robot_sheet](https://docs.google.com/spreadsheets/d/10My7JyR1_GtHZK1mM9Qyx3PXYwn_0f_KYyc3Cm_0kpY/edit#gid=470481549)"
+- pr1381: 'object properties with hash IRIs
+
+    There are two object properties in ENVO with non-resolving hash IRIs:
+
+    - `http://purl.obolibrary.org/obo/envo#has_condition`
+
+    - `http://purl.obolibrary.org/obo/envo#has_increased_levels_of`
+
+    `has_condition` is not used in any axioms; I would immediately obsolete it.
+
+    `has_increased_levels_of` is used in lots of axioms and doesn''t even have a label
+    or any other metadata. I would give it an ENVO IRI for now, whether or not there
+    is any plan to submit this term to RO.'
+- pr1358: 'replace all usages of "cjm" with corresponding ORCID
+
+    @cmungall '
+- pr1344: 'Correct part relation in Grain of Sand and in Sand
+
+    We should say as an axiom that Grain of Sand is "part of some sand"  And for Sand
+    (http://purl.obolibrary.org/obo/ENVO_01000017) we should say has some part grain
+    of sand.'
+- pr1339: "New class: runoff, runoff volume\nPlease add a class `runoff`\nexact_synonym\
+    \ : `surface runoff` `overland flow` \ndefinition `Flow of water across the soil\
+    \ surface occuring when irrigation, rain or snow melt adds water to a surface\
+    \ faster than it can enter the soil` \nhttps://en.wikipedia.org/wiki/Surface_runoff,\
+    \ http://pesticidestewardship.org/water/Pages/Runoff.aspx\nPlease add a class\
+    \ `runoff volume`. \nsubclassOf  `volume` http://purl.obolibrary.org/obo/PATO_0000918\n\
+    subclassOf `'inheres in' some precipitation` ; \ndefinition `A volume quality\
+    \ inhering in precipitation by virtue of the amount of precipitation that flows\
+    \ over land suface.`"
+- pr1330: 'Misspelling in ENVO:01001113 definition
+
+    Correct misspelling of ''conposed'' -> ''composed
+
+    ![image](https://user-images.githubusercontent.com/106114773/183148096-d99410ae-58e3-408e-b398-9c3c5558b263.png)'
+- pr1320: 'NTR: bubble (source), bubble plume etc.
+
+    (related to the MarDATA course)
+
+    I''ve researched some terms related to bubbles, bubble plumes & bubble emissions
+    from bubble sources, which we''ve noticed are not yet present in this ontology.
+
+    In this thread we will propose further definitions related to the issue.'
+- pr1312: 'Fix superclass for ice floe
+
+    We''ve identified as part of our ESIP cryo hackathon `ice floe` should be under
+    `ice mass` (material), and a SC axiom `composed primarily of some water ice` should
+    be added to ice floe.  '
+- pr1289: "remove duplicate synonyms\nThis [PR](https://github.com/EnvironmentOntology/envo/pull/1240)\
+    \ found a number of [duplicate synonyms](https://github.com/EnvironmentOntology/envo/pull/1240#issuecomment-1018847733)\
+    \ in envo:\n```\nERROR\tduplicate_label_synonym\tgarden\thas_exact_synonym\tgarden\n\
+    ERROR\tduplicate_label_synonym\tocean\thas_exact_synonym\tocean\nERROR\tduplicate_label_synonym\t\
+    sea\thas_exact_synonym\tsea\nERROR\tduplicate_label_synonym\tstream\thas_exact_synonym\t\
+    stream\nERROR\tduplicate_label_synonym\treservoir\thas_exact_synonym\treservoir\n\
+    ```\nCan we go ahead and remove them, or is there a reason to keep them around?\n\
+    cc @cmungall @kaiiam @pbuttigieg @turbomam "
+- pr1284: "NTR: toxic waste\nHello, ECTO was looking for a term on toxic waste, details\
+    \ below:\nterm: toxic waste\nparent class: waste (ENVO:00002264)\ndefinition:\
+    \ Waste which contains toxic components (e.g., heavy metals or radiation) which\
+    \ can cause harm to organisms and/or the environment. \nxref: https://en.wikipedia.org/wiki/Toxic_waste "
+- pr1270: "New classes: topsoil, topsoil thickness\n# <h4> topsoil\n- subclassOf `soil`?\n\
+    - definition `The upper, outermost layer of soil`  https://en.wikipedia.org/wiki/Topsoil\n\
+    # <h4> topsoil thickness\n- subclassOf `thickness` http://purl.obolibrary.org/obo/PATO_0000915\
+    \ \n- subclassOf inheres in `topsoil`\n- definition `A thickness quality inhering\
+    \ in topsoil`"
+- pr1260: "New classes: treated wastewater and desalinated water\nfirst try for definitions\n\
+    > `treated wastewater` is a wastewater converted into an effluent that can be\
+    \ either returned to the water cycle with minimal environmental issues or reused.\
+    \  https://en.wikipedia.org/wiki/Wastewater_treatment\n> \n> `desalinated water`\
+    \ A fresh water that was a saline water from which minerals have been removed\
+    \ to produce fresh water suitable for human consumption or irrigation.\n> https://en.wikipedia.org/wiki/Desalination"
+- pr1254: 'NTR: land surface
+
+    "Land surface is concerned mainly with surface phenomena affecting land use and
+    soil development that have traditionally been noted at the point of soil observation."
+
+    (from https://www.publish.csiro.au/book/5230/ )
+
+    Also see http://anzsoil.org/def/au/asls/land-surface
+
+    A different specialization of http://purl.obolibrary.org/obo/ENVO_01000813 ?'
+- pr1253: "NTR: landform\n\"the whole land surface that viewed as a mosaic of tiles\
+    \ of odd shapes and sizes. \" \n(from https://www.publish.csiro.au/book/5230/\
+    \ ) \nAlso see http://anzsoil.org/def/au/asls/landform \nSpecialization of http://purl.obolibrary.org/obo/ENVO_01000813\
+    \ ?"
+- pr1239: "New class: photosynthetically active radiation\nPlease add a class `photosynthetically\
+    \ active radiation irradiance`\nexact_synonym `PAR` \ndefinition `Spectral range\
+    \ of solar radiation from 400 to 700 nanometers that photosynthetic organisms\
+    \ are able to use in the process of photosynthesise`; \nhttps://en.wikipedia.org/wiki/Photosynthetically_active_radiation"
+- pr1230: "New class: soil bulk density\nPlease add a class `soil bulk density`. \n\
+    Exact syn: Bulk density, BD, soil volumetric density\nsubclassOf  `volumetric\
+    \ density`; http://purl.obolibrary.org/obo/PATO_0001353\nsubclassOf `inheres in\
+    \ some soil`\ndefinition `A volumetric density quality which inheres in a soil\
+    \ by virtue of some influence exerted by the soil's mass on a given volume. It\
+    \ is calculated as the dry weight of soil divided by its volume.`\nSource: https://en.wikipedia.org/wiki/Bulk_density\n\
+    https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/nrcs142p2_053256.pdf"
+- pr1230: "New class: soil bulk density\nPlease add a class `soil bulk density`. \n\
+    Exact syn: Bulk density, BD, soil volumetric density\nsubclassOf  `volumetric\
+    \ density`; http://purl.obolibrary.org/obo/PATO_0001353\nsubclassOf `inheres in\
+    \ some soil`\ndefinition `A volumetric density quality which inheres in a soil\
+    \ by virtue of some influence exerted by the soil's mass on a given volume. It\
+    \ is calculated as the dry weight of soil divided by its volume.`\nSource: https://en.wikipedia.org/wiki/Bulk_density\n\
+    https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/nrcs142p2_053256.pdf"
+- pr1215: "ro_import does not include domain/range constraints\nThis allows issues\
+    \ like #1181 \nBecause the import can be problematic (modularity issues, RO needs\
+    \ various classes across OBO for D/Rs), I suggest a step in `make test` which\
+    \ does a merge of ro full and envo and runs hermit, longer term we can work on\
+    \ base files etc"
+- pr1192: "Request for new terms\n@turbomam \n@cmungall \n@TBKReddy\nRequest for creation\
+    \ of new EnvO terms for the list provided [here](https://docs.google.com/spreadsheets/d/12GICSjx2s3Ey0Crv9uMdkW8unt3LxPcOS2_u7EMAr38/edit#gid=154764881)"
+- pr1169: 'Adding axioms to plastic-related terms
+
+    As announced in previous issues, we''ll be adding axioms to plastic-related terms
+    (added by @meichen-liu and @iwilkie, reviewed by @pbuttigieg and @raissameyer)
+    in Phase 2 of this project, which begins with this issue.
+
+    The related issues and PRs are collected in https://github.com/EnvironmentOntology/envo/projects/17.'
+- pr1163: 'Terms missing definitions
+
+    @cmungall @kaiiam @pbuttigieg @turbomam while l working on creating subsets of
+    terms for NMDC, I found a number of terms missing definitions.
+
+    IRI | Label
+
+    --|--
+
+    http://purl.obolibrary.org/obo/ENVO_00002259 | agricultural soil
+
+    http://purl.obolibrary.org/obo/ENVO_00000519 | agricultural terrace
+
+    http://purl.obolibrary.org/obo/ENVO_00002874 | air conditioning unit
+
+    http://purl.obolibrary.org/obo/ENVO_00002121 | alkaline salt lake
+
+    http://purl.obolibrary.org/obo/ENVO_00005745 | allotment garden
+
+    http://purl.obolibrary.org/obo/ENVO_00005759 | alluvial paddy field soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005741 | alpine soil
+
+    http://purl.obolibrary.org/obo/ENVO_00002213 | anaerobic sludge blanket reactor
+
+    http://purl.obolibrary.org/obo/ENVO_01000439 | andesitic volcano
+
+    http://purl.obolibrary.org/obo/ENVO_00002204 | anthropogenic contamination feature
+
+    http://purl.obolibrary.org/obo/ENVO_00005742 | arable soil
+
+    http://purl.obolibrary.org/obo/ENVO_00000121 | artificial channel
+
+    http://purl.obolibrary.org/obo/ENVO_00005770 | beech forest soil
+
+    http://purl.obolibrary.org/obo/ENVO_01001476 | body of liquid
+
+    http://purl.obolibrary.org/obo/ENVO_00000541 | brackish pond
+
+    http://purl.obolibrary.org/obo/ENVO_00005760 | burned soil
+
+    http://purl.obolibrary.org/obo/ENVO_00002143 | calcite hot spring
+
+    http://purl.obolibrary.org/obo/ENVO_00003914 | chalk soil
+
+    http://purl.obolibrary.org/obo/ENVO_00002262 | clay soil
+
+    http://purl.obolibrary.org/obo/ENVO_00000416 | coastal dune
+
+    http://purl.obolibrary.org/obo/ENVO_01000102 | cold surface current
+
+    http://purl.obolibrary.org/obo/ENVO_00002153 | compost biofilter
+
+    http://purl.obolibrary.org/obo/ENVO_00005747 | compost soil
+
+    http://purl.obolibrary.org/obo/ENVO_00003893 | cosmetic product
+
+    http://purl.obolibrary.org/obo/ENVO_00003896 | currency note
+
+    http://purl.obolibrary.org/obo/ENVO_01000440 | dacitic volcano
+
+    http://purl.obolibrary.org/obo/ENVO_0010163 | dry river valley
+
+    http://purl.obolibrary.org/obo/ENVO_0010162 | dry stream valley
+
+    http://purl.obolibrary.org/obo/ENVO_00002260 | dune soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005787 | eucalyptus forest soil
+
+    http://purl.obolibrary.org/obo/ENVO_00003894 | face cream product
+
+    http://purl.obolibrary.org/obo/ENVO_00005754 | fertilized soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005755 | field soil
+
+    http://purl.obolibrary.org/obo/ENVO_01000253 | freshwater river biome
+
+    http://purl.obolibrary.org/obo/ENVO_00005765 | frozen compost soil
+
+    http://purl.obolibrary.org/obo/ENVO_00000000 | geographic feature
+
+    http://purl.obolibrary.org/obo/ENVO_00002112 | gold mine drainage
+
+    http://purl.obolibrary.org/obo/ENVO_00000548 | gravel field
+
+    http://purl.obolibrary.org/obo/ENVO_00005781 | heat stressed soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005763 | humus-rich acidic ash soil
+
+    http://purl.obolibrary.org/obo/ENVO_00000089 | inland cliff
+
+    http://purl.obolibrary.org/obo/ENVO_00000532 | intermittent saline evaporation
+    pond
+
+    http://purl.obolibrary.org/obo/ENVO_00012411 | karst cave
+
+    http://purl.obolibrary.org/obo/ENVO_00000397 | lake channel
+
+    http://purl.obolibrary.org/obo/ENVO_00000891 | large lake biome
+
+    http://purl.obolibrary.org/obo/ENVO_00000887 | large river biome
+
+    http://purl.obolibrary.org/obo/ENVO_00000889 | large river delta biome
+
+    http://purl.obolibrary.org/obo/ENVO_00000888 | large river headwater biome
+
+    http://purl.obolibrary.org/obo/ENVO_00005756 | lawn soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005783 | leafy wood soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005766 | limed soil
+
+    http://purl.obolibrary.org/obo/ENVO_00000396 | marine channel
+
+    http://purl.obolibrary.org/obo/ENVO_01000145 | marine coral reef back reef
+
+    http://purl.obolibrary.org/obo/ENVO_01000148 | marine coral reef buttress zone
+
+    http://purl.obolibrary.org/obo/ENVO_01000146 | marine coral reef crest
+
+    http://purl.obolibrary.org/obo/ENVO_01000149 | marine coral reef deep fore reef
+
+    http://purl.obolibrary.org/obo/ENVO_01000144 | marine coral reef flat zone
+
+    http://purl.obolibrary.org/obo/ENVO_01000147 | marine coral reef fore reef
+
+    http://purl.obolibrary.org/obo/ENVO_01000143 | marine reef
+
+    http://purl.obolibrary.org/obo/ENVO_01000150 | marine subtidal rocky reef
+
+    http://purl.obolibrary.org/obo/ENVO_00000509 | marine terrace
+
+    http://purl.obolibrary.org/obo/ENVO_00005761 | meadow soil
+
+    http://purl.obolibrary.org/obo/ENVO_00000510 | meander neck
+
+    http://purl.obolibrary.org/obo/ENVO_00010621 | medical instrument
+
+    http://purl.obolibrary.org/obo/ENVO_00002128 | mesophilic sulfur spring
+
+    http://purl.obolibrary.org/obo/ENVO_00005769 | mountain forest soil
+
+    http://purl.obolibrary.org/obo/ENVO_00002185 | oil reservoir
+
+    http://purl.obolibrary.org/obo/ENVO_00005740 | paddy field soil
+
+    http://purl.obolibrary.org/obo/ENVO_00003895 | paper product
+
+    http://purl.obolibrary.org/obo/ENVO_00005774 | peat soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005776 | peaty paddy field soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005764 | pond soil
+
+    http://purl.obolibrary.org/obo/ENVO_00000534 | pothole
+
+    http://purl.obolibrary.org/obo/ENVO_00002195 | pyritic acid mine drainage
+
+    http://purl.obolibrary.org/obo/ENVO_00000478 | range of mounts
+
+    http://purl.obolibrary.org/obo/ENVO_00000550 | range of seamounts
+
+    http://purl.obolibrary.org/obo/ENVO_00005790 | red soil
+
+    http://purl.obolibrary.org/obo/ENVO_01000652 | river channel
+
+    http://purl.obolibrary.org/obo/ENVO_00005788 | rubber plantation soil
+
+    http://purl.obolibrary.org/obo/ENVO_00002199 | sandy beach
+
+    http://purl.obolibrary.org/obo/ENVO_00005752 | sawah soil
+
+    http://purl.obolibrary.org/obo/ENVO_01000526 | sedimentary intrusion
+
+    http://purl.obolibrary.org/obo/ENVO_00000892 | small lake biome
+
+    http://purl.obolibrary.org/obo/ENVO_00000890 | small river biome
+
+    http://purl.obolibrary.org/obo/ENVO_00005784 | spruce forest soil
+
+    http://purl.obolibrary.org/obo/ENVO_01000650 | stream channel
+
+    http://purl.obolibrary.org/obo/ENVO_01000187 | subtropical savanna biome
+
+    http://purl.obolibrary.org/obo/ENVO_00002210 | sulfide-oxidizing bioreactor
+
+    http://purl.obolibrary.org/obo/ENVO_01000857 | temperate mediterranean sea biome
+
+    http://purl.obolibrary.org/obo/ENVO_01000189 | temperate savanna biome
+
+    http://purl.obolibrary.org/obo/ENVO_01000215 | temperate shrubland biome
+
+    http://purl.obolibrary.org/obo/ENVO_01000221 | temperate woodland biome
+
+    http://purl.obolibrary.org/obo/ENVO_00002211 | thermophilic anaerobic methanogenic
+    reactor
+
+    http://purl.obolibrary.org/obo/ENVO_01000188 | tropical savanna biome
+
+    http://purl.obolibrary.org/obo/ENVO_01000214 | tropical shrubland biome
+
+    http://purl.obolibrary.org/obo/ENVO_00005778 | tropical soil
+
+    http://purl.obolibrary.org/obo/ENVO_01000220 | tropical woodland biome
+
+    http://purl.obolibrary.org/obo/ENVO_00002184 | underground physiographic feature
+
+    http://purl.obolibrary.org/obo/ENVO_00000104 | undersea feature
+
+    http://purl.obolibrary.org/obo/ENVO_00005786 | upland soil
+
+    http://purl.obolibrary.org/obo/ENVO_00005779 | vegetable garden soil
+
+    http://purl.obolibrary.org/obo/ENVO_00002926 | warm seep
+
+    http://purl.obolibrary.org/obo/ENVO_01000101 | warm surface current
+
+    http://purl.obolibrary.org/obo/ENVO_01000218 | xeric shrubland biome'
+- pr1162: 'Unsatisfiable classes (using HermiT)
+
+    Reasoning in HermiT finds unsatisfiable classes:
+
+    ![image](https://user-images.githubusercontent.com/3186638/112572765-44f45580-8dc1-11eb-8e77-a5dab502a227.png)
+
+    Here is the explanation for the inferences.
+
+    ![image](https://user-images.githubusercontent.com/3186638/112573959-b46b4480-8dc3-11eb-981a-83ea0922cb02.png)
+
+    cc @cmungall @pbuttigieg @kaiiam '
+- pr1158: 'NTR: "weathering of plastic"
+
+    Dear Editors,
+
+    As part of our work with UN Environment on SDG14 we would like to add the following
+    term:
+
+    term: weathering of plastic
+
+    definition: Weathering during which plastics are worn or broken down.
+
+    is_a: weathering
+
+    I will make a PR for this issue once we close issue #1140 , in which the parent
+    term "weathering" is being added.
+
+    Thank you!'
+- pr1155: "NTR: \"fouling\", \"biofouling\"\nDear editors,\nAs part of our work for\
+    \ UN environment on SDG 14 we would like to add the following terms:\n**Term:\
+    \ fouling**\nDefinition: A material accumulation process during which unwanted\
+    \ materials accumulate on solid surfaces. [Source](https://en.wikipedia.org/wiki/Fouling)\n\
+    is_a: [material accumulation process](http://purl.obolibrary.org/obo/ENVO_03000009)\n\
+    **Term: biofouling**\nDefinition: A fouling process during which unwanted biological\
+    \ matter accumulate on solid surfaces. [Source](https://doi.org/10.1098/rsta.2011.0502)\n\
+    is_a: fouling\nComment: The biological matter can be microscale (e.g. biofilms\
+    \ created by microorganism) and macroscale (created by macroorganism). [Source](https://doi.org/10.1098/rsta.2011.0502)\
+    \ \nI'll make a pull request regarding this issue.\nThank you!"
+- pr1149: "NTR: \"plastic manufacturing process\"\nDear Editors,\nAs part of our work\
+    \ on SDG14 with UN Environment we would like to add the following term:\nTerm:\
+    \ plastic manufacturing process\nDefinition: A manufacturing process which has\
+    \ plastic as its specified output.\n[source](https://en.wikipedia.org/wiki/Plastics_industry)\n\
+    is_a: [manufacturing process](https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FENVO_01000993&viewMode=All&siblings=true)\n\
+    We will also include German, Italian and Spanish interpretations and add this\
+    \ to the `envoPlastics` subset.\nI will make a PR \nThank you!"
+- pr1145: 'NTR: "coastal anthropogenic litter"
+
+    Dear Editors,
+
+    Based on comments on #1115, we would like to add the following term for our work
+    on SDG14 with UN Environment:
+
+    Term: coastal anthropogenic litter
+
+    Definition: Anthropogenic litter which is present in a coastal environment.
+
+    is_a: anthropogenic litter
+
+    comment: Very large objects that are discarded are typically considered "debris",
+    but this term is loosely defined and there are no standard size classifications
+    which can be used to distinguish debris from litter.
+
+    Thank you!'
+- pr1143: "NTR: \"biopolymer\" and \"synthetic polymer\"\nDear Editors,\nAs part of\
+    \ our work on SDG14 for UN Environment we would like to add the following terms:\n\
+    Term: biopolymer\nDefinition: A polymer which is produced by living organisms.\n\
+    [Source](https://www.ebi.ac.uk/ols/ontologies/ncit/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C73478&viewMode=All&siblings=false)\n\
+    is_a: polymer \nTerm: synthetic polymer\nDefinition: A polymer which is produced\
+    \ by a manufacturing process.\n[Source](https://www.ebi.ac.uk/ols/ontologies/ncit/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FNCIT_C82130&viewMode=All&siblings=true)\n\
+    is_a: polymer\nThese terms are both already in NCIT, but we thought it would be\
+    \ better to add them as new terms in ENVO and cross-reference to the NCIT entry.\n\
+    I will make a PR regarding this issue.\nThank you!"
+- pr1140: 'NTR: "weathering", "entanglement" and "entanglement of organisms in marine
+    debris"
+
+    Dear Editors,
+
+    As part of our work for UN Environment on SDG14 we would like to add the following
+    terms:
+
+    Term: weathering
+
+    Definition: A material transformation process which produces undesirable change
+    on a substrate due to outdoor exposure.
+
+    [Source](https://doi.org/10.1023/A:1021148205366)
+
+    is_a: [material transformation process](https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FENVO_03000043&viewMode=All&siblings=false)
+
+    Term: entanglement process
+
+    Definition: An environmental system process during which objects or organisms
+    become twisted together with or caught in each other.
+
+    [Source](https://www.lexico.com/definition/entangle)
+
+    is_a: [environmental system process](https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FENVO_02500000)
+
+    Term: entanglement of marine life
+
+    Definition: An entanglement process in which organisms are being caught in marine
+    debris or fishing gear.
+
+    [Source](https://www.fisheries.noaa.gov/insight/entanglement-marine-life-risks-and-response)
+
+    is_a: entanglement process
+
+    I will make a PR regarding this issue.
+
+    Thank you!'
+- pr1138: 'NTR: "fishing", "fishing gear", "ghost fishing", "discarded fishing gear",
+    "abandoned fishing gear" and "lost fishing gear"
+
+    Dear Editors,
+
+    As part of our work for UN Environment on SDG14 we would like to add the 6 following
+    terms related to fishing and fishing gear:
+
+    Term: fishing
+
+    Definition: An anthropogenic environmental process during which any number of
+    fish are caught.
+
+    [Source 1](https://en.wikipedia.org/wiki/Fishing), [Source 2](https://www.lexico.com/definition/fishing)
+
+    is_a: [anthropogenic environmental process](https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FENVO_02500027&viewMode=All&siblings=true)
+
+    Term: ghost fishing
+
+    Definition: The anthropogenic environmental process during which abandoned, lost,
+    and discarded fishing gear continues to attract and entangle target and non-target
+    species.
+
+    [Source](http://www.gesamp.org/publications/guidelines-for-the-monitoring-and-assessment-of-plastic-litter-in-the-ocean)
+
+    is_a: [anthropogenic environmental process](https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FENVO_02500027&viewMode=All&siblings=true)
+
+    Editor note: It is not necessarily driven by the actions of humans, but has been
+    prepared by human actions.
+
+    Term: fishing gear
+
+    Definition: A manufactured product which is used for fishing.
+
+    [Source](https://en.wikipedia.org/wiki/Fishing_tackle)
+
+    is_a: [manufactured product](https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FENVO_00003074&viewMode=All&siblings=true)
+
+    Exact synonym (in English):  fishing tackle
+
+    Term: discarded fishing gear
+
+    Definition: Fishing gear which has been disposed of as it is no longer wanted
+    or needed.
+
+    [Source](https://www.oxfordlearnersdictionaries.com/definition/english/discard_1)
+
+    is_a: fishing gear
+
+    Note: In the literature, including GESAMP Report # 99, this term is often referenced
+    as part of abandoned, lost or otherwise discarded fishing gear (ALDFG).
+
+    Term: abandoned fishing gear
+
+    Definition: Fishing gear which has been purposefully left by the owner to fall
+    into a state of disuse.
+
+    [Source](https://www.merriam-webster.com/dictionary/abandoned)
+
+    is_a: fishing gear
+
+    Note: In the literature, including GESAMP Report # 99, this term is often referenced
+    as part of abandoned, lost or otherwise discarded fishing gear (ALDFG).
+
+    Term: lost fishing gear
+
+    Definition: Fishing gear which has not been found and remains in the environment.
+
+    [Source](https://www.oxfordlearnersdictionaries.com/definition/english/lost_1?q=lost)
+
+    is_a: fishing gear
+
+    Note: In the literature, including GESAMP Report # 99, this term is often referenced
+    as part of abandoned, lost or otherwise discarded fishing gear (ALDFG).
+
+    I''ll make a pull request regarding this issue.
+
+    Thank you!'
+- pr1124: "goosocean subset\nWhen trying to use envo in an ODK import (see [issue](https://github.com/INCATools/ontology-development-kit/issues/411)),\
+    \ an error was thrown for using `http://www.goosocean.org/components/com_oe/oe.php?task=download&id=34507&version=1.0&lang=1&format=1`\
+    \ as the value of an `in_subset` annotation (see screenshot).\nIs this subset\
+    \ intentional?\ncc @cmungall @pbuttigieg @kaiiam \n![image](https://user-images.githubusercontent.com/3186638/117223390-83772a00-addb-11eb-8b1e-892fa28d0790.png)"
+- pr1113: "Import of plastic-related terms\nDear editors,\nAs part of our work on\
+    \ SDG14 and marine plastics we would like to import 12 terms from different ontologies\
+    \ into ENVO. \n| ontology | IRI | term |\n| ------ | ----- | ----- |\n| CHEBI\
+    \ | http://purl.obolibrary.org/obo/CHEBI_60034 | polyethylene polymer |\n| CHEBI\
+    \ | http://purl.obolibrary.org/obo/CHEBI_53550 | poly(propylene) |\n| CHEBI |\
+    \ http://purl.obolibrary.org/obo/CHEBI_53243 | poly(vinyl) chloride |\n| CHEBI\
+    \ | http://purl.obolibrary.org/obo/CHEBI_60737 | polyurethane polymer | \n| CHEBI\
+    \ | http://purl.obolibrary.org/obo/CHEBI_61642 | polystyrene polymer | \nCHEBI\
+    \ | http://purl.obolibrary.org/obo/CHEBI_61452 | poly(ethylene terephthalate)\
+    \ polymer |\nCHEBI | http://purl.obolibrary.org/obo/CHEBI_60027 | polymer\nPATO\
+    \ | http://purl.obolibrary.org/obo/PATO_0001171 | elastic |\nPATO | http://purl.obolibrary.org/obo/PATO_0001172\
+    \ | inelastic |\nPATO | http://purl.obolibrary.org/obo/PATO_0001499 | spherical\n\
+    PATO | http://purl.obolibrary.org/obo/PATO_0000701 | smooth\nSDGIO | http://purl.unep.org/sdg/SDGIO_00010077\
+    \ | waste management service |\nWe'll follow the [wiki page](https://github.com/EnvironmentOntology/envo/wiki/Import-terms-from-other-ontologies)\
+    \ on importing terms.\nWe have added \"waste management service\" to the SDGIO\
+    \ import file, however we noticed that the lines are commented out and did the\
+    \ same for the new term. Is that so because SDGIO is a UNEP ontology and not part\
+    \ of the OBO Foundry? How should we proceed with the import of this term?"
+- pr1105: 'NTR robot file of new transportation and medical infrastructure and other
+    terms
+
+    A [Google sheet ENVO tab](https://docs.google.com/spreadsheets/d/1FkC7p0vLbdoYoUgPMUhlvpHo26RqrP9FuUoXyQdrHGM/edit#gid=90525156)  of
+    NTR requests which has been edited and reviewed for a number of months [edit]
+    will soon exist as a Robot pull request. The terms are motivated by text mining
+    and tagging of Covid19 related paper content.
+
+    One question is the overlap of some OMSRE hospital/clinic facilities, raised in
+    OMSRE issue https://github.com/ufbmi/OMRSE/issues/157 . If there is no OMRSE impact
+    on that chunk of the terminology, then the pull request will have about 260 terms.
+
+    A second ENVO batch edit that should be included in this involves a bit of a reorganization
+    or touchup to some existing related ENVO terms, detailed in rows 271 - 292 of
+    above google sheet. '
+- pr1064: "Mixture terms require new imports\nHello, \n@diatomsRcool and I are interested\
+    \ in developing some mixture terms in ENVO to use for exposure modeling in ECTO\
+    \ that require further imports from ChEBI, and one term from FoodOn. Those imports\
+    \ include these terms:\nCHEBI:29021 | hexane\nCHEBI:43098 | heptane\nCHEBI:28798\
+    \ | rubber particle\nCHEBI:17824 | isopropanol\nCHEBI:15347 | acetone\nCHEBI:17578\
+    \ | toluene\nCHEBI:29362 | ethylene\nCHEBI:46916 | vinyl acetate\nCHEBI:53448\
+    \ | methylcellulose\nCHEBI:13643 | glycol\nCHEBI:33101 | nitrogen dioxide\nCHEBI:155903\
+    \ | copper phthalocyanine\nCHEBI:60766 | polyacrylamide polymer\nFOODON:03302776\
+    \ | soybean oil\nCHEBI:26130 | pigment\nCHEBI:17824 | propan-2-ol\nCHEBI:17790\
+    \ | methanol\nCHEBI:16997 | propane-1,2-glycol\nCHEBI:32234 | titanium dioxide\n\
+    CHEBI:15368 | Acrolein\nCHEBI:39478 | 1,3-Butadiene\nCHEBI:16842 | Formaldehyde\n\
+    CHEBI:30751 | Formic acid\nCHEBI:17790 | Methanol\nCHEBI:17578 | Toluene\nCHEBI:51084\
+    \ | Inorganic nitrates\nCHEBI:24840 | Inorganic sulfates\nCHEBI:26836 | sulfuric\
+    \ acid"
+- pr1035: "suggested axiom changes to ice hierarchy\nContinuing ice discussions from\
+    \ #900 #782  \nCurrent ice hierarchy:\n![image](https://user-images.githubusercontent.com/50745/98488389-b9957180-21dd-11eb-95e7-e69c624649e7.png)\n\
+    ## remove water-body-derived ice\nThis has a single child, sea ice. \nSingle children\
+    \ are a bad smell. If they exist, there should at least be counter-examples provided.\
+    \ What are non-water-body-drived ices, and what are non-sea-ice water-body-derived\
+    \ ices\nwater-body-derived ice has a comment:\n_In the United States, NOAA considers\
+    \ ice formed from the freezing of the waters of the Great Lakes as being the same\
+    \ as sea ice. This class attempts to provide a distinction for clarity._\nI'm\
+    \ not sure how this grouping class helps?\nIf the class is to be retained I would\
+    \ suggest making a logical def as it looks compositional. But I don't understand\
+    \ why it's here and what use cases it supports\n## add logical definitions following\
+    \ a compositional pattern\nin general X ice = ice and composed-primarily-of some\
+    \ X\n## remove equivalence axiom on blue ice\nText defs and logical defs should\
+    \ match\ntext: _Water ice containing little to no air bubbles resulting in a reduction\
+    \ of internal light scattering and, given sufficient volume, a blue appearance._\
+    \ [https://en.wikipedia.org/wiki/Blue_ice_(glacial)]\nlogical: ice and ('has quality'\
+    \ some blue)\nThese don't match, and there are materials that fit the logical\
+    \ def that do not fit the text def\nE.g.\n![image](https://user-images.githubusercontent.com/50745/98488951-c071b380-21e0-11eb-93c5-f6d700c180da.png)\n\
+    I suggest removing the logical def. I also suggest changing the primary label\
+    \ or a synonym to reflect the meaning\nMinor: the text def veers quote a bit from\
+    \ the wikipedia def even though the wikipedia page is given as a source. \n##\
+    \ clarify ice vs water ice\nI understand the need to separate these to support\
+    \ some astro-geo use cases. However, many users will be expecting these to be\
+    \ equivalent. We should at least add an rdfs:comment to ice suggesting that users\
+    \ may want to look to the subclass 'water ice'\nWe may also want to look where\
+    \ ice is used and use a subclass and see if we in fact mean water ice:\n![image](https://user-images.githubusercontent.com/50745/98489132-953b9400-21e1-11eb-91a9-13a97a706d4b.png)\n\
+    I assume this is intended to be water ice?\nor are there glaciers on other planets\
+    \ made from methane, ammonia, etc? If so we really have to consider the complexity\
+    \ of using envo for multi-planet use cases\n## ice surface\nwe have both\n![image](https://user-images.githubusercontent.com/50745/98489304-3f1b2080-21e2-11eb-897e-13b4884a3a07.png)\n\
+    and\n![image](https://user-images.githubusercontent.com/50745/98489327-5b1ec200-21e2-11eb-8d26-b7cf3c3df79f.png)\n\
+    It's confusing to have these shadow classes. The 2D shadows were presumably added\
+    \ to correspond to sweet: http://cor.esipfed.org/ont?iri=http://sweetontology.net/realmCryo/IceSurface\
+    \ --- but it's not clear this is truly the intended semantics of sweet. sweet\
+    \ isn't built on bfo, and it's not clear why the sweet class wasn't mapped to\
+    \ the more intuitive ice surface in envo rather than the 2D immaterial entity\n\
+    where we do populate shadows, and these are compositional, we should have equivalence\
+    \ axioms to make the correspondence clear. currently these are just subclassof\n\
+    note: currently overlaps is being used. it's not clear this is correct, and a\
+    \ 2D immaterial surface overlaps with the 3D material entity it is the boundary\
+    \ of. In any case, it seems a boundary relation is more useful here"
+- pr1011: "Cryohackathon session\nAn ESIP Semantic Harmonization Cluster Cryohackathon,\
+    \ where we continued our tripartite harmonisation between @rduerr's Global Cryosphere\
+    \ Watch definitional synthesis, ENVO, and SWEET. \nIn this session, we finished\
+    \ the phenCryo.ttl terms and the mtrWater terms in the `2020-09-09T20:10Z` of\
+    \ our [harmonisation spreadsheet](https://docs.google.com/spreadsheets/d/1XmqB5F1SKLZ3y-PIVdQByU3Eho4cHAnUUafko3JNtn0/edit#gid=838792429).\n\
+    Just a few more terms to go until we've covered our SWEET/ENVO/GCW scope!"
+- pr997: "Term revision: Cumulus cloud\nThe class for [cumulus cloud](http://purl.obolibrary.org/obo/ENVO_01001414)\
+    \ has an incomplete definition. \nI'll make a PR to fix this \u2601\uFE0F "
+- pr991: 'NTR: graupel
+
+    @rduerr suggests the following definition synthesised from her GCW work:
+
+    >Heavily rimed snow particles, often called snow pellets; often indistinguishable
+    from very small soft hail except for the size convention that hail must have a
+    diameter greater than 5 mm. Typical sizes are 2 to 5 millimeters in diameter (0.1
+    to 0.2 inch). Sometimes distinguished by shape into conical, hexagonal, and lump
+    (irregular) graupel.'
+- pr988: "Upgrade debris flow semantics for wildfire use cases\nProposed definition\
+    \ fro Gary Berg-Cross\n>debris flow \u2013 debris flows occur when masses of poorly\
+    \ sorted sediment, agitated and saturated with water, surge down slopes in response\
+    \ to gravity.  \nfrom https://www.usgs.gov/natural-hazards/landslide-hazards/science/landslides-glossary?qt-science_center_objects=0#qt-science_center_objects\n\
+    Katherine Rowden notes this is compliant with their defintions. \nFirst order\
+    \ modification:\nA debris flow is a mass wasting flow which occurs when masses\
+    \ of poorly sorted sediment are saturated with water and agitated into motion."
+- pr978: "NTRs: radiation\nAdd as a process. Add subclasses for different wavelengths.\n\
+    This may well belong in a physics ontology, but we can incubate for now\nENVO\
+    \ would only store the process. Various other experimental condition ontologies\
+    \ like ZECO EO would use this as a base to define treatment/exposure etc to radiation.\
+    \ Presumably of interest to SDG-like projects too? E.g. MDG-7 is about ozone depletion.\n\
+    ```\n     is_a EO:0007151 ! radiation treatment *** \n      is_a EO:0001039 !\
+    \ radiation mutagen treatment *** \n      is_a EO:0007152 ! radiation intensity\
+    \ regimen *** \n       is_a EO:0007224 ! light intensity regimen *** \n      is_a\
+    \ EO:0007153 ! radiation quantity regimen *** \n       is_a EO:0007078 ! light\
+    \ quantity regimen *** \n      is_a EO:0007154 ! radiation quality treatment ***\
+    \ \n       is_a EO:0001022 ! gamma radiation treatment *** \n       is_a EO:0007196\
+    \ ! light regimen\n        is_a EO:0007222 ! UV light regimen *** \n         is_a\
+    \ EO:0007001 ! UV-B light regimen *** \n         is_a EO:0007002 ! UV-A light\
+    \ regimen *** \n         is_a EO:0007129 ! UV-C light regimen *** \n       is_a\
+    \ EO:0007615 ! Bevatron irradiation *** \n       is_a EO:0007616 ! deuteron irradiation\
+    \ *** \n       is_a EO:0007628 ! X-ray *** \n```\nand\n```\n   is_a ZECO:0000128\
+    \ ! experimental conditions\n    is_a ZECO:0000145 ! electromagnetic radiation\
+    \ experimental conditions *** \n     is_a ZECO:0000146 ! magnetic field\n    \
+    \ is_a ZECO:0000147 ! electric field\n     is_a ZECO:0000148 ! ionizing radiation\
+    \ *** \n      is_a ZECO:0000149 ! gamma ray\n      is_a ZECO:0000150 ! xray\n\
+    \      is_a ZECO:0000151 ! ionizing uv radiation *** \n     is_a ZECO:0000152\
+    \ ! non-ionizing radiation *** \n      is_a ZECO:0000153 ! visible light\n   \
+    \   is_a ZECO:0000154 ! non-ionizing uv\n      is_a ZECO:0000155 ! infrared\n\
+    ```"
+- pr976: "compost soil lacking definition \n[compost soil](http://purl.obolibrary.org/obo/ENVO_00005747)\
+    \ currently lacks a definition. \n@pbuttigieg  Would something as simple as:\n\
+    `Soil which is derived from compost.` suffice?"
+- pr975: "NTR: potting soil\nAccording to the [wiki page](https://en.wikipedia.org/wiki/Potting_soil)\
+    \ they have the following useful sentences:\n> Potting soil is a medium in which\
+    \ to grow plants. Despite its name, little or no soil is used in potting soil.\
+    \ Some common ingredients used in potting soil are peat, composted bark, sand,\
+    \ perlite and recycled mushroom compost, although many others are used and the\
+    \ proportions vary hugely.\nThus @pbuttigieg I propose the following:\n**label:**\
+    \ `agricultural potting mixture`\n**exact synonym** `potting soil` \n**Definition:**\n\
+    `An agricultural environmental material, which comprises a mixture of materials\
+    \ such as peat, composted bark, sand, perlite, or compost, and serves as a medium\
+    \ by which to grow plants.`\n**Axiom:**\nSubClass of [agricultural environmental\
+    \ material](http://purl.obolibrary.org/obo/ENVO_0010003)\n**Comment:**\n`Potting\
+    \ soil can comprise various materials in various constituent ratios, often containing\
+    \ little or no actual soil.` \n**DB X-Ref:** https://en.wikipedia.org/wiki/Potting_soil"
+- pr970: 'Finalise GOOS EOVs
+
+    Complete the representation of the [EOVs ](https://www.goosocean.org/index.php?option=com_content&view=article&id=170&Itemid=101)for
+    IOC-UNESCO GOOS, linking to their specification sheets where applicable. '
+- pr961: "planned deforestation: axiomatize using standard pattern (or potentially\
+    \ obsolete)\nI think any \"planned P\" where P is in scope for ENVO should follow\
+    \ a DP template and always have a logical definition.\nCurrent 'planned deforestation'\
+    \ is:\ndef _A planned process during which humans convert forests into one or\
+    \ more alternative ecosystem types._\nSubClassOf:\n - 'planned process' (OBI)\n\
+    \ - 'has active participant' some 'Homo sapiens'\n - 'has part' some deforestation\n\
+    I think it's always good to have clear starts and ends for processes. The above\
+    \ definition and axioms encompasses processes that have deforestation as a part,\
+    \ but may range much further upstream or downstream. For example, many wars would\
+    \ fit this definition.\nI would advocate for something like:\n_A deforestation\
+    \ that is planned and executed by humans_\n    EquivalentTo: deforestation and\
+    \ realizes some concretizes some plan specification\n(I don't love the complexity\
+    \ of the differentia, but this comes from OBI http://purl.obolibrary.org/obo/OBI_0000011)\n\
+    This makes it a subclass of the existing deforestation class. We have a logical\
+    \ definition, so we get required automatic inferences (subclass of OBI planned\
+    \ process).\nThis pattern can be applied to any planned variant of an existing\
+    \ environmental process\nHOWEVER, I would consider whether we truly need to precompose\
+    \ here. I would much rather provide a more minimal set of classes and have people\
+    \ indicate the degree of planning or other attributes when they use the class.\
+    \ precomposition makes an ontology harder to maintain and harder for users to\
+    \ use.\nAnother oddity here is that the class 'deforestation' has a text definition\
+    \ _The removal of forest and undergrowth to, for example, increase the surface\
+    \ of arable land or to use the timber for construction or industrial purposes._\n\
+    Source: https://www.eionet.europa.eu/gemet/concept?cp=2036 (aside: no longer resolves)\n\
+    The definition and examples sound indistinguishable from planned deforestation\
+    \ to me, although I think the OBI definition is hard to understand. E.g is slash\
+    \ and burn agriculture a planned process according to the OBI definition?"
+- pr928: "NTR: volcanic field \nDerived from #887 \nGeothermally active field may\
+    \ be a good superclass here. Ties in to several other issues handling \"field\"\
+    \ semantics. "
+- pr928: "New ENVO term \"enrichment culture\"\nDear ENVO team (@ikostadi),\nI would\
+    \ like to ask for the creation of a new term in ENVO that would refer to feature\
+    \ and would be characterized as \"enrichment culture\". It would be similar to\
+    \ the term exisiting in BRENDA (https://www.ebi.ac.uk/ols/ontologies/bto/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FBTO_0003810).\
+    \ \nThank you in advance!"
+- pr902: "'volcanic soil' needs work\nI am finding an example to demonstrate ENVO\
+    \ editing workflow to @ukaraoz \nI note some issues with 'volcanic soil'\n - it\
+    \ has no text definition\n - the logical definition is `soil and ('part of' some\
+    \ volcano)` which does not seem correct\n - the xref is to https://en.wikipedia.org/wiki/Volcanic_soil\
+    \ which now redirects to https://en.wikipedia.org/wiki/List_of_vineyard_soil_types\n\
+    Some suggestions from improvement:\n -  https://www.soils4teachers.org/volcanic/\
+    \ suggests this should be defined according to volcanic *ash* content\n - it also\
+    \ suggests 'andisol' as a synonym - or the primary label? See #targetText=In%20USDA%20soil%20taxonomy%2C%20Andisols,including%20allophane%2C%20imogolite%20and%20ferrihydrite."
+- pr853: 'NTR: monsoon
+
+    Superclass: [season](http://purl.obolibrary.org/obo/ENVO_03000096)
+
+    Occurs in: west africa, asia-australia
+
+    Ref: https://en.wikipedia.org/wiki/Monsoon '
+- pr852: 'NTR: acid rain
+
+    Superclass: [water-based rainfall](http://purl.obolibrary.org/obo/ENVO_01000830)
+
+    Involves: [acidic water](http://purl.obolibrary.org/obo/ENVO_01000358)'
+- pr824: "Atmospheric fronts\nAs a follow-up on https://github.com/ESIPFed/sweet/issues/133\
+    \ posted by @JimBiardCics, \nwe'll be updating the semantics of \"fronts\" in\
+    \ this issue. \nResults will be mapped back to the undefined: http://sweetontology.net/phenAtmoFront\n\
+    Marine front semantics are present in ENVO, but no general hierarchy currently\
+    \ exists."
+- pr778: 'NTR: submarine groundwater discharge
+
+    Based on this definition:
+
+    https://en.wikipedia.org/wiki/Submarine_groundwater_discharge
+
+    To be used in an ongoing data submission by GFBio. Any chance to prioritize this,
+    please?'
+- pr771: 'Add term: manganese nodule ecosystem
+
+    A request from [Felix Janssen](https://orcid.org/0000-0002-5607-4012) to add "manganese
+    nodule ecosystem"
+
+    Building on[ polymetallic nodule]( http://purl.obolibrary.org/obo/ENVO_01000112)
+    semantics.'
+- pr759: 'Updating definition and axioms for tundra
+
+    The existing definition does not include alpine tundras, so edited main definition
+    and added two sub-classes for alpine and polar tundras.  Also unclear how to add
+    the semantics of location (i.e., polar) but the quality environmental_condition
+    has definitions that were close enough.  Need to complete the annotations before
+    pushing... The updates are in rduerr-1 branch if someone would like to take a
+    look.'
+- pr745: 'NTR: soil organic matter
+
+    Need this term for the ECSO project.
+
+    definition:  The organic matter component of soil, consisting of plant and animal
+    residues at various stages of decomposition, cells and tissues of soil organisms,
+    and substances synthesized by soil organisms.
+
+    source: https://en.wikipedia.org/wiki/Soil_organic_matter
+
+    I can handle this issue.'
+- pr728: "import new terms from CHEBI\nHi @pbuttigieg . There's 20 CHEBI terms that\
+    \ we would like to be imported for use in ECSO.  I'll assign you to this issue\
+    \ for now, so I can see what the process is like. Thanks.\nchemical_name | CHEBI_URI\n\
+    -- | --\nbromine | http://purl.obolibrary.org/obo/CHEBI_22927\ncerium | http://purl.obolibrary.org/obo/CHEBI_33369\n\
+    cobalt | http://purl.obolibrary.org/obo/CHEBI_27638\ndysprosium | http://purl.obolibrary.org/obo/CHEBI_33377\n\
+    europium | http://purl.obolibrary.org/obo/CHEBI_32999\ngadolinium | http://purl.obolibrary.org/obo/CHEBI_33375\n\
+    lanthanum | http://purl.obolibrary.org/obo/CHEBI_33336\nlithium | http://purl.obolibrary.org/obo/CHEBI_30145\n\
+    methanesulfonic acid | http://purl.obolibrary.org/obo/CHEBI_27376\nmolybdenum\
+    \ | http://purl.obolibrary.org/obo/CHEBI_28685\nneodymium | http://purl.obolibrary.org/obo/CHEBI_33372\n\
+    niobium | http://purl.obolibrary.org/obo/CHEBI_33344\npraseodymium | http://purl.obolibrary.org/obo/CHEBI_49828\n\
+    samarium | http://purl.obolibrary.org/obo/CHEBI_33374\nsilver | http://purl.obolibrary.org/obo/CHEBI_30512\n\
+    thallium | http://purl.obolibrary.org/obo/CHEBI_30440\ntin | http://purl.obolibrary.org/obo/CHEBI_27007\n\
+    titanium | http://purl.obolibrary.org/obo/CHEBI_33341\nyttrium | http://purl.obolibrary.org/obo/CHEBI_33331\n\
+    \_ | \_"
+- pr714: 'Use RO determined_by relation
+
+    Currently ENVO uses it''s own relation here, should use RO'
+- pr710: "NTR: Forest floor\nThere are terms for ocean floor, cave floor and various\
+    \ building floors, but not one for forest floor. \nPerhaps multiple terms are\
+    \ required for the different forest types? but for my purposes I would be content\
+    \ with just \"Forest Floor\" - ground level solid surface found within a forest\
+    \ biome.\nPerhaps it goes directly within \"geographic feature [ENVO_00000000]\"\
+    ?"
+- pr709: 'PURLs for WWF ecoregions
+
+    Please create some dummy PURLs for the WWF ecoregions and export a table with
+    the PURLs and the WWF ecoregion labels. There is moderate urgency. Thank you.'
+- pr693: increased combustibility unsatisfiable
+- pr637: "boundary layers\nsingle is-a child is a bad smell:\n```\n       is_a ENVO:01000544\
+    \ ! boundary layer\n           is_a ENVO:01000323 ! atmospheric boundary layer\n\
+    ```\nthe def here is a bit odd:\n```\nid: ENVO:01000544\nname: boundary layer\n\
+    namespace: ENVO\ndef: \"A boundary layer is a layer of fluid in the immediate\
+    \ vicinity of a bounding surface where the effects of viscosity are significant\
+    \ enough to distort the surrounding non-viscous flow.\" [https://en.wikipedia.org/wiki/Boundary_layer]\n\
+    synonym: \"boundary layer\" RELATED [http://www.eionet.europa.eu/gemet/concept/976]\n\
+    is_a: ENVO:01000281  ! layer\n```\ntext def: I realize fluid here encompasses\
+    \ gases, might be worth making this explicit.\naxioms: should we axiomatize using\
+    \ [ENVO:00010504](http://purl.obolibrary.org/obo/ENVO_00010504) ! surface layer\n\
+    (aside: should never have a RELATED syn that is the same as the label for the\
+    \ same class)\n```\nid: ENVO:01000323\nname: atmospheric boundary layer\nnamespace:\
+    \ ENVO\ndef: \"The atmospheric boundary layer is the lowest layer of an atmosphere\
+    \ which is strongly influenced by its contact with a planetary surface with strong\
+    \ vertical mixing and in which physical quantities such as flow velocity, temperature,\
+    \ and moisture display rapid fluctuations (turbulence).nnn\" []\nsubset: envoPolar\
+    \ \nsynonym: \"planetary boundary layer\" EXACT []\nis_a: ENVO:01000544  ! boundary\
+    \ layer\nrelationship: bounding_layer_of ENVO:01000267 ! atmosphere\n```\n(aside:\
+    \ the `nnn` looks like an issues introduced by newlines at the end of the def)\n\
+    additional axioms not translated to obo:\n```\nSubClassOf\n'boundary layer'\n\
+    \ and ('part of' some atmosphere)\n and ('adjacent to' some 'planetary surface')\n\
+    ```\n@pbuttigieg how would you feel about translating this to an equivalence axiom?"
+- pr487: "Prepping pull request 3 for project cryophile\n### from #476\nIn last pull\
+    \ request I added geographic basin \nIn response to @pbuttigieg:\n> Please link\
+    \ with appropriate axioms to planetary crust.\nI'm not sure if located in or part\
+    \ of is more appropriate here: topology is somewhat slippery in that regard.\n\
+    Invoking something like 'geographic scale' is not something I'm a huge fan of,\
+    \ but it is used by physical geographers.\nI've added the subclass axiom:\n> 'adjacent\
+    \ to' some 'planetary crust'\n### from #482\n@mschecht addressing @pbuttigieg's\
+    \ concerns:\n> change the label of marine sediment to \"deep marine sediment\"\
+    \ Please also change the synonym type to \"has related synonym\". \nAdd a new\
+    \ superclass marine sediment with a similar definition, just not requiring it\
+    \ to be in the deep. \nAdd a class, shallow marine sediment, (subclass of marine\
+    \ sediment, sibling to deep marine sediment) with a synonym \"neritic marine sediment\"\
+    . Again, similar def, but this time the sediment should be on a shelf, slope,\
+    \ or rise.\nTo sediment I added the comment:\n> It is recommended to use a combination\
+    \ of sediment terms to describe a more specific sediment type.\nI renamed marine\
+    \ sediment to deep marine sediment\nchanged: has_exact_synonym pelagic sediment\
+    \ to has_related_synonym pelagic sediment\ndef changed to: \n> Sediment that accumulates\
+    \ in the flat or very gently sloping areas of the deep ocean basin floor. The\
+    \ three main types of deep marine sediment, also known as pelagic sediment, are\
+    \ siliceous oozes, calcareous oozes, and red clays.\nadded Class marine sediment\
+    \ (super class to deep marine sediment): \n> Sediment which accumulates within\
+    \ an ocean basin. \nadded class: shallow marine sediment\n> Marine sediment which\
+    \ accumulates within shallow regions of the oceanic basin close to continents,\
+    \ such as the continental shelf, or continental slope. \nwith has_related_synonym\
+    \ neritic marine sediment\nI also added subclass axiom:\n'adjacent to' some ('continental\
+    \ shelf' or 'continental slope') \n### from #475\nI've added: \nsupraglacial lake\
+    \ \n> A water body which is located in a depression within the surface of a glacier.\n\
+    as far as I can tell by definition these lakes are strictly located in a glacier\
+    \ so I added the subclass axiom:\n>'located in' some glacier"

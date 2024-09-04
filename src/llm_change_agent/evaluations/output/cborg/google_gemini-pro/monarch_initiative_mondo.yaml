@@ -1,0 +1,68 @@
+pr7082:
+- create synonym 'RP1L1-related retinopathy' for MONDO:0007264
+- create synonym 'RP1L1-associated retinopathy' for MONDO:0007264
+- create synonym 'ABCA4-related retinopathy' for MONDO:0007265
+- create synonym 'ABCA4-associated retinopathy' for MONDO:0007265
+- create synonym 'BEST1-related retinopathy' for MONDO:0007266
+- create synonym 'BEST1-associated retinopathy' for MONDO:0007266
+- create synonym 'CRB1-related retinopathy' for MONDO:0007267
+- create synonym 'CRB1-associated retinopathy' for MONDO:0007267
+- create synonym 'CRX-related retinopathy' for MONDO:0007268
+- create synonym 'CRX-associated retinopathy' for MONDO:0007268
+- create synonym 'EYS-related retinopathy' for MONDO:0007269
+- create synonym 'EYS-associated retinopathy' for MONDO:0007269
+- create synonym 'GUCY2D-related retinopathy' for MONDO:0007270
+- create synonym 'GUCY2D-associated retinopathy' for MONDO:0007270
+- create synonym 'IMPG1-related retinopathy' for MONDO:0007271
+- create synonym 'IMPG1-associated retinopathy' for MONDO:0007271
+- create synonym 'IMPG2-related retinopathy' for MONDO:0007272
+- create synonym 'IMPG2-associated retinopathy' for MONDO:0007272
+- create synonym 'LRAT-related retinopathy' for MONDO:0007273
+- create synonym 'LRAT-associated retinopathy' for MONDO:0007273
+- create synonym 'MFN2-related retinopathy' for MONDO:0007274
+- create synonym 'MFN2-associated retinopathy' for MONDO:0007274
+- create synonym 'NR2E3-related retinopathy' for MONDO:0007275
+- create synonym 'NR2E3-associated retinopathy' for MONDO:0007275
+- create synonym 'OPA1-related retinopathy' for MONDO:0007276
+- create synonym 'OPA1-associated retinopathy' for MONDO:0007276
+- create synonym 'PRPF31-related retinopathy' for MONDO:0007277
+- create synonym 'PRPF31-associated retinopathy' for MONDO:0007277
+- create synonym 'RHO-related retinopathy' for MONDO:0007278
+- create synonym 'RHO-associated retinopathy' for MONDO:0007278
+- create synonym 'RLBP1-related retinopathy' for MONDO:0007279
+- create synonym 'RLBP1-associated retinopathy' for MONDO:0007279
+- create synonym 'ROM1-related retinopathy' for MONDO:0007280
+- create synonym 'ROM1-associated retinopathy' for MONDO:0007280
+- create synonym 'RP2-related retinopathy' for MONDO:0007281
+- create synonym 'RP2-associated retinopathy' for MONDO:0007281
+- create synonym 'RPGR-related retinopathy' for MONDO:0007282
+- create synonym 'RPGR-associated retinopathy' for MONDO:0007282
+- create synonym 'SAG1-related retinopathy' for MONDO:0007283
+- create synonym 'SAG1-associated retinopathy' for MONDO:0007283
+- create synonym 'TSPAN12-related retinopathy' for MONDO:0100484
+- create synonym 'TSPAN12-associated retinopathy' for MONDO:0100484
+- create synonym 'USH2A-related retinopathy' for MONDO:0007284
+- create synonym 'USH2A-associated retinopathy' for MONDO:0007284
+pr6376:
+- obsolete MONDO:0033211 with replacement MONDO:0017868
+pr5194: []
+pr4598:
+- rename MONDO:ICD10 from 'ICD10' to 'ICD10CM'
+- delete NIFSTD
+- delete MTH
+pr4459:
+- obsolete MONDO:0016050 with replacement MONDO:0011841
+pr4042:
+- rename MONDO:0010842 from 'pulverulent cataract' to 'Cataract 2, multiple types'
+- create node MONDO:0010843 'pulverulent cataract'
+- move MONDO:0010843 biolink:xref OMIM:604307 from MONDO:0010842 to MONDO:0010843
+pr2053: []
+pr1644: []
+pr1609:
+- create node UMLS:C0751615 'intracranial arachoid cyst'
+- add UMLS:C0751615 to subset MONDO:0008813
+- add UMLS:C0751615 to subset OMIM:207790
+pr1565: []
+pr1338:
+- merge MONDO:0009041 into MONDO:0021971
+pr916: []

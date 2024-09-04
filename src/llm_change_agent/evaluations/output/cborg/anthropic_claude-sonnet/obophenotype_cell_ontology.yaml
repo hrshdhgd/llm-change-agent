@@ -1,0 +1,73 @@
+pr2433:
+- create CL:9000000 'nasal serous secreting cell'
+- add definition 'A serous secreting cell that is part of the nasal cavity.' to CL:9000000
+- create synonym 'SMG serous (nasal)' for CL:9000000
+- create edge CL:9000000 rdfs:subClassOf CL:0000313
+- create edge CL:9000000 BFO:0000050 UBERON:0001707
+pr2114:
+- change annotation of CL:0000568 with oboInOwl:hasDbXref from MESH:A11.070 to MESH:D001078
+- delete edge CL:0000568 oboInOwl:hasDbXref MESH:A11.070
+- delete edge CL:0000132 oboInOwl:hasDbXref MESH:A09.371.060.067.31
+- delete edge CL:0000333 oboInOwl:hasDbXref MESH:A16.254.600
+- create edge CL:0000333 oboInOwl:hasDbXref 'doi:10.1016/j.stem.2015.02.017'
+- change annotation of CL:0000577 with oboInOwl:hasDbXref from MESH:A03.492.766.440.250
+  to MESH:D004759
+- delete edge CL:0000577 oboInOwl:hasDbXref MESH:A03.492.766.440.250
+- delete edge CL:0000588 oboInOwl:hasDbXref MESH:A11.329.679
+- delete edge CL:0000547 oboInOwl:hasDbXref MESH:A11.118.290.350.200
+pr2108:
+- remove synonym 'syncytial trophoblast' for UBERON:0000371
+- create edge CL:0000525 RO:0000050 UBERON:0000371
+pr1907:
+- create edge CL:4030038 rdfs:subClassOf 'expresses some vimentin'
+pr1696:
+- create CL:0000677
+- add definition 'An absorptive epithelial cell of the human intestine expressing
+  Bestrophin 4 calcium-activated ion channels.' to CL:0000677
+- create edge CL:0000677 rdfs:subClassOf CL:0000677
+- create edge CL:0000677 BFO:0000050 UBERON:0001277
+pr1565: []
+pr1518:
+- create CL:NewLymphNodeTerm 'new lymph node term'
+pr1465:
+- create CL:9000001 'embryonic skeletal muscle fiber'
+- create CL:9000002 'neonatal skeletal muscle fiber'
+- add definition 'A skeletal muscle fiber found in an embryo. In mammalian embryos,
+  skeletal muscle expresses myosin heavy chain-embryonic (MyHC-emb, encoded by the
+  MYH3), which regulates skeletal muscle development. PMID:7196501|PMID:32094117.'
+  to CL:9000001
+- add definition 'A skeletal muscle fiber found at the fetal and neonatal stages.
+  In mammalian fetuses and neonates, skeletal muscle expresses myosin heavy chain-neonatal
+  (MyHC-neo, encoded by the MYH8 gene). This expression disappears shortly after birth
+  and is replaced by expression of adult heavy chain myosins. PMID:7196501|PMID:26180627.'
+  to CL:9000002
+- create edge CL:9000001 rdfs:subClassOf CL:0008002
+- create edge CL:9000002 rdfs:subClassOf CL:0008002
+- create edge CL:9000001 rdfs:subClassOf CL:0002321
+- create edge CL:9000001 BFO:0000050 UBERON:0000068
+- create edge CL:9000002 BFO:0000050 UBERON:0007221
+- create edge CL:9000001 BFO:0000050 UBERON:0001134
+- create edge CL:9000002 BFO:0000050 UBERON:0001134
+- create edge CL:9000001 RO:0001025 CL:0000515
+- create edge CL:9000002 RO:0001025 CL:0000515
+pr1242:
+- obsolete CL:0011112
+- create CL:new1
+- create CL:new2
+- change definition of CL:0011003 to 'A neurosecretory neuron residing mainly in the
+  hypothalamus, capable of secreting hormones such as oxytocin or vasopressin into
+  the systemic circulation.'
+- create edge CL:new1 rdfs:subClassOf CL:0011003
+- create edge CL:new2 rdfs:subClassOf CL:0011003
+- rename CL:new1 to 'oxytocin-secreting magnocellular neurosecretory cell'
+- rename CL:new2 to 'vasopressin-secreting magnocellular neurosecretory cell'
+- change definition of CL:new1 to 'A magnocellular neurosecretory cell that secretes
+  oxytocin.'
+- change definition of CL:new2 to 'A magnocellular neurosecretory cell that secretes
+  vasopressin.'
+- create edge CL:new1 capable_of GO:0036162
+- create edge CL:new2 capable_of GO:0030103
+pr639:
+- create edge CL:0000451 rdfs:subClassOf CL:0000145
+- create edge CL:0000235 rdfs:subClassOf CL:0000145
+- create edge CL:0000236 rdfs:subClassOf CL:0000145

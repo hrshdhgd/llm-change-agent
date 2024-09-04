@@ -1,0 +1,2195 @@
+pr571:
+- change definition of PATO:0055001 from 'A spatial distribution of a process in which
+  the process occupies a smaller length, area, or volume than the reference process.
+  For example, heterochromatin may form over a shorter length of a chromosome in a
+  mutant than in wild type.' to 'A spatial distribution of a process in which the
+  process occupies a smaller length, area, or volume than the reference process. For
+  example, heterochromatin may form over a shorter length of a chromosome in a mutant
+  than in wild type.'
+- change definition of PATO:0010005 from 'A physical quality of a process that is
+  its spatial distribution. For example, bone mineralization follows stereotypical
+  spatial distribution patterns during development, which may be altered in some phenotypes.'
+  to 'A physical quality of a process that is its spatial distribution. For example,
+  bone mineralization follows stereotypical spatial distribution patterns during development,
+  which may be altered in some phenotypes.'
+- change definition of PATO:0010003 from 'A propagation velocity that is higher than
+  normal.' to 'A propagation velocity that is higher than normal.'
+- change definition of PATO:0010006 from "A quality of a single cell inhering in the
+  bearer by virtue of the bearer's size or shape or structure." to "A quality of a
+  single cell inhering in the bearer by virtue of the bearer's size or shape or structure."
+- change definition of PATO:0010004 from 'A propagation velocity that is lower than
+  normal.' to 'A propagation velocity that is lower than normal.'
+- change definition of PATO:0010002 from 'The velocity of spatial propagation of a
+  process. Examples include the velocity of propagation of an action potential along
+  an axon.' to 'The velocity of spatial propagation of a process. Examples include
+  the velocity of propagation of an action potential along an axon.'
+pr562:
+- rename PATO:0001408 from 'ciliatedness' to 'ciliated'
+- change definition of PATO:0001408 from "A cellular quality inhering in a bearer
+  by virtue of the bearer's having thin, tail-like projections extending outwards
+  from the cell body." to "A cellular quality inhering in a bearer by virtue of the
+  bearer's having one or more cilia as a part."
+- create PATO:0010007
+- create edge PATO:0010007 rdfs:subClassOf PATO:0001408
+- add definition "A cellular quality inhering in a bearer by virtue of the bearer's
+  having multiple cilia." to PATO:0010007
+- change definition of PATO:0040042 from "A decreased quality inhering in a bearer
+  by virtue of the bearer's decreased magnitude in proportion to the magnitude of
+  another entity." to "A decreased quality inhering in a bearer by virtue of the bearer's
+  decreased magnitude in proportion to the magnitude of another entity."
+- create PATO:0010008
+- create edge PATO:0010008 rdfs:subClassOf PATO:0001408
+- add definition "A cellular quality inhering in a bearer by virtue of the bearer's
+  having only one cilium." to PATO:0010008
+pr556:
+- delete edge PATO:0040043 rdfs:subClassOf PATO:0001470
+- remove synonym 'increased ratio' for PATO:0040043
+- create synonym 'increased proportionality to' for PATO:0040043
+- rename PATO:0040043 from 'increased proportionality to' to 'increased ratio'
+- change definition of PATO:0040043 from "A proportionality quality inhering in a
+  bearer by virtue of the bearer's increased magnitude in respect to a related entity."
+  to "An increased quality inhering in a bearer by virtue of the bearer's increased
+  magnitude in proportion to the magnitude of another entity."
+- remove synonym 'ratio' for PATO:0001470
+- create synonym 'proportionality to' for PATO:0001470
+- rename PATO:0001470 from 'proportionality to' to 'ratio'
+- change definition of PATO:0001470 from "A quality inhering in a bearer by virtue
+  of the bearer's magnitude in respect to a related entity." to "A quality inhering
+  in a bearer by virtue of the bearer's magnitude in proportion to the magnitude of
+  another entity."
+- delete edge PATO:0040042 rdfs:subClassOf PATO:0001470
+- remove synonym 'decreased ratio' for PATO:0040042
+- create synonym 'decreased proportionality to' for PATO:0040042
+- rename PATO:0040042 from 'decreased proportionality to' to 'decreased ratio'
+- change definition of PATO:0040042 from "A proportionality quality inhering in a
+  bearer by virtue of the bearer's decreased magnitude in respect to a related entity."
+  to "A decreased quality inhering in a bearer by virtue of the bearer's decreased
+  magnitude in proportion to the magnitude of another entity."
+pr528:
+- delete edge PATO:0000644 rdfs:subClassOf PATO:0000586
+- create edge PATO:0000644 rdfs:subClassOf PATO:0002305
+- change definition of PATO:0000644 from "A increased size quality inhering in an
+  organ or tissue by virtue of the bearer's exhibiting increased number of cells."
+  to "A physical quality inhering in an organ or tissue by virtue of the bearer's
+  exhibiting an increased number of cells, typically associated with an increase in
+  size."
+- delete edge PATO:0000645 rdfs:subClassOf PATO:0000587
+- create edge PATO:0000645 rdfs:subClassOf PATO:0002303
+- change definition of PATO:0000645 from "A decreased size quality inhering in a bearer
+  by virtue of the bearer's exhibiting reduced number of cells within an organ or
+  tissue." to "A physical quality inhering in an organ or tissue by virtue of the
+  bearer's exhibiting a decreased number of cells, typically associated with a decrease
+  in size."
+pr503:
+- change definition of PATO:0001852 from "A positional quality inhering in a bearer
+  by virtue of the bearer's being out of its usual or proper place, or position."
+  to "A positional quality inhering in a bearer by virtue of the bearer's being out
+  of its usual or proper place, or position due to it being physically moved from
+  the normal location."
+pr487:
+- change definition of PATO:0001291 from 'A physical quality that inheres in an bearer
+  by virtue of how that bearer interacts with electromagnetic radiation.' to 'A radiation
+  quality that inheres in a bearer by virtue of how that bearer interacts with electromagnetic
+  radiation.'
+- change definition of PATO:0001739 from 'A quality that inheres in an bearer by virtue
+  of how that bearer interacts with radiation.' to 'A quality of radiation that reflects
+  the fluence spectrum of charged and neutral particles within the material or medium
+  where dose is being deposited.'
+pr486:
+- create PATO:0040056
+- create edge PATO:0040056 rdfs:subClassOf PATO:0001894
+- create synonym 'female with differences of sexual differentiation' for PATO:0040056
+- create synonym 'female with disorder of sexual development' for PATO:0040056
+- create synonym 'female, DSD' for PATO:0040056
+- create synonym 'intersex' for PATO:0040056
+- add definition 'A biological sex quality inhering in an individual or a population
+  who are otherwise female of a non-hermaphroditic species who has ambiguous or atypical
+  congenital development of the reproductive system.' to PATO:0040056
+- create PATO:0040049
+- create edge PATO:0040049 rdfs:subClassOf PATO:0001894
+- create synonym 'intersex' for PATO:0040049
+- create synonym 'male with differences of sexual differentiation' for PATO:0040049
+- create synonym 'male with disorder of sexual development' for PATO:0040049
+- create synonym 'male, DSD' for PATO:0040049
+- add definition 'A biological sex quality inhering in an individual or a population
+  who are otherwise male of a non-hermaphroditic species who has ambiguous or atypical
+  congenital development of the reproductive system.' to PATO:0040049
+pr476:
+- create PATO:0070059
+- create edge PATO:0070059 rdfs:subClassOf PATO:0000150
+- add definition "A texture quality inhering in a bearer by virtue of the bearer's
+  being covered by iron oxide as a result of oxidation." to PATO:0070059
+pr468:
+- delete edge PATO:0001558 reciprocal_of PATO:0000462
+- create edge PATO:0001558 RO:0015012 PATO:0000462
+- obsolete has_cross_section with replacement RO:0015011
+- rename has_cross_section from 'has_cross_section' to 'obsolete has_cross_section'
+- 'change definition of has_cross_section from ''s3 has_cross_section s3 if and only
+  if : there exists some 2d plane that intersects the bearer of s3, and the impression
+  of s3 upon that plane has shape quality s2.'' to ''OBSOLETE. s3 has_cross_section
+  s3 if and only if : there exists some 2d plane that intersects the bearer of s3,
+  and the impression of s3 upon that plane has shape quality s2.'''
+- delete edge PATO:0000462 reciprocal_of PATO:0001558
+- delete edge PATO:0000462 reciprocal_of PATO:0002000
+- create edge PATO:0000462 RO:0015012 PATO:0001558
+- create edge PATO:0000462 RO:0015012 PATO:0002000
+- rename different_in_magnitude_relative_to from 'different_in_magnitude_relative_to'
+  to 'obsolete different_in_magnitude_relative_to'
+- change definition of different_in_magnitude_relative_to from 'q1 different_in_magnitude_relative_to
+  q2 if and only if magnitude(q1) NOT =~ magnitude(q2). Here, magnitude(q) is a function
+  that maps a quality to a unit-invariant scale.' to 'OBSOLETE. q1 different_in_magnitude_relative_to
+  q2 if and only if magnitude(q1) NOT =~ magnitude(q2). Here, magnitude(q) is a function
+  that maps a quality to a unit-invariant scale.'
+- obsolete different_in_magnitude_relative_to with replacement RO:0015006
+- rename realized_by from 'realized_by' to 'obsolete realized_by'
+- delete edge PATO:0001873 has_cross_section PATO:0000411
+- create edge PATO:0001873 RO:0015011 PATO:0000411
+- delete edge decreased_in_magnitude_relative_to rdfs:subClassOf different_in_magnitude_relative_to
+- obsolete decreased_in_magnitude_relative_to with replacement RO:0015008
+- rename decreased_in_magnitude_relative_to from 'decreased_in_magnitude_relative_to'
+  to 'obsolete decreased_in_magnitude_relative_to'
+- change definition of decreased_in_magnitude_relative_to from 'q1 decreased_in_magnitude_relative_to
+  q2 if and only if magnitude(q1) < magnitude(q2). Here, magnitude(q) is a function
+  that maps a quality to a unit-invariant scale.' to 'OBSOLETE. q1 decreased_in_magnitude_relative_to
+  q2 if and only if magnitude(q1) < magnitude(q2). Here, magnitude(q) is a function
+  that maps a quality to a unit-invariant scale.'
+- delete edge PATO:0000297 decreased_in_magnitude_relative_to PATO:0000461
+- create edge PATO:0000297 RO:0015008 PATO:0000461
+- delete edge PATO:0002000 reciprocal_of PATO:0000462
+- create edge PATO:0002000 RO:0015012 PATO:0000462
+- rename similar_in_magnitude_relative_to from 'similar_in_magnitude_relative_to'
+  to 'obsolete similar_in_magnitude_relative_to'
+- change definition of similar_in_magnitude_relative_to from 'q1 similar_in_magnitude_relative_to
+  q2 if and only if magnitude(q1) =~ magnitude(q2). Here, magnitude(q) is a function
+  that maps a quality to a unit-invariant scale.' to 'OBSOLETE. q1 similar_in_magnitude_relative_to
+  q2 if and only if magnitude(q1) =~ magnitude(q2). Here, magnitude(q) is a function
+  that maps a quality to a unit-invariant scale.'
+- obsolete similar_in_magnitude_relative_to with replacement RO:0015009
+- delete edge PATO:0002007 has_cross_section PATO:0002006
+- create edge PATO:0002007 RO:0015011 PATO:0002006
+- obsolete reciprocal_of with replacement RO:0015012
+- rename reciprocal_of from 'reciprocal_of' to 'obsolete reciprocal_of'
+- 'change definition of reciprocal_of from ''q1 reciprocal_of q2 if and only if :
+  q1 and q2 are relational qualities and a phenotype e q1 e2 mutually implies a phenotype
+  e2 q2 e.'' to ''OBSOLETE. q1 reciprocal_of q2 if and only if : q1 and q2 are relational
+  qualities and a phenotype e q1 e2 mutually implies a phenotype e2 q2 e.'''
+- delete edge increased_in_magnitude_relative_to rdfs:subClassOf different_in_magnitude_relative_to
+- obsolete increased_in_magnitude_relative_to with replacement RO:0015007
+- rename increased_in_magnitude_relative_to from 'increased_in_magnitude_relative_to'
+  to 'obsolete increased_in_magnitude_relative_to'
+- change definition of increased_in_magnitude_relative_to from 'q1 increased_in_magnitude_relative_to
+  q2 if and only if magnitude(q1) > magnitude(q2). Here, magnitude(q) is a function
+  that maps a quality to a unit-invariant scale.' to 'OBSOLETE. q1 increased_in_magnitude_relative_to
+  q2 if and only if magnitude(q1) > magnitude(q2). Here, magnitude(q) is a function
+  that maps a quality to a unit-invariant scale.'
+- delete edge PATO:0001499 has_cross_section PATO:0000411
+- create edge PATO:0001499 RO:0015011 PATO:0000411
+- obsolete has_relative_magnitude with replacement RO:0015010
+- rename has_relative_magnitude from 'has_relative_magnitude' to 'obsolete has_relative_magnitude'
+- delete edge PATO:0001872 has_cross_section PATO:0000413
+- create edge PATO:0001872 RO:0015011 PATO:0000413
+- delete edge PATO:0001333 increased_in_magnitude_relative_to PATO:0000461
+- create edge PATO:0001333 RO:0015007 PATO:0000461
+- delete edge PATO:0001905 reciprocal_of PATO:0002050
+- create edge PATO:0001905 RO:0015012 PATO:0002050
+- delete edge PATO:0000070 reciprocal_of PATO:0001555
+- create edge PATO:0000070 RO:0015012 PATO:0001555
+- delete edge PATO:0001555 reciprocal_of PATO:0000070
+- create edge PATO:0001555 RO:0015012 PATO:0000070
+- delete edge PATO:0002050 reciprocal_of PATO:0001905
+- create edge PATO:0002050 RO:0015012 PATO:0001905
+- delete edge PATO:0001891 has_cross_section PATO:0000946
+- create edge PATO:0001891 RO:0015011 PATO:0000946
+pr467:
+- change definition of PATO:0070026 from 'A cell morphology that inheres in neurons
+  which possess a single axon and many dendrites and dendritic branches.' to 'A cell
+  morphology that inheres in neurons which possess three or more neurites, usually
+  a single axon and many dendrites and dendritic branches.'
+pr458:
+- obsolete singly_occurring_form_of
+- rename singly_occurring_form_of from 'singly_occurring_form_of' to 'obsolete singly_occurring_form_of'
+- obsolete inversely_associated_with
+- rename inversely_associated_with from 'inversely_associated_with' to 'obsolete inversely_associated_with'
+- change definition of inversely_associated_with from 'q1 inversely_associated_with
+  q2 iff q1 is dependent on q2, and the magnitude of q1 decreases if the magnitude
+  of q2 is increased, or the magnitude of q1 increases if the magnitude of q2 is decreased.
+  The relationship is not necessarily linear.' to 'OBSOLETE. q1 inversely_associated_with
+  q2 iff q1 is dependent on q2, and the magnitude of q1 decreases if the magnitude
+  of q2 is increased, or the magnitude of q1 increases if the magnitude of q2 is decreased.
+  The relationship is not necessarily linear.'
+- obsolete is_measurement_of
+- rename is_measurement_of from 'is_measurement_of' to 'obsolete is_measurement_of'
+- obsolete has_divisor_entity
+- rename has_divisor_entity from 'has_divisor_entity' to 'obsolete has_divisor_entity'
+- delete edge has_dividend_quality rdfs:subClassOf has_ratio_quality
+- rename has_dividend_quality from 'has_dividend_quality' to 'obsolete has_dividend_quality'
+- obsolete has_dividend_quality
+- obsolete has_dividend_entity
+- rename has_dividend_entity from 'has_dividend_entity' to 'obsolete has_dividend_entity'
+- obsolete is_magnitude_of
+- rename is_magnitude_of from 'is_magnitude_of' to 'obsolete is_magnitude_of'
+- obsolete is_unit_of
+- rename is_unit_of from 'is_unit_of' to 'obsolete is_unit_of'
+- obsolete has_ratio_quality
+- rename has_ratio_quality from 'has_ratio_quality' to 'obsolete has_ratio_quality'
+- delete edge has_divisor_quality rdfs:subClassOf has_ratio_quality
+- rename has_divisor_quality from 'has_divisor_quality' to 'obsolete has_divisor_quality'
+- obsolete has_divisor_quality
+- obsolete directly_associated_with
+- rename directly_associated_with from 'directly_associated_with' to 'obsolete directly_associated_with'
+- change definition of directly_associated_with from 'q1 directly_associated_with
+  q2 iff q1 is dependent on q2, and the magnitude of q1 increases if the magnitude
+  of q2 is increased, or the magnitude of q1 decreases if the magnitude of q2 is decreased.
+  The relationship is not necessarily linear.' to 'OBSOLETE. q1 directly_associated_with
+  q2 iff q1 is dependent on q2, and the magnitude of q1 increases if the magnitude
+  of q2 is increased, or the magnitude of q1 decreases if the magnitude of q2 is decreased.
+  The relationship is not necessarily linear.'
+pr452:
+- create PATO:0070046
+- create edge PATO:0070046 rdfs:subClassOf PATO:0070045
+- add definition 'An affinity inhering in an anatomical structure by virtue of the
+  bearer exhibiting a molecular interaction that stains and colors, pale-pink, with
+  Wright-Giemsa stain.' to PATO:0070046
+- create PATO:0070045
+- create edge PATO:0070045 rdfs:subClassOf PATO:0070044
+- add definition 'A quality inhering in an anotomical structure by virtue of its capacity
+  to be stained by specific histological dyes.' to PATO:0070045
+- delete edge PATO:0002419 rdfs:subClassOf PATO:0002070
+- create edge PATO:0002419 rdfs:subClassOf PATO:0070045
+- change definition of PATO:0002419 from 'An affinity inhering in a tissue constituent
+  by virtue of the bearer exhibiting a molecular interaction for eosin dye.' to 'An
+  affinity inhering in an anatomical structure by virtue of the bearer exhibiting
+  a molecular interaction for eosin dye.'
+- create PATO:0070044
+- create edge PATO:0070044 rdfs:subClassOf PATO:0001241
+- add definition 'A quality of continuant that exist at the anatomical level of organisation
+  and anything under it. This includes, but is not limited to, cells , tissues, and
+  components.' to PATO:0070044
+- delete edge PATO:0001396 rdfs:subClassOf PATO:0001241
+- create edge PATO:0001396 rdfs:subClassOf PATO:0070044
+- delete edge PATO:0002094 rdfs:subClassOf PATO:0002070
+- create edge PATO:0002094 rdfs:subClassOf PATO:0070045
+- change definition of PATO:0002094 from 'An affinity inhering in a tissue constituent
+  by virtue of the bearer exhibiting a molecular interaction for basic dyes under
+  specific pH conditions.' to 'An affinity inhering in an anatomical structure by
+  virtue of the bearer exhibiting a molecular interaction for basic dyes under specific
+  pH conditions.'
+- create PATO:0070047
+- create edge PATO:0070047 rdfs:subClassOf PATO:0070045
+- add definition 'An affinity inhering in an anatomical structure by virtue of the
+  bearer exhibiting a molecular interaction for both basic and acid stains under specific
+  pH conditions.' to PATO:0070047
+- delete edge PATO:0002420 rdfs:subClassOf PATO:0002070
+- create edge PATO:0002420 rdfs:subClassOf PATO:0070045
+- delete edge PATO:0002418 rdfs:subClassOf PATO:0002070
+- create edge PATO:0002418 rdfs:subClassOf PATO:0070045
+- change definition of PATO:0002418 from 'An affinity inhering in a tissue constituent
+  by virtue of the bearer exhibiting a molecular interaction for acidic dyes under
+  specific pH conditions.' to 'An affinity inhering in an anatomical structure by
+  virtue of the bearer exhibiting a molecular interaction for acidic dyes under specific
+  pH conditions.'
+pr448:
+- change definition of PATO:0001673 from 'Structure quality that is the presence of
+  closed epithelium bounded capsules containing one or more liquid or solid organism
+  substances.' to 'Structure quality that is the presence of at least one sac-like
+  closed membranous structure containing one or more liquid or solid organism substances.'
+- change definition of PATO:0002089 from "A structure quality inhering in a bearer
+  by virtue of the bearer's body containing more than one cyst - formations of an
+  epithelium bounded cavity not associated with neoplasia." to "A structure quality
+  inhering in a bearer by virtue of the bearer's body containing more than one cyst
+  - formations of sac-like closed membranous structures not associated with neoplasia."
+- change definition of PATO:0002088 from "A structure quality inhering in a bearer
+  by virtue of the bearer's body consisting of one sac." to "A structure quality inhering
+  in a bearer by virtue of the bearer's body containing one cyst - a formation of
+  a sac-like closed membranous structure not associated with neoplasia."
+pr436:
+- rename PATO:0040002 from 'originates from' to 'position originates from'
+pr431:
+- create edge PATO:0002083 rdfs:subClassOf PATO:0000051
+pr430:
+- remove synonym 'ventral_to' for PATO:0001632
+- remove synonym 'anterior_ to' for PATO:0001196
+pr429:
+- create PATO:0070039
+- create edge PATO:0070039 rdfs:subClassOf PATO:0070036
+- add definition "A dendrite quality inhering in a neuron by virtue of the bearer's
+  dendrite having a terminal tuft." to PATO:0070039
+- create PATO:0070041
+- create edge PATO:0070041 rdfs:subClassOf PATO:0070036
+- add definition "A dendrite quality inhering in a neuron by virtue of the bearer's
+  dendrite having numerous swellings or varicosities along their length." to PATO:0070041
+- create PATO:0070040
+- create edge PATO:0070040 rdfs:subClassOf PATO:0070036
+- add definition "A dendrite quality inhering in a neuron by virtue of the bearer's
+  dendrite having few or no recognizable dendritic spines." to PATO:0070040
+- create PATO:0070038
+- create edge PATO:0070038 rdfs:subClassOf PATO:0070036
+- add definition "A dendrite quality inhering in a neuron by virtue of the bearer's
+  dendrite having spines." to PATO:0070038
+- create PATO:0070036
+- create edge PATO:0070036 rdfs:subClassOf PATO:0000001
+- add definition "A quality inhering in a neuron's dendrites by virtue of the bearer's
+  physical composition." to PATO:0070036
+pr427:
+- create PATO:0040052
+- create edge PATO:0040052 rdfs:subClassOf PATO:0070000
+- create synonym 'protogyny' for PATO:0040052
+- add definition 'A sequential hermaphroditic quality whereby organisms start out
+  as female and change to male at a later life stage.' to PATO:0040052
+- create PATO:0070000
+- create edge PATO:0070000 rdfs:subClassOf PATO:0001340
+- create synonym 'sequential hermaphroditic' for PATO:0070000
+- add definition 'A hermaphroditic quality that inheres in a population or organism
+  where an organism changes is a different sexes during different life stages.' to
+  PATO:0070000
+- create PATO:0040055
+- create edge PATO:0040055 rdfs:subClassOf PATO:0040053
+- create synonym 'protandrous hermaphrodite' for PATO:0040055
+- create synonym 'protandrous hermaphroditic' for PATO:0040055
+- add definition 'A protandrous quality whereby organisms start out as male and change
+  to hermaphrodite at a later life stage.' to PATO:0040055
+- create synonym 'hermaphroditic' for PATO:0001340
+- change definition of PATO:0015031 from 'The presence of a constituent, impurity,
+  or some other undesirable element that spoils, corrupts, infects, makes unfit, or
+  makes inferior a material, physical body, natural environment, place of human occupancy,
+  or other material entitt.' to 'The presence of a constituent, impurity, or some
+  other undesirable element that spoils, corrupts, infects, makes unfit, or makes
+  inferior a material, physical body, natural environment, place of human occupancy,
+  or other material entity.'
+- change definition of PATO:0015033 from 'A decrease in contamination.' to 'A decrease
+  in contamination.'
+- create PATO:0040050
+- create edge PATO:0040050 rdfs:subClassOf PATO:0001894
+- add definition 'A phenotypic sex quality inhering in a  plant organism or a population
+  of plants in which the flowers have two stamens.' to PATO:0040050
+- create PATO:0040051
+- create edge PATO:0040051 rdfs:subClassOf PATO:0001894
+- add definition 'A phenotypic sex quality inhering in a  plant organism or a population
+  of plants in which the flowers have only one stamen.' to PATO:0040051
+- create PATO:0040053
+- create edge PATO:0040053 rdfs:subClassOf PATO:0070000
+- create synonym 'protandry' for PATO:0040053
+- add definition 'A sequential hermaphroditic quality whereby organisms start out
+  as male and change to female at a later life stage.' to PATO:0040053
+- change definition of PATO:0015032 from 'An increase in contamination.' to 'An increase
+  in contamination.'
+- create PATO:0040054
+- create edge PATO:0040054 rdfs:subClassOf PATO:0040052
+- create synonym 'protogynous hermaphrodite' for PATO:0040054
+- create synonym 'protogynous hermaphroditic' for PATO:0040054
+- add definition 'A protogynous quality whereby organisms start out as female and
+  change to hermaphrodite at a later life stage.' to PATO:0040054
+pr424:
+- create PATO:0040070
+- create edge PATO:0040070 rdfs:subClassOf PATO:0001018
+- add definition "A physical quality inhering in a bearer by virtue of the bearer's
+  disposition to deform by heating." to PATO:0040070
+pr416:
+- create PATO:0070042
+- create edge PATO:0070042 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in retinal neurons which have two
+  principal fibres, an axon and a dendrite, that emerge from opposite end the soma.'
+  to PATO:0070042
+- delete edge PATO:0070012 rdfs:subClassOf PATO:0010006
+- create edge PATO:0070012 rdfs:subClassOf PATO:0070027
+- delete edge PATO:0070006 rdfs:subClassOf PATO:0010006
+- create edge PATO:0070006 rdfs:subClassOf PATO:0070027
+- rename PATO:0070006 from 'bipolar morphology' to 'cortical bipolar morphology'
+- change definition of PATO:0070006 from 'A cell morphology that inheres in neurons
+  which have two principal fibres (dendrites or axon) that emerge from the soma and
+  begin to branch some distance from it, have few spines, and branch in narrow fields.
+  This is in contrast to bitufted morphology where branching occurs close to the soma.'
+  to 'A cell morphology that inheres in neurons which have two principal dendrites
+  that emerge from the soma and begin to branch some distance from it, have few spines,
+  and branch in narrow fields. This is in contrast to bitufted morphology where branching
+  occurs close to the soma.'
+- create PATO:0070027
+- create edge PATO:0070027 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons with dendrites that are
+  bidirectional, emerging from opposite ends of the soma, with the two arbors extending
+  in radial or tangential directions.' to PATO:0070027
+pr414:
+- change definition of PATO:0070012 from 'A cell morphology that inheres in neurons
+  which have two clusters of branches that originate directly from the soma and extend
+  in opposite directions and axons that form a plexus which spreads widely. Compared
+  to bipolar morphology, bitufted morphology has branching that occur close to the
+  soma.' to "A cell morphology that inheres in neurons which have two clusters of
+  primary dendrites that originate directly and extend from opposite ends of the soma,
+  and axons that form a plexus which spreads widely. Compared to the narrow vertical
+  axonal projection of bipolar morphology, and the 'horse-tail' axonal cluster of
+  double boquet cells, bitufted morphology has wide horizontal axonal spans, and branching
+  that occur close to the soma. Their vertical projection is also less extensive and
+  crosses mostly to neighboring layers."
+pr409:
+- delete edge PATO:0070015 rdfs:subClassOf PATO:0010006
+- create edge PATO:0070015 rdfs:subClassOf PATO:0070026
+- delete edge PATO:0070013 rdfs:subClassOf PATO:0010006
+- create edge PATO:0070013 rdfs:subClassOf PATO:0070026
+- delete edge PATO:0070007 rdfs:subClassOf PATO:0010006
+- create edge PATO:0070007 rdfs:subClassOf PATO:0070026
+- create PATO:0070026
+- create edge PATO:0070026 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons which possess a single
+  axon and many dendrites and dendritic branches.' to PATO:0070026
+- delete edge PATO:0070001 rdfs:subClassOf PATO:0010006
+- create edge PATO:0070001 rdfs:subClassOf PATO:0070026
+- delete edge PATO:0070010 rdfs:subClassOf PATO:0010006
+- create edge PATO:0070010 rdfs:subClassOf PATO:0070026
+pr408:
+- create PATO:0070025
+- create edge PATO:0070025 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons with only one process,
+  a neurite, that extends from the cell body. The neurite then branches to form dendritic
+  and axonal processes.' to PATO:0070025
+pr405:
+- create PATO:0095004
+- create edge PATO:0095004 rdfs:subClassOf PATO:0001995
+- add definition "An organismal quality inhering in a bearer by virtue of the bearer's
+  morphological and physiological adaptation for living in trees." to PATO:0095004
+- create PATO:0095001
+- create edge PATO:0095001 rdfs:subClassOf PATO:0001470
+- create edge PATO:0095001 rdfs:subClassOf PATO:0001995
+- add definition 'Quotient (or ratio) of surface area of an organism divided by the
+  mass of the same organism' to PATO:0095001
+- create PATO:0095009
+- create edge PATO:0095009 rdfs:subClassOf PATO:0001995
+- add definition "An organismal quality inhering in a bearer by virtue of the bearer's
+  ability to burrow more than 20 cm deep into the soil and make permanent, vertical
+  burrows." to PATO:0095009
+- create PATO:0095007
+- create edge PATO:0095007 rdfs:subClassOf PATO:0001236
+- add definition 'A quality of a process that happens during the hours of daylight.'
+  to PATO:0095007
+- create PATO:0095006
+- create edge PATO:0095006 rdfs:subClassOf PATO:0001236
+- add definition 'A quality of a process that happens during the hours of darkness.'
+  to PATO:0095006
+- create PATO:0095003
+- create edge PATO:0095003 rdfs:subClassOf PATO:0001995
+- add definition "An organismal quality inhering in a bearer by virtue of the bearer's
+  morphological and physiological adaptation for digging and living underground."
+  to PATO:0095003
+- create PATO:0095008
+- create edge PATO:0095008 rdfs:subClassOf PATO:0001995
+- add definition "An organismal quality inhering in a bearer by virtue of the bearer's
+  morphological and physiological adaptation for participating in long-distance movement
+  of conspecifics, usually on a seasonal basis." to PATO:0095008
+- create PATO:0095005
+- create edge PATO:0095005 rdfs:subClassOf PATO:0001236
+- add definition 'A quality of a process that happens during dawn and dusk.' to PATO:0095005
+- create PATO:0095002
+- create edge PATO:0095002 rdfs:subClassOf PATO:0001995
+- add definition "An organismal quality inhering in a bearer by virtue of the bearer's
+  morphological and physiological adaptation for running." to PATO:0095002
+pr396:
+- create PATO:0070015
+- create edge PATO:0070015 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons which have a pyramidal
+  shaped soma, a single axon, a large apical dendrite and multiple basal dendrites.'
+  to PATO:0070015
+- create PATO:0070016
+- create edge PATO:0070016 rdfs:subClassOf PATO:0070015
+- add definition 'A pyramidal family morphology that inheres in neurons which have
+  an apical tree which is oriented parallel to the pia.' to PATO:0070016
+- create PATO:0070020
+- create edge PATO:0070020 rdfs:subClassOf PATO:0070017
+- add definition 'A pyramidal cell morphology that inheres in neurons which lack a
+  tuft formation but extend to small radial distances forming a star-like shape.'
+  to PATO:0070020
+- create PATO:0070017
+- create edge PATO:0070017 rdfs:subClassOf PATO:0070015
+- create synonym 'pyramidal cell morphology' for PATO:0070017
+- create synonym 'vertical pyramidal morphology' for PATO:0070017
+- add definition 'A pyramidal family morphology that inheres in neurons which have
+  a standard pyramidal shape with its apical dendrite aligned vertically.' to PATO:0070017
+- create PATO:0070018
+- create edge PATO:0070018 rdfs:subClassOf PATO:0070017
+- add definition 'A pyramidal cell morphology that inheres in neurons which have a
+  distinct tuft formation, distal from the soma.' to PATO:0070018
+- create PATO:0070021
+- create edge PATO:0070021 rdfs:subClassOf PATO:0070017
+- add definition 'A pyramidal cell morphology that inheres in neurons which have an
+  apical tree which is oriented towards the white matter.' to PATO:0070021
+- create PATO:0070019
+- create edge PATO:0070019 rdfs:subClassOf PATO:0070017
+- add definition 'A pyramidal cell morphology that inheres in neurons which lack a
+  clear tuft formation but extend to large radial distances.' to PATO:0070019
+pr393:
+- create PATO:0070013
+- create edge PATO:0070013 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons which have spiny basal
+  dendrites and resemble pyramidal cells but lose their apical dendrites as they mature.
+  Their axons nearly always emerge from the descending side of the soma, but often
+  recurve and ascend with arc-like collaterals.' to PATO:0070013
+pr392:
+- create PATO:0070012
+- create edge PATO:0070012 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons which have tufts of dendrites
+  extending from two opposite poles of the soma, and have axons that form a plexus
+  which spreads widely, usually descending.' to PATO:0070012
+pr391:
+- create PATO:0070011
+- create edge PATO:0070011 rdfs:subClassOf PATO:0010006
+- "add definition 'A cell morphology that inheres in neurons which are small and round,\
+  \ and make highly specialized synapses with the axon initial segments of pyramidal\
+  \ neurons, wrapping them with candle-shaped synaptic \u201Ccartridges\u201D.' to\
+  \ PATO:0070011"
+pr390:
+- create PATO:0070010
+- create edge PATO:0070010 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons that have dendritic processes
+  radiating from the cell body forming a star-like shape.' to PATO:0070010
+pr389:
+- create PATO:0070008
+- create edge PATO:0070008 rdfs:subClassOf PATO:0070007
+- add definition 'A martinotti cell morphology that inheres in neurons which have
+  axons that form a horizontal ramification, making it T-shaped.' to PATO:0070008
+- create PATO:0070007
+- create edge PATO:0070007 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons which are large and non-spiny,
+  with dendrites radiating in a multipolar or bitufted pattern, often favouring the
+  descending side, and axons that ascend directly from the superficial side of the
+  soma, and travel upward without branching.' to PATO:0070007
+- create PATO:0070009
+- create edge PATO:0070009 rdfs:subClassOf PATO:0070007
+- add definition 'A martinotti cell morphology that inheres in neurons which have
+  axons that form a fan-like plexus.' to PATO:0070009
+pr388:
+- create PATO:0070006
+- create edge PATO:0070006 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons which have two principal
+  fibres (dendrites or axon) that emerge from the soma and begin to branch some distance
+  from it, have few spines, and branch in narrow fields. This is in contrast to bitufted
+  morphology where branching occurs close to the soma.' to PATO:0070006
+pr387:
+- create PATO:0070003
+- create edge PATO:0070003 rdfs:subClassOf PATO:0070002
+- add definition 'A basket cell morphology that inheres in neurons with axonal arbors
+  composed of frequent, short, curvy axonal branches that tend to be near their somata
+  and within the same layer.' to PATO:0070003
+- create PATO:0070002
+- create edge PATO:0070002 rdfs:subClassOf PATO:0070026
+- add definition 'A cell morphology that inheres in multipolar neurons with densely
+  branched terminal axonal arborizations that form basket-like structures surrounding
+  and synapsing to the somas of target cells.' to PATO:0070002
+- create PATO:0070005
+- create edge PATO:0070005 rdfs:subClassOf PATO:0070002
+- add definition 'A basket cell morphology that inheres in neurons which have simpler
+  dendritic arbors (compared to small or large basket cell morphology), and an axonal
+  plexus of intermediate density, composed of a few long, smooth axonal branches.'
+  to PATO:0070005
+- create PATO:0070004
+- create edge PATO:0070004 rdfs:subClassOf PATO:0070002
+- add definition 'A basket cell morphology that inheres in neurons that are large,
+  and typically ascend to give rise to many long horizontally and vertically projecting
+  axon collaterals that traverse neighboring columns and can extend through all cortical
+  layers.' to PATO:0070004
+pr386:
+- create PATO:0070001
+- create edge PATO:0070001 rdfs:subClassOf PATO:0010006
+- add definition 'A cell morphology that inheres in neurons which have a small round
+  soma, a large number of short, smooth, or slightly beaded primary dendrites that
+  give rise to only a few secondary branches, and a branched axon that establishes
+  a dense axonal mesh with thin shafts.' to PATO:0070001
+pr363:
+- create PATO:0040048
+- create edge PATO:0040048 rdfs:subClassOf PATO:0000051
+- create synonym 'erythema' for PATO:0040048
+- create synonym 'skin redness' for PATO:0040048
+- add definition 'Red due to increase blood circulation in a defined area.' to PATO:0040048
+pr361:
+- 'change definition of PATO:0000128 from ''A physical quality inhering in a bearer
+  that has mass near a gravitational body.'' to ''A physical quality inhering in a
+  bearer that has mass near a gravitational body. Important usage note: Note that
+  this ontology has a class for a similar concept, mass (PATO:0000125). Mass and weight
+  are not equivalent. For most use cases, the class mass is strongly preferred over
+  weight.'''
+pr349:
+- delete edge PATO:0040047 rdfs:subClassOf PATO:0001444
+- create edge PATO:0040047 rdfs:subClassOf PATO:0001442
+pr348:
+- create PATO:0040072
+- create edge PATO:0040072 rdfs:subClassOf PATO:0001396
+- create synonym 'high N:C ratio' for PATO:0040072
+- add definition 'A quality inhering in a cell by virtue of the cell having a high
+  nuclear/cytoplasmic ratio.' to PATO:0040072
+- create PATO:0040071
+- create edge PATO:0040071 rdfs:subClassOf PATO:0001396
+- create synonym 'N:C ratio' for PATO:0040071
+- add definition 'A quality inhering in a cell by virtue of the ratio between the
+  volume of its nucleus and the volume of its cytoplasm.' to PATO:0040071
+pr347:
+- add PATO:0040043 to subset relational_slim
+- add PATO:0040042 to subset relational_slim
+pr332:
+- delete edge PATO:0015001 rdfs:subClassOf PATO:0000462
+- create edge PATO:0015001 rdfs:subClassOf PATO:0040060
+- create PATO:0040060
+- add PATO:0040060 to subset absent_slim
+- create edge PATO:0040060 rdfs:subClassOf PATO:0000051
+- create edge PATO:0040060 rdfs:subClassOf PATO:0040058
+- create synonym 'anatomical entity absence' for PATO:0040060
+- add definition 'A quality denoting the lack of an anatomical entity or cellular
+  component.' to PATO:0040060
+- create PATO:0040059
+- add PATO:0040059 to subset absent_slim
+- create edge PATO:0040059 rdfs:subClassOf PATO:0001236
+- create synonym 'Process absence' for PATO:0040059
+- add definition 'A quality denoting the lack of a process or function.' to PATO:0040059
+- delete edge PATO:0002291 rdfs:subClassOf PATO:0000462
+- create edge PATO:0002291 rdfs:subClassOf PATO:0040060
+- create PATO:0040058
+- add PATO:0040058 to subset absent_slim
+- create edge PATO:0040058 rdfs:subClassOf PATO:0001241
+- create synonym 'physical absence' for PATO:0040058
+- add definition 'A quality denoting the lack of a physical entity or object, such
+  as a chemical.' to PATO:0040058
+pr328:
+- create PATO:0040047
+- create edge PATO:0040047 rdfs:subClassOf PATO:0001444
+- add definition 'Existing or functioning as though broken into separate parts; disorganized;
+  disunified.' to PATO:0040047
+pr325:
+- create synonym 'aplasia/hypoplasia' for PATO:0002290
+- add definition 'Decreased size or absence of organ, tissue or cell due to a reduction
+  in cell numbers.' to PATO:0002290
+pr324:
+- create PATO:0040044
+- create edge PATO:0040044 rdfs:subClassOf PATO:0001444
+- create synonym 'burst' for PATO:0040044
+- add definition "A structural quality inhering in a bearer by virtue of the bearer's
+  components being torn, typically used for soft tissues or membranes." to PATO:0040044
+- remove synonym 'burst' for PATO:0001444
+- remove synonym 'ruptured' for PATO:0001444
+- change definition of PATO:0001444 from "A broken quality inhering in a bearer by
+  virtue of the bearer's being broken open." to "A structural quality inhering in
+  a bearer by virtue of the bearer's components no longer being in a single contiguous
+  unit."
+pr319:
+- delete edge PATO:0001598 rdfs:subClassOf PATO:0000140
+- create edge PATO:0001598 rdfs:subClassOf PATO:0001018
+- delete edge PATO:0015007 rdfs:subClassOf PATO:0000140
+- create edge PATO:0015007 rdfs:subClassOf PATO:0001018
+pr316:
+- create PATO:0040043
+- create edge PATO:0040043 rdfs:subClassOf PATO:0001470
+- create synonym 'increased proportion' for PATO:0040043
+- create synonym 'increased proportionality' for PATO:0040043
+- create synonym 'increased quotient' for PATO:0040043
+- create synonym 'increased ratio' for PATO:0040043
+- add definition "A proportionality quality inhering in a bearer by virtue of the
+  bearer's increased magnitude in respect to a related entity." to PATO:0040043
+- create PATO:0040042
+- create edge PATO:0040042 rdfs:subClassOf PATO:0001470
+- create synonym 'decreased proportion' for PATO:0040042
+- create synonym 'decreased proportionality' for PATO:0040042
+- create synonym 'decreased quotient' for PATO:0040042
+- create synonym 'decreased ratio' for PATO:0040042
+- add definition "A proportionality quality inhering in a bearer by virtue of the
+  bearer's decreased magnitude in respect to a related entity." to PATO:0040042
+pr304:
+- rename PATO:0040001 from 'ring-shaped' to 'obsolete ring-shaped'
+- delete edge PATO:0040001 rdfs:subClassOf PATO:0000947
+- remove synonym 'annular' for PATO:0040001
+- obsolete PATO:0040001 with replacement PATO:0002539
+- remove definition for PATO:0040001
+- delete edge PATO:0002539 rdfs:subClassOf PATO:0000052
+- create edge PATO:0002539 rdfs:subClassOf PATO:0000947
+- create synonym 'annular' for PATO:0002539
+- create synonym 'ring-shaped' for PATO:0002539
+- create PATO:0040032
+- create edge PATO:0040032 rdfs:subClassOf PATO:0002304
+- add definition 'A distance traveled in a specific time that is relatively high.'
+  to PATO:0040032
+- create PATO:0040033
+- create edge PATO:0040033 rdfs:subClassOf PATO:0002302
+- add definition 'A distance traveled in a specific time that is relatively low.'
+  to PATO:0040033
+pr303:
+- delete edge PATO:0000973 rdfs:subClassOf PATO:0000970
+- create edge PATO:0000973 rdfs:subClassOf PATO:0000141
+- change definition of PATO:0000973 from "A permeability quality inhering in a bearer
+  by virtue of the bearer's disposition to admit the passage of gas or liquid through
+  pores or interstices." to "A structure quality inhering in a bearer by virtue of
+  the bearer's disposition to admit the passage of gas or liquid through pores or
+  interstices."
+pr302:
+- create synonym 'smooth' for PATO:0001975
+pr301:
+- create PATO:0040030
+- add PATO:0040030 to subset value_slim
+- create edge PATO:0040030 rdfs:subClassOf PATO:0000574
+- create edge PATO:0040030 rdfs:subClassOf PATO:0000599
+- add definition 'A width and length quality which is relatively small, where both
+  width and length are decreased.' to PATO:0040030
+- create edge PATO:0040030 RO:0002604 PATO:0040031
+- create PATO:0040031
+- add PATO:0040031 to subset value_slim
+- create edge PATO:0040031 rdfs:subClassOf PATO:0000573
+- create edge PATO:0040031 rdfs:subClassOf PATO:0000600
+- add definition 'A width and length quality that is relatively large, where both
+  width and length are increased.' to PATO:0040031
+- create edge PATO:0040031 RO:0002604 PATO:0040030
+pr291:
+- create PATO:0040029
+- create edge PATO:0040029 rdfs:subClassOf PATO:0001018
+- add definition 'A physical quality inhering in a bearer by virtue of that bearer
+  being shielded from visible light.' to PATO:0040029
+pr290:
+- create PATO:0040028
+- create edge PATO:0040028 rdfs:subClassOf PATO:0001995
+- add definition 'An organismal quality of having successfully reproduced.' to PATO:0040028
+pr282:
+- create PATO:0040027
+- create edge PATO:0040027 rdfs:subClassOf PATO:0001393
+- create synonym 'double haploid' for PATO:0040027
+- create synonym 'double-haploid' for PATO:0040027
+- add definition "A ploidy quality inhering in a bearer by virtue of the bearer's
+  haploid cells undergo chromosome doubling." to PATO:0040027
+pr270:
+- rename is_opposite_of from 'is opposite of' to 'is_opposite_of'
+pr262:
+- create PATO:0060003
+- create edge PATO:0060003 rdfs:subClassOf PATO:0060001
+- add definition "A quality inhering in a bearer by virtue of the bearer's being present
+  in females and absent from males in members of the same species." to PATO:0060003
+- create PATO:0060001
+- create edge PATO:0060001 rdfs:subClassOf PATO:0002451
+- add definition "A quality inhering in a bearer by virtue of the bearer's being present
+  in one sex and absent from the other in members of the same species." to PATO:0060001
+- create PATO:0060002
+- create edge PATO:0060002 rdfs:subClassOf PATO:0060001
+- add definition "A quality inhering in a bearer by virtue of the bearer's being present
+  in males and absent from females in members of the same species." to PATO:0060002
+pr256:
+- create PATO:0055001
+- add definition 'A spatial distribution of a process in which the process occupies
+  a smaller length, area, or volume than the reference process. For example, heterochromatin
+  may form over a shorter length of a chromosome in a mutant than in wild type.' to
+  PATO:0055001
+- create PATO:0055002
+- add definition 'A spatial distribution of a process in which the process occupies
+  a greater length, area, or volume than the reference process. For example, heterochromatin
+  may form over a shorter length of a chromosome in a mutant than in wild type.' to
+  PATO:0055002
+pr235:
+- create synonym 'hyaline' for PATO:0000964
+pr233:
+- create edge PATO:0000014 rdfs:subClassOf PATO:0000051
+pr228:
+- create PATO:0050000
+- create edge PATO:0050000 rdfs:subClassOf PATO:0000161
+- add definition 'The number of repeated events per unit time, occurring in a repeating
+  series. (e.g. the number of heart beats occurring over 1 minute)' to PATO:0050000
+- create PATO:0050001
+- create edge PATO:0050001 rdfs:subClassOf PATO:0000161
+- 'add definition ''The rate of output of a continuous process. Example include: growth
+  rate, cell migration rate, enzyme reaction rate.'' to PATO:0050001'
+- delete edge PATO:0000044 rdfs:subClassOf PATO:0000161
+- create edge PATO:0000044 rdfs:subClassOf PATO:0050000
+- delete edge PATO:0001492 rdfs:subClassOf PATO:0000161
+- create edge PATO:0001492 rdfs:subClassOf PATO:0050001
+pr207:
+- create PATO:0040022
+- create edge PATO:0040022 rdfs:subClassOf PATO:0000052
+- add definition 'A shape quality inhering in a bearer by virtue of the bearer being
+  expanded laterally and or opened outward in shape.' to PATO:0040022
+- create PATO:0040023
+- create edge PATO:0040023 rdfs:subClassOf PATO:0000133
+- create synonym 'disto-medial orientation' for PATO:0040023
+- create synonym 'distomedial' for PATO:0040023
+- add definition 'An orientation quality inhering in a bearer by virtue of the bearer
+  having a position that is directed distomedially, ie, pertaining to an inside aspect,
+  but also farther away from the center of the body.' to PATO:0040023
+- create PATO:0040021
+- create edge PATO:0040021 rdfs:subClassOf PATO:0000467
+- add definition 'The bearer of this quality has_part n=1 of the indicated entity
+  type, where n is bilaterally paired for a comparable organism..' to PATO:0040021
+- remove synonym 'flared' for PATO:0001785
+- create edge PATO:0040025 rdfs:subClassOf PATO:0000467
+- rename PATO:0040025 from 'lesioned' to 'lesioned'
+- create synonym 'paired' for PATO:0040025
+- change definition of PATO:0040025 from 'A structural quality which is held by a
+  bearer where a localized pathological or traumatic structural change, damage, deformity,
+  or discontinuity of tissue, organ, or body part is present.' to 'The bearer of this
+  quality has_part n=2 of the indicated entity type, where n is unpaired for a comparable
+  organism.'
+pr206:
+- delete edge PATO:0001334 rdfs:subClassOf PATO:0000122
+- create edge PATO:0001334 rdfs:subClassOf PATO:0001708
+- rename PATO:0002104 from 'inflammatory' to 'inflamed'
+- delete edge PATO:0001711 rdfs:subClassOf PATO:0000122
+- create edge PATO:0001711 rdfs:subClassOf PATO:0001708
+pr203:
+- create PATO:0040019
+- create edge PATO:0040019 rdfs:subClassOf PATO:0000025
+- add definition 'Fibrosis is the formation of excess fibrous connective tissue in
+  an organ or tissue in a reparative or reactive process.' to PATO:0040019
+pr201:
+- delete PATO:0040017
+- delete edge PATO:0040017 rdfs:subClassOf PATO:0001433
+- create synonym 'dysgenesis' for PATO:0002019
+- create PATO:0040005
+- create edge PATO:0040005 rdfs:subClassOf PATO:0000133
+- create synonym 'posteroventrally oriented' for PATO:0040005
+- add definition 'An orientation quality inhering in a bearer by virtue of the bearer
+  having a position that is directed posteroventrally.' to PATO:0040005
+pr199:
+- create PATO:0040014
+- create edge PATO:0040014 rdfs:subClassOf PATO:0000052
+- create synonym 'band like' for PATO:0040014
+- create synonym 'strip like' for PATO:0040014
+- create synonym 'strip-like' for PATO:0040014
+- add definition 'A shape that is in the form of a narrow strip encircling an object.'
+  to PATO:0040014
+- create PATO:0040015
+- create edge PATO:0040015 rdfs:subClassOf PATO:0002008
+- create synonym 'trough like' for PATO:0040015
+- create synonym 'trough-like' for PATO:0040015
+- create synonym 'trough-shaped' for PATO:0040015
+- add definition "A concave 3-D shape quality inhering in a bearer by virtue of the
+  bearer's shape resembling that of a trough, being narrow, long, and boxlike in shape."
+  to PATO:0040015
+- create PATO:0040009
+- create edge PATO:0040009 rdfs:subClassOf PATO:0002008
+- add definition "A concave 3-D shape quality inhering in a bearer by virtue of the
+  bearer's being shaped in the form of a bowl." to PATO:0040009
+- create PATO:0040017
+- create edge PATO:0040017 rdfs:subClassOf PATO:0001433
+- create synonym 'dysgenesis' for PATO:0040017
+- add definition 'A growth quality of occurrent in which the growth of an organism,
+  structure or group of organisms is abnormal.' to PATO:0040017
+- remove synonym 'dysgenesis' for PATO:0002019
+- change definition of PATO:0040003 from 'The ability of a pathogen to produce an
+  infectious disease or disorder in an another organism.' to 'The ability of a pathogen
+  to produce an infectious disease or disorder in an another organism.'
+- create PATO:0040008
+- create edge PATO:0040008 rdfs:subClassOf PATO:0002267
+- add definition "A shape quality inhering in a bearer by virtue of the bearer's having
+  an ornamental border consisting of short straight or twisted threads or strips hanging
+  from cut or raveled edges or from a separate band." to PATO:0040008
+- create PATO:0040012
+- create edge PATO:0040012 rdfs:subClassOf PATO:0000052
+- create synonym 'plug shaped' for PATO:0040012
+- add definition 'A shape that is in the form of a plug, being tube-like and expanded
+  on one end.' to PATO:0040012
+- create PATO:0040007
+- create edge PATO:0040007 rdfs:subClassOf PATO:0000052
+- add definition "A shape quality inhering in a bearer by virtue of the bearer's having
+  a shape like a shell." to PATO:0040007
+- create PATO:0040013
+- create edge PATO:0040013 rdfs:subClassOf PATO:0000133
+- create synonym 'dorsomedially directed' for PATO:0040013
+- add definition 'An orientation quality inhering in a bearer by virtue of the bearer
+  having a position that is directed dorsomedially.' to PATO:0040013
+- add definition "An organismal quality inhering in a bearer by virtue of the bearer's
+  physical expression of sexual characteristics." to PATO:0001894
+- change definition of PATO:0000261 from 'A quality of a single physical entity which
+  is held by a bearer when the latter exhibits complete growth, differentiation, or
+  development.' to 'A quality of a single physical entity which is held by a bearer
+  when the latter exhibits a state of growth, differentiation, or development.'
+- create PATO:0040016
+- create edge PATO:0040016 rdfs:subClassOf PATO:0002006
+- add definition "A shape quality inhering in a bearer by virtue of the bearer's having
+  five angles and five sides." to PATO:0040016
+- create PATO:0040010
+- create edge PATO:0040010 rdfs:subClassOf PATO:0000004
+- add definition 'Mobility relative to a second entity.' to PATO:0040010
+- create PATO:0040011
+- create edge PATO:0040011 rdfs:subClassOf PATO:0000004
+- add definition 'Immobility relative to a second entity.' to PATO:0040011
+pr171:
+- create synonym 'centric' for PATO:0001325
+- create synonym 'pennate' for PATO:0001324
+pr169:
+- delete edge PATO:0000085 rdfs:subClassOf PATO:0001018
+- create edge PATO:0000085 rdfs:subClassOf PATO:0001995
+- delete edge PATO:0001046 rdfs:subClassOf PATO:0001018
+- create edge PATO:0001046 rdfs:subClassOf PATO:0001995
+- delete edge PATO:0000077 rdfs:subClassOf PATO:0001018
+- create edge PATO:0000077 rdfs:subClassOf PATO:0001995
+pr164:
+- create PATO:0040002
+- add PATO:0040002 to subset relational_slim
+- create edge PATO:0040002 rdfs:subClassOf PATO:0000140
+- add definition 'A positional quality inhering in a bearer by virtue of some aspect
+  of that bearer beginning from a position on another entity.' to PATO:0040002
+pr163:
+- create PATO:0040001
+- create edge PATO:0040001 rdfs:subClassOf PATO:0000947
+- create synonym 'annular' for PATO:0040001
+- add definition 'Shaped like a ring' to PATO:0040001
+pr162:
+- delete edge PATO:0002064 rdfs:subClassOf PATO:0000052
+- create edge PATO:0002064 rdfs:subClassOf PATO:0000141
+- change definition of PATO:0002064 from "A shape quality inhering in a bearer by
+  virtue of the bearer's delimited by a surface with holes." to "A structure quality
+  inhering in a bearer by virtue of the bearer's delimited by a surface with holes."
+pr161:
+- create PATO:0040000
+- create edge PATO:0040000 rdfs:subClassOf PATO:0000625
+- add definition "An oriented quality inhering in a bearer by virtue of the bearer's
+  being abnormally placed or arranged." to PATO:0040000
+- create synonym 'approaches' for PATO:0002259
+pr160:
+- add PATO:0002435 to subset relational_slim
+- rename PATO:0002435 from 'abut' to 'abutting'
+- create synonym 'abut' for PATO:0002435
+- change definition of PATO:0002448 from "A quality inhering in a bearer by virtue
+  of the bearer's bing aligned or positioned towards another entity." to "A quality
+  inhering in a bearer by virtue of the bearer's being aligned or positioned towards
+  another entity."
+pr152:
+- delete edge PATO:0001816 rdfs:subClassOf PATO:1778
+- create edge PATO:0001816 rdfs:subClassOf PATO:0001779
+pr130:
+- rename is_opposite_of from 'is opposite_of' to 'is opposite of'
+pr119:
+- change definition of PATO:0015018 from "A physical quality inhering in an entity
+  by virtue of the bearer's solid or liquid constituents being suspended in a gas."
+  to "A physical quality inhering in an entity by virtue of the bearer's solid or
+  liquid constituents being suspended in a gas."
+- create PATO:0015029
+- add PATO:0015029 to subset attribute_slim
+- create edge PATO:0015029 rdfs:subClassOf PATO:0002198
+- add definition "A physical quality inhering in an entity by virtue of the bearer's
+  solid or liquid constituents being transiently dispersed in a solid, liquid, or
+  gas before settling due to gravity or centrifugal forces." to PATO:0015029
+- rename PATO:0015017 from 'quality of a colloidal suspension' to 'quality of a colloid'
+- change definition of PATO:0015017 from "A physical quality inhering in an entity
+  by virtue of the bearer's solid constituents being suspended in a liquid or gas,
+  or the bearer's liquid constituents being suspended in a gas." to "A physical quality
+  inhering in an entity by virtue of a portion of the bearer's molecular or polymolecular
+  constituents present in one phase being dispersed in a portion of the bearer's constituents
+  present in another phase."
+pr117:
+- rename PATO:0000704 from 'pain threshold value' to 'obsolete pain threshold value'
+- rename PATO:0000919 from 'absolute volume' to 'obsolete absolute volume'
+- rename PATO:0000838 from 'absolute auditory ability value' to 'obsolete absolute
+  auditory ability value'
+- rename PATO:0001116 from 'relative impulse value' to 'obsolete relative impulse
+  value'
+- rename PATO:0000181 from 'piloerection' to 'obsolete piloerection'
+- rename PATO:0000548 from 'blue light sensitivity value' to 'obsolete blue light
+  sensitivity value'
+- rename PATO:0000098 from 'insecticide sensitivity' to 'obsolete insecticide sensitivity'
+- rename PATO:0000151 from 'relative texture' to 'obsolete relative texture'
+- rename PATO:0000857 from 'lordosis reflex value' to 'obsolete lordosis reflex value'
+- rename PATO:0000436 from 'concrete' to 'obsolete concrete'
+- rename PATO:0000506 from 'absolute sensitivity value' to 'obsolete absolute sensitivity
+  value'
+- rename PATO:0001112 from 'energy value' to 'obsolete energy value'
+- rename PATO:0001099 from 'relative force' to 'obsolete relative force'
+- rename PATO:0001223 from 'quantitative value' to 'obsolete quantitative value'
+- rename PATO:0000310 from 'color value' to 'obsolete color value'
+- rename PATO:0000994 from 'absolute viscosity' to 'obsolete absolute viscosity'
+- rename PATO:0000705 from 'relative threshold value' to 'obsolete relative threshold
+  value'
+- rename PATO:0000177 from 'physiological function' to 'obsolete physiological function'
+- rename PATO:0001038 from 'ratio' to 'obsolete ratio'
+- rename PATO:0000979 from 'porosity value' to 'obsolete porosity value'
+- rename PATO:0000846 from 'auditory threshold' to 'obsolete auditory threshold'
+- rename PATO:0000252 from 'suckling reflex' to 'obsolete suckling reflex'
+- rename PATO:0000795 from 'healing value' to 'obsolete healing value'
+- rename PATO:0000653 from 'addictive substance value' to 'obsolete addictive substance
+  value'
+- rename PATO:0000865 from 'startle reflex value' to 'obsolete startle reflex value'
+- rename PATO:0000813 from 'odor type value' to 'obsolete odor type value'
+- rename PATO:0000041 from 'absolutedistance' to 'obsolete absolutedistance'
+- rename PATO:0000416 from 'count value' to 'obsolete count value'
+- rename PATO:0000272 from 'relative neurobehavioral function' to 'obsolete relative
+  neurobehavioral function'
+- rename PATO:0000526 from 'absolute drug sensitivity value' to 'obsolete absolute
+  drug sensitivity value'
+- rename PATO:0001175 from 'urine composition' to 'obsolete urine composition'
+- rename PATO:0000104 from 'osmotic response sensitivity' to 'obsolete osmotic response
+  sensitivity'
+- rename PATO:0000267 from 'relative visual_acuity' to 'obsolete relative visual_acuity'
+- rename PATO:0001071 from 'relative energy' to 'obsolete relative energy'
+- rename PATO:0000091 from 'stress sensitivity' to 'obsolete stress sensitivity'
+- rename PATO:0000398 from 'vigorous' to 'obsolete vigorous'
+- rename PATO:0001451 from 'edematous (sensu botany)' to 'obsolete edematous (sensu
+  botany)'
+- rename PATO:0000434 from 'maternal' to 'obsolete maternal'
+- rename PATO:0000431 from 'odor value' to 'obsolete odor value'
+- rename PATO:0000212 from 'neural function' to 'obsolete neural function'
+- rename PATO:0000222 from 'muscle elevation' to 'obsolete muscle elevation'
+- rename PATO:0000895 from 'f1 fertility value' to 'obsolete f1 fertility value'
+- rename PATO:0001150 from 'absolute susceptibility value' to 'obsolete absolute susceptibility
+  value'
+- rename PATO:0001117 from 'absolute impulse value' to 'obsolete absolute impulse
+  value'
+- rename PATO:0000710 from 'time value' to 'obsolete time value'
+- rename PATO:0000612 from 'relative orientation value' to 'obsolete relative orientation
+  value'
+- rename PATO:0000458 from 'presence value' to 'obsolete presence value'
+- rename PATO:0000520 from 'radiation sensitivity value' to 'obsolete radiation sensitivity
+  value'
+- rename PATO:0000697 from 'relative texture value' to 'obsolete relative texture
+  value'
+- rename PATO:0001209 from 'absolute function' to 'obsolete absolute function'
+- rename PATO:0000478 from 'poor value' to 'obsolete poor value'
+- rename PATO:0000928 from 'absolute photosensitivity' to 'obsolete absolute photosensitivity'
+- rename PATO:0001083 from 'acceleration value' to 'obsolete acceleration value'
+- rename PATO:0000988 from 'relative consistency value' to 'obsolete relative consistency
+  value'
+- rename PATO:0001126 from 'relative pressure value' to 'obsolete relative pressure
+  value'
+- rename PATO:0000295 from 'relative activity value' to 'obsolete relative activity
+  value'
+- rename PATO:0000236 from 'odor type' to 'obsolete odor type'
+- rename PATO:0000417 from 'absolute number value' to 'obsolete absolute number value'
+- rename PATO:0000753 from 'spontaneous activity value' to 'obsolete spontaneous activity
+  value'
+- rename PATO:0000828 from 'visual placing value' to 'obsolete visual placing value'
+- rename PATO:0000105 from 'p h sensitivity' to 'obsolete p h sensitivity'
+- rename PATO:0000722 from 'relative yield value' to 'obsolete relative yield value'
+- rename PATO:0000088 from 'absolute disease sensitivity' to 'obsolete absolute disease
+  sensitivity'
+- rename PATO:0000288 from 'relative litter size' to 'obsolete relative litter size'
+- rename PATO:0000452 from 'relative pilosity value' to 'obsolete relative pilosity
+  value'
+- rename PATO:0000728 from 'metabolic function value' to 'obsolete metabolic function
+  value'
+- rename PATO:0000278 from 'hybrid fertility' to 'obsolete hybrid fertility'
+- rename PATO:0000670 from 'saccharin versus water value' to 'obsolete saccharin versus
+  water value'
+- rename PATO:0000899 from 'soma dependent fertility value' to 'obsolete soma dependent
+  fertility value'
+- rename PATO:0000780 from 'relative locomotor activity value' to 'obsolete relative
+  locomotor activity value'
+- rename PATO:0000192 from 'locomotor_activity' to 'obsolete locomotor_activity'
+- rename PATO:0000555 from 'heat sensitive' to 'obsolete heat sensitive'
+- rename PATO:0001091 from 'relative elasticity value' to 'obsolete relative elasticity
+  value'
+- rename PATO:0000486 from 'moderate response' to 'obsolete moderate response'
+- rename PATO:0001121 from 'power value' to 'obsolete power value'
+- rename PATO:0000537 from 'acid sensitivity value' to 'obsolete acid sensitivity
+  value'
+- rename PATO:0000789 from 'respiratory function value' to 'obsolete respiratory function
+  value'
+- rename PATO:0000508 from 'relative sensitivity value' to 'obsolete relative sensitivity
+  value'
+- rename PATO:0000202 from 'long term memory' to 'obsolete long term memory'
+- rename PATO:0000841 from 'relative auditory acuity value' to 'obsolete relative
+  auditory acuity value'
+- rename PATO:0000199 from 'relative consumption' to 'obsolete relative consumption'
+- rename PATO:0000215 from 'respiratory function' to 'obsolete respiratory function'
+- rename PATO:0001141 from 'ig a concentration value' to 'obsolete ig a concentration
+  value'
+- rename PATO:0000552 from 'absolute temperature sensitivity value' to 'obsolete absolute
+  temperature sensitivity value'
+- rename PATO:0000698 from 'floury' to 'obsolete floury'
+- rename PATO:0000809 from 'taste value' to 'obsolete taste value'
+- rename PATO:0001004 from 'absolute alternation value' to 'obsolete absolute alternation
+  value'
+- rename PATO:0000783 from 'digestive function value' to 'obsolete digestive function
+  value'
+- rename PATO:0001101 from 'stiffness value' to 'obsolete stiffness value'
+- rename PATO:0000094 from 'drug sensitivity' to 'obsolete drug sensitivity'
+- rename PATO:0000225 from 'sensory function' to 'obsolete sensory function'
+- rename PATO:0000850 from 'relative auditory ability' to 'obsolete relative auditory
+  ability'
+- rename PATO:0000268 from 'absolute visual threshold' to 'obsolete absolute visual
+  threshold'
+- rename PATO:0001222 from 'solid_angle_unit' to 'obsolete solid_angle_unit'
+- rename PATO:0000820 from 'absolute taste acuity value' to 'obsolete absolute taste
+  acuity value'
+- rename PATO:0000827 from 'visual threshold value' to 'obsolete visual threshold
+  value'
+- rename PATO:0001124 from 'pressure value' to 'obsolete pressure value'
+- rename PATO:0000130 from 'relative weight' to 'obsolete relative weight'
+- rename PATO:0000777 from 'long term memory value' to 'obsolete long term memory
+  value'
+- rename PATO:0000198 from 'absolute consumption' to 'obsolete absolute consumption'
+- rename PATO:0000207 from 'circulatory function' to 'obsolete circulatory function'
+- rename PATO:0000290 from 'absolute respiratory rate' to 'obsolete absolute respiratory
+  rate'
+- rename PATO:0000466 from 'none' to 'obsolete none'
+- rename PATO:0001010 from 'relative intensity' to 'obsolete relative intensity'
+- rename PATO:0000074 from 'shattering' to 'obsolete shattering'
+- rename PATO:0000240 from 'contact righting reflex' to 'obsolete contact righting
+  reflex'
+- rename PATO:0000045 from 'absolute frequency' to 'obsolete absolute frequency'
+- rename PATO:0000439 from 'perseverative' to 'obsolete perseverative'
+- rename PATO:0000139 from 'relative orientation' to 'obsolete relative orientation'
+- rename PATO:0000293 from 'absolute activity value' to 'obsolete absolute activity
+  value'
+- rename PATO:0001213 from 'mass_unit' to 'obsolete mass_unit'
+- rename PATO:0001120 from 'relative momentum value' to 'obsolete relative momentum
+  value'
+- rename PATO:0000205 from 'relative locomotor_activity' to 'obsolete relative locomotor_activity'
+- rename PATO:0000976 from 'permeability value' to 'obsolete permeability value'
+- rename PATO:0000593 from 'absolute volume value' to 'obsolete absolute volume value'
+- rename PATO:0001009 from 'relative latency value' to 'obsolete relative latency
+  value'
+- rename PATO:0001068 from 'relative strain' to 'obsolete relative strain'
+- rename PATO:0000445 from 'relative percentage value' to 'obsolete relative percentage
+  value'
+- rename PATO:0001326 from 'left-right symmetry' to 'obsolete left-right symmetry'
+- rename PATO:0000766 from 'relative consumption value' to 'obsolete relative consumption
+  value'
+- rename PATO:0000667 from 'liquid substance value' to 'obsolete liquid substance
+  value'
+- rename PATO:0000159 from 'absolute incidence' to 'obsolete absolute incidence'
+- rename PATO:0000854 from 'contact righting reflex value' to 'obsolete contact righting
+  reflex value'
+- rename PATO:0001156 from 'relative concentration' to 'obsolete relative concentration'
+- rename PATO:0000922 from 'absolute width' to 'obsolete absolute width'
+- rename PATO:0000190 from 'gait' to 'obsolete gait'
+- rename PATO:0000248 from 'pupillary reflex' to 'obsolete pupillary reflex'
+- rename PATO:0000194 from 'spontaneous_activity' to 'obsolete spontaneous_activity'
+- rename PATO:0000870 from 'relative neurobehavioral function value' to 'obsolete
+  relative neurobehavioral function value'
+- rename PATO:0000399 from 'life span value' to 'obsolete life span value'
+- rename PATO:0002095 from 'neoplasm disposition' to 'obsolete neoplasm disposition'
+- rename PATO:0000968 from 'albino value' to 'obsolete albino value'
+- rename PATO:0000514 from 'intolerant value' to 'obsolete intolerant value'
+- rename PATO:0000971 from 'absolute permeability' to 'obsolete absolute permeability'
+- rename PATO:0000703 from 'absolute threshold value' to 'obsolete absolute threshold
+  value'
+- rename PATO:0000590 from 'relative thickness value' to 'obsolete relative thickness
+  value'
+- rename PATO:0000533 from 'osmotic response sensitivity' to 'obsolete osmotic response
+  sensitivity'
+- rename PATO:0000931 from 'blue light sensitivity' to 'obsolete blue light sensitivity'
+- rename PATO:0000902 from 'chinsurah boro type value' to 'obsolete chinsurah boro
+  type value'
+- rename PATO:0001092 from 'flux value' to 'obsolete flux value'
+- rename PATO:0001048 from 'relative resistance' to 'obsolete relative resistance'
+- rename PATO:0000663 from 'occurrent' to 'obsolete occurrent'
+- rename PATO:0001008 from 'absolute latency value' to 'obsolete absolute latency
+  value'
+- rename PATO:0000208 from 'defensive function' to 'obsolete defensive function'
+- rename PATO:0000881 from 'gestational period value' to 'obsolete gestational period
+  value'
+- rename PATO:0000247 from 'proboscis extension reflex' to 'obsolete proboscis extension
+  reflex'
+- rename PATO:0000079 from 'absolute rhythym' to 'obsolete absolute rhythym'
+- rename PATO:0000220 from 'regeneration' to 'obsolete regeneration'
+- rename PATO:0000349 from 'carbohydrate composition value' to 'obsolete carbohydrate
+  composition value'
+- rename PATO:0001273 from 'bright grey' to 'obsolete bright grey'
+- rename PATO:0000541 from 'photosensitivity value' to 'obsolete photosensitivity
+  value'
+- rename PATO:0000832 from 'relative visual acuity value' to 'obsolete relative visual
+  acuity value'
+- rename PATO:0000835 from 'auditory acuity value' to 'obsolete auditory acuity value'
+- rename PATO:0000993 from 'relative viscosity' to 'obsolete relative viscosity'
+- rename PATO:0000981 from 'relative porosity value' to 'obsolete relative porosity
+  value'
+- rename PATO:0000565 from 'volume value' to 'obsolete volume value'
+- rename PATO:0000341 from 'sporophytic compatability value' to 'obsolete sporophytic
+  compatability value'
+- rename PATO:0001134 from 'ig a concentration' to 'obsolete ig a concentration'
+- rename PATO:0000668 from 'mass_quantity' to 'obsolete mass_quantity'
+- rename PATO:0000661 from 'solid substance value' to 'obsolete solid substance value'
+- rename PATO:0000496 from 'phase value' to 'obsolete phase value'
+- rename PATO:0001129 from 'relative work value' to 'obsolete relative work value'
+- rename PATO:0000284 from 'germ line dependent fertility' to 'obsolete germ line
+  dependent fertility'
+- rename PATO:0000923 from 'relative width' to 'obsolete relative width'
+- rename PATO:0000861 from 'proboscis extension reflex value' to 'obsolete proboscis
+  extension reflex value'
+- rename PATO:0000087 from 'disease sensitivity' to 'obsolete disease sensitivity'
+- rename PATO:0000977 from 'absolute permeability value' to 'obsolete absolute permeability
+  value'
+- rename PATO:0000096 from 'relative drug sensitivity' to 'obsolete relative drug
+  sensitivity'
+- rename PATO:0000792 from 'repair function value' to 'obsolete repair function value'
+- rename PATO:0000512 from 'relative disease sensitivity value' to 'obsolete relative
+  disease sensitivity value'
+- rename PATO:0001128 from 'absolute work value' to 'obsolete absolute work value'
+- rename PATO:0001661 from 'increased action potential' to 'obsolete increased action
+  potential'
+- rename PATO:0000961 from 'relative opacity value' to 'obsolete relative opacity
+  value'
+- rename PATO:0000283 from 'f2 fertility' to 'obsolete f2 fertility'
+- rename PATO:0000830 from 'relative visual ability value' to 'obsolete relative visual
+  ability value'
+- rename PATO:0000855 from 'corneal reflex value' to 'obsolete corneal reflex value'
+- rename PATO:0000958 from 'opacity value' to 'obsolete opacity value'
+- rename PATO:0000123 from 'absolute length' to 'obsolete absolute length'
+- rename PATO:0000571 from 'absolute length value' to 'obsolete absolute length value'
+- rename PATO:0000736 from 'dysfunctional value' to 'obsolete dysfunctional value'
+- rename PATO:0000717 from 'viability value' to 'obsolete viability value'
+- rename PATO:0000376 from 'flavor value' to 'obsolete flavor value'
+- rename PATO:0001182 from 'relative response' to 'obsolete relative response'
+- rename PATO:0000519 from 'humidity sensitivity value' to 'obsolete humidity sensitivity
+  value'
+- rename PATO:0000866 from 'suckling reflex value' to 'obsolete suckling reflex value'
+- rename PATO:0000525 from 'soil composition sensitivity value' to 'obsolete soil
+  composition sensitivity value'
+- rename PATO:0001235 from 'strength value' to 'obsolete strength value'
+- rename PATO:0000012 from 'absolute age' to 'obsolete absolute age'
+- rename PATO:0000987 from 'relative consistency' to 'obsolete relative consistency'
+- rename PATO:0000424 from 'occurence value' to 'obsolete occurence value'
+- rename PATO:0000093 from 'chemical sensitivity' to 'obsolete chemical sensitivity'
+- rename PATO:0001085 from 'absolute acceleration value' to 'obsolete absolute acceleration
+  value'
+- rename PATO:0000806 from 'olfactory value' to 'obsolete olfactory value'
+- rename PATO:0000553 from 'relative temperature sensitivity value' to 'obsolete relative
+  temperature sensitivity value'
+- rename PATO:0000197 from 'transfer_arousal' to 'obsolete transfer_arousal'
+- rename PATO:0000557 from 'thermosensitive' to 'obsolete thermosensitive'
+- rename PATO:0001113 from 'absolute energy value' to 'obsolete absolute energy value'
+- rename PATO:0001130 from 'ratio value' to 'obsolete ratio value'
+- rename PATO:0000100 from 'soil composition sensitivity' to 'obsolete soil composition
+  sensitivity'
+- rename PATO:0000774 from 'bizarre gate' to 'obsolete bizarre gate'
+- rename PATO:0000444 from 'percentage value' to 'obsolete percentage value'
+- rename PATO:0000390 from 'extreme' to 'obsolete extreme'
+- rename PATO:0000153 from 'absolute threshold' to 'obsolete absolute threshold'
+- rename PATO:0001098 from 'absolute force' to 'obsolete absolute force'
+- rename PATO:0000530 from 'soil nutrient sensitivity value' to 'obsolete soil nutrient
+  sensitivity value'
+- rename PATO:0000359 from 'water content value' to 'obsolete water content value'
+- rename PATO:0000270 from 'defecation' to 'obsolete defecation'
+- rename PATO:0000507 from 'disease sensitivity value' to 'obsolete disease sensitivity
+  value'
+- rename PATO:0001080 from 'relative work' to 'obsolete relative work'
+- rename PATO:0000432 from 'parental type value' to 'obsolete parental type value'
+- rename PATO:0000781 from 'circulatory function value' to 'obsolete circulatory function
+  value'
+- rename PATO:0000567 from 'absolute height value' to 'obsolete absolute height value'
+- rename PATO:0000430 from 'unique' to 'obsolete unique'
+- rename PATO:0000749 from 'gait value' to 'obsolete gait value'
+- rename PATO:0000111 from 'flooding sensitivity' to 'obsolete flooding sensitivity'
+- rename PATO:0000664 from 'substance_quantity' to 'obsolete substance_quantity'
+- rename PATO:0000264 from 'absolute visual_ability' to 'obsolete absolute visual_ability'
+- rename PATO:0000847 from 'absolute auditory acuity' to 'obsolete absolute auditory
+  acuity'
+- rename PATO:0000752 from 'mating value' to 'obsolete mating value'
+- rename PATO:0001044 from 'absolute power' to 'obsolete absolute power'
+- rename PATO:0000339 from 'gametophytic compatability value' to 'obsolete gametophytic
+  compatability value'
+- rename PATO:0000686 from 'absolute rate value' to 'obsolete absolute rate value'
+- rename PATO:0001144 from 'ig g concentration value' to 'obsolete ig g concentration
+  value'
+- rename PATO:0000491 from 'sensitivity value' to 'obsolete sensitivity value'
+- rename PATO:0001125 from 'absolute pressure value' to 'obsolete absolute pressure
+  value'
+- rename PATO:0000289 from 'respiratory rate' to 'obsolete respiratory rate'
+- rename PATO:0001148 from 'relative resistance value' to 'obsolete relative resistance
+  value'
+- rename PATO:0001027 from 'physical quantity' to 'obsolete physical quantity'
+- rename PATO:0000887 from 'relative litter size value' to 'obsolete relative litter
+  size value'
+- rename PATO:0001219 from 'area_unit' to 'obsolete area_unit'
+- rename PATO:0000959 from 'relative opacity' to 'obsolete relative opacity'
+- rename PATO:0001102 from 'absolute stiffness value' to 'obsolete absolute stiffness
+  value'
+- rename PATO:0001076 from 'relative momentum' to 'obsolete relative momentum'
+- rename PATO:0000903 from 'cms-hl type value' to 'obsolete cms-hl type value'
+- rename PATO:0001056 from 'number' to 'obsolete number'
+- rename PATO:0000666 from 'energy_quantity' to 'obsolete energy_quantity'
+- rename PATO:0000658 from 'metamphetamine value' to 'obsolete metamphetamine value'
+- rename PATO:0001114 from 'relative energy value' to 'obsolete relative energy value'
+- rename PATO:0000223 from 'muscle strength' to 'obsolete muscle strength'
+- rename PATO:0000683 from 'relative temporal value' to 'obsolete relative temporal
+  value'
+- rename PATO:0000989 from 'absolute consistency value' to 'obsolete absolute consistency
+  value'
+- rename PATO:0000373 from 'relative distance value' to 'obsolete relative distance
+  value'
+- rename PATO:0000996 from 'absolute viscosity value' to 'obsolete absolute viscosity
+  value'
+- rename PATO:0000315 from 'color pattern value' to 'obsolete color pattern value'
+- rename PATO:0000568 from 'relative height value' to 'obsolete relative height value'
+- rename PATO:0000211 from 'muscle function' to 'obsolete muscle function'
+- rename PATO:0000092 from 'abiotic stress sensitivity' to 'obsolete abiotic stress
+  sensitivity'
+- rename PATO:0001078 from 'relative pressure' to 'obsolete relative pressure'
+- rename PATO:0000145 from 'liquid substance' to 'obsolete liquid substance'
+- rename PATO:0000435 from 'pattern value' to 'obsolete pattern value'
+- rename PATO:0000726 from 'autonomic function value' to 'obsolete autonomic function
+  value'
+- rename PATO:0000900 from 'backcross fertile' to 'obsolete backcross fertile'
+- rename PATO:0000699 from 'glutinous' to 'obsolete glutinous'
+- rename PATO:0001069 from 'relative density' to 'obsolete relative density'
+- rename PATO:0000721 from 'absolute yield value' to 'obsolete absolute yield value'
+- rename PATO:0001138 from 'ig m concentration' to 'obsolete ig m concentration'
+- rename PATO:0000879 from 'fecundity value' to 'obsolete fecundity value'
+- rename PATO:0000450 from 'low percentage' to 'obsolete low percentage'
+- rename PATO:0001072 from 'absolute energy' to 'obsolete absolute energy'
+- rename PATO:0000171 from 'absolute yield' to 'obsolete absolute yield'
+- rename PATO:0000138 from 'absolute orientation' to 'obsolete absolute orientation'
+- rename PATO:0000814 from 'taste acuity value' to 'obsolete taste acuity value'
+- rename PATO:0000142 from 'substance' to 'obsolete substance'
+- rename PATO:0001660 from 'decreased action potential' to 'obsolete decreased action
+  potential'
+- rename PATO:0000307 from 'relative age value' to 'obsolete relative age value'
+- rename PATO:0000113 from 'radiation sensitivity' to 'obsolete radiation sensitivity'
+- rename PATO:0000006 from 'process' to 'obsolete process'
+- rename PATO:0001059 from 'relative efficiency' to 'obsolete relative efficiency'
+- rename PATO:0000342 from 'gametophyte compatible value' to 'obsolete gametophyte
+  compatible value'
+- rename PATO:0001211 from 'solid_angle_quantity' to 'obsolete solid_angle_quantity'
+- rename PATO:0000762 from 'impaired' to 'obsolete impaired'
+- rename PATO:0000000 from 'pato' to 'obsolete pato'
+- rename PATO:0000803 from 'tactile response value' to 'obsolete tactile response
+  value'
+- rename PATO:0001088 from 'absolute efficiency value' to 'obsolete absolute efficiency
+  value'
+- rename PATO:0000266 from 'absolute visual_acuity' to 'obsolete absolute visual_acuity'
+- rename PATO:0000765 from 'absolute consumption value' to 'obsolete absolute consumption
+  value'
+- rename PATO:0000826 from 'visual acuity value' to 'obsolete visual acuity value'
+- rename PATO:0000476 from 'bad value' to 'obsolete bad value'
+- rename PATO:0000103 from 'micronutrient sensitivity' to 'obsolete micronutrient
+  sensitivity'
+- rename PATO:0000560 from 'height value' to 'obsolete height value'
+- rename PATO:0000675 from 'body temperature value' to 'obsolete body temperature
+  value'
+- rename PATO:0000738 from 'enzyme function value' to 'obsolete enzyme function value'
+- rename PATO:0001589 from 'enhanced' to 'obsolete enhanced'
+- rename PATO:0001058 from 'absolute acceleration' to 'obsolete absolute acceleration'
+- rename PATO:0000291 from 'relative respiratory rate' to 'obsolete relative respiratory
+  rate'
+- rename PATO:0000535 from 'salt sensitivity value' to 'obsolete salt sensitivity
+  value'
+- rename PATO:0000269 from 'relative visual threshold' to 'obsolete relative visual
+  threshold'
+- rename PATO:0000065 from 'relative percentage' to 'obsolete relative percentage'
+- rename PATO:0000265 from 'relative visual_ability' to 'obsolete relative visual_ability'
+- rename PATO:0000527 from 'relative drug sensitivity value' to 'obsolete relative
+  drug sensitivity value'
+- rename PATO:0000790 from 'heart rate value' to 'obsolete heart rate value'
+- rename PATO:0001812 from 'decreased relaxation' to 'obsolete decreased relaxation'
+- rename PATO:0000819 from 'quantity' to 'obsolete quantity'
+- rename PATO:0000674 from 'absolute temperature value' to 'obsolete absolute temperature
+  value'
+- rename PATO:0000913 from 'qualitative value' to 'obsolete qualitative value'
+- rename PATO:0000357 from 'protein concentration value' to 'obsolete protein concentration
+  value'
+- rename PATO:0000522 from 'herbicide sensitivity value' to 'obsolete herbicide sensitivity
+  value'
+- rename PATO:0000920 from 'relative volume' to 'obsolete relative volume'
+- rename PATO:0000347 from 'sporophyte incompatible value' to 'obsolete sporophyte
+  incompatible value'
+- rename PATO:0000714 from 'latency value' to 'obsolete latency value'
+- rename PATO:0000073 from 'relative_quality' to 'obsolete relative_quality'
+- rename PATO:0000306 from 'absolute age value' to 'obsolete absolute age value'
+- rename PATO:0000880 from 'fertility value' to 'obsolete fertility value'
+- rename PATO:0000598 from 'relative width value' to 'obsolete relative width value'
+- rename PATO:0000493 from 'amplitude value' to 'obsolete amplitude value'
+- rename PATO:0000746 from 'consumption value' to 'obsolete consumption value'
+- rename PATO:0000479 from 'regulation value' to 'obsolete regulation value'
+- rename PATO:0000731 from 'body position value' to 'obsolete body position value'
+- rename PATO:0000696 from 'texture value' to 'obsolete texture value'
+- rename PATO:0000206 from 'enzyme function' to 'obsolete enzyme function'
+- rename PATO:0000201 from 'memory' to 'obsolete memory'
+- rename PATO:0000368 from 'towards1' to 'obsolete towards1'
+- rename PATO:0000908 from 'f2 sterile' to 'obsolete f2 sterile'
+- rename PATO:0000748 from 'discrimination value' to 'obsolete discrimination value'
+- rename PATO:0000822 from 'taste type value' to 'obsolete taste type value'
+- rename PATO:0001057 from 'relative acceleration' to 'obsolete relative acceleration'
+- rename PATO:0001177 from 'blind' to 'obsolete blind'
+- rename PATO:0000925 from 'absolute enzyme function' to 'obsolete absolute enzyme
+  function'
+- rename PATO:0000831 from 'absolute visual acuity value' to 'obsolete absolute visual
+  acuity value'
+- rename PATO:0000246 from 'postural reflex' to 'obsolete postural reflex'
+- rename PATO:0001137 from 'ig g concentration' to 'obsolete ig g concentration'
+- rename PATO:0000798 from 'defecation value' to 'obsolete defecation value'
+- rename PATO:0000917 from 'relative thickness' to 'obsolete relative thickness'
+- rename PATO:0000561 from 'length value' to 'obsolete length value'
+- rename PATO:0000392 from 'limited' to 'obsolete limited'
+- rename PATO:0000166 from 'absolute time' to 'obsolete absolute time'
+- rename PATO:0001109 from 'absolute amplitude value' to 'obsolete absolute amplitude
+  value'
+- rename PATO:0000095 from 'absolute drug sensitivity' to 'obsolete absolute drug
+  sensitivity'
+- rename PATO:0001064 from 'absolute flux' to 'obsolete absolute flux'
+- rename PATO:0000210 from 'excretory function' to 'obsolete excretory function'
+- rename PATO:0000401 from 'shape value' to 'obsolete shape value'
+- rename PATO:0000669 from 'concentration_unit' to 'obsolete concentration_unit'
+- rename PATO:0001146 from 'resistance value' to 'obsolete resistance value'
+- rename PATO:0000243 from 'lordosis reflex' to 'obsolete lordosis reflex'
+- rename PATO:0000457 from 'deviation(from_normal) value' to 'obsolete deviation(from_normal)
+  value'
+- rename PATO:0000603 from 'closure value' to 'obsolete closure value'
+- rename PATO:0000173 from 'function' to 'obsolete function'
+- rename PATO:0000075 from 'threshability' to 'obsolete threshability'
+- rename PATO:0001084 from 'relative acceleration value' to 'obsolete relative acceleration
+  value'
+- rename PATO:0000711 from 'absolute time value' to 'obsolete absolute time value'
+- rename PATO:0000343 from 'gametophyte incompatible value' to 'obsolete gametophyte
+  incompatible value'
+- rename PATO:0001165 from 'urine enzyme composition value' to 'obsolete urine enzyme
+  composition value'
+- rename PATO:0000316 from 'relative color value' to 'obsolete relative color value'
+- rename PATO:0000459 from 'relative quantity value' to 'obsolete relative quantity
+  value'
+- rename PATO:0000305 from 'age value' to 'obsolete age value'
+- rename PATO:0000313 from 'color saturation value' to 'obsolete color saturation
+  value'
+- rename PATO:0000962 from 'absolute opacity value' to 'obsolete absolute opacity
+  value'
+- rename PATO:0000013 from 'relative age' to 'obsolete relative age'
+- rename PATO:0001017 from 'relative occurence value' to 'obsolete relative occurence
+  value'
+- rename PATO:0000577 from 'weight value' to 'obsolete weight value'
+- rename PATO:0000782 from 'defensive function value' to 'obsolete defensive function
+  value'
+- rename PATO:0000848 from 'relative auditory acuity' to 'obsolete relative auditory
+  acuity'
+- rename PATO:0001198 from 'unmodified direction' to 'obsolete unmodified direction'
+- rename PATO:0000799 from 'muscle elevation value' to 'obsolete muscle elevation
+  value'
+- rename PATO:0000572 from 'relative length value' to 'obsolete relative length value'
+- rename PATO:0000755 from 'vocalization value' to 'obsolete vocalization value'
+- rename PATO:0000109 from 'water sensitivity' to 'obsolete water sensitivity'
+- rename PATO:0000885 from 'male fertility value' to 'obsolete male fertility value'
+- rename PATO:0001104 from 'strain value' to 'obsolete strain value'
+- rename PATO:0000157 from 'absolute temporal' to 'obsolete absolute temporal'
+- rename PATO:0001016 from 'absolute occurence value' to 'obsolete absolute occurence
+  value'
+- rename PATO:0000351 from 'macromolecular composition value' to 'obsolete macromolecular
+  composition value'
+- rename PATO:0001086 from 'efficiency value' to 'obsolete efficiency value'
+- rename PATO:0000235 from 'odor_acuity' to 'obsolete odor_acuity'
+- rename PATO:0000876 from 'respiratory rate value' to 'obsolete respiratory rate
+  value'
+- rename PATO:0000933 from 'red light sensitivity' to 'obsolete red light sensitivity'
+- rename PATO:0000823 from 'quinine taste' to 'obsolete quinine taste'
+- rename PATO:0001151 from 'relative susceptibility value' to 'obsolete relative susceptibility
+  value'
+- rename PATO:0001097 from 'relative force value' to 'obsolete relative force value'
+- rename PATO:0000768 from 'decreased consumption' to 'obsolete decreased consumption'
+- rename PATO:0000097 from 'herbicide sensitivity' to 'obsolete herbicide sensitivity'
+- rename PATO:0000355 from 'enzyme composition value' to 'obsolete enzyme composition
+  value'
+- rename PATO:0001143 from 'ig e concentration value' to 'obsolete ig e concentration
+  value'
+- rename PATO:0001180 from 'relative response' to 'obsolete relative response'
+- rename PATO:0000926 from 'intercross fertility' to 'obsolete intercross fertility'
+- rename PATO:0001145 from 'ig m concentration value' to 'obsolete ig m concentration
+  value'
+- rename PATO:0000326 from 'dim' to 'obsolete dim'
+- rename PATO:0000009 from 'absolute speed' to 'obsolete absolute speed'
+- rename PATO:0000134 from 'absolute_angle' to 'obsolete absolute_angle'
+- rename PATO:0000456 from 'abstract' to 'obsolete abstract'
+- rename PATO:0000727 from 'behavioral function value' to 'obsolete behavioral function
+  value'
+- rename PATO:0001065 from 'relative stiffness' to 'obsolete relative stiffness'
+- rename PATO:0000986 from 'absolute consistency' to 'obsolete absolute consistency'
+- rename PATO:0000844 from 'auditory acuity' to 'obsolete auditory acuity'
+- rename PATO:0001155 from 'absolute concentration' to 'obsolete absolute concentration'
+- rename PATO:0000751 from 'locomotor activity value' to 'obsolete locomotor activity
+  value'
+- rename PATO:0001215 from 'time_unit' to 'obsolete time_unit'
+- rename PATO:0000594 from 'relative volume value' to 'obsolete relative volume value'
+- rename PATO:0000655 from 'amphetamine value' to 'obsolete amphetamine value'
+- rename PATO:0000204 from 'absolute locomotor_activity' to 'obsolete absolute locomotor_activity'
+- rename PATO:0001006 from 'absolute latency' to 'obsolete absolute latency'
+- rename PATO:0000101 from 'soil nutrient sensitivity' to 'obsolete soil nutrient
+  sensitivity'
+- rename PATO:0000055 from 'relative number' to 'obsolete relative number'
+- rename PATO:0000340 from 'relative compatability value' to 'obsolete relative compatability
+  value'
+- rename PATO:0000551 from 'u v light sensitivity value' to 'obsolete u v light sensitivity
+  value'
+- rename PATO:0000775 from 'learning value' to 'obsolete learning value'
+- rename PATO:0000448 from 'high percentage' to 'obsolete high percentage'
+- rename PATO:0000176 from 'metabolic function' to 'obsolete metabolic function'
+- rename PATO:0000179 from 'body position' to 'obsolete body position'
+- rename PATO:0002085 from 'pre-mortem' to 'obsolete pre-mortem'
+- rename PATO:0001111 from 'relative density value' to 'obsolete relative density
+  value'
+- rename PATO:0000750 from 'learning and memory value' to 'obsolete learning and memory
+  value'
+- rename PATO:0000858 from 'ocular reflex value' to 'obsolete ocular reflex value'
+- rename PATO:0002084 from 'post-mortem' to 'obsolete post-mortem'
+- rename PATO:0000032 from 'secondary product composition' to 'obsolete secondary
+  product composition'
+- rename PATO:0000378 from 'absolute frequency value' to 'obsolete absolute frequency
+  value'
+- rename PATO:0000679 from 'temporal value' to 'obsolete temporal value'
+- rename PATO:0000980 from 'absolute porosity value' to 'obsolete absolute porosity
+  value'
+- rename PATO:0001042 from 'absolute amplitude' to 'obsolete absolute amplitude'
+- rename PATO:0000575 from 'absolute mass value' to 'obsolete absolute mass value'
+- rename PATO:0000735 from 'limb tone value' to 'obsolete limb tone value'
+- rename PATO:0000385 from 'hardness value' to 'obsolete hardness value'
+- rename PATO:0001214 from 'temparature_unit' to 'obsolete temparature_unit'
+- rename PATO:0000471 from 'low' to 'obsolete low'
+- rename PATO:0001118 from 'momentum value' to 'obsolete momentum value'
+- rename PATO:0000178 from 'relative function' to 'obsolete relative function'
+- rename PATO:0001135 from 'ig d concentration' to 'obsolete ig d concentration'
+- rename PATO:0000262 from 'visual placing' to 'obsolete visual placing'
+- rename PATO:0000863 from 'righting reflex value' to 'obsolete righting reflex value'
+- rename PATO:0000338 from 'compatability value' to 'obsolete compatability value'
+- rename PATO:0001122 from 'absolute power value' to 'obsolete absolute power value'
+- rename PATO:0001220 from 'angle_unit' to 'obsolete angle_unit'
+- rename PATO:0000939 from 'regular shape' to 'obsolete regular shape'
+- rename PATO:0000788 from 'reproductive function value' to 'obsolete reproductive
+  function value'
+- rename PATO:0000271 from 'prepulse inhibition' to 'obsolete prepulse inhibition'
+- rename PATO:0000002 from 'value' to 'obsolete value'
+- rename PATO:0001001 from 'absolute alternation' to 'obsolete absolute alternation'
+- rename PATO:0001170 from 'numerical value' to 'obsolete numerical value'
+- rename PATO:0000472 from 'quality value' to 'obsolete quality value'
+- rename PATO:0000897 from 'germ line dependent fertility value' to 'obsolete germ
+  line dependent fertility value'
+- rename PATO:0000106 from 'acid sensitivity' to 'obsolete acid sensitivity'
+- rename PATO:0000254 from 'vibrissae reflex' to 'obsolete vibrissae reflex'
+- rename PATO:0000804 from 'motor performance value' to 'obsolete motor performance
+  value'
+- rename PATO:0000934 from 'u v light sensitivity' to 'obsolete u v light sensitivity'
+- rename PATO:0001047 from 'absolute resistance' to 'obsolete absolute resistance'
+- rename PATO:0000671 from 'water value' to 'obsolete water value'
+- rename PATO:0000067 from 'relative pilosity' to 'obsolete relative pilosity'
+- rename PATO:0000484 from 'tactile hyporesponsive' to 'obsolete tactile hyporesponsive'
+- rename PATO:0000815 from 'absolute odor acuity value' to 'obsolete absolute odor
+  acuity value'
+- rename PATO:0000118 from 'absolute size' to 'obsolete absolute size'
+- rename PATO:0000550 from 'red light sensitivity value' to 'obsolete red light sensitivity
+  value'
+- rename PATO:0000221 from 'urination' to 'obsolete urination'
+- rename PATO:0000733 from 'piloerection value' to 'obsolete piloerection value'
+- rename PATO:0000005 from 'absolute activity' to 'obsolete absolute activity'
+- rename PATO:0000816 from 'relative odor acuity value' to 'obsolete relative odor
+  acuity value'
+- rename PATO:0001073 from 'relative impulse' to 'obsolete relative impulse'
+- rename PATO:0000126 from 'absolute mass' to 'obsolete absolute mass'
+- rename PATO:0000889 from 'cytoplasmic male sterility value' to 'obsolete cytoplasmic
+  male sterility value'
+- rename PATO:0001147 from 'absolute resistance value' to 'obsolete absolute resistance
+  value'
+- rename PATO:0001105 from 'absolute strain value' to 'obsolete absolute strain value'
+- rename PATO:0000873 from 'cataleptic' to 'obsolete cataleptic'
+- rename PATO:0001127 from 'work value' to 'obsolete work value'
+- rename PATO:0001225 from 'relational number' to 'obsolete relational number'
+- rename PATO:0000358 from 'sugar concentration value' to 'obsolete sugar concentration
+  value'
+- rename PATO:0000539 from 'drought sensitivity value' to 'obsolete drought sensitivity
+  value'
+- rename PATO:0001184 from 'maturity value' to 'obsolete maturity value'
+- rename PATO:0000611 from 'absolute orientation value' to 'obsolete absolute orientation
+  value'
+- rename PATO:0000170 from 'yield' to 'obsolete yield'
+- rename PATO:0000524 from 'plant growth hormone sensitivity value' to 'obsolete plant
+  growth hormone sensitivity value'
+- rename PATO:0000038 from 'gel consistency' to 'obsolete gel consistency'
+- rename PATO:0000214 from 'reproductive function' to 'obsolete reproductive function'
+- rename PATO:0000031 from 'metabolite composition' to 'obsolete metabolite composition'
+- rename PATO:0001106 from 'relative strain value' to 'obsolete relative strain value'
+- rename PATO:0000554 from 'cold sensitive' to 'obsolete cold sensitive'
+- rename PATO:0001123 from 'relative power value' to 'obsolete relative power value'
+- rename PATO:0000794 from 'immunodeficient value' to 'obsolete immunodeficient value'
+- rename PATO:0000391 from 'intense' to 'obsolete intense'
+- rename PATO:0000538 from 'alkali sensitivity value' to 'obsolete alkali sensitivity
+  value'
+- rename PATO:0001100 from 'position value' to 'obsolete position value'
+- rename PATO:0001013 from 'absolute intensity value' to 'obsolete absolute intensity
+  value'
+- rename PATO:0000154 from 'pain threshold' to 'obsolete pain threshold'
+- rename PATO:0000108 from 'salt sensitivity' to 'obsolete salt sensitivity'
+- rename PATO:0001231 from 'cold insensitive' to 'obsolete cold insensitive'
+- rename PATO:0000687 from 'relative rate value' to 'obsolete relative rate value'
+- rename PATO:0000256 from 'taste type' to 'obsolete taste type'
+- rename PATO:0001766 from 'cellular polarity' to 'obsolete cellular polarity'
+- rename PATO:0000901 from 'backcross sterile' to 'obsolete backcross sterile'
+- rename PATO:0000184 from 'arousal' to 'obsolete arousal'
+- rename PATO:0000354 from 'protein composition value' to 'obsolete protein composition
+  value'
+- rename PATO:0000559 from 'absolute size value' to 'obsolete absolute size value'
+- rename PATO:0000681 from 'incidence value' to 'obsolete incidence value'
+- rename PATO:0000935 from 'relative photosensitivity' to 'obsolete relative photosensitivity'
+- rename PATO:0000604 from 'orientation value' to 'obsolete orientation value'
+- rename PATO:0000388 from 'intensity value' to 'obsolete intensity value'
+- rename PATO:0000549 from 'far red light sensitivity value' to 'obsolete far red
+  light sensitivity value'
+- rename PATO:0000023 from 'relative compatability' to 'obsolete relative compatability'
+- rename PATO:0000275 from 'gestational period' to 'obsolete gestational period'
+- rename PATO:0000258 from 'relative taste_acuity' to 'obsolete relative taste_acuity'
+- rename PATO:0001000 from 'relative alternation' to 'obsolete relative alternation'
+- rename PATO:0000540 from 'flooding sensitivity value' to 'obsolete flooding sensitivity
+  value'
+- rename PATO:0001110 from 'absolute density value' to 'obsolete absolute density
+  value'
+- rename PATO:0000654 from 'alcochol value' to 'obsolete alcochol value'
+- rename PATO:0000960 from 'absolute opacity' to 'obsolete absolute opacity'
+- rename PATO:0001002 from 'alternation value' to 'obsolete alternation value'
+- rename PATO:0000250 from 'spinal reflex' to 'obsolete spinal reflex'
+- rename PATO:0000251 from 'startle reflex' to 'obsolete startle reflex'
+- rename PATO:0000107 from 'alkali sensitivity' to 'obsolete alkali sensitivity'
+- rename PATO:0000528 from 'drug insensitive' to 'obsolete drug insensitive'
+- rename PATO:0000776 from 'memory value' to 'obsolete memory value'
+- rename PATO:0001136 from 'ig e concentration' to 'obsolete ig e concentration'
+- rename PATO:0000263 from 'visual threshold' to 'obsolete visual threshold'
+- rename PATO:0000003 from 'assay' to 'obsolete assay'
+- rename PATO:0000991 from 'inconsistent' to 'obsolete inconsistent'
+- rename PATO:0000217 from 'immune function' to 'obsolete immune function'
+- rename PATO:0000046 from 'relative frequency' to 'obsolete relative frequency'
+- rename PATO:0000227 from 'motor performance' to 'obsolete motor performance'
+- rename PATO:0000972 from 'relative permeability' to 'obsolete relative permeability'
+- rename PATO:0000805 from 'auditory value' to 'obsolete auditory value'
+- rename PATO:0000183 from 'limb tone' to 'obsolete limb tone'
+- rename PATO:0000517 from 'abiotic stress sensitivity value' to 'obsolete abiotic
+  stress sensitivity value'
+- rename PATO:0000821 from 'relative taste acuity value' to 'obsolete relative taste
+  acuity value'
+- rename PATO:0000241 from 'corneal reflex' to 'obsolete corneal reflex'
+- rename PATO:0000356 from 'concentration value' to 'obsolete concentration value'
+- rename PATO:0000744 from 'balance value' to 'obsolete balance value'
+- rename PATO:0000143 from 'addictive substance' to 'obsolete addictive substance'
+- rename PATO:0000348 from 'composition value' to 'obsolete composition value'
+- rename PATO:0000350 from 'electrolyte composition value' to 'obsolete electrolyte
+  composition value'
+- rename PATO:0000896 from 'f2 fertility value' to 'obsolete f2 fertility value'
+- rename PATO:0000818 from 'concentration_quantity' to 'obsolete concentration_quantity'
+- rename PATO:0000121 from 'relative height' to 'obsolete relative height'
+- rename PATO:0000325 from 'bright' to 'obsolete bright'
+- rename PATO:0001217 from 'energy_unit' to 'obsolete energy_unit'
+- rename PATO:0000489 from 'vigorous response' to 'obsolete vigorous response'
+- rename PATO:0000281 from 'cytoplasmic sterility' to 'obsolete cytoplasmic sterility'
+- rename PATO:0000362 from 'direction value' to 'obsolete direction value'
+- rename PATO:0000230 from 'proprioreception' to 'obsolete proprioreception'
+- rename PATO:0000566 from 'width value' to 'obsolete width value'
+- rename PATO:0000602 from 'angle value' to 'obsolete angle value'
+- rename PATO:0000172 from 'relative yield' to 'obsolete relative yield'
+- rename PATO:0000745 from 'behavioral quality value' to 'obsolete behavioral quality
+  value'
+- rename PATO:0001179 from 'immune' to 'obsolete immune'
+- rename PATO:0001089 from 'elasticity value' to 'obsolete elasticity value'
+- rename PATO:0000797 from 'urination value' to 'obsolete urination value'
+- rename PATO:0000723 from 'high yield' to 'obsolete high yield'
+- rename PATO:0000545 from 'relative photosensitivity value' to 'obsolete relative
+  photosensitivity value'
+- rename PATO:0000836 from 'auditory ability value' to 'obsolete auditory ability
+  value'
+- rename PATO:0000930 from 'light_quality sensitivity' to 'obsolete light_quality
+  sensitivity'
+- rename PATO:0000099 from 'plant growth hormone sensitivity' to 'obsolete plant growth
+  hormone sensitivity'
+- rename PATO:0001067 from 'absolute strain' to 'obsolete absolute strain'
+- rename PATO:0001039 from 'absolute ratio' to 'obsolete absolute ratio'
+- rename PATO:0000447 from 'decreased percentage' to 'obsolete decreased percentage'
+- rename PATO:0001049 from 'absolute susceptibility' to 'obsolete absolute susceptibility'
+- rename PATO:0001037 from 'absolute life span' to 'obsolete absolute life span'
+- rename PATO:0000497 from 'relative rhythym value' to 'obsolete relative rhythym
+  value'
+- rename PATO:0000862 from 'pupillary reflex value' to 'obsolete pupillary reflex
+  value'
+- rename PATO:0001119 from 'absolute momentum value' to 'obsolete absolute momentum
+  value'
+- rename PATO:0000589 from 'absolute thickness value' to 'obsolete absolute thickness
+  value'
+- rename PATO:0000685 from 'relative incidence value' to 'obsolete relative incidence
+  value'
+- rename PATO:0001007 from 'relative latency' to 'obsolete relative latency'
+- rename PATO:0000730 from 'relative function value' to 'obsolete relative function
+  value'
+- rename PATO:0001811 from 'increased relaxation' to 'obsolete increased relaxation'
+- rename PATO:0001060 from 'absolute efficiency' to 'obsolete absolute efficiency'
+- rename PATO:0000465 from 'marked' to 'obsolete marked'
+- rename PATO:0000216 from 'heart rate' to 'obsolete heart rate'
+- rename PATO:0001096 from 'absolute force value' to 'obsolete absolute force value'
+- rename PATO:0000659 from 'temparature_quantity' to 'obsolete temparature_quantity'
+- rename PATO:0000314 from 'flourescence value' to 'obsolete flourescence value'
+- rename PATO:0001221 from 'plane_angle_unit' to 'obsolete plane_angle_unit'
+- rename PATO:0000786 from 'neural function value' to 'obsolete neural function value'
+- rename PATO:0000114 from 'temperature sensitivity' to 'obsolete temperature sensitivity'
+- rename PATO:0001140 from 'immunoglobulin concentration value' to 'obsolete immunoglobulin
+  concentration value'
+- rename PATO:0000298 from 'not arrested value' to 'obsolete not arrested value'
+- rename PATO:0000811 from 'visual value' to 'obsolete visual value'
+- rename PATO:0000743 from 'arousal value' to 'obsolete arousal value'
+- rename PATO:0000564 from 'thickness value' to 'obsolete thickness value'
+- rename PATO:0000839 from 'relative auditory ability value' to 'obsolete relative
+  auditory ability value'
+- rename PATO:0000843 from 'relative auditory threshold value' to 'obsolete relative
+  auditory threshold value'
+- rename PATO:0000878 from 'relative respiratory rate value' to 'obsolete relative
+  respiratory rate value'
+- rename PATO:0000851 from 'absolute auditory threshold' to 'obsolete absolute auditory
+  threshold'
+- rename PATO:0000442 from 'insomnia' to 'obsolete insomnia'
+- rename PATO:0000924 from 'relative enzyme function' to 'obsolete relative enzyme
+  function'
+- rename PATO:0000361 from 'gel consistency value' to 'obsolete gel consistency value'
+- rename PATO:0000605 from 'placement value' to 'obsolete placement value'
+- rename PATO:0000155 from 'relative threshold' to 'obsolete relative threshold'
+- rename PATO:0000163 from 'relative rate' to 'obsolete relative rate'
+- rename PATO:0000007 from 'relative activity' to 'obsolete relative activity'
+- rename PATO:0000200 from 'learning' to 'obsolete learning'
+- rename PATO:0001224 from 'real number' to 'obsolete real number'
+- rename PATO:0001074 from 'absolute impulse' to 'obsolete absolute impulse'
+- rename PATO:0001061 from 'relative elasticity' to 'obsolete relative elasticity'
+- rename PATO:0001181 from 'absolute response' to 'obsolete absolute response'
+- rename PATO:0001160 from 'unconcentrated' to 'obsolete unconcentrated'
+- rename PATO:0000875 from 'irritable' to 'obsolete irritable'
+- rename PATO:0000904 from 'wild abortive value' to 'obsolete wild abortive value'
+- rename PATO:0000495 from 'persistence value' to 'obsolete persistence value'
+- rename PATO:0000167 from 'bouts' to 'obsolete bouts'
+- rename PATO:0000209 from 'digestive function' to 'obsolete digestive function'
+- rename PATO:0000397 from 'slight' to 'obsolete slight'
+- rename PATO:0000249 from 'righting reflex' to 'obsolete righting reflex'
+- rename PATO:0000529 from 'drug sensitive' to 'obsolete drug sensitive'
+- rename PATO:0000732 from 'body tone value' to 'obsolete body tone value'
+- rename PATO:0000061 from 'relative pattern' to 'obsolete relative pattern'
+- rename PATO:0001040 from 'relative ratio' to 'obsolete relative ratio'
+- rename PATO:0001012 from 'relative intensity value' to 'obsolete relative intensity
+  value'
+- rename PATO:0000490 from 'rhythym value' to 'obsolete rhythym value'
+- rename PATO:0000335 from 'variegated' to 'obsolete variegated'
+- rename PATO:0001036 from 'relative life span' to 'obsolete relative life span'
+- rename PATO:0000239 from 'blinking reflex' to 'obsolete blinking reflex'
+- rename PATO:0000382 from 'gender value' to 'obsolete gender value'
+- rename PATO:0000162 from 'absolute rate' to 'obsolete absolute rate'
+- rename PATO:0000203 from 'short term memory' to 'obsolete short term memory'
+- rename PATO:0000029 from 'protein composition' to 'obsolete protein composition'
+- rename PATO:0000034 from 'protein concentration' to 'obsolete protein concentration'
+- rename PATO:0000853 from 'blinking reflex value' to 'obsolete blinking reflex value'
+- rename PATO:0000228 from 'auditory' to 'obsolete auditory'
+- rename PATO:0000372 from 'absolute distance value' to 'obsolete absolute distance
+  value'
+- rename PATO:0000026 from 'carbohydrate composition' to 'obsolete carbohydrate composition'
+- rename PATO:0000473 from 'relative_quality value' to 'obsolete relative_quality
+  value'
+- rename PATO:0000148 from 'body temperature' to 'obsolete body temperature'
+- rename PATO:0000234 from 'visual' to 'obsolete visual'
+- rename PATO:0000869 from 'prepulse inhibition value' to 'obsolete prepulse inhibition
+  value'
+- rename PATO:0000680 from 'absolute temporal value' to 'obsolete absolute temporal
+  value'
+- rename PATO:0000914 from 'continuant' to 'obsolete continuant'
+- rename PATO:0000874 from 'fearful' to 'obsolete fearful'
+- rename PATO:0000446 from 'absolute percentage value' to 'obsolete absolute percentage
+  value'
+- rename PATO:0000193 from 'mating' to 'obsolete mating'
+- rename PATO:0000906 from 'f1 sterile' to 'obsolete f1 sterile'
+- rename PATO:0001050 from 'relative susceptibility' to 'obsolete relative susceptibility'
+- rename PATO:0000779 from 'absolute locomotor activity value' to 'obsolete absolute
+  locomotor activity value'
+- rename PATO:0000682 from 'rate value' to 'obsolete rate value'
+- rename PATO:0000905 from 'f1 fertile' to 'obsolete f1 fertile'
+- rename PATO:0002398 from '<new term>' to 'obsolete <new term>'
+- rename PATO:0000754 from 'startle response' to 'obsolete startle response'
+- rename PATO:0000720 from 'yield value' to 'obsolete yield value'
+- rename PATO:0000563 from 'relative size value' to 'obsolete relative size value'
+- rename PATO:0000558 from 'size value' to 'obsolete size value'
+- rename PATO:0000741 from 'high enzyme function value' to 'obsolete high enzyme function
+  value'
+- rename PATO:0000231 from 'reflex' to 'obsolete reflex'
+- rename PATO:0001274 from 'pale grey' to 'obsolete pale grey'
+- rename PATO:0000022 from 'gametophytic compatability' to 'obsolete gametophytic
+  compatability'
+- rename PATO:0000536 from 'water sensitivity value' to 'obsolete water sensitivity
+  value'
+- rename PATO:0000311 from 'color hue value' to 'obsolete color hue value'
+- rename PATO:0000534 from 'p h sensitivity value' to 'obsolete p h sensitivity value'
+- rename PATO:0001232 from 'heat insentive' to 'obsolete heat insentive'
+- rename PATO:0000864 from 'spinal reflex value' to 'obsolete spinal reflex value'
+- rename PATO:0000242 from 'flinch reflex' to 'obsolete flinch reflex'
+- rename PATO:0000532 from 'micronutrient sensitivity value' to 'obsolete micronutrient
+  sensitivity value'
+- rename PATO:0000196 from 'vocalization' to 'obsolete vocalization'
+- rename PATO:0000135 from 'relative_angle' to 'obsolete relative_angle'
+- rename PATO:0000296 from 'speed value' to 'obsolete speed value'
+- rename PATO:0000449 from 'increased percentage' to 'obsolete increased percentage'
+- rename PATO:0001033 from 'stiffness' to 'obsolete stiffness'
+- rename PATO:0000734 from 'abdominal tone value' to 'obsolete abdominal tone value'
+- rename PATO:0000064 from 'absolute percentage' to 'obsolete absolute percentage'
+- rename PATO:0000825 from 'visual ability value' to 'obsolete visual ability value'
+- rename PATO:0000997 from 'relative viscosity value' to 'obsolete relative viscosity
+  value'
+- rename PATO:0000035 from 'carbohydrate concentration' to 'obsolete carbohydrate
+  concentration'
+- rename PATO:0000581 from 'relative weight value' to 'obsolete relative weight value'
+- rename PATO:0000833 from 'absolute visual threshold value' to 'obsolete absolute
+  visual threshold value'
+- rename PATO:0000877 from 'absolute respiratory rate value' to 'obsolete absolute
+  respiratory rate value'
+- rename PATO:0000224 from 'motor function' to 'obsolete motor function'
+- rename PATO:0000124 from 'relative length' to 'obsolete relative length'
+- rename PATO:0000606 from 'absolute angle value' to 'obsolete absolute angle value'
+- rename PATO:0001087 from 'relative efficiency value' to 'obsolete relative efficiency
+  value'
+- rename PATO:0000812 from 'odor acuity value' to 'obsolete odor acuity value'
+- rename PATO:0000260 from 'visual_acuity' to 'obsolete visual_acuity'
+- rename PATO:0000871 from 'aggressive' to 'obsolete aggressive'
+- rename PATO:0000115 from 'absolute temperature sensitivity' to 'obsolete absolute
+  temperature sensitivity'
+- rename PATO:0000580 from 'absolute weight value' to 'obsolete absolute weight value'
+- rename PATO:0001103 from 'relative stiffness value' to 'obsolete relative stiffness
+  value'
+- rename PATO:0000978 from 'relative permeability value' to 'obsolete relative permeability
+  value'
+- rename PATO:0000164 from 'relative temporal' to 'obsolete relative temporal'
+- rename PATO:0000474 from 'shattering value' to 'obsolete shattering value'
+- rename PATO:0000739 from 'absolute enzyme function value' to 'obsolete absolute
+  enzyme function value'
+- rename PATO:0000110 from 'drought sensitivity' to 'obsolete drought sensitivity'
+- rename PATO:0000147 from 'absolute temperature' to 'obsolete absolute temperature'
+- rename PATO:0000312 from 'color intensity value' to 'obsolete color intensity value'
+- rename PATO:0000702 from 'threshold value' to 'obsolete threshold value'
+- rename PATO:0001173 from 'urine glucose composition value' to 'obsolete urine glucose
+  composition value'
+- rename PATO:0000747 from 'coordination value' to 'obsolete coordination value'
+- rename PATO:0000287 from 'absolute litter size' to 'obsolete absolute litter size'
+- rename PATO:0000834 from 'relative visual threshold value' to 'obsolete relative
+  visual threshold value'
+- rename PATO:0000477 from 'good value' to 'obsolete good value'
+- rename PATO:0000028 from 'macromolecular composition' to 'obsolete macromolecular
+  composition'
+- rename PATO:0000144 from 'solid substance' to 'obsolete solid substance'
+- rename PATO:0000713 from 'relative time value' to 'obsolete relative time value'
+- rename PATO:0000657 from 'length_quantity' to 'obsolete length_quantity'
+- rename PATO:0000660 from 'angle_quantity' to 'obsolete angle_quantity'
+- rename PATO:0000676 from 'relative temperature value' to 'obsolete relative temperature
+  value'
+- rename PATO:0000673 from 'temperature value' to 'obsolete temperature value'
+- rename PATO:0001015 from 'relative occurence' to 'obsolete relative occurence'
+- rename PATO:0000544 from 'light_quality sensitivity value' to 'obsolete light_quality
+  sensitivity value'
+- rename PATO:0001207 from 'absolute compatability' to 'obsolete absolute compatability'
+- rename PATO:0000418 from 'relative number value' to 'obsolete relative number value'
+- rename PATO:0000036 from 'water content' to 'obsolete water content'
+- rename PATO:0000684 from 'absolute incidence value' to 'obsolete absolute incidence
+  value'
+- rename PATO:0000346 from 'sporophyte compatible value' to 'obsolete sporophyte compatible
+  value'
+- rename PATO:0001079 from 'absolute work' to 'obsolete absolute work'
+- rename PATO:0001095 from 'force value' to 'obsolete force value'
+- rename PATO:0000127 from 'relative mass' to 'obsolete relative mass'
+- rename PATO:0000784 from 'excretory function value' to 'obsolete excretory function
+  value'
+- rename PATO:0000353 from 'secondary product composition value' to 'obsolete secondary
+  product composition value'
+- rename PATO:0000229 from 'olfactory' to 'obsolete olfactory'
+- rename PATO:0000238 from 'relative odor_acuity' to 'obsolete relative odor_acuity'
+- rename PATO:0000829 from 'absolute visual ability value' to 'obsolete absolute visual
+  ability value'
+- rename PATO:0000929 from 'light intensivity sensitivity' to 'obsolete light intensivity
+  sensitivity'
+- rename PATO:0001183 from 'absolute response value' to 'obsolete absolute response
+  value'
+- rename PATO:0000379 from 'relative frequency value' to 'obsolete relative frequency
+  value'
+- rename PATO:0000244 from 'ocular reflex' to 'obsolete ocular reflex'
+- rename PATO:0000975 from 'absolute porosity' to 'obsolete absolute porosity'
+- rename PATO:0000482 from 'response value' to 'obsolete response value'
+- rename PATO:0000837 from 'auditory threshold value' to 'obsolete auditory threshold
+  value'
+- rename PATO:0000893 from 'backcross fertility value' to 'obsolete backcross fertility
+  value'
+- rename PATO:0000793 from 'immubocompetent value' to 'obsolete immubocompetent value'
+- rename PATO:0002004 from 'surface shape' to 'obsolete surface shape'
+- rename PATO:0000909 from 'intercross fertile' to 'obsolete intercross fertile'
+- rename PATO:0000063 from 'percentage' to 'obsolete percentage'
+- rename PATO:0000509 from 'stress sensitivity value' to 'obsolete stress sensitivity
+  value'
+- rename PATO:0000883 from 'female fertility value' to 'obsolete female fertility
+  value'
+- rename PATO:0000437 from 'sleep pattern value' to 'obsolete sleep pattern value'
+- rename PATO:0000120 from 'absolute height' to 'obsolete absolute height'
+- rename PATO:0001210 from 'plane_angle_quantity' to 'obsolete plane_angle_quantity'
+- rename PATO:0000024 from 'sporophytic compatability' to 'obsolete sporophytic compatability'
+- rename PATO:0000280 from 'backcross fertility' to 'obsolete backcross fertility'
+- rename PATO:0000363 from 'away' to 'obsolete away'
+- rename PATO:0001063 from 'relative flux' to 'obsolete relative flux'
+- rename PATO:0000756 from 'transfer arousal value' to 'obsolete transfer arousal
+  value'
+- rename PATO:0000481 from 'negative regulation' to 'obsolete negative regulation'
+- rename PATO:0000282 from 'f1 fertility' to 'obsolete f1 fertility'
+- rename PATO:0000182 from 'abdominal tone' to 'obsolete abdominal tone'
+- rename PATO:0000884 from 'hybrid fertility value' to 'obsolete hybrid fertility
+  value'
+- rename PATO:0000712 from 'bouts value' to 'obsolete bouts value'
+- rename PATO:0000845 from 'auditory ability' to 'obsolete auditory ability'
+- rename PATO:0000400 from 'morphology value' to 'obsolete morphology value'
+- rename PATO:0000102 from 'macronutrient sensitivity' to 'obsolete macronutrient
+  sensitivity'
+- rename PATO:0000990 from 'consistent' to 'obsolete consistent'
+- rename PATO:0000801 from 'motor function value' to 'obsolete motor function value'
+- rename PATO:0000213 from 'neurobehavioral function' to 'obsolete neurobehavioral
+  function'
+- rename PATO:0000518 from 'chemical sensitivity value' to 'obsolete chemical sensitivity
+  value'
+- rename PATO:0000054 from 'absolute number' to 'obsolete absolute number'
+- rename PATO:0001045 from 'relative power' to 'obsolete relative power'
+- rename PATO:0001336 from 'unknown sex' to 'obsolete unknown sex'
+- rename PATO:0000807 from 'proprioreception value' to 'obsolete proprioreception
+  value'
+- rename PATO:0000421 from 'nutritional value' to 'obsolete nutritional value'
+- rename PATO:0000882 from 'litter size value' to 'obsolete litter size value'
+- rename PATO:0000860 from 'postural reflex value' to 'obsolete postural reflex value'
+- rename PATO:0000791 from 'immune function value' to 'obsolete immune function value'
+- rename PATO:0000995 from 'viscosity value' to 'obsolete viscosity value'
+- rename PATO:0000607 from 'relative angle value' to 'obsolete relative angle value'
+- rename PATO:0000084 from 'relative rhythym' to 'obsolete relative rhythym'
+- rename PATO:0000042 from 'relative distance' to 'obsolete relative distance'
+- rename PATO:0000849 from 'absolute auditory ability' to 'obsolete absolute auditory
+  ability'
+- rename PATO:0000693 from 'late' to 'obsolete late'
+- rename PATO:0000767 from 'increased consumption' to 'obsolete increased consumption'
+- rename PATO:0000195 from 'startle response' to 'obsolete startle response'
+- rename PATO:0000168 from 'relative time' to 'obsolete relative time'
+- rename PATO:0000787 from 'neurobehavioral function value' to 'obsolete neurobehavioral
+  function value'
+- rename PATO:0000842 from 'absolute auditory threshold value' to 'obsolete absolute
+  auditory threshold value'
+- rename PATO:0000160 from 'relative incidence' to 'obsolete relative incidence'
+- rename PATO:0000521 from 'drug sensitivity value' to 'obsolete drug sensitivity
+  value'
+- rename PATO:0000637 from 'structure value' to 'obsolete structure value'
+- rename PATO:0000425 from 'continual' to 'obsolete continual'
+- rename PATO:0000232 from 'taste' to 'obsolete taste'
+- rename PATO:0001158 from 'relative concentration value' to 'obsolete relative concentration
+  value'
+- rename PATO:0000180 from 'body tone' to 'obsolete body tone'
+- rename PATO:0000796 from 'regeneration value' to 'obsolete regeneration value'
+- rename PATO:0000089 from 'relative disease sensitivity' to 'obsolete relative disease
+  sensitivity'
+- rename PATO:0001094 from 'absolute flux value' to 'obsolete absolute flux value'
+- rename PATO:0001133 from 'immunoglobulin concentration' to 'obsolete immunoglobulin
+  concentration'
+- rename PATO:0000393 from 'maximal' to 'obsolete maximal'
+- rename PATO:0000576 from 'relative mass value' to 'obsolete relative mass value'
+- rename PATO:0000129 from 'absolute weight' to 'obsolete absolute weight'
+- rename PATO:0000131 from 'relative size' to 'obsolete relative size'
+- rename PATO:0000259 from 'visual_ability' to 'obsolete visual_ability'
+- rename PATO:0001149 from 'susceptibility value' to 'obsolete susceptibility value'
+- rename PATO:0001132 from 'relative ratio value' to 'obsolete relative ratio value'
+- rename PATO:0000932 from 'far red light sensitivity' to 'obsolete far red light
+  sensitivity'
+- rename PATO:0000059 from 'parental quality' to 'obsolete parental quality'
+- rename PATO:0000302 from 'relative speed value' to 'obsolete relative speed value'
+- rename PATO:0000364 from 'bi-directional' to 'obsolete bi-directional'
+- rename PATO:0001062 from 'absolute elasticity' to 'obsolete absolute elasticity'
+- rename PATO:0000894 from 'cytoplasmic sterility value' to 'obsolete cytoplasmic
+  sterility value'
+- rename PATO:0001082 from 'damage value' to 'obsolete damage value'
+- rename PATO:0000257 from 'absolute taste_acuity' to 'obsolete absolute taste_acuity'
+- rename PATO:0000729 from 'physiological function value' to 'obsolete physiological
+  function value'
+- rename PATO:0000475 from 'threshability value' to 'obsolete threshability value'
+- rename PATO:0000027 from 'electrolyte composition' to 'obsolete electrolyte composition'
+- rename PATO:0000910 from 'intercross sterile' to 'obsolete intercross sterile'
+- rename PATO:0000492 from 'absolute rhythym value' to 'obsolete absolute rhythym
+  value'
+- rename PATO:0001003 from 'relative alternation value' to 'obsolete relative alternation
+  value'
+- rename PATO:0000149 from 'relative temperature' to 'obsolete relative temperature'
+- rename PATO:0000371 from 'distance value' to 'obsolete distance value'
+- rename PATO:0000652 from 'substance value' to 'obsolete substance value'
+- rename PATO:0001218 from 'substance_unit' to 'obsolete substance_unit'
+- rename PATO:0000742 from 'low enzyme function value' to 'obsolete low enzyme function
+  value'
+- rename PATO:0000377 from 'frequency value' to 'obsolete frequency value'
+- rename PATO:0001582 from 'relaxational quality' to 'obsolete relaxational quality'
+- rename PATO:0001093 from 'relative flux value' to 'obsolete relative flux value'
+- rename PATO:0000511 from 'absolute disease sensitivity value' to 'obsolete absolute
+  disease sensitivity value'
+- rename PATO:0000868 from 'vibrissae reflex value' to 'obsolete vibrissae reflex
+  value'
+- rename PATO:0001204 from 'not enlarged' to 'obsolete not enlarged'
+- rename PATO:0000800 from 'muscle strength value' to 'obsolete muscle strength value'
+- rename PATO:0000352 from 'metabolite composition value' to 'obsolete metabolite
+  composition value'
+- rename PATO:0000641 from 'deposition defective' to 'obsolete deposition defective'
+- rename PATO:0000662 from 'volume_quantity' to 'obsolete volume_quantity'
+- rename PATO:0000802 from 'sensory function value' to 'obsolete sensory function
+  value'
+- rename PATO:0000852 from 'relative auditory threshold' to 'obsolete relative auditory
+  threshold'
+- rename PATO:0000443 from 'narcolepsy' to 'obsolete narcolepsy'
+- rename PATO:0001066 from 'absolute stiffness' to 'obsolete absolute stiffness'
+- rename PATO:0000187 from 'consumption quality' to 'obsolete consumption quality'
+- rename PATO:0000556 from 'thermoinsensitive' to 'obsolete thermoinsensitive'
+- rename PATO:0000597 from 'absolute width value' to 'obsolete absolute width value'
+- rename PATO:0000916 from 'absolute thickness' to 'obsolete absolute thickness'
+- rename PATO:0001142 from 'ig d concentration value' to 'obsolete ig d concentration
+  value'
+- rename PATO:0000778 from 'short term memory value' to 'obsolete short term memory
+  value'
+- rename PATO:0000112 from 'humidity sensitivity' to 'obsolete humidity sensitivity'
+- rename PATO:0000010 from 'relative speed' to 'obsolete relative speed'
+- rename PATO:0001108 from 'relative amplitude value' to 'obsolete relative amplitude
+  value'
+- rename PATO:0001041 from 'relative amplitude' to 'obsolete relative amplitude'
+- rename PATO:0000191 from 'learning_and memory' to 'obsolete learning_and memory'
+- rename PATO:0000531 from 'macronutrient sensitivity value' to 'obsolete macronutrient
+  sensitivity value'
+- rename PATO:0000030 from 'enzyme composition' to 'obsolete enzyme composition'
+- rename PATO:0001197 from 'modified direction' to 'obsolete modified direction'
+- rename PATO:0000785 from 'muscle function value' to 'obsolete muscle function value'
+- rename PATO:0000886 from 'absolute litter size value' to 'obsolete absolute litter
+  size value'
+- rename PATO:0000824 from 'water taste' to 'obsolete water taste'
+- rename PATO:0000494 from 'period value' to 'obsolete period value'
+- rename PATO:0000451 from 'pilosity value' to 'obsolete pilosity value'
+- rename PATO:0001131 from 'absolute ratio value' to 'obsolete absolute ratio value'
+- rename PATO:0001107 from 'density value' to 'obsolete density value'
+- rename PATO:0000543 from 'light intensivity sensitivity value' to 'obsolete light
+  intensivity sensitivity value'
+- rename PATO:0001228 from 'dull' to 'obsolete dull'
+- rename PATO:0000301 from 'absolute speed value' to 'obsolete absolute speed value'
+- rename PATO:0001081 from 'physical measure value' to 'obsolete physical measure
+  value'
+- rename PATO:0001212 from 'length_unit' to 'obsolete length_unit'
+- rename PATO:0000485 from 'mild response' to 'obsolete mild response'
+- rename PATO:0000737 from 'functional value' to 'obsolete functional value'
+- rename PATO:0000856 from 'flinch reflex value' to 'obsolete flinch reflex value'
+- rename PATO:0001011 from 'absolute intensity' to 'obsolete absolute intensity'
+- rename PATO:0000907 from 'f2 fertile' to 'obsolete f2 fertile'
+- rename PATO:0001077 from 'absolute pressure' to 'obsolete absolute pressure'
+- rename PATO:0000086 from 'absolute sensitivity' to 'obsolete absolute sensitivity'
+- rename PATO:0000872 from 'anxious' to 'obsolete anxious'
+- rename PATO:0000218 from 'repair function' to 'obsolete repair function'
+- rename PATO:0000285 from 'soma dependent fertility' to 'obsolete soma dependent
+  fertility'
+- rename PATO:0000469 from 'high' to 'obsolete high'
+- rename PATO:0001157 from 'absolute concentration value' to 'obsolete absolute concentration
+  value'
+- rename PATO:0000175 from 'behavioral function' to 'obsolete behavioral function'
+- rename PATO:0000808 from 'reflex value' to 'obsolete reflex value'
+- rename PATO:0000233 from 'touch' to 'obsolete touch'
+- rename PATO:0001070 from 'absolute density' to 'obsolete absolute density'
+- rename PATO:0000226 from 'tactile response' to 'obsolete tactile response'
+- rename PATO:0000076 from 'regulation' to 'obsolete regulation'
+- rename PATO:0000369 from 'unidirectional' to 'obsolete unidirectional'
+- rename PATO:0001174 from 'urine composition' to 'obsolete urine composition'
+- rename PATO:0000724 from 'low yield' to 'obsolete low yield'
+- rename PATO:0000253 from 'swallowing reflex' to 'obsolete swallowing reflex'
+- rename PATO:0000810 from 'touch value' to 'obsolete touch value'
+- rename PATO:0000286 from 'cytoplasmic male sterility' to 'obsolete cytoplasmic male
+  sterility'
+- rename PATO:0000542 from 'absolute photosensitivity value' to 'obsolete absolute
+  photosensitivity value'
+- rename PATO:0001075 from 'absolute momentum' to 'obsolete absolute momentum'
+- rename PATO:0000601 from 'spatial value' to 'obsolete spatial value'
+- rename PATO:0000245 from 'pinna reflex' to 'obsolete pinna reflex'
+- rename PATO:0000672 from 'unit' to 'obsolete unit'
+- rename PATO:0000480 from 'positive regulation' to 'obsolete positive regulation'
+- rename PATO:0000725 from 'function value' to 'obsolete function value'
+- rename PATO:0001176 from 'deaf' to 'obsolete deaf'
+- rename PATO:0000090 from 'relative sensitivity' to 'obsolete relative sensitivity'
+- rename PATO:0000840 from 'absolute auditory acuity value' to 'obsolete absolute
+  auditory acuity value'
+- rename PATO:0000867 from 'swallowing reflex value' to 'obsolete swallowing reflex
+  value'
+- rename PATO:0000898 from 'intercross fertility value' to 'obsolete intercross fertility
+  value'
+- rename PATO:0000292 from 'mobility value' to 'obsolete mobility value'
+- rename PATO:0001166 from 'urine enzyme composition' to 'obsolete urine enzyme composition'
+- rename PATO:0001139 from 'urine glucose composition' to 'obsolete urine glucose
+  composition'
+- rename PATO:0000483 from 'tactile hyperresponsive' to 'obsolete tactile hyperresponsive'
+- rename PATO:0001014 from 'absolute occurence' to 'obsolete absolute occurence'
+- rename PATO:0000656 from 'time_quantity' to 'obsolete time_quantity'
+- rename PATO:0001090 from 'absolute elasticity value' to 'obsolete absolute elasticity
+  value'
+- rename PATO:0000523 from 'insecticide sensitivity value' to 'obsolete insecticide
+  sensitivity value'
+- rename PATO:0001115 from 'impulse value' to 'obsolete impulse value'
+- rename PATO:0000562 from 'mass value' to 'obsolete mass value'
+- rename PATO:0000294 from 'process value' to 'obsolete process value'
+- rename PATO:0000974 from 'relative porosity' to 'obsolete relative porosity'
+- rename PATO:0000255 from 'taste_acuity' to 'obsolete taste_acuity'
+- rename PATO:0000360 from 'consistency value' to 'obsolete consistency value'
+- rename PATO:0000966 from 'symmetry value' to 'obsolete symmetry value'
+- rename PATO:0000237 from 'absolute odor_acuity' to 'obsolete absolute odor_acuity'
+- rename PATO:0001216 from 'volume_unit' to 'obsolete volume_unit'
+- rename PATO:0000859 from 'pinna reflex value' to 'obsolete pinna reflex value'
+- rename PATO:0000116 from 'relative temperature sensitivity' to 'obsolete relative
+  temperature sensitivity'
+- rename PATO:0000817 from 'anosmia' to 'obsolete anosmia'
+- rename PATO:0000510 from 'temperature sensitivity value' to 'obsolete temperature
+  sensitivity value'
+- rename PATO:0000740 from 'relative enzyme function value' to 'obsolete relative
+  enzyme function value'
+- rename PATO:0000174 from 'autonomic function' to 'obsolete autonomic function'
+- rename PATO:0000433 from 'paternal' to 'obsolete paternal'
+- rename PATO:0000219 from 'healing' to 'obsolete healing'
+pr103:
+- create PATO:0030007
+- create edge PATO:0030007 rdfs:subClassOf PATO:0030003
+- add definition "A ventralized quality inhering in a bearer by virtue of the bearer's
+  gross morphology containing what are normally ventral structures and missing some
+  but not all of what are normally dorsal structures." to PATO:0030007
+- create PATO:0030006
+- create edge PATO:0030006 rdfs:subClassOf PATO:0030002
+- add definition "A posterioralized quality inhering in a bearer by virtue of the
+  bearer's gross morphology containing what are normally posterior structures and
+  missing some but not all of what are normally anterior structures." to PATO:0030006
+- create PATO:0030002
+- create edge PATO:0030002 rdfs:subClassOf PATO:0000646
+- add definition "A malformed quality inhering in a bearer by virtue of the bearer's
+  gross morphology containing what are normally posterior structures and missing some
+  or all of what are normally anterior structures." to PATO:0030002
+- delete edge PATO:0000630 rdfs:subClassOf PATO:0000646
+- create edge PATO:0000630 rdfs:subClassOf PATO:0030002
+- rename PATO:0000630 from 'posterioralized' to 'wholly posterioralized'
+- create synonym 'posterioralized' for PATO:0000630
+- change definition of PATO:0000630 from "A malformed quality inhering in a bearer
+  by virtue of the bearer's gross morphology containing only what are normally posterior
+  structures." to "A posterioralized quality inhering in a bearer by virtue of the
+  bearer's gross morphology containing only what are normally posterior structures."
+- delete edge PATO:0000636 rdfs:subClassOf PATO:0000646
+- create edge PATO:0000636 rdfs:subClassOf PATO:0030003
+- rename PATO:0000636 from 'ventralized' to 'wholly ventralized'
+- create synonym 'ventralized' for PATO:0000636
+- change definition of PATO:0000636 from "A malformed quality inhering in a bearer
+  by virtue of the bearer's gross morphology containing only what are normally ventral
+  structures." to "A ventralized quality inhering in a bearer by virtue of the bearer's
+  gross morphology containing only what are normally ventral structures."
+- create PATO:0030005
+- create edge PATO:0030005 rdfs:subClassOf PATO:0030001
+- add definition "A dorsalized quality inhering in a bearer by virtue of the bearer's
+  gross morphology containing what are normally dorsal structures and missing some
+  but not all of what are normally ventral structures." to PATO:0030005
+- delete edge PATO:0000615 rdfs:subClassOf PATO:0000646
+- create edge PATO:0000615 rdfs:subClassOf PATO:0030000
+- rename PATO:0000615 from 'anterioralized' to 'wholly anterioralized'
+- create synonym 'anterioralized' for PATO:0000615
+- change definition of PATO:0000615 from "A malformed quality inhering in a bearer
+  by virtue of the bearer's gross morphology containing only what are normally anterior
+  structures." to "An anterioralized quality inhering in a bearer by virtue of the
+  bearer's gross morphology containing only what are normally anterior structures."
+- change definition of PATO:0015006 from 'A quality inhering in a structure by virtue
+  of it consisting of many of repeated, similar or identical subunits, arranged in
+  some orderly array.' to 'A quality inhering in a structure by virtue of it consisting
+  of many of repeated, similar or identical subunits, arranged in some orderly array.'
+- delete edge PATO:0000620 rdfs:subClassOf PATO:0000646
+- create edge PATO:0000620 rdfs:subClassOf PATO:0030001
+- rename PATO:0000620 from 'dorsalized' to 'wholly dorsalized'
+- create synonym 'dorsalized' for PATO:0000620
+- change definition of PATO:0000620 from "A malformed quality inhering in a bearer
+  by virtue of the bearer's gross morphology containing only what are normally dorsal
+  structures." to "A dorsalized quality inhering in a bearer by virtue of the bearer's
+  gross morphology containing only what are normally dorsal structures."
+- create PATO:0030001
+- create edge PATO:0030001 rdfs:subClassOf PATO:0000646
+- add definition "A malformed quality inhering in a bearer by virtue of the bearer's
+  gross morphology containing what are normally dorsal structures and missing some
+  or all of what are normally ventral structures." to PATO:0030001
+- change definition of PATO:0015019 from "A concave 3-D shape quality inhering in
+  a bearer by virtue of the bearer's being shaped in the form of the letter C." to
+  "A concave 3-D shape quality inhering in a bearer by virtue of the bearer's being
+  shaped in the form of the letter C."
+- create PATO:0030000
+- create edge PATO:0030000 rdfs:subClassOf PATO:0000646
+- add definition "A malformed quality inhering in a bearer by virtue of the bearer's
+  gross morphology containing what are normally anterior structures and missing some
+  or all of what are normally posterior structures." to PATO:0030000
+- create PATO:0030003
+- create edge PATO:0030003 rdfs:subClassOf PATO:0000646
+- add definition "A malformed quality inhering in a bearer by virtue of the bearer's
+  gross morphology containing what are normally ventral structures and missing some
+  or all of what are normally dorsal structures." to PATO:0030003
+- change definition of PATO:0015016 from 'Having a shape or form that resembles a
+  step of a stairway (e.g., a ledge or offset margin).' to 'Having a shape or form
+  that resembles a step of a stairway (e.g., a ledge or offset margin).'
+- change definition of PATO:0015020 from "A concave 3-D shape quality inhering in
+  a bearer by virtue of the bearer's being shaped in the form of the letter J." to
+  "A concave 3-D shape quality inhering in a bearer by virtue of the bearer's being
+  shaped in the form of the letter J."
+- create PATO:0030004
+- create edge PATO:0030004 rdfs:subClassOf PATO:0030000
+- add definition "An anterioralized quality inhering in a bearer by virtue of the
+  bearer's gross morphology containing what are normally anterior structures and missing
+  some but not all of what are normally posterior structures." to PATO:0030004

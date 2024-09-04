@@ -1,0 +1,54 @@
+pr2433:
+- create node NTR-cxg 'nasal serous secreting cell'
+- add definition 'A serous secreting cell that is part of the nasal cavity. PMID:37291214'
+  to NTR-cxg
+- create exact synonym 'SMG serous (nasal)' for NTR-cxg
+- create edge NTR-cxg rdfs:subClassOf CL:0000313
+- create edge NTR-cxg located_in UBERON:0001707
+pr2114:
+- change annotation of CL:0000568 with MESH:A11.070 to MESH:D001078
+- change annotation of CL:0000568 with reference from definition to class
+- change annotation of CL:0000132 with MESH:A09.371.060.067.31 to None
+- change annotation of CL:0000333 with MESH:A16.254.600 to doi:10.1016/j.stem.2015.02.017
+- change annotation of CL:0000577 with MESH:A03.492.766.440.250 to MESH:D004759
+- change annotation of CL:0000577 with reference from definition to class
+- change annotation of CL:0000588 with MESH:A11.329.679 to None
+- change annotation of CL:0000547 with MESH:A11.118.290.350.200 to None
+pr2108: []
+pr1907: []
+pr1696: []
+pr1565: []
+pr1518:
+- create node CL:0009045 'B cell of medullary sinus of lymph node'
+- create node CL:0009046 'T cell of medullary sinus of lymph node'
+- create node CL:0009047 'macrophage of medullary sinus of lymph node'
+pr1465:
+- create node CL:0009097 'embryonic skeletal muscle fiber'
+- add definition 'A skeletal muscle fiber found in an embryo. In mammalian embryos,
+  skeletal muscle expresses myosin heavy chain-embryonic (MyHC-emb, encoded by the
+  MYH3), which regulates skeletal muscle development. PMID:7196501|PMID:32094117.'
+  to CL:0009097
+- create edge CL:0009097 rdfs:subClassOf CL:0008002
+- create edge CL:0009097 RO:0002202 CL:0000515
+- create edge CL:0009097 RO:0002495 UBERON:0000068
+- create node CL:0009098 'neonatal skeletal muscle fiber'
+- add definition 'A skeletal muscle fiber found at the fetal and neonatal stages.
+  In mammalian fetuses and neonates, skeletal muscle expresses myosin heavy chain-neonatal
+  (MyHC-neo, encoded by the MYH8 gene). This expression disappears shortly after birth
+  and is replaced by expression of adult heavy chain myosins. PMID:7196501|PMID:26180627.'
+  to CL:0009098
+- create edge CL:0009098 rdfs:subClassOf CL:0008002
+- create edge CL:0009098 RO:0002202 CL:0000515
+- create edge CL:0009098 RO:0002495 UBERON:0007221
+pr1242:
+- rename CL:0011003 'magnocellular neurosecretory cell' to 'oxytocin-secreting magnocellular
+  neurosecretory cell'
+- rename CL:0011112 'magnocellular neurosecretory cell' to 'vasopressin-secreting
+  magnocellular neurosecretory cell'
+- create node CL:0012000 'magnocellular neurosecretory cell'
+- create edge CL:0012000 rdfs:subClassOf CL:0011003
+- create edge CL:0012000 rdfs:subClassOf CL:0011112
+pr639:
+- create edge CL:0000451 is_a CL:0000145
+- create edge CL:0000235 is_a CL:0000145
+- create edge CL:0000236 is_a CL:0000145

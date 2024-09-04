@@ -1,0 +1,71 @@
+pr27330:
+- add GO:0042918 to subset gocheck_do_not_annotate
+- add GO:0042959 to subset gocheck_do_not_annotate
+- add GO:0071705 to subset gocheck_do_not_annotate
+- add GO:0072337 to subset gocheck_do_not_annotate
+- add GO:1900068 to subset gocheck_do_not_annotate
+- add GO:1900070 to subset gocheck_do_not_annotate
+- add GO:1900072 to subset gocheck_do_not_annotate
+- add GO:1903047 to subset gocheck_do_not_annotate
+pr24115:
+- change definition of GO:0009009 from 'Catalysis of the formation of new phosphodiester
+  bonds between a pair of short, unique target DNA sequences.' to 'Catalysis of the
+  formation of new phosphodiester bonds between a pair of short, unique target DNA
+  sequences on different molecules.'
+- change relationship between GO:0009009 and GO:0008907 from rdfs:subClassOf GO:0003824
+  to rdfs:subClassOf GO:0008907
+pr18361:
+- change annotation of GO:0150133 with oboInOwl:hasOBONamespace from 'biologica_process'
+  to 'biological_process'
+pr16459: []
+pr15065: []
+pr14730:
+- create GO:0000001 'apical constriction involved in ventral furrow formation'
+- create edge GO:0000001 rdfs:subClassOf GO:0003384
+- create edge GO:0000001 BFO:0000050 GO:0007370
+- add definition 'The actin-mediated process that results in the contraction of the
+  apical end of a polarized columnar epithelial cell, contributing to the process
+  of the formation of a ventral indentation (furrow) from the blastoderm epithelium,
+  which is internalized to form a tube in the interior of the embryo, marking the
+  start of gastrulation.' to GO:0000001
+- create GO:0000002 'positive regulation of apical constriction involved in ventral
+  furrow formation'
+- create edge GO:0000002 rdfs:subClassOf GO:0000001
+pr14554:
+- create GO:0000001
+- create edge GO:0000001 rdfs:subClassOf GO:0140104
+- change annotation of GO:0000001 with rdfs:label from '' to 'iron-sulfur cluster
+  carrier activity'
+- add definition 'Assists in the delivery of iron-sulfur clusters to target proteins.'
+  to GO:0000001
+pr14269: []
+pr14042:
+- obsolete GO:0044711
+pr13974:
+- rename GO:0099614 from 'protein targeting to spore cell wall' to 'protein localization
+  to spore cell wall'
+- change definition of GO:0099614 to 'A process in which a protein is transported
+  to a location within a spore wall.'
+- rename GO:0099613 from 'protein targeting to cell wall' to 'protein localization
+  to cell wall'
+- change definition of GO:0099613 to 'A process in which a protein is transported
+  to a location within a cell wall.'
+- rename GO:0006622 from 'protein targeting to lysosome' to 'protein transport to
+  lysosome'
+- change definition of GO:0006622 to 'A process in which a protein is transported
+  to a location within a lysosome.'
+- merge GO:0045036 into GO:0072596
+- rename GO:0072596 from 'establishment of protein localization to chloroplast' to
+  'protein transport to chloroplast'
+- change definition of GO:0072596 to 'A process in which a protein is transported
+  to a location within a chloroplast.'
+- merge GO:0006626 into GO:0072655
+- rename GO:0072655 from 'establishment of protein localization to mitochondrion'
+  to 'protein transport to mitochondrion'
+- change definition of GO:0072655 to 'A process in which a protein is transported
+  to a location within a mitochondrion.'
+- merge GO:0006625 into GO:0072663
+- rename GO:0072663 from 'establishment of protein localization to peroxisome' to
+  'protein transport to peroxisome'
+- change definition of GO:0072663 to 'A process in which a protein is transported
+  to a location within a peroxisome.'

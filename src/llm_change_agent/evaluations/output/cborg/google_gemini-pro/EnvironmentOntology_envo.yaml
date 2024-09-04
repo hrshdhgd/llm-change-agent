@@ -1,0 +1,36 @@
+pr1450:
+- obsolete ENVO:02500019
+pr1330:
+- change definition of ENVO:01001113 from 'A soil horizon that is conposed primarily
+  of mineral material.' to 'A soil horizon that is composed primarily of mineral material.'
+pr1289:
+- remove synonym 'garden' for ENVO:00000004
+- remove synonym 'ocean' for ENVO:00000000
+- remove synonym 'sea' for ENVO:00000000
+- remove synonym 'stream' for ENVO:00000007
+- remove synonym 'reservoir' for ENVO:01000039
+pr1254:
+- create node ENVO:0100XXXX 'land surface' @en
+- add definition 'Land surface is concerned mainly with surface phenomena affecting
+  land use and soil development that have traditionally been noted at the point of
+  soil observation.' to ENVO:0100XXXX
+- create edge ENVO:0100XXXX rdfs:subClassOf ENVO:01000813
+pr1113:
+- create node CHEBI:60034 'polyethylene polymer'
+- create node CHEBI:53550 'poly(propylene)'
+- create node CHEBI:53243 'poly(vinyl) chloride'
+- create node CHEBI:60737 'polyurethane polymer'
+- create node CHEBI:61642 'polystyrene polymer'
+- create node CHEBI:61452 'poly(ethylene terephthalate) polymer'
+- create node CHEBI:60027 'polymer'
+- create node PATO:0001171 'elastic'
+- create node PATO:0001172 'inelastic'
+- create node PATO:0001499 'spherical'
+- create node PATO:0000701 'smooth'
+- create node SDGIO:00010077 'waste management service'
+pr1011: []
+pr970: []
+pr928:
+- create node NTR:volcanic_field 'volcanic field'
+- create edge NTR:volcanic_field rdfs:subClassOf ENVO:01000007
+pr928: []

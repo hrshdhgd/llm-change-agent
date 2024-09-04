@@ -1,0 +1,47 @@
+pr3318:
+- change definition of UBERON:0002336 to 'White matter structure containing massive
+  numbers of commissural fibers connecting cortical areas in the two cerebral hemispheres.
+  It is subdivided into a genu, a rostrum, a body, and a splenium. (MM).'
+pr3318:
+- change definition of UBERON:0002336 to 'White matter structure containing massive
+  numbers of commissural fibers connecting cortical areas in the two cerebral hemispheres.
+  It is subdivided into a genu, a rostrum, a body, and a splenium. (MM).'
+pr3204:
+- change definition of UBERON:0002113 to 'A paired organ of the urinary tract that
+  produces urine and maintains bodily fluid homeostasis, blood pressure, pH levels,
+  red blood cell production and bone health.'
+pr3106: []
+pr3060: []
+pr3050:
+- deepen UBERON:0000949 from BFO:0000040 to UBERON:0015203
+pr3048:
+- create node SAPHENOUS_VEIN_SMOOTH_MUSCLE_TISSUE 'saphenous vein smooth muscle tissue'
+- create edge SAPHENOUS_VEIN_SMOOTH_MUSCLE_TISSUE isa UBERON:0001135
+- create edge SAPHENOUS_VEIN_SMOOTH_MUSCLE_TISSUE BFO:0000050 UBERON:0007318
+- add definition 'A portion of smooth muscle tissue that is part of a saphenous vein.'
+  to SAPHENOUS_VEIN_SMOOTH_MUSCLE_TISSUE
+pr2982:
+- create node FMA:7312 'bronchopulmonary segment'
+- create synonym 'lung segment' for FMA:7312
+- add definition 'A discrete anatomical unit of the lung that is composed of a segmental
+  bronchus and the lung tissue supplied by that bronchus. A bronchopulmonary segment
+  exhibits a pyramidal shape, with its apex pointing towards the center of the lung
+  and its base toward the pleural surface.' to FMA:7312
+- create edge FMA:7312 BFO:0109000 UBERON:0002281
+- create edge FMA:7313 owl:overlaps FMA:7312
+- create edge FMA:7314 BFO:0109000 FMA:7312
+pr2793: []
+pr2247: []
+pr1995:
+- change definition of UBERON:0012247 to 'Mucus-secreting glands in the mucosa of
+  the uterine cervix.'
+- change definition of UBERON:0002530 to 'An organ that functions as a secretory or
+  excretory organ.'
+- change definition of UBERON:0004647 to 'The polygonal structure of the liver that
+  consists of hepatocytes radiating outward from a hepatic vein.'
+- change definition of UBERON:0006729 to 'The extravascular space in the liver between
+  the parenchymal cells and a sinusoid that contains the blood plasma.'
+pr1995:
+- 'change definition of UBERON:0002926 to ''An epithelium...'' '
+- 'change definition of UBERON:0012251 to ''An epithelium...'' '
+- 'change definition of UBERON:0015807 to ''An epithelium...'' '

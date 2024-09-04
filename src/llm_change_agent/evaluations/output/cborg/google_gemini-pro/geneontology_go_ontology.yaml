@@ -1,0 +1,45 @@
+pr27330:
+- add GO:0042918 to subset gocheck_do_not_annotate
+- add GO:0042959 to subset gocheck_do_not_annotate
+- add GO:0071705 to subset gocheck_do_not_annotate
+- add GO:0072337 to subset gocheck_do_not_annotate
+- add GO:1900068 to subset gocheck_do_not_annotate
+- add GO:1900070 to subset gocheck_do_not_annotate
+- add GO:1900072 to subset gocheck_do_not_annotate
+- add GO:1903047 to subset gocheck_do_not_annotate
+pr24115:
+- change definition of GO:0009009 to 'Catalysis of the formation of new phosphodiester
+  bonds between a pair of short, unique target DNA sequences on different molecules.'
+- create edge GO:0009009 rdfs:subClassOf GO:0008907
+pr18361: []
+pr16459: []
+pr15065: []
+pr14730:
+- create node GO:0010740 'apical constriction involved in ventral furrow formation'
+  @en
+- create edge GO:0010740 rdfs:subClassOf GO:0003384
+- create edge GO:0010740 BFO:0000050 GO:0007370
+- add definition 'The actin-mediated process that results in the contraction of the
+  apical end of a polarized columnar epithelial cell, contributing to the process
+  of the formation of a ventral indentation (furrow) from the blastoderm epithelium,
+  which is internalized to form a tube in the interior of the embryo, marking the
+  start of gastrulation.' to GO:0010740
+- create node GO:1905429 'positive regulation of apical constriction involved in ventral
+  furrow formation' @en
+- create edge GO:1905429 rdfs:subClassOf GO:0040012
+- create edge GO:1905429 RO:0002328 GO:0010740
+pr14554:
+- create node GO:0140105 'iron-sulfur cluster carrier activity' @ en
+- create edge GO:0140105 rdfs:subClassOf GO:0140104
+pr14269: []
+pr14042: []
+pr13974:
+- rename GO:0099614 to 'protein localization to spore cell wall'
+- rename GO:0099613 to 'protein localization to cell wall'
+- rename GO:0006622 to 'protein transport to lysosome'
+- merge GO:0045036 GO:0072596
+- rename GO:0045036 to 'protein transport to chloroplast'
+- merge GO:0006626 GO:0072655
+- rename GO:0006626 to 'protein transport to mitochondrion'
+- merge GO:0006625 GO:0072663
+- rename GO:0006625 to 'protein transport to peroxisome'

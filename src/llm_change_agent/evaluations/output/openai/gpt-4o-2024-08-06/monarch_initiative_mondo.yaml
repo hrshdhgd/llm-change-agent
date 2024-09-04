@@ -1,0 +1,16 @@
+pr7082: []
+pr6376:
+- obsolete MONDO:0033211 with replacement MONDO:0017868
+pr5194: []
+pr4598: []
+pr4459:
+- obsolete MONDO:0016050 with replacement MONDO:0011841
+- change synonym 'ENCEPHALOPATHY, THIAMINE-RESPONSIVE' for MONDO:0016050 from related
+  to exact
+pr4042: []
+pr2053: []
+pr1644: []
+pr1609: []
+pr1565: []
+pr1338: []
+pr916: []

@@ -1,0 +1,45 @@
+pr1450:
+- obsolete ENVO:02500019
+pr1330:
+- change definition of ENVO:01001113 from 'A body of water conposed of' to 'A body
+  of water composed of'
+pr1289:
+- remove synonym 'garden' for ENVO:0000000
+- remove synonym 'ocean' for ENVO:0000001
+- remove synonym 'sea' for ENVO:0000002
+- remove synonym 'stream' for ENVO:0000003
+- remove synonym 'reservoir' for ENVO:0000004
+pr1254:
+- create node ENVO:9000000 'land surface'
+- add definition 'Land surface is concerned mainly with surface phenomena affecting
+  land use and soil development that have traditionally been noted at the point of
+  soil observation.' to ENVO:9000000
+- create edge ENVO:9000000 rdfs:subClassOf ENVO:01000813
+pr1113:
+- create ENVO:0010000 'polyethylene polymer'
+- create ENVO:0010001 'poly(propylene)'
+- create ENVO:0010002 'poly(vinyl) chloride'
+- create ENVO:0010003 'polyurethane polymer'
+- create ENVO:0010004 'polystyrene polymer'
+- create ENVO:0010005 'poly(ethylene terephthalate) polymer'
+- create ENVO:0010006 'polymer'
+- create ENVO:0010007 'elastic'
+- create ENVO:0010008 'inelastic'
+- create ENVO:0010009 'spherical'
+- create ENVO:0010010 'smooth'
+- create ENVO:0010011 'waste management service'
+pr1011: []
+pr970:
+- create ENVO:01001376 'Essential Ocean Variable'
+- add ENVO:01001376 to subset envoEOVs
+- add ENVO:01001376 to subset envoMarine
+- create edge ENVO:01001376 rdfs:subClassOf ENVO:00000000
+- add definition 'A variable that is essential for describing the ocean state and
+  changes, defined by the Global Ocean Observing System (GOOS).' to ENVO:01001376
+- create edge ENVO:01001376 IAO:0000119 <http://www.goosocean.org/index.php?option=com_content&view=article&id=14&Itemid=114>
+pr928:
+- create ENVO:01001234 'volcanic field'
+- create ENVO:01001235 'geothermally active field'
+- create edge ENVO:01001234 rdfs:subClassOf ENVO:01001235
+pr928:
+- create ENVO:placeholder 'enrichment culture'
