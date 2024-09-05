@@ -75,6 +75,28 @@ Final Answer:
 
 ```
 
+## Evaluations
+### Input
+The project also contains input data for evaluations in the form of YAML files for the following ontologies:
+- [Envo](src/llm_change_agent/evaluations/input/EnvironmentOntology_envo.yaml)
+- [GO](src/llm_change_agent/evaluations/input/geneontology_go_ontology.yaml)
+- [MONDO](src/llm_change_agent/evaluations/input/monarch_initiative_mondo.yaml)
+- [Cell Ontology](src/llm_change_agent/evaluations/input/obophenotype_cell_ontology.yaml)
+- [Uberon](src/llm_change_agent/evaluations/input/obophenotype_uberon.yaml)
+- [PATO](src/llm_change_agent/evaluations/input/pato_ontology_pato.yaml)
+
+### Expected changes
+The expected changes for specific pull requests are listed ontologywise below:
+- [Envo](src/llm_change_agent/evaluations/input/expected/EnvironmentOntology_envo.yaml)
+- [GO](src/llm_change_agent/evaluations/input/expected/geneontology_go_ontology.yaml)
+- [MONDO](src/llm_change_agent/evaluations/input/expected/monarch_initiative_mondo.yaml)
+- [Cell Ontology](src/llm_change_agent/evaluations/input/expected/obophenotype_cell_ontology.yaml)
+- [Uberon](src/llm_change_agent/evaluations/input/expected/obophenotype_uberon.yaml)
+- [PATO](src/llm_change_agent/evaluations/input/expected/pato_ontology_pato.yaml)
+
+### Actual results
+The actual results for some of the LLM models evaluated can be fount [here](src/llm_change_agent/evaluations/output/) and corresponding metrics [here](src/llm_change_agent/evaluations/output/metrics.yaml)
+
 ## Development
 To run the project locally, clone the repository and navigate to the project directory:
 ```bash
