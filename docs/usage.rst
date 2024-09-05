@@ -31,10 +31,16 @@ To list all available models from supported providers:
     Ollama models:
       llama3.1
     LBL-CBORG models:
-      lbl/llama-3
-      openai/chatgpt:latest
-      anthropic/claude:latest
-      google/gemini:latest
+      lbl/cborg-chat:latest
+      lbl/cborg-chat-nano:latest
+      openai/gpt-3.5-turbo
+      openai/gpt-4o
+      openai/gpt-4o-mini
+      anthropic/claude-haiku
+      anthropic/claude-sonnet
+      anthropic/claude-opus
+      google/gemini-pro
+      google/gemini-flash
 
 Generate Text
 -------------
