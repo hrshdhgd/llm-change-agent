@@ -229,7 +229,7 @@ def split_documents(document: Union[str, Document], type: str = None):
     return splits
 
 
-def execute_agent(llm, prompt, docs):
+def execute_agent(llm, prompt, docs=None):
     """Create a retriever agent."""
     logger.info("Starting execution of the agent.")
     grammar = get_kgcl_grammar()

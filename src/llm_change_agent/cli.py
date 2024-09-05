@@ -74,7 +74,7 @@ def list_models():
     default=[],
     help="Paths to the docs directories, URLs, or ontology names.",
 )
-def execute(model: str, provider: str, prompt: str, docs: Union[List, str]):
+def execute(model: str, provider: str, prompt: str, docs: Union[List, str] = None):
     """Generate text using the specified model."""
     llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider, docs=docs)
     return llm_agent.run()
