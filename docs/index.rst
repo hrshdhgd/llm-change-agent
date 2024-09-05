@@ -10,6 +10,9 @@ Welcome to llm-change-agent's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   introduction
+   installation
+   usage
    modules
 
 Indices and tables
