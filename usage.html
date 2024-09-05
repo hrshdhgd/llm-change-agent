@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; llm-change-agent 0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=7026087e"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="llm_change_agent" href="modules.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            llm-change-agent
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-available-models">List Available Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-text">Generate Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluations">Evaluations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expected-changes">Expected changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#actual-results">Actual results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#development">Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">llm_change_agent</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">llm-change-agent</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage">
+<span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<p>The CLI provides several commands to interact with the language models.</p>
+<section id="list-available-models">
+<h2>List Available Models<a class="headerlink" href="#list-available-models" title="Link to this heading"></a></h2>
+<p>To list all available models from supported providers:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>llm-change<span class="w"> </span>list-models
+
+OpenAI<span class="w"> </span>models:
+<span class="w">  </span>gpt-4o-2024-08-06
+<span class="w">  </span>gpt-4o-mini
+<span class="w">  </span>gpt-4o-mini-2024-07-18
+<span class="w">  </span>gpt-4o-2024-05-13
+<span class="w">  </span>gpt-4o
+<span class="w">  </span>gpt-4-turbo-2024-04-09
+<span class="w">  </span>gpt-4-turbo
+<span class="w">  </span>gpt-4-turbo-preview
+Anthropic<span class="w"> </span>models:
+<span class="w">  </span>claude-3-5-sonnet-20240620
+<span class="w">  </span>claude-3-opus-20240229
+<span class="w">  </span>claude-3-sonnet-20240229
+<span class="w">  </span>claude-3-haiku-20240307
+Ollama<span class="w"> </span>models:
+<span class="w">  </span>llama3.1
+LBL-CBORG<span class="w"> </span>models:
+<span class="w">  </span>lbl/llama-3
+<span class="w">  </span>openai/chatgpt:latest
+<span class="w">  </span>anthropic/claude:latest
+<span class="w">  </span>google/gemini:latest
+</pre></div>
+</div>
+</section>
+<section id="generate-text">
+<h2>Generate Text<a class="headerlink" href="#generate-text" title="Link to this heading"></a></h2>
+<p>To generate text using a specified model and provider:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>llm-change<span class="w"> </span>execute<span class="w"> </span>--model<span class="w"> </span>&lt;MODEL_NAME&gt;<span class="w"> </span>--provider<span class="w"> </span>&lt;PROVIDER_NAME&gt;<span class="w"> </span>--prompt<span class="w"> </span><span class="s2">&quot;&lt;YOUR_PROMPT&gt;&quot;</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;MODEL_NAME&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;PROVIDER_NAME&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;YOUR_PROMPT&gt;</span></code> with your desired values.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<p>Generate text using CBORG’s <code class="docutils literal notranslate"><span class="pre">lbl/llama-3</span></code> model with a custom prompt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>llm-change<span class="w"> </span>execute<span class="w"> </span>--model<span class="w"> </span>lbl/llama-3<span class="w"> </span>--prompt<span class="w"> </span><span class="s2">&quot;I want to change the definition of class ABC:123 to &#39;foo bar&#39; and also create a new class labelled &#39;bar foo&#39; with the curie DEF:123.&quot;</span>
+</pre></div>
+</div>
+<p>OR</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>llm-change<span class="w"> </span>execute<span class="w"> </span>--provider<span class="w"> </span>cborg<span class="w"> </span>--prompt<span class="w"> </span><span class="s2">&quot;I want to change the definition of class ABC:123 to &#39;foo bar&#39; and also create a new class labelled &#39;bar foo&#39; with the curie DEF:123.&quot;</span>
+</pre></div>
+</div>
+<p>generates</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Final<span class="w"> </span>Answer:
+
+<span class="o">[</span>
+<span class="w">  </span><span class="s2">&quot;change definition of ABC:123 to &#39;foo bar&#39;&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;create class DEF:123 &#39;bar foo&#39;&quot;</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="evaluations">
+<h2>Evaluations<a class="headerlink" href="#evaluations" title="Link to this heading"></a></h2>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Link to this heading"></a></h3>
+<p>The project also contains input data for evaluations in the form of YAML files for the following ontologies:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/EnvironmentOntology_envo.yaml">Envo</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/geneontology_go_ontology.yaml">GO</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/monarch_initiative_mondo.yaml">MONDO</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/obophenotype_cell_ontology.yaml">Cell Ontology</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/obophenotype_uberon.yaml">Uberon</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/pato_ontology_pato.yaml">PATO</a></p></li>
+</ul>
+</section>
+<section id="expected-changes">
+<h3>Expected changes<a class="headerlink" href="#expected-changes" title="Link to this heading"></a></h3>
+<p>The expected changes for specific pull requests are listed ontologywise below:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/expected/EnvironmentOntology_envo.yaml">Envo</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/expected/geneontology_go_ontology.yaml">GO</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/expected/monarch_initiative_mondo.yaml">MONDO</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/expected/obophenotype_cell_ontology.yaml">Cell Ontology</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/expected/obophenotype_uberon.yaml">Uberon</a></p></li>
+<li><p><a class="reference external" href="src/llm_change_agent/evaluations/input/expected/pato_ontology_pato.yaml">PATO</a></p></li>
+</ul>
+</section>
+<section id="actual-results">
+<h3>Actual results<a class="headerlink" href="#actual-results" title="Link to this heading"></a></h3>
+<p>The actual results for some of the LLM models evaluated can be found <a class="reference external" href="src/llm_change_agent/evaluations/output/">here</a> and corresponding metrics <a class="reference external" href="src/llm_change_agent/evaluations/output/metrics.yaml">here</a></p>
+</section>
+</section>
+<section id="development">
+<h2>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h2>
+<p>To run the project locally, clone the repository and navigate to the project directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/llm-change-agent.git
+<span class="nb">cd</span><span class="w"> </span>llm-change-agent
+poetry<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Make sure you have <code class="docutils literal notranslate"><span class="pre">poetry</span></code> installed in your system.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="llm_change_agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Harshad Hegde &lt;hhegde@lbl.gov&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
