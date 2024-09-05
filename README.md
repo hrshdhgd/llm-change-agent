@@ -1,13 +1,15 @@
 # LLM Change Agent
 [![DOI](https://zenodo.org/badge/841604583.svg)](https://zenodo.org/doi/10.5281/zenodo.13693477)
 ## Overview
-LLM Change Agent is a command-line tool designed to interact with various large language models from different providers. It generates [KGCL commands](https://github.com/INCATools/kgcl/blob/main/src/data/examples/examples.yaml) using specified models and providers via prompts. Prompts could be GitHub issue description/comments.
+LLM Change Agent is a command-line tool designed to generate knowledge graph change language (KGCL) commands that request changes in a knowledge graph such as an ontology.
+It generates [KGCL commands](https://github.com/INCATools/kgcl/blob/main/src/data/examples/examples.yaml) using specified large language models and providers via prompts.
+The prompts can be GitHub issue description/comments or natural language text.
 
 ## Features
 - Given a prompt relevant to making ontology resource changes, the agent responds with KGCL change statements.
-- Supports OpenAI, Ollama, Anthropic and CBORG (LBNL hosted) models.
+- Supports OpenAI, Ollama, Anthropic and CBORG (LBNL-hosted) models.
 
-**:warning:** OpenAI, Anthropic and CBORG model use are subject to availability of corresponding keys as environment variables locally.
+**:warning:** OpenAI, Anthropic and CBORG model use require availability of corresponding keys as environment variables locally.
 
 ## Installation
 To install the dependencies, run:
@@ -101,7 +103,7 @@ The expected changes for specific pull requests are listed ontologywise below:
 - [PATO](src/llm_change_agent/evaluations/input/expected/pato_ontology_pato.yaml)
 
 ### Actual results
-The actual results for some of the LLM models evaluated can be fount [here](src/llm_change_agent/evaluations/output/) and corresponding metrics [here](src/llm_change_agent/evaluations/output/metrics.yaml)
+The actual results for some of the LLM models evaluated are [here](src/llm_change_agent/evaluations/output/) and corresponding metrics [here](src/llm_change_agent/evaluations/output/metrics.yaml)
 
 ## Development
 To run the project locally, clone the repository and navigate to the project directory:
