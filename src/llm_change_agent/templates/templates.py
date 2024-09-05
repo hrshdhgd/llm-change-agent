@@ -37,12 +37,17 @@ def get_issue_analyzer_template():
             Observation: the result of the action
             ... (this Thought/Action/Action Input/Observation can repeat N times)
             Thought: I now know the final answer
+            Action: return the final answer
+            Action Input: the input to the action
+            Observation: the result of the action
             Final Answer: the final answer to the original input question
 
             Begin!
 
             Question: {input}
             Thought:{agent_scratchpad}
+            Action: return the final answer
+            Action Input: the input to the action
     """
     return PromptTemplate(
         input_variables=[
