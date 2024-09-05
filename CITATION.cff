@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the following metadata."
+title: "LLM Change Agent"
+version: "0.0.6"
+doi: "10.5281/zenodo.13693478"
+date-released: 2024-09-05
+authors:
+  - family-names: "Hegde"
+    given-names: "Harshad"
+    orcid: "https://orcid.org/0000-0002-2411-565X"  # Replace with actual ORCID
+
+affiliations:
+  - name: "Lawrence Berekeley National Laboratory"
+    address: "1 Cyclotron Road, Berkeley, CA 94720, USA"
+keywords:
+  - "llm"
+  - "kgcl"
+  - "ontology"
+  - "change-language"
+  - "artificial intelligence"
+
+license: "MIT"
+repository-code: "https://github.com/hrshdhgd/llm-change-agent"
+url: "https://github.com/hrshdhgd/llm-change-agent"
+abstract: >
+  LLM Change Agent is a command-line interface (CLI) tool designed to interact with various large language models
+  for generating and modifying ontology resources. It supports multiple LLM providers and offers a range of
+  functionalities to streamline KGCL command generation tasks.
