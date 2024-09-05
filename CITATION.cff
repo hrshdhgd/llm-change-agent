@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it using the following metadata."
 title: "LLM Change Agent"
 version: "0.0.6"
-doi: "10.5281/zenodo.13693478"
+doi: "10.5281/zenodo.13695262"
 date-released: 2024-09-05
 authors:
   - family-names: "Hegde"
