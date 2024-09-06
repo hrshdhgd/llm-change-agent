@@ -12,7 +12,6 @@ from llm_change_agent.constants import (
     OPENAI_PROVIDER,
 )
 from llm_change_agent.utils.llm_utils import (
-    augment_prompt,
     execute_agent,
     get_anthropic_models,
     get_default_model_for_provider,
@@ -99,6 +98,6 @@ class LLMChangeAgent:
         """Run the LLM Change Agent."""
         llm_config = self._get_llm_config()
         self.llm = llm_factory(llm_config)
-        response = execute_agent(llm=self.llm, prompt=augment_prompt(self.prompt), external_rag_docs=self.docs)
+        response = execute_agent(llm=self.llm, prompt=self.prompt, external_rag_docs=self.docs)
         pprint(response["output"])
         return response["output"]

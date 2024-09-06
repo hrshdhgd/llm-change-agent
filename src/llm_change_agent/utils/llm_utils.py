@@ -31,8 +31,6 @@ from llm_change_agent.constants import (
     KGCL_SCHEMA,
     OLLAMA_PROVIDER,
     ONTOLOGIES_AS_DOC_MAP,
-    ONTOLOGIES_URL,
-    # ONTODIFF_DOCS,
     OPENAI_KEY,
     OPENAI_PROVIDER,
     VECTOR_DB_NAME,
@@ -339,28 +337,21 @@ def execute_agent(llm, prompt, external_rag_docs=None):
     tools = [tool, compress_iri]
     template = get_issue_analyzer_template()
     react_agent = create_react_agent(llm=llm, tools=tools, prompt=template)
-    agent_executor = AgentExecutor(agent=react_agent, tools=tools, handle_parsing_errors=True, verbose=True)
+    agent_executor = AgentExecutor(
+        agent=react_agent,
+        tools=tools,
+        handle_parsing_errors=True,
+        verbose=True,
+        return_intermediate_steps=True,
+    )
     logger.info("Agent executor created successfully.")
-
     return agent_executor.invoke(
         {
             "input": prompt,
             "grammar": grammar["lark"],
             "explanation": grammar["explanation"],
-            "ontology_urls": ONTOLOGIES_URL,
         }
     )
-
-
-def augment_prompt(prompt: str):
-    """Augment the prompt with additional information."""
-    return f"""
-        Give me all relevant KGCL commands based on this request: \n\n
-        + {prompt} +
-        \n\n
-        Return as a python list object which will be passed to another tool.
-        Each element of the list should be enlosed in double quotes.
-        """
 
 
 def extract_commands(command):
