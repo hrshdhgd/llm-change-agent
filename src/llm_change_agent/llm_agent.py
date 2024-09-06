@@ -7,6 +7,7 @@ from llm_change_agent.constants import (
     ANTHROPIC_PROVIDER,
     CBORG_PROVIDER,
     OLLAMA_PROVIDER,
+    ONTOLOGIES_AS_DOC_MAP,
     OPEN_AI_MODEL,
     OPENAI_PROVIDER,
 )
@@ -27,13 +28,17 @@ from llm_change_agent.utils.llm_utils import (
 class LLMChangeAgent:
     """Define LLMChangeAgent class."""
 
-    def __init__(self, model: str, prompt: str, provider: str, docs: Union[List, str] = None):
+    def __init__(
+        self, model: str, prompt: str, provider: str, docs: Union[List, str] = None, all_ontologies: bool = False
+    ):
         """Initialize LLMChangeAgent class."""
         self.model = model
         self.prompt = prompt
         self.provider = provider
         self.llm = None
         self.docs = docs
+        if all_ontologies:
+            self.docs = self.docs + list(ONTOLOGIES_AS_DOC_MAP.values())
 
     def _get_llm_config(self):
         """Get the LLM configuration based on the selected LLM."""
@@ -94,6 +99,6 @@ class LLMChangeAgent:
         """Run the LLM Change Agent."""
         llm_config = self._get_llm_config()
         self.llm = llm_factory(llm_config)
-        response = execute_agent(llm=self.llm, prompt=augment_prompt(self.prompt), docs=self.docs)
+        response = execute_agent(llm=self.llm, prompt=augment_prompt(self.prompt), external_rag_docs=self.docs)
         pprint(response["output"])
         return response["output"]

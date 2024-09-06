@@ -26,13 +26,16 @@ from llm_change_agent.constants import (
     ANTHROPIC_PROVIDER,
     CBORG_KEY,
     CBORG_PROVIDER,
+    CHROMA_MAX_BATCH_SIZE,
     KGCL_GRAMMAR,
     KGCL_SCHEMA,
     OLLAMA_PROVIDER,
+    ONTOLOGIES_AS_DOC_MAP,
     ONTOLOGIES_URL,
     # ONTODIFF_DOCS,
     OPENAI_KEY,
     OPENAI_PROVIDER,
+    VECTOR_DB_NAME,
     VECTOR_DB_PATH,
     VECTOR_STORE,
 )
@@ -166,10 +169,17 @@ def get_kgcl_schema():
 
 def get_local_files_as_documents(path):
     """Get the local documents."""
-    if Path(path).is_file():
+    path_obj = Path(path)
+    if path_obj.is_file():
         with open(path, "r") as doc_file:
             print(f"Reading from file: {path}")
             yield (Document(page_content=doc_file.read()),)
+    elif path_obj.is_dir():
+        for file_path in path_obj.iterdir():
+            if file_path.is_file() and not file_path.name.startswith("."):
+                with open(file_path, "r") as doc_file:
+                    print(f"Reading from file: {file_path}")
+                    yield Document(page_content=doc_file.read())
     else:
         return []
 
@@ -211,6 +221,31 @@ def get_kgcl_grammar():
 #                 yield doc_file.read()
 
 
+def get_vectorstore_path(docs, all_ontologies: bool = False):
+    """Get the vector path."""
+    if all_ontologies:
+        return VECTOR_STORE / "all_ontologies" / VECTOR_DB_NAME
+
+    if not docs:
+        return VECTOR_DB_PATH
+
+    doc_collection_name_list = []
+    for doc in docs:
+        if doc in ONTOLOGIES_AS_DOC_MAP.values():
+            doc_collection_name_list.append(next(k for k, v in ONTOLOGIES_AS_DOC_MAP.items() if v == doc))
+        elif Path(doc).exists():
+            doc_collection_name_list.append(Path(doc).stem)
+        elif doc.startswith("http"):
+            doc_collection_name_list.append(doc.split("/")[-1].split(".")[0])
+        else:
+            doc_collection_name_list.append(doc)
+
+    if doc_collection_name_list:
+        return VECTOR_STORE / "_".join(doc_collection_name_list) / VECTOR_DB_NAME
+
+    return VECTOR_DB_PATH
+
+
 def split_documents(document: Union[str, Document], type: str = None):
     """Split the document into a list of documents."""
     if type == "json":
@@ -229,55 +264,76 @@ def split_documents(document: Union[str, Document], type: str = None):
     return splits
 
 
-def execute_agent(llm, prompt, docs=None):
+def execute_agent(llm, prompt, external_rag_docs=None):
     """Create a retriever agent."""
     logger.info("Starting execution of the agent.")
-    grammar = get_kgcl_grammar()
-    ext_docs_list = []
-    ont_docs_list = []
-    logger.info("Grammar retrieved successfully.")
-    # schema = get_kgcl_schema()
-    # docs_list = (
-    #     split_documents(str(schema)) + split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
-    # )
 
+    # Retrieve grammar and split documents
+    grammar = get_kgcl_grammar()
+    logger.info("Grammar retrieved successfully.")
     grammar_docs_list = split_documents(grammar["lark"]) + split_documents(grammar["explanation"])
     logger.info("Grammar documents split successfully.")
-    if VECTOR_DB_PATH.exists():
-        logger.info("Vector database path exists. Loading vectorstore from Chroma.")
-        vectorstore = Chroma(
-            embedding_function=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
-        )
-    else:
-        logger.info("Vector database path does not exist. Loading ontology documents.")
 
-        # * split docs based on the document type: https://python.langchain.com/v0.2/docs/how_to/#text-splitters
-        list_of_ont_doc_lists = [requests.get(url, timeout=10).json() for url in ONTOLOGIES_URL]
-        ont_docs_list = [doc for docs in list_of_ont_doc_lists for doc in split_documents(document=docs, type="json")]
-        logger.info("Ontology documents loaded and split successfully.")
+    ext_docs_list, ont_docs_list = [], []
 
-    if docs:
+    if external_rag_docs:
         logger.info("External documents provided. Loading external documents.")
-        list_of_ext_url_doc_lists = [
-            WebBaseLoader(url, show_progress=True).load() for url in docs if url.startswith("http")
-        ]
-        list_of_ext_local_doc_lists = [
-            get_local_files_as_documents(path) for path in docs if not path.startswith("http") and Path(path).exists()
-        ]
-        list_of_ext_doc_lists = list_of_ext_url_doc_lists + list_of_ext_local_doc_lists
-        ext_docs_list = [
-            split_doc for docs in list_of_ext_doc_lists for doc in docs for split_doc in split_documents(doc)
-        ]
+
+        # Separate ontology documents from other external documents
+        onts_in_docs = [doc for doc in external_rag_docs if doc in ONTOLOGIES_AS_DOC_MAP.values()]
+        remaining_docs = list(set(external_rag_docs) - set(onts_in_docs))
+
+        # Load and split ontology documents
+        if onts_in_docs:
+            list_of_ont_doc_lists = [requests.get(url, timeout=10).json() for url in onts_in_docs]
+            ont_docs_list = [
+                doc for docs in list_of_ont_doc_lists for doc in split_documents(document=docs, type="json")
+            ]
+
+        # Load and split remaining external documents
+        if remaining_docs:
+            list_of_ext_url_doc_lists = [
+                WebBaseLoader(url, show_progress=True).load() for url in remaining_docs if url.startswith("http")
+            ]
+            list_of_ext_local_doc_lists = [
+                get_local_files_as_documents(path)
+                for path in remaining_docs
+                if not path.startswith("http") and Path(path).exists()
+            ]
+            list_of_ext_doc_lists = list_of_ext_url_doc_lists + list_of_ext_local_doc_lists
+            ext_docs_list = [
+                split_doc for docs in list_of_ext_doc_lists for doc in docs for split_doc in split_documents(doc)
+            ]
+
         logger.info("External documents loaded and split successfully.")
 
+    # Combine all document lists
     docs_list = grammar_docs_list + ext_docs_list + ont_docs_list
     logger.info("All documents combined into a single list.")
 
-    vectorstore = Chroma.from_documents(
-        documents=docs_list, embedding=OpenAIEmbeddings(show_progress_bar=True), persist_directory=str(VECTOR_STORE)
-    )
+    # Check for existing vector database path
+    vector_db_path = get_vectorstore_path(external_rag_docs)
+    embedding_model = OpenAIEmbeddings(show_progress_bar=True)
+
+    if vector_db_path.exists():
+        logger.info("Vector database path exists. Loading vectorstore from Chroma.")
+        vectorstore = Chroma(embedding_function=embedding_model, persist_directory=str(vector_db_path.parent))
+    else:
+        logger.info("Vector database path does not exist. Creating new vectorstore.")
+
+        # Function to split list into chunks
+        def _chunk_list(lst, chunk_size):
+            for i in range(0, len(lst), chunk_size):
+                yield lst[i : i + chunk_size]
+
+        for batch in _chunk_list(docs_list, CHROMA_MAX_BATCH_SIZE):
+            vectorstore = Chroma.from_documents(
+                documents=batch, embedding=embedding_model, persist_directory=str(vector_db_path.parent)
+            )
+
     logger.info("Vectorstore created from documents.")
 
+    # Create retriever and tools
     retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
     tool = create_retriever_tool(retriever, "change_agent_retriever", "Change Agent Retriever")
     tools = [tool, compress_iri]
@@ -289,7 +345,6 @@ def execute_agent(llm, prompt, docs=None):
     return agent_executor.invoke(
         {
             "input": prompt,
-            # "schema": schema,
             "grammar": grammar["lark"],
             "explanation": grammar["explanation"],
             "ontology_urls": ONTOLOGIES_URL,
