@@ -51,7 +51,8 @@ ONTOLOGIES_URL = [v for _, v in ONTOLOGIES_AS_DOC_MAP.items()]
 
 LLM_CHANGE_AGENT_MODULE = pystow.module("llm_change_agent")
 VECTOR_STORE = LLM_CHANGE_AGENT_MODULE.join("vector_store")
-VECTOR_DB_PATH = VECTOR_STORE / "chroma.sqlite3"
+VECTOR_DB_NAME = "chroma.sqlite3"
+VECTOR_DB_PATH = VECTOR_STORE / VECTOR_DB_NAME
 
 
 PULL_REQUESTS_KEY = "pull_requests"
@@ -64,3 +65,5 @@ ID_KEY = "id"
 CHANGES_KEY = "changes"
 
 EVALUATION_PRS_FILE = "evaluation_prs.yaml"
+
+CHROMA_MAX_BATCH_SIZE = 41666

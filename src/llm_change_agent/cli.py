@@ -1,7 +1,7 @@
 """Command line interface for llm-change-agent."""
 
 import logging
-from typing import List, Union
+from typing import List, Tuple, Union
 
 import click
 
@@ -20,6 +20,7 @@ from llm_change_agent.utils.llm_utils import (
 
 ALL_AVAILABLE_PROVIDERS = ["openai", "ollama", "anthropic", "cborg"]
 ALL_AVAILABLE_MODELS = get_openai_models() + get_ollama_models() + get_anthropic_models() + get_lbl_cborg_models()
+ALL_ONTOLOGIES = ["envo", "mondo", "go", "pato", "cl", "uberon"]
 
 __all__ = [
     "main",
@@ -72,11 +73,12 @@ def list_models():
     multiple=True,
     callback=validate_path_or_url_or_ontology,
     default=[],
-    help="Paths to the docs directories, URLs, or ontology names.",
+    help=f"Paths to the docs directories, URLs, or {','.join(ALL_ONTOLOGIES)}.",
 )
-def execute(model: str, provider: str, prompt: str, docs: Union[List, str] = None):
+@click.option("--all-ontologies", is_flag=True, help=f"Use all of the following ontologies: {ALL_ONTOLOGIES}")
+def execute(model: str, provider: str, prompt: str, docs: Union[Tuple, str] = None, all_ontologies: bool = False):
     """Generate text using the specified model."""
-    llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider, docs=docs)
+    llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider, docs=list(docs), all_ontologies=all_ontologies)
     return llm_agent.run()
 
 
