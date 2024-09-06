@@ -22,9 +22,10 @@ def get_issue_analyzer_template():
         For e.g.: if you have a change `delete edge MONDO:0005772 rdfs:subClassOf <opportunistic mycosis>`
         It should be converted to `delete edge MONDO:0005772 rdfs:subClassOf MONDO:0002312` based on RAG.
           
-        The final answer should be JUST a list of KGCL commands, nothing else.
+        The final answer should be JUST a python list object of KGCL commands, nothing else.
         Keep the verbosity of the response to zero. It should be concise and to the point.
         Do not truncate the commands. Write it out completely as per the grammar.
+        Each element of the list should be enlosed in double quotes.
 
         It is fine if you are not able to form any commands. You can just return an empty list.
 
