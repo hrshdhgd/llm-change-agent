@@ -28,7 +28,9 @@ from llm_change_agent.utils.llm_utils import (
 class LLMChangeAgent:
     """Define LLMChangeAgent class."""
 
-    def __init__(self, model: str, prompt: str, provider: str, docs: Union[List, str] = None, all_ontologies: bool = False):
+    def __init__(
+        self, model: str, prompt: str, provider: str, docs: Union[List, str] = None, all_ontologies: bool = False
+    ):
         """Initialize LLMChangeAgent class."""
         self.model = model
         self.prompt = prompt

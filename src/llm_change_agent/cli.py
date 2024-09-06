@@ -1,7 +1,7 @@
 """Command line interface for llm-change-agent."""
 
 import logging
-from typing import List, Tuple, Union
+from typing import Tuple, Union
 
 import click
 
@@ -78,7 +78,9 @@ def list_models():
 @click.option("--all-ontologies", is_flag=True, help=f"Use all of the following ontologies: {ALL_ONTOLOGIES}")
 def execute(model: str, provider: str, prompt: str, docs: Union[Tuple, str] = None, all_ontologies: bool = False):
     """Generate text using the specified model."""
-    llm_agent = LLMChangeAgent(model=model, prompt=prompt, provider=provider, docs=list(docs), all_ontologies=all_ontologies)
+    llm_agent = LLMChangeAgent(
+        model=model, prompt=prompt, provider=provider, docs=list(docs), all_ontologies=all_ontologies
+    )
     return llm_agent.run()
 
 

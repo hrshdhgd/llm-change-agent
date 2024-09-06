@@ -220,11 +220,12 @@ def get_kgcl_grammar():
 #                 print(f"Reading from file: {doc_name}")
 #                 yield doc_file.read()
 
+
 def get_vectorstore_path(docs, all_ontologies: bool = False):
     """Get the vector path."""
     if all_ontologies:
         return VECTOR_STORE / "all_ontologies" / VECTOR_DB_NAME
-    
+
     if not docs:
         return VECTOR_DB_PATH
 
@@ -243,6 +244,7 @@ def get_vectorstore_path(docs, all_ontologies: bool = False):
         return VECTOR_STORE / "_".join(doc_collection_name_list) / VECTOR_DB_NAME
 
     return VECTOR_DB_PATH
+
 
 def split_documents(document: Union[str, Document], type: str = None):
     """Split the document into a list of documents."""
@@ -265,7 +267,7 @@ def split_documents(document: Union[str, Document], type: str = None):
 def execute_agent(llm, prompt, external_rag_docs=None):
     """Create a retriever agent."""
     logger.info("Starting execution of the agent.")
-    
+
     # Retrieve grammar and split documents
     grammar = get_kgcl_grammar()
     logger.info("Grammar retrieved successfully.")
@@ -276,7 +278,7 @@ def execute_agent(llm, prompt, external_rag_docs=None):
 
     if external_rag_docs:
         logger.info("External documents provided. Loading external documents.")
-        
+
         # Separate ontology documents from other external documents
         onts_in_docs = [doc for doc in external_rag_docs if doc in ONTOLOGIES_AS_DOC_MAP.values()]
         remaining_docs = list(set(external_rag_docs) - set(onts_in_docs))
@@ -284,7 +286,9 @@ def execute_agent(llm, prompt, external_rag_docs=None):
         # Load and split ontology documents
         if onts_in_docs:
             list_of_ont_doc_lists = [requests.get(url, timeout=10).json() for url in onts_in_docs]
-            ont_docs_list = [doc for docs in list_of_ont_doc_lists for doc in split_documents(document=docs, type="json")]
+            ont_docs_list = [
+                doc for docs in list_of_ont_doc_lists for doc in split_documents(document=docs, type="json")
+            ]
 
         # Load and split remaining external documents
         if remaining_docs:
@@ -292,7 +296,9 @@ def execute_agent(llm, prompt, external_rag_docs=None):
                 WebBaseLoader(url, show_progress=True).load() for url in remaining_docs if url.startswith("http")
             ]
             list_of_ext_local_doc_lists = [
-                get_local_files_as_documents(path) for path in remaining_docs if not path.startswith("http") and Path(path).exists()
+                get_local_files_as_documents(path)
+                for path in remaining_docs
+                if not path.startswith("http") and Path(path).exists()
             ]
             list_of_ext_doc_lists = list_of_ext_url_doc_lists + list_of_ext_local_doc_lists
             ext_docs_list = [
@@ -311,15 +317,14 @@ def execute_agent(llm, prompt, external_rag_docs=None):
 
     if vector_db_path.exists():
         logger.info("Vector database path exists. Loading vectorstore from Chroma.")
-        vectorstore = Chroma(
-            embedding_function=embedding_model, persist_directory=str(vector_db_path.parent)
-        )
+        vectorstore = Chroma(embedding_function=embedding_model, persist_directory=str(vector_db_path.parent))
     else:
         logger.info("Vector database path does not exist. Creating new vectorstore.")
+
         # Function to split list into chunks
         def _chunk_list(lst, chunk_size):
             for i in range(0, len(lst), chunk_size):
-                yield lst[i:i + chunk_size]
+                yield lst[i : i + chunk_size]
 
         for batch in _chunk_list(docs_list, CHROMA_MAX_BATCH_SIZE):
             vectorstore = Chroma.from_documents(
@@ -345,7 +350,6 @@ def execute_agent(llm, prompt, external_rag_docs=None):
             "ontology_urls": ONTOLOGIES_URL,
         }
     )
-
 
 
 def augment_prompt(prompt: str):
