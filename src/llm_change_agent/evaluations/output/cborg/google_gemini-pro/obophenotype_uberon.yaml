@@ -10,16 +10,16 @@ pr3204:
 - change definition of UBERON:0002113 to 'A paired organ of the urinary tract that
   produces urine and maintains bodily fluid homeostasis, blood pressure, pH levels,
   red blood cell production and bone health.'
-pr3106: []
+pr3106:
+- obsolete <http://purl.obolibrary.org/obo/UBERON_0001602> with replacement <http://purl.obolibrary.org/obo/UBERON_0016214>
+- rename <http://purl.obolibrary.org/obo/UBERON_0016214> to 'branches from'
 pr3060: []
 pr3050:
-- deepen UBERON:0000949 from BFO:0000040 to UBERON:0015203
+- create edge UBERON:0000949 rdfs:subClassOf UBERON:0015203
 pr3048:
-- create node SAPHENOUS_VEIN_SMOOTH_MUSCLE_TISSUE 'saphenous vein smooth muscle tissue'
-- create edge SAPHENOUS_VEIN_SMOOTH_MUSCLE_TISSUE isa UBERON:0001135
-- create edge SAPHENOUS_VEIN_SMOOTH_MUSCLE_TISSUE BFO:0000050 UBERON:0007318
-- add definition 'A portion of smooth muscle tissue that is part of a saphenous vein.'
-  to SAPHENOUS_VEIN_SMOOTH_MUSCLE_TISSUE
+- create node UBERON:0020000 'saphenous vein smooth muscle tissue'
+- create edge UBERON:0020000 rdfs:subClassOf UBERON:0001135
+- create edge UBERON:0020000 BFO:0000050 UBERON:0007318
 pr2982:
 - create node FMA:7312 'bronchopulmonary segment'
 - create synonym 'lung segment' for FMA:7312
@@ -27,10 +27,12 @@ pr2982:
   bronchus and the lung tissue supplied by that bronchus. A bronchopulmonary segment
   exhibits a pyramidal shape, with its apex pointing towards the center of the lung
   and its base toward the pleural surface.' to FMA:7312
-- create edge FMA:7312 BFO:0109000 UBERON:0002281
-- create edge FMA:7313 owl:overlaps FMA:7312
-- create edge FMA:7314 BFO:0109000 FMA:7312
-pr2793: []
+- create edge FMA:7312 rdfs:subClassOf UBERON:0002282
+- create edge FMA:7312 RO:0002323 UBERON:0002048
+- create edge FMA:7312 RO:0002323 UBERON:0008900
+pr2793:
+- change relationship between UBERON:0002186 and 'branching part of' from UBERON:0002178
+  to UBERON:0003126
 pr2247: []
 pr1995:
 - change definition of UBERON:0012247 to 'Mucus-secreting glands in the mucosa of
@@ -42,6 +44,6 @@ pr1995:
 - change definition of UBERON:0006729 to 'The extravascular space in the liver between
   the parenchymal cells and a sinusoid that contains the blood plasma.'
 pr1995:
-- 'change definition of UBERON:0002926 to ''An epithelium...'' '
-- 'change definition of UBERON:0012251 to ''An epithelium...'' '
-- 'change definition of UBERON:0015807 to ''An epithelium...'' '
+- change definition of UBERON:0002926 to 'An epithelium...'
+- change definition of UBERON:0012251 to 'An epithelium...'
+- change definition of UBERON:0015807 to 'An epithelium...'

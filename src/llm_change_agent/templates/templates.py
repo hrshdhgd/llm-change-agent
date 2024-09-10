@@ -22,7 +22,8 @@ def get_issue_analyzer_template():
         For e.g.: if you have a change `delete edge MONDO:0005772 rdfs:subClassOf <opportunistic mycosis>`
         It should be converted to `delete edge MONDO:0005772 rdfs:subClassOf MONDO:0002312` based on RAG.
           
-        The final answer should be JUST a python list object of KGCL commands, nothing else.
+        The final answer should be JUST a python list of KGCL commands, nothing else. This list
+        eill be an input to another tool.
         Keep the verbosity of the response to zero. It should be concise and to the point.
         Do not truncate the commands. Write it out completely as per the grammar.
         Each element of the list should be enlosed in double quotes.
@@ -31,21 +32,21 @@ def get_issue_analyzer_template():
 
         Use the following format:
 
-            Question: the input question you must answer
-            Thought: you should always think about what to do
-            Action: the action to take, should be one of [{tool_names}]
-            Action Input: the input to the action
-            Observation: the result of the action
+            Question: the input question you must answer.
+            Thought: you should always think about what to do.
+            Action: the action to take, should be one of [{tool_names}].
+            Action Input: the input to the action.
+            Observation: the result of the action.
             ... (this Thought/Action/Action Input/Observation can repeat N times)
-            Thought: I now know the final answer
-            Final Answer: the final answer to the original input question
+            Thought: I now know the final answer.
+            Final Answer: the final answer to the original input question.
 
             Begin!
 
-            Question: {input}
-            Thought:{agent_scratchpad}
-            Action: return the final answer
-            Action Input: the input to the action
+            Question: {input}.
+            Thought:{agent_scratchpad}.
+            Action: return the final answer.
+            Action Input: the input to the action.
     """
     return PromptTemplate(
         input_variables=[

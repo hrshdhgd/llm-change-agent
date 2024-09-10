@@ -1,68 +1,47 @@
 pr7082:
-- create synonym 'RP1L1-related retinopathy' for MONDO:0007264
-- create synonym 'RP1L1-associated retinopathy' for MONDO:0007264
-- create synonym 'ABCA4-related retinopathy' for MONDO:0007265
-- create synonym 'ABCA4-associated retinopathy' for MONDO:0007265
-- create synonym 'BEST1-related retinopathy' for MONDO:0007266
-- create synonym 'BEST1-associated retinopathy' for MONDO:0007266
-- create synonym 'CRB1-related retinopathy' for MONDO:0007267
-- create synonym 'CRB1-associated retinopathy' for MONDO:0007267
-- create synonym 'CRX-related retinopathy' for MONDO:0007268
-- create synonym 'CRX-associated retinopathy' for MONDO:0007268
-- create synonym 'EYS-related retinopathy' for MONDO:0007269
-- create synonym 'EYS-associated retinopathy' for MONDO:0007269
-- create synonym 'GUCY2D-related retinopathy' for MONDO:0007270
-- create synonym 'GUCY2D-associated retinopathy' for MONDO:0007270
-- create synonym 'IMPG1-related retinopathy' for MONDO:0007271
-- create synonym 'IMPG1-associated retinopathy' for MONDO:0007271
-- create synonym 'IMPG2-related retinopathy' for MONDO:0007272
-- create synonym 'IMPG2-associated retinopathy' for MONDO:0007272
-- create synonym 'LRAT-related retinopathy' for MONDO:0007273
-- create synonym 'LRAT-associated retinopathy' for MONDO:0007273
-- create synonym 'MFN2-related retinopathy' for MONDO:0007274
-- create synonym 'MFN2-associated retinopathy' for MONDO:0007274
-- create synonym 'NR2E3-related retinopathy' for MONDO:0007275
-- create synonym 'NR2E3-associated retinopathy' for MONDO:0007275
-- create synonym 'OPA1-related retinopathy' for MONDO:0007276
-- create synonym 'OPA1-associated retinopathy' for MONDO:0007276
-- create synonym 'PRPF31-related retinopathy' for MONDO:0007277
-- create synonym 'PRPF31-associated retinopathy' for MONDO:0007277
-- create synonym 'RHO-related retinopathy' for MONDO:0007278
-- create synonym 'RHO-associated retinopathy' for MONDO:0007278
-- create synonym 'RLBP1-related retinopathy' for MONDO:0007279
-- create synonym 'RLBP1-associated retinopathy' for MONDO:0007279
-- create synonym 'ROM1-related retinopathy' for MONDO:0007280
-- create synonym 'ROM1-associated retinopathy' for MONDO:0007280
-- create synonym 'RP2-related retinopathy' for MONDO:0007281
-- create synonym 'RP2-associated retinopathy' for MONDO:0007281
-- create synonym 'RPGR-related retinopathy' for MONDO:0007282
-- create synonym 'RPGR-associated retinopathy' for MONDO:0007282
-- create synonym 'SAG1-related retinopathy' for MONDO:0007283
-- create synonym 'SAG1-associated retinopathy' for MONDO:0007283
-- create synonym 'TSPAN12-related retinopathy' for MONDO:0100484
+- create synonym 'RP1L1-associated retinopathy' for MONDO:0018842
+- create synonym 'CSRB1-associated retinopathy' for MONDO:0018843
+- create synonym 'NR2E3-associated retinopathy' for MONDO:0018844
+- create synonym 'PDE6C-associated retinopathy' for MONDO:0018845
+- create synonym 'RLBP1-associated retinopathy' for MONDO:0018846
 - create synonym 'TSPAN12-associated retinopathy' for MONDO:0100484
-- create synonym 'USH2A-related retinopathy' for MONDO:0007284
-- create synonym 'USH2A-associated retinopathy' for MONDO:0007284
 pr6376:
-- obsolete MONDO:0033211 with replacement MONDO:0017868
+- obsolete MONDO:0033211 'diencephalic-mesencephalic junction dysplasia syndrome'
+  with replacement MONDO:0017868
 pr5194: []
 pr4598:
-- rename MONDO:ICD10 from 'ICD10' to 'ICD10CM'
+- rename MONDO:ICD10 to 'ICD10CM'
 - delete NIFSTD
 - delete MTH
 pr4459:
 - obsolete MONDO:0016050 with replacement MONDO:0011841
 pr4042:
-- rename MONDO:0010842 from 'pulverulent cataract' to 'Cataract 2, multiple types'
-- create node MONDO:0010843 'pulverulent cataract'
-- move MONDO:0010843 biolink:xref OMIM:604307 from MONDO:0010842 to MONDO:0010843
+- create node MONDO:0080624 'Cataract 2, multiple types'
+- add definition 'A group of genetically distinct disorders that share a phenotype
+  of pulverulent cataract.' to MONDO:0080624
+- create edge MONDO:0080624 rdfs:subClassOf MONDO:0005382
+- create edge MONDO:0080624 obo:RO_0002200 MONDO:0007663
+- create edge MONDO:0080624 xref OMIM:604307
+- create synonym 'zonular pulverulent cataract' for MONDO:0080624
+- create synonym 'embryonic cataract' for MONDO:0080624
+- create synonym 'fetal cataract' for MONDO:0080624
+- create synonym 'lamellar cataract' for MONDO:0080624
+- create synonym 'infantile nuclear cataract' for MONDO:0080624
 pr2053: []
-pr1644: []
+pr1644:
+- create node MONDO:0021167 'Fanconia anemia complementation group M'
+- add definition 'Any Fanconi anemia in which the cause of the disease is a mutation
+  in the FANCM gene.' to MONDO:0021167
+- create edge MONDO:0021167 rdfs:subClassOf MONDO:0019391
 pr1609:
-- create node UMLS:C0751615 'intracranial arachoid cyst'
-- add UMLS:C0751615 to subset MONDO:0008813
-- add UMLS:C0751615 to subset OMIM:207790
-pr1565: []
+- create node MONDO:0030860 'intracranial arachnoid cyst'
+- move MONDO:0008813 skos:exactMatch MONDO:0030860 from MONDO:0008813 to MONDO:0030860
+- move MONDO:0008813 skos:exactMatch MONDO:0030860 from MONDO:0008813 to MONDO:0030860
+pr1565:
+- create edge MONDO:0019046 rdfs:subClassOf MONDO:0006794
 pr1338:
-- merge MONDO:0009041 into MONDO:0021971
-pr916: []
+- rename MONDO:0009041 from 'CRANIOSYNOSTOSIS-MENTAL RETARDATION-CLEFTING SYNDROME'
+  to 'Baraitser Rodeck Garner syndrome'
+- obsolete MONDO:0009041 with replacement MONDO:0021971
+pr916:
+- delete edge MONDO:0005772 rdfs:subClassOf MONDO:0005118

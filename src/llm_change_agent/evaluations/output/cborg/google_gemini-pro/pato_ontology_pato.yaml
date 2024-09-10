@@ -1,31 +1,46 @@
-pr427: []
+pr427:
+- create node diandrous_plant 'Diandrous (plant)'@en
+- add definition 'having two stamens' to diandrous_plant
+- create node monandrous_plant 'Monandrous (plant)'@en
+- add definition 'having one stamen' to monandrous_plant
+- create node diandrous_animal 'Diandrous (animal)'@en
+- add definition 'possessing two different types of males' to diandrous_animal
+- create node monandrous_animal 'Monandrous (animal)'@en
+- add definition 'having only one type of male' to monandrous_animal
 pr405:
-- move 'organismal quality' ECO:0000007 PATO:0000001 from ECO to PATO
+- move ECO:0000015 rdfs:subClassOf PATO:0000001 from ECO:0000006 to PATO:0001875
+- move ECO:0000016 rdfs:subClassOf PATO:0000001 from ECO:0000006 to PATO:0001875
+- move ECO:0000017 rdfs:subClassOf PATO:0000001 from ECO:0000006 to PATO:0001875
+- move ECO:0000018 rdfs:subClassOf PATO:0000001 from ECO:0000006 to PATO:0001875
 pr396:
-- create node CL:0000000 'pyramidal family morphology' @en
+- create node CL:0000596
 - add definition 'A cell morphology that inheres in neurons which have a pyramidal
-  shaped soma, a single axon, a large apical dendrite and multiple basal dendrites.'@en
-  to CL:0000000
-- create edge CL:0000000 rdfs:subClassOf CL:0000740
-pr396: []
-pr396: []
+  shaped soma, a single axon, a large apical dendrite and multiple basal dendrites.'
+  to CL:0000596
+- create edge CL:0000596 rdfs:subClassOf CL:0000540
 pr396: []
 pr396:
-- create node ILXTR:0000001 'inverted pyramidal morphology'
-- add definition 'A pyramidal cell morphology that inheres in neurons which have an
-  apical tree which is oriented towards the white matter. PMID:30715238' to ILXTR:0000001
-- create edge ILXTR:0000001 rdfs:subClassOf UBERON:0002833
+- create node ILX:0381350 'untufted pyramidal morphology'
+- add definition 'A pyramidal cell morphology that inheres in neurons which lack a
+  clear tuft formation but extend to large radial distances.' to ILX:0381350
+- create edge ILX:0381350 rdfs:subClassOf ILX:0105991
+pr396:
+- create node CL:0000740 'stellate pyramidal morphology'
+- create edge CL:0000740 rdfs:subClassOf CL:0000596
 pr396: []
 pr396:
-- create node NTR:standard pyramidal morphology 'standard pyramidal morphology'
-- create edge NTR:standard pyramidal morphology rdfs:subClassOf CHEBI:58218
+- create node ILXTR:9999999 'horizontal pyramidal morphology' @en
+- add definition "A pyramidal cell morphology that inheres in neurons which have an
+  apical tree which is oriented parallel to the pia."@en to ILXTR:9999999
+- create edge ILXTR:9999999 rdfs:subClassOf ILXTR:376
+pr396:
+- create node ILXTR:0000001
 - add definition 'A pyramidal cell morphology that inheres in neurons which have a
-  standard pyramidal shape with its apical dendrite aligned vertically.' to NTR:standard
-  pyramidal morphology
-- create synonym 'vertical pyramidal morphology' for NTR:standard pyramidal morphology
-- create synonym 'pyramidal morphology' for NTR:standard pyramidal morphology
-- add NTR:standard pyramidal morphology to subset ILXTR:0000001
-- create edge NTR:standard pyramidal morphology owl:disjointWith CHEBI:58219
+  standard pyramidal shape with its apical dendrite aligned vertically.' to ILXTR:0000001
+- create edge ILXTR:0000001 rdfs:subClassOf ILXTR:0000376
+- create edge ILXTR:0000001 owl:disjointWith ILXTR:0000381
+- create synonym 'vertical pyramidal morphology' for ILXTR:0000001
+- create synonym 'pyramidal morphology' for ILXTR:0000001
 pr328:
 - change definition of PATO:0000141 to 'Existing or functioning as though broken into
   separate parts; disorganized; disunified.'

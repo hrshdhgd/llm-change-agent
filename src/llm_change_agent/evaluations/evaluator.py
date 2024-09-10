@@ -4,6 +4,7 @@ import ast
 import logging
 import os
 import random
+import re
 import secrets
 import time
 from pathlib import Path
@@ -62,6 +63,10 @@ def prepare_eval_and_expected_yamls(input_dir: Union[str, Path]):
     eval_dir.mkdir(parents=True, exist_ok=True)
     expected_dir.mkdir(parents=True, exist_ok=True)
 
+    def _remove_special_characters(text):
+        """Remove special characters from a string."""
+        return re.sub(r"[^\w\s]", "", text)
+
     for doc in input_dir.iterdir():
         if doc.is_file() and doc.suffix == ".yaml":
             new_doc = doc.name
@@ -79,9 +84,9 @@ def prepare_eval_and_expected_yamls(input_dir: Union[str, Path]):
                 all_closed_issues = []
 
                 for issue in pr_closed_issues:
-                    pr_closed_issue_title = issue.get(PR_CLOSED_ISSUE_TITLE_KEY, "")
-                    pr_closed_issue_body = issue.get(PR_CLOSED_ISSUE_BODY_KEY, "")
-                    pr_closed_issue_comments = issue.get(PR_CLOSED_ISSUE_COMMENT_KEY, "")
+                    pr_closed_issue_title = _remove_special_characters(issue.get(PR_CLOSED_ISSUE_TITLE_KEY, ""))
+                    pr_closed_issue_body = _remove_special_characters(issue.get(PR_CLOSED_ISSUE_BODY_KEY, ""))
+                    pr_closed_issue_comments = _remove_special_characters(issue.get(PR_CLOSED_ISSUE_COMMENT_KEY, ""))
 
                     # Filter out None and empty strings, then split into lines and filter out empty lines
                     issue_prompt_parts = [pr_closed_issue_title, pr_closed_issue_body, pr_closed_issue_comments]
@@ -172,7 +177,7 @@ def generate_changes_via_llm(eval_dir, output_dir, provider, model):
 
                 prompt = issue
                 try:
-                    predicted_changes = run_llm_change_agent(prompt, provider, model)
+                    predicted_changes = run_llm_change_agent(prompt, provider, model, docs=[doc.stem.split("_")[-1]])
                 except Exception as e:
                     logger.error(f"Error while generating changes for {doc.name} and PR {pr_id}: {e}")
                     predicted_changes = []
