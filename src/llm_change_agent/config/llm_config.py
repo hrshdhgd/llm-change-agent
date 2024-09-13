@@ -13,7 +13,9 @@ class LLMConfig(BaseModel):
 
 class OpenAIConfig(LLMConfig):
     """Configuration for OpenAI LLM model."""
+
     def __init__(self, **data):
+        """Initialize the OpenAIConfig class."""
         super().__init__(**data)
         if self.model.startswith("o1"):
             self.temperature = 1.0
